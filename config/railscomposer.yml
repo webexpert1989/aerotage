@@ -3,18 +3,18 @@
 development:
   apps4: none
   announcements: mailinglist
-  dev_webserver: webrick
+  dev_webserver: puma
   prod_webserver: puma
   database: postgresql
   templates: erb
-  tests: rspec
-  continuous_testing: none
+  tests: none
+  continuous_testing: 
   frontend: bootstrap3
   email: sendgrid
   authentication: devise
   devise_modules: confirmable
   omniauth_provider: 
-  authorization: none
+  authorization: pundit
   form_builder: none
   pages: about+users
   layouts: none
@@ -28,4 +28,4 @@ development:
   better_errors: 
   pry: 
   rvmrc: 
-  dashboard: 
+  dashboard: none
