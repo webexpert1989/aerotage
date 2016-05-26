@@ -1,2 +1,21 @@
 <h3>Welcome</h3>
 <p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+
+<div class="harvest-timer"
+  data-item='{"id":1337,"name":"Write documentation"}'>
+</div>
+
+<script>
+  (function () {
+    window._harvestPlatformConfig = {
+      "applicationName": "ExampleCompany",
+      "permalink": "https://example.com/item/%ITEM_ID%" 
+    };
+    var s = document.createElement("script");
+    s.src = "https://platform.harvestapp.com/assets/platform.js";
+    s.async = true;
+    var ph = document.getElementsByTagName("script")[0];
+    ph.parentNode.insertBefore(s, ph);
+  })();
+</script>
+
