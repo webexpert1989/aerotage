@@ -2,21 +2,24 @@
 <p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
 
 <% if current_user %>
-<div class="harvest-timer"
-  data-item='{"id":1337,"name":"This filed will be changed into each job title which had been applied from aerotage."}'>
+  <div class="timer-icon">
+    <div class="harvest-timer"
+      data-item='{"id":1337,"name":"This filed will be changed into each job title which had been applied from aerotage."}'>
 
-  <!--
-  data-item:
-    A JSON object containing id and name properties representing the item in your application this timer is related to. The name property will be filled into the Notes field of the timer dialog. For example, a Trello Card: {"id":"Y7h4fW14","name":"Update image on landing page."}
-  data-group:
-    A JSON object containing id and name properties representing the group in your application that this item belongs to. If your application does not have a higher-level group, this may be omitted. For example, a Trello Board: {"id":"0FdAjinR","name":"Landing Pages Overhaul"}
-  data-account:
-    A JSON object containing an id property — used only to populate %ACCOUNT_ID% in the permalink configuration setting. If you are not using %ACCOUNT_ID%, there is no need to set this attribute.
-  -->
+      <!--
+      data-item:
+        A JSON object containing id and name properties representing the item in your application this timer is related to. The name property will be filled into the Notes field of the timer dialog. For example, a Trello Card: {"id":"Y7h4fW14","name":"Update image on landing page."}
+      data-group:
+        A JSON object containing id and name properties representing the group in your application that this item belongs to. If your application does not have a higher-level group, this may be omitted. For example, a Trello Board: {"id":"0FdAjinR","name":"Landing Pages Overhaul"}
+      data-account:
+        A JSON object containing an id property — used only to populate %ACCOUNT_ID% in the permalink configuration setting. If you are not using %ACCOUNT_ID%, there is no need to set this attribute.
+      -->
 
-</div>
+    </div>
+    Complete time entries here.
+  </div>
 
-<div id="whr_embed_hook"></div>
+  <div id="whr_embed_hook"></div>
 <% end %>
 
 <script src='https://www.workable.com/assets/embed.js' type='text/javascript'></script>
