@@ -272,6 +272,7 @@ Devise.setup do |config|
   # config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"]
   config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"]
   config.omniauth :google_oauth2, ENV["GOOGLE_APP_ID"], ENV["GOOGLE_APP_SECRET"]
-  config.omniauth :twitter ,"APP_ID", "APP_SECRET"
+  config.omniauth :twitter , ENV["TWITTER_APP_ID"], ENV["TWITTER_APP_SECRET"]
+  
   config.http_authenticatable_on_xhr = false
 end
