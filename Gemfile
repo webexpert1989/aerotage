@@ -33,6 +33,7 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'foreman'
+  gem 'dotenv-rails'
   gem 'hub', :require=>nil
   gem 'rails_layout'
 end
