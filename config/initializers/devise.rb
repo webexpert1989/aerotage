@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '860c63a3c58743ff1452b7966069390c010664cbfeff8e36910f48dac348140606b4439c36aeaaa6345cf387ec0e55741590973f0b13eb0be347d09347b86f3c'
+  config.secret_key = 'no-reply@' + Rails.application.secrets.secret_key_base
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -275,4 +275,6 @@ Devise.setup do |config|
   config.omniauth :twitter , ENV["TWITTER_APP_ID"], ENV["TWITTER_APP_SECRET"]
   
   config.http_authenticatable_on_xhr = false
+
+
 end
