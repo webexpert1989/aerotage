@@ -27,6 +27,7 @@ gem 'httpclient', '~> 2.6.0.1'
 #add breadcrumbs
 gem "breadcrumbs_on_rails"
 gem 'quiet_assets'
+gem "figaro"
 
 group :development do
   gem 'better_errors'
