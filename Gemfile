@@ -58,3 +58,6 @@ group :development do
   gem 'capistrano-multistage'
   gem 'capistrano-ext'
 end
+
+# Memory Caching for performance
+gem 'dalli' 
