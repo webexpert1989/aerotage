@@ -1,6 +1,3 @@
-# Change these
-server '208.87.85.232', port: 22, roles: [:web, :app, :db], primary: true
-
 set :scm,             :git
 set :repo_url,        'git@bitbucket.org:Aerotage/aerotage.git'
 set :application,     'Aerotage'
