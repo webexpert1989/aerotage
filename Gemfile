@@ -61,3 +61,4 @@ end
 
 # Memory Caching for performance
 gem 'dalli' 
+gem 'mailgun'
