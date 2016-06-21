@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    # falsh[:alert] = "User doesn't exist" unless current_user
     authorize User
   end
 

@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
   # attr_accessible :name, :email, :password, :password_confirmation, :provider, :uid
   
-  enum role: [:user, :vip, :admin]
+  enum role: [:guest, :associate, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
   def set_default_role
-    self.role ||= :user
+    self.role ||= :guest
   end
 
   # Include default devise modules. Others available are:
