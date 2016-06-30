@@ -62,3 +62,4 @@ end
 # Memory Caching for performance
 gem 'dalli' 
 gem 'mailgun'
+gem 'rack-cors'
