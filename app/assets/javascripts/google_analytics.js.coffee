@@ -1,5 +1,3 @@
-# thanks to Jonathon Wolfe at http://reed.github.io/turbolinks-compatibility/google_analytics.html
-
 class @GoogleAnalytics
 
   @load: ->
@@ -39,6 +37,7 @@ class @GoogleAnalytics
     document.domain.indexOf(str) isnt -1
 
   @analyticsId: ->
-    ''
+    # your google analytics ID(s) here...
+    'UA-11536171-4'
 
 GoogleAnalytics.load()
