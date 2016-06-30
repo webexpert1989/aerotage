@@ -59,7 +59,7 @@ Rails.application.configure do
                      { :namespace => Aerotage, :expires_in => 1.day, :compress => true }
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.action_controller.asset_host = 'cdnt.aerotage.com'
+  config.action_controller.asset_host = 'cdnp.aerotage.com'
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
