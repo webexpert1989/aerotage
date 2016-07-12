@@ -1,0 +1,16 @@
+$('.my-jobs-js').ready ->
+  $(".with-datepicker").datepicker
+    dateFormat: "M d, yy"
+    showOtherMonths: true
+    selectOtherMonths: true
+    changeMonth: true
+    changeYear: true
+    yearRange: "-5:+0"
+    showOn: "button"
+    buttonImage: "<%= image_url('calendar.svg') %>"
+    buttonImageOnly: true
+
+  $(".filter-toggle").click ->
+    $(this).toggleClass "expanded"
+    $(".my-listings-form form").slideToggle "fast"
+    false

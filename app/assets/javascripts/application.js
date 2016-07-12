@@ -14,4 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require common
+//= require bxslider
+//= require_tree ./frontend
 //= require_tree .

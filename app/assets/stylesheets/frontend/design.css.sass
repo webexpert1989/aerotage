@@ -1,0 +1,5023 @@
+@charset "utf-8"
+
+$xs-max-width: 767px
+$sm-min-width: 768px
+$sm-max-width: 991px
+$md-min-width: 992px
+$md-max-width: 1199px
+$lg-min-width: 1200px
+
+@viewport
+  zoom: 1.0
+  width: device-width
+
+// Custom Fonts
+
+@font-face
+  font-family: 'eurostileregular'
+  src: font_url("137-webfont.eot")
+  src: font-url("137-webfont.eot?#iefix") format("embedded-opentype"), font-url("137-webfont.woff") format("woff"), font-url("137-webfont.ttf") format("truetype")
+  font-weight: normal
+  font-style: normal
+
+// Common Styles
+
+*:focus
+  outline-width: 1px
+
+html
+  -webkit-text-size-adjust: 100% // Prevent font scaling in landscape while allowing user zoom
+
+body
+  margin: 0
+  padding: 0
+  font-family: Arial, Helvetica, sans-serif
+  background-color: #E8E8E8
+  position: relative
+  line-height: 1
+  min-width: 320px
+  .main-content
+    min-height: 200px
+  @media (min-width: $sm-min-width)
+    .main-content
+      min-height: 410px
+    &.job-seeker .main-content
+      min-height: 330px
+  &.blank
+    min-width: 0
+    background-color: #fff
+
+h1, h2, h3, h4, h5, p, table, article, aside, details, figcaption, figure, footer, header, main, nav, section, summary
+  font-family: Arial, Helvetica, sans-serif
+
+h1
+  font-family: 'eurostileregular', serif
+  color: #444444
+  text-align: left
+  font-weight: normal
+  margin: 0
+
+p
+  margin: 0
+  line-height: 1.5
+
+a
+  color: #864288
+  text-decoration: none
+  &:hover
+    text-decoration: underline
+  &.input-link
+    text-decoration: none
+
+input, textarea
+  font-family: Arial, Helvetica, sans-serif
+  font-size: 16px
+  border: 1px solid #cfcfcf
+  padding: 0 10px
+  color: #494949
+  box-sizing: border-box
+  resize: none
+
+textarea
+  height: 100px
+  padding: 10px
+  width: 100%
+
+input[type="search"],
+input[type="password"],
+input[type="text"]
+  height: 42px
+  width: 100%
+
+.input-hint
+  font-size: 12px
+  color: #444444
+  margin-top: 8px
+  font-style: italic
+
+.youtube-hint
+  font-size: 12px
+  margin-top: 5px
+
+.input-link
+  text-decoration: none
+
+input[type="button"],
+input[type="reset"],
+input[type="submit"]
+  font-family: 'eurostileregular', serif
+  font-size: 18px
+  color: #fff
+  padding: 0 30px
+  margin: 0
+  height: 42px
+  line-height: 1
+  background-color: #894d8b
+  box-shadow: inset 0 1px 0 #a873a9
+  border: 1px solid #7a427f
+  border-radius: 3px
+  cursor: pointer
+  transition: all 0.5s ease 0s
+  -webkit-appearance: none
+  -moz-appearance: none
+  -ms-appearance: none
+  -o-appearance: none
+  appearance: none
+  &:hover
+    background-color: #a460a5
+    box-shadow: inset 0 1px 0 #b782b8
+    border: 1px solid #894c8e
+  &.wide
+    padding: 0 100px
+  &.green
+    background-color: #81b31a
+    box-shadow: inset 0 1px 0 #A6C84D
+    border: 1px solid #92B128
+    &:hover
+      background-color: #92c81c
+  &.gray
+    background-color: #aaa
+    box-shadow: inset 0 1px 0 #ccc
+    border: 1px solid #aaa
+    &:hover
+      background-color: #bbb
+  &.small
+    height: 30px
+    line-height: 1
+    font-size: 14px
+    font-weight: bold
+    box-shadow: none
+    border-radius: 3px
+
+.select-wrapper
+  height: 42px
+  border: 1px solid #ccc
+  box-sizing: border-box
+  position: relative
+  background: #fff
+  &:before, &:after
+    content: ""
+    pointer-events: none
+    position: absolute
+  &:before
+    bottom: 0
+    right: 0
+    top: 0
+    width: 40px
+    background-color: #B9B9B9
+  &:after
+    content: "▼"
+    font-size: 0.725em
+    height: 1em
+    line-height: 1
+    margin-top: -0.5em
+    right: 1.2em
+    top: 50%
+    color: #fff
+  select
+    text-indent: 1px
+    text-overflow: ''
+    background: transparent
+    width: 100%
+    height: 100%
+    font-size: 16px
+    border: 0
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+    padding: 10px 40px 10px 10px
+    color: #999
+    margin: 0
+    &:-moz-focusring
+      color: transparent !important
+      text-shadow: 0 0 0 #494949 !important
+    &.selected
+      color: #494949
+  &.small
+    height: 24px
+    &:before
+      width: 25px
+      background: image-url("small_select_right_arrow.svg") no-repeat right 5px center #fbfbfb
+    &:after
+      content: ""
+      color: #B9B9B9
+      font-size: 0.525em
+    select
+      font-size: 14px
+      padding: 2px 30px 2px 5px
+      color: #494949
+  &.community
+    margin-top: 6px
+    height: 30px
+    background: #fff
+    border: none
+    &:before
+      display: none
+    &:after
+      width: 30px
+      height: 21px
+      background: #fff
+      content: '▼'
+      color: #864288
+      text-align: center
+      right: 0
+      top: 7px
+      font-size: 14px
+      padding-top: 9px
+    select
+      padding: 5px 30px 5px 10px
+      color: #864288
+      font-size: 14px
+
+.multi-select-wrapper
+  height: 42px
+  background: image-url("tree_right_arrow.svg") no-repeat right 15px center #f8f8f8
+  border: 1px solid #eee
+  box-sizing: border-box
+  select
+    width: 100%
+  .ms-parent
+    height: 100%
+    width: 100%
+    button
+      height: 100%
+      border: none
+      background: none
+      span
+        height: 100%
+        font-size: 16px
+        line-height: 42px
+        right: 40px
+      div
+        background: none
+
+.tree-wrapper
+  .tree-button
+    width: 100%
+    height: 42px
+    line-height: 42px
+    background: image-url("tree_right_arrow.svg") no-repeat right 15px center #f8f8f8
+    border: 1px solid #eee
+    color: #999
+    box-sizing: border-box
+    padding: 0 10px
+    cursor: pointer
+    display: block
+    text-decoration: none
+    span.selected
+      color: #444
+
+.tree-div-wrapper
+  .tree-div
+    padding: 10px 20px
+    overflow: auto
+    overflow-x: hidden
+    @media (max-width: $xs-max-width)
+      height: 300px
+  .controls
+    height: 50px
+    padding: 10px
+    border-top: 1px solid #ccc
+    text-align: right
+    position: relative
+
+    .selected-count
+      position: absolute
+      font-style: italic
+      font-size: 14px
+      top: 17px
+      left: 15px
+
+.monetary-wrapper
+  .input-wrapper
+    position: relative
+    width: 100%
+    input.monetary
+      padding-left: 50px
+    .currency
+      position: absolute
+      left: 0
+      top: 0
+      font-size: 18px
+      padding: 0 15px
+      margin: 5px 0
+      border-right: 1px solid #eee
+      height: 32px
+      line-height: 32px
+  &.range
+    .input-wrapper
+      width: 45%
+      float: left
+      input.monetary:last-child
+        float: right
+  > div
+    width: 10%
+    float: left
+    height: 42px
+    line-height: 42px
+    text-align: center
+    color: #999
+
+.monetary-with-label
+  span
+    line-height: 42px
+    float: left
+  .monetary-wrapper
+    margin-left: 120px
+  @media (max-width: $xs-max-width)
+    span
+      line-height: 21px
+      float: none
+    .monetary-wrapper
+      margin-left: 0
+      margin-top: 10px
+
+.button
+  display: inline-block
+  font-family: Arial, Helvetica, sans-serif
+  font-size: 12px
+  font-weight: bold
+  color: #fff
+  padding: 8px 25px
+  text-decoration: none
+  transition: all 0.5s ease 0s
+  background-color: #81b31a
+  border: none
+  cursor: pointer
+  &:hover
+    background-color: #92c81c
+    text-decoration: none
+    color: #fff
+  &.purple
+    background-color: #935394
+    &:hover
+      background-color: #a464a5
+
+input[type=checkbox].green
+  display: none
+  + label
+    padding-left: 25px
+    display: inline-block
+    line-height: 25px
+    background-repeat: no-repeat
+    background-position: 0 5px
+    font-size: 15px
+    vertical-align: middle
+    cursor: pointer
+    background-image: image-url("checkbox_unchecked.svg")
+    -webkit-touch-callout: none
+    -webkit-user-select: none
+    -khtml-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+  &:checked + label
+    background-image: image-url("checkbox_checked.svg")
+
+input[type=radio]
+  display: none
+  + label
+    padding-left: 35px
+    height: 26px
+    display: inline-block
+    line-height: 26px
+    background-repeat: no-repeat
+    background-position: 0 0
+    font-size: 14px
+    vertical-align: middle
+    cursor: pointer
+    background-image: image-url("radio_background.svg")
+    -webkit-touch-callout: none
+    -webkit-user-select: none
+    -khtml-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+  &:checked + label
+    background-position: 0 -26px
+
+.file-field-wrapper
+  position: relative
+  text-align: left
+  img
+    position: absolute
+    top: 13px
+    right: 130px
+    display: none
+  .file-info-wrapper
+    border: 1px solid #ccc
+    box-sizing: border-box
+    width: 100%
+    height: 42px
+    line-height: 42px
+    padding: 0 10px
+    overflow: hidden
+    color: #444
+    .thumbnail
+      position: absolute
+      left: 1px
+      top: 1px
+      height: 40px
+      display: block
+    &.with-thumbnail
+      padding-left: 50px
+    a
+      color: #444
+      text-decoration: underline
+    &.placeholder
+      color: #aaa
+    &.file-error
+      color: red
+    .file-size
+      position: absolute
+      right: 120px
+      top: 1px
+      bottom: 1px
+      background: #fafafa
+      padding: 0 10px
+      border-left: 1px solid #ccc
+      font-style: italic
+  .file-button
+    height: 42px
+    width: 120px
+    line-height: 42px
+    background: #bababa
+    font-family: 'eurostileregular', serif
+    font-size: 16px
+    padding-left: 50px
+    color: #636363
+    &:before
+      content: ''
+      position: absolute
+      left: 10px
+      top: 50%
+      margin-top: -12.5px
+      width: 25px
+      height: 25px
+      background: image-url("button_icons.svg") no-repeat -275px 0
+  .buttons-wrapper
+    position: absolute
+    top: 0
+    right: 0
+    .remove-button
+      cursor: pointer
+      &:before
+        background-position: -350px 0
+    .upload-button
+      position: relative
+      overflow: hidden
+      text-align: left
+      input
+        position: absolute
+        left: -90px
+        top: 0
+        padding: 0
+        width: 210px
+        height: 100%
+        transform: scale(20)
+        letter-spacing: 10em
+        /* IE 9 fix
+        -ms-transform: scale(20)
+        /* IE 9 fix
+        opacity: 0
+        cursor: pointer
+
+.required
+  color: red
+
+ul.ui-autocomplete
+  z-index: 1000
+
+.ui-autocomplete-loading
+  background: white image-url("ajax_spinner.svg") right 10px center no-repeat
+
+input[type=search].ui-autocomplete-loading
+  background-position: right 35px center
+
+.st-sharethis-custom
+  cursor: pointer
+
+.clear:after
+  content: " "
+  display: block
+  height: 0
+  clear: both
+
+.no-jobs
+  display: inline-block
+  font-family: Arial, serif
+  font-size: 13px
+  line-height: 1.5em
+  margin: 12px 0
+  text-align: center
+  width: 100%
+
+.fancybox-dialog
+  background: #fff
+  border: 1px solid #000
+  box-shadow: 0 0 10px #000
+  border-radius: 5px
+  .page-title
+    position: inherit
+    top: 0
+    left: 0
+    background-color: #efefef
+    border-bottom: 1px solid #d9d9d9
+    padding: 15px
+    font-size: 18px
+    line-height: 18px
+    margin: 0
+    height: auto
+  .dialog-content
+    padding: 15px
+    .buttons-wrapper
+      margin-top: 20px
+      text-align: right
+  .error-dialog
+    padding: 20px 20px 20px 50px
+    margin: 0 !important
+  .error.dialog,
+  .warning.dialog,
+  .message.dialog
+    margin: 0 !important
+  .non-popup-title
+    display: none
+  .privacy-policy-page,
+  .terms-of-use-page
+    padding: 20px
+  #map-canvas
+    height: 100%
+    width: 100%
+    .scrollFix
+      line-height: 1.35
+      overflow: hidden
+      white-space: nowrap
+  .alert-text
+    line-height: 24px
+  .alert-buttons
+    margin-top: 10px
+    padding: 0 5px
+    text-align: right
+    a
+      border-radius: 3px
+  .cover-letter
+    padding: 20px
+
+.fancybox-inner
+  border-radius: 5px
+  .login-page
+    &.dialog
+      p.warning
+        margin: 10px 10px 30px 10px !important
+        border-radius: 4px
+        position: relative
+        .warning-icon
+          position: absolute
+          left: 7px
+          top: 50%
+          margin-top: -15px
+          width: 30px
+          height: 30px
+          background: image-url("message_icons.svg") no-repeat scroll -60px center #fcfbd4
+        &:before, &:after
+          content: ' '
+          position: absolute
+          width: 0
+          height: 0
+        &:before
+          left: 25px
+          top: auto
+          background: none
+          bottom: -22px
+          border: 11px solid
+          border-color: #e9e9e9 #e9e9e9 transparent transparent
+        &:after
+          left: 26px
+          bottom: -20px
+          border: 10px solid
+          border-color: #fcfbd4 #fcfbd4 transparent transparent
+
+#messages-counter
+  background: #d84444
+  color: #ffffff
+  width: 18px
+  height: 18px
+  border-radius: 3px
+  padding: 2px 6px
+  margin-left: 5px
+  text-align: center
+  font-size: 12px
+  &.on-my-account
+    margin-top: -2px
+
+input[type=button].gray-button,
+input[type=submit].gray-button,
+.gray-button
+  font-family: Arial, Helvetica, sans-serif
+  display: inline-block
+  border: 1px solid #e9e9e9
+  background: #f2f2f2
+  font-size: 12px
+  color: #4f4f4f
+  padding: 0 8px 0 30px
+  font-weight: bold
+  text-decoration: none
+  height: 25px
+  line-height: 1
+  vertical-align: middle
+  box-shadow: none
+  box-sizing: border-box
+  transition: all 0.5s ease 0s
+  position: relative
+  &:hover
+    background-color: #ebebeb
+    box-shadow: none
+    border: 1px solid #e9e9e9
+  &:before
+    content: ''
+    position: absolute
+    left: 4px
+    top: -1px
+    width: 25px
+    height: 25px
+    background: image-url("button_icons.svg") no-repeat -200px 0
+  &.no-icon
+    padding: 0 15px
+    &:before
+      background: none
+  &.modify-icon:before
+    background-position: -300px 0
+  &.delete-icon:before
+    background-position: -350px 0
+  &.activate:before
+    background-position: -400px 0
+  &.deactivate:before
+    background-position: -425px 0
+  &.alert-icon:before
+    background-position: -375px 0
+  &.share-icon:before
+    background-position: -325px 0
+  &.reply-icon:before
+    background-position: -475px 0
+  &.approve-icon:before
+    background-position: -250px 0
+  &.reject-icon:before
+    background-position: -175px 0
+  &.mark-as-read:before
+    background-position: -250px 0
+  &.send-message:before
+    background-position: -125px 0
+  &.add-note:before
+    background-position: 0 0
+  &.create-account-icon:before
+    background-position: -75px 0
+  &.job-import-icon:before
+    background-position: -50px 0
+
+a.gray-button
+  line-height: 25px
+
+.pagination
+  border: 1px solid #e0e0e0
+  margin-top: 15px
+  overflow: auto
+  float: right
+  > span, a
+    display: block
+    float: left
+    height: 30px
+    line-height: 30px
+    font-size: 12px
+    padding: 0 12px
+    text-decoration: none
+    background-color: #f4f4f4
+    color: #4d4d4d
+    border-right: 1px solid #e0e0e0
+    cursor: pointer
+    transition: all 0.5s ease 0s
+    &:hover
+      background-color: #eee
+    &:last-child
+      border-right: none
+  span.active
+    font-weight: bold
+    background-color: #fff
+    &:hover
+      background-color: #fff
+  .nextBtn,
+  .prevBtn
+    width: 40px
+    height: 30px
+    display: inline-block
+    padding: 0
+    position: relative
+    &:before
+      content: ''
+      position: absolute
+      left: 50%
+      top: 50%
+      margin-left: -12.5px
+      margin-top: -12.5px
+      width: 25px
+      height: 25px
+      background: image-url("button_icons.svg") no-repeat -200px 0
+  .nextBtn:before
+    background-position: -150px 0
+  @media (max-width: $xs-max-width)
+    span.dots
+      padding: 0 3px
+    .nextBtn,
+    .prevBtn
+      display: none
+    a, span
+      &:nth-last-child(2)
+        border-right: none
+  @media (max-width: $sm-max-width)
+    a.extra-page
+      display: none
+
+// Status messages
+
+p.alert-success, p.alert-danger, p.alert-info, p.alert-warning,
+p.message, p.warning, p.error
+  padding: 10px 15px 10px 45px
+  font-size: 15px
+  color: #000000
+  margin-bottom: 10px !important
+  position: relative
+  &:before
+    content: ''
+    width: 30px
+    height: 30px
+    position: absolute
+    left: 7px
+    top: 7px
+    background: image-url("message_icons.svg") no-repeat 0 0
+
+.dialog
+  p.alert-success, p.alert-danger, p.alert-info, p.alert-warning,
+  p.message, p.warning, p.error
+    margin: 10px 20px 0 20px !important
+
+p.alert-success,
+p.message
+  background: #e2fade
+  border: 1px solid #d4e6d1
+  &:before
+    background-position: -30px 0
+
+p.alert-info, p.alert-warning,
+p.warning
+  background: #fcfbd4
+  border: 1px solid #e9e9e9
+  &:before
+    background-position: -60px 0
+
+p.alert-danger,
+p.error
+  background: #faf3fa
+  border: 1px solid #e8dbe9
+
+// Page with Banners
+
+.page-with-banners
+  display: table
+  width: 100%
+  .left-side-wrapper
+    display: table-cell
+    vertical-align: top
+  .right-side-wrapper
+    width: 235px
+    display: table-cell
+    text-align: center
+    vertical-align: top
+    padding-left: 15px
+  @media (max-width: $sm-max-width)
+    display: block
+    .left-side-wrapper
+      display: block
+    .right-side-wrapper
+      display: none
+
+.page-with-right-block
+  display: table
+  width: 100%
+  .left-side-wrapper
+    display: table-cell
+    vertical-align: top
+  .right-side-wrapper
+    width: 240px
+    display: table-cell
+    text-align: center
+    vertical-align: top
+    padding-left: 15px
+
+.page-with-left-block
+  display: table
+  width: 100%
+  .left-side-wrapper
+    width: 240px
+    display: table-cell
+    text-align: center
+    vertical-align: top
+    padding-right: 15px
+  .right-side-wrapper
+    display: table-cell
+    vertical-align: top
+  @media (max-width: $xs-max-width)
+    display: block
+    .left-side-wrapper
+      display: none
+    .right-side-wrapper
+      display: block
+
+// Header
+
+header
+  height: 40px
+  background-color: #e8e8e8
+  position: relative
+  .left-header
+    height: 40px
+  .menu-button
+    display: none
+    height: 100%
+    width: 60px
+    background: image-url("left_menu_button.svg") no-repeat center #f3f3f3
+    line-height: 40px
+    text-align: center
+    border-right: 1px solid #ccc
+    color: #333
+    font-size: 12px
+    @media (max-width: $xs-max-width)
+      display: block
+  .buttons-wrapper
+    display: inline-block
+    background: #f3f3f3
+    padding: 0 5px
+    border-left: 1px solid #ccc
+    float: right
+    .welcome
+      float: left
+      margin: 0 10px
+      font-size: 12px
+      color: #444
+      line-height: 40px
+      span
+        @media (max-width: $xs-max-width)
+          display: none
+    a
+      margin: 6px 5px
+      border-radius: 3px
+      font-weight: normal
+      float: right
+      &.sign-out,
+      &.sign-in
+        span
+          display: block
+          background: image-url("logout.svg") left center no-repeat
+          padding-left: 20px
+      &.sign-up
+        background-color: #935394
+        &:hover
+          background-color: #a464a5
+  .shopping-cart
+    display: inline-block
+    float: right
+    border-left: 1px solid #ccc
+    a
+      height: 40px
+      padding: 7px 15px
+      display: block
+      text-decoration: none
+      color: #444
+      font-size: 12px
+      background: #fafafa
+      &:hover
+        background: #f3f3f3
+      img
+        margin-top: 3px
+      .cart-info-wrapper
+        display: inline-block
+        text-align: center
+        margin-left: 10px
+        .price
+          margin-top: 3px
+          font-weight: bold
+    @media (max-width: $xs-max-width)
+      display: none
+  .search-dropdown-wrapper
+    position: relative
+    display: inline-block
+    float: right
+    z-index: 100
+    .search
+      width: 50px
+      height: 40px
+      float: right
+      background: #e8e8e8
+      span
+        width: 30px
+        height: 25px
+        background: image-url("menu_sprite.svg") -480px 0 no-repeat
+        display: block
+        margin: 7px auto
+      &.active, &:hover
+        background-color: #5f5f5f
+        span
+          background-image: image-url("menu_sprite_hover.svg")
+    @media (max-width: $xs-max-width)
+      border-left: 1px solid #ccc
+      .search
+        height: 39px
+        margin-top: 1px
+  .communities-wrapper
+    display: inline-block
+    margin-right: 20px
+    position: relative
+    float: right
+    @media (max-width: $md-max-width)
+      display: none
+  @media (max-width: $xs-max-width)
+    height: 80px
+    padding-top: 40px
+    .left-header
+      border-top: 1px solid #ccc
+    .right-header
+      position: absolute
+      right: 0
+      left: 0
+      top: 0
+    .buttons-wrapper
+      width: 100%
+
+.search-dropdown
+  display: none
+  position: absolute
+  left: 50%
+  top: 40px
+  background: #fff
+  z-index: 999
+  width: 80%
+  margin-left: -40%
+  @media (max-width: $sm-max-width)
+    width: 90%
+    margin-left: -45%
+  @media (max-width: $xs-max-width)
+    width: 100%
+    margin-left: -50%
+    top: 80px
+  .top-line
+    width: 100%
+    height: 5px
+    background: #5f5f5f
+  .search-forms-wrapper
+    border: 1px solid #ccc
+    box-shadow: 0 0 10px #666
+    padding: 20px 15px 15px
+    text-align: left
+    .quick-search-form
+      .row-wrapper
+        &:last-child
+          margin-bottom: 0
+          height: 70px
+        > .right-side
+          width: 380px
+          .search-radius a
+            margin-right: 5px
+        > .left-side
+          margin-right: 420px
+
+.page-title
+  position: absolute
+  top: 12px
+  left: 130px
+  color: #666
+  font-family: 'eurostileregular', serif
+  font-size: 18px
+  @media (max-width: $xs-max-width)
+    left: 75px
+    top: 52px
+    overflow: hidden
+    height: 18px
+
+.redirect-message
+  font-size: 14px
+  padding: 20px
+
+// Left Navigation
+
+.left-menu-highlighted
+  color: #fff
+  background-color: #5f5f5f
+  text-decoration: none
+  span
+    background-image: image-url("menu_sprite_hover.svg")
+  &.user-menu-toggle .arrow
+    color: #fff
+
+nav
+  position: absolute
+  width: 110px
+  background-color: #e8e8e8
+  font-family: 'eurostileregular', serif
+  color: #333333
+  font-size: 15px
+  ul
+    list-style: none outside none
+    margin: 0
+    padding: 0
+    li
+      a
+        color: #636363
+        display: block
+        padding: 10px 5px
+        text-decoration: none
+        text-align: center
+        margin-bottom: 1px
+        position: relative
+        &.user-menu-toggle .arrow
+          display: none
+          position: absolute
+          right: 0
+          top: 10px
+          height: 25px
+          width: 25px
+          background: image-url("button_icons.svg") no-repeat -150px 0
+        &.user-menu-toggle .messages-counter-container
+          right: 30px
+          @media (min-width: $sm-min-width)
+            display: none
+        &:hover
+          @extend .left-menu-highlighted
+        span
+          display: block
+          width: 30px
+          height: 25px
+          background: image-url("menu_sprite.svg") center no-repeat
+          margin: 0 auto 5px auto
+          transition: easing 0.5s
+          &.home-icon
+            background-position: 0 0
+          &.communities-icon
+            background-position: -30px 0
+          &.blog-icon
+            background-position: -60px 0
+          &.my-account-icon
+            background-position: -90px 0
+          &.search-resumes-icon
+            background-position: -120px 0
+          &.post-jobs-icon
+            background-position: -150px 0
+          &.post-resumes-icon
+            background-position: -180px 0
+          &.my-resumes-icon
+            background-position: -210px 0
+          &.my-products-icon
+            background-position: -240px 0
+          &.saved-jobs-icon
+            background-position: -300px 0
+          &.job-alerts-icon
+            background-position: -330px 0
+          &.saved-searches-icon
+            background-position: -360px 0
+          &.applied-jobs-icon
+            background-position: -390px 0
+          &.application-icon
+            background-position: -390px 0
+          &.billing-history-icon
+            background-position: -270px 0
+          &.my-notifications-icon
+            background-position: -420px 0
+          &.messages-icon
+            background-position: -450px 0
+          &.my-jobs-icon
+            background-position: -570px 0
+          &.saved-resumes-icon
+            background-position: -600px 0
+          &.screening-icon
+            background-position: -510px 0
+          &.my-reports-icon
+            background-position: -540px 0
+      &.active
+        a
+          @extend .left-menu-highlighted
+      .messages-counter-container
+        position: absolute
+        top: 13px
+        right: 10px
+        height: 18px
+        max-width: 40px
+        @media (max-width: $xs-max-width)
+          top: 8px
+          right: 8px
+        .counter
+          position: relative
+          background: #d84444
+          color: #ffffff
+          border-radius: 3px
+          padding: 2px 6px
+          text-align: center
+          font-size: 13px
+          overflow: hidden
+      &.user-menu-toggle
+        @media (max-width: $xs-max-width)
+          &:hover
+            border-bottom: 1px solid #dadada
+        a
+          text-align: center
+          height: 24px
+          margin: 8px
+          background: #fff
+          padding: 0 0 0 10px
+          line-height: 24px
+          border: 1px solid #ccc
+          &:before
+            content: ''
+            position: absolute
+            left: 5px
+            top: 50%
+            margin-top: -12.5px
+            width: 25px
+            height: 25px
+            background: image-url("button_icons.svg") no-repeat -200px 0
+          &:hover
+            color: #444
+            background-color: #f1f1f1
+  &.user-menu
+    z-index: 100
+    font-size: 14px
+    @media (max-width: $md-max-width)
+      top: 0
+      left: -110px
+      -webkit-transition: all 0.3s
+      -moz-transition: all 0.3s
+      -ms-transition: all 0.3s
+      -o-transition: all 0.3s
+      transition: all 0.3s
+    @media (min-width: $sm-min-width) and (max-width: $md-max-width)
+      &.opened
+        left: 0
+    @media (max-width: $xs-max-width)
+      &.xs-opened
+        left: 0
+    @media (min-width: $lg-min-width)
+      width: auto
+      background: #fbfbfb
+      border-bottom: 1px solid #dedede
+      font-size: 14px
+      top: 41px
+      left: 111px
+      right: 0
+      ul
+        li
+          float: left
+          box-sizing: border-box
+          width: 11.11%
+          border-right: 1px solid #eee
+          a
+            margin-bottom: 0
+          &.user-menu-toggle,
+          &#my-profile
+            display: none
+      &.employer
+        li
+          width: 9.09%
+          height: 78px
+          a
+            height: 78px
+            .caption
+              height: 28px
+              width: 100%
+              display: table
+              div
+                vertical-align: middle
+                display: table-cell
+  @media (max-width: $xs-max-width)
+    z-index: 20
+    overflow: hidden
+    -webkit-transition: all 0.3s
+    -moz-transition: all 0.3s
+    -ms-transition: all 0.3s
+    -o-transition: all 0.3s
+    transition: all 0.3s
+    width: 300px
+    left: -300px
+    &.user-menu
+      left: -300px
+    border-right: 1px solid #999
+    border-top: 1px solid #c3c3c3
+    border-bottom: 1px solid #999
+    &.xs-opened
+      left: 0
+      -webkit-box-shadow: 2px 2px 9px 0 rgba(50, 50, 50, 0.7)
+      -moz-box-shadow: 2px 2px 9px 0 rgba(50, 50, 50, 0.7)
+      box-shadow: 2px 2px 9px 0 rgba(50, 50, 50, 0.7)
+    ul li
+      border-bottom: 1px solid #dadada
+      border-top: 1px solid #f1f1f1
+      &:hover
+        border-bottom: 1px solid #5f5f5f
+        border-top: 1px solid #5f5f5f
+      &.active:hover
+        border-bottom: 1px solid #dadada
+        border-top: 1px solid #f1f1f1
+      &:first-child, &:first-child:hover, &.active:first-child:hover
+        border-top: none
+      &:last-child, &:last-child:hover, &.active:last-child:hover
+        border-bottom: none
+      a
+        margin-bottom: 0
+        padding: 10px 15px 5px
+        text-align: left
+        line-height: 25px
+        span
+          display: inline-block
+          margin: 0 15px 5px 0
+          vertical-align: middle
+        .caption
+          display: inline-block
+
+body.my-account
+  nav.left-menu ul li a .arrow
+    display: block
+  @media (min-width: $sm-min-width) and (max-width: $md-max-width)
+    .main-content
+      min-height: 663px
+    &.employer .main-content
+      min-height: 821px
+  @media (min-width: $lg-min-width)
+    .main-content
+      padding-top: 80px
+    nav.left-menu ul li a .arrow
+      display: none
+    &.employer
+      .main-content
+        padding-top: 93px
+      nav.user-menu ul li
+        width: 9.09%
+        height: 78px
+        a
+          height: 78px
+          .caption
+            height: 28px
+            width: 100%
+            display: table
+            div
+              vertical-align: middle
+              display: table-cell
+
+// Footer
+
+footer
+  margin-left: 120px
+  @media (max-width: $xs-max-width)
+    margin-left: 20px
+  h2
+    font-family: 'eurostileregular', serif
+    font-size: 17px
+    font-weight: normal
+    border-bottom: 1px solid #707070
+    padding-bottom: 5px
+    margin: 15px 10px 10px 0
+    color: #4d4d4d
+  ul
+    padding: 0
+    margin: 0
+    li
+      list-style: none
+      margin-bottom: 5px
+      a
+        color: #4d4d4d
+        margin-top: 1px
+        padding: 2px 0 2px 0
+        text-decoration: none
+        width: auto
+        font-size: 12px
+        &:hover
+          color: #292929
+  .social-icons
+    h2
+      margin-bottom: 5px
+    a
+      display: inline-block
+      margin: 10px 10px 0 0
+      span
+        width: 30px
+        height: 30px
+        display: block
+        background: image-url("follow_icon.svg") no-repeat
+        &.facebook
+          background-position: 0 0
+          &:hover
+            background-position: 0 -40px
+        &.twitter
+          background-position: -40px -0px
+          &:hover
+            background-position: -40px -40px
+        &.google-plus
+          background-position: -80px -0px
+          &:hover
+            background-position: -80px -40px
+        &.linked-in
+          background-position: -120px -0px
+          &:hover
+            background-position: -120px -40px
+        &.rss
+          background-position: -160px -0px
+          &:hover
+            background-position: -160px -40px
+  .copyright
+    font-family: Arial, Helvetica, sans-serif
+    font-size: 11px
+    color: #4d4d4d
+    text-align: center
+    padding: 20px 0
+    margin-left: -10px
+    @media (max-width: $xs-max-width)
+      margin-left: -20px
+
+// Main Content
+
+.main-content
+  background: #fff
+  border: 1px solid #c3c3c3
+  border-right: none
+  padding: 15px
+  margin-left: 110px
+  > .dialog
+    margin: -20px
+    // hack for dialogs
+  @media (max-width: $xs-max-width)
+    margin-left: 0
+    overflow: hidden
+    border-left: none
+
+// Captcha
+
+.captcha-wrapper
+  position: relative
+  input
+    padding-right: 165px
+  #captcha-image
+    height: 42px
+    width: 129px
+    position: absolute
+    top: 0
+    right: 0
+  a
+    display: block
+    position: absolute
+    top: 12px
+    right: 140px
+
+// Advertisement / Banners
+
+.headingbanner
+  font-size: 11px
+  color: #cccccc
+
+// Top Panel
+
+.top-panel
+  background-color: #fbfbfb
+  border: 1px solid #dedede
+  padding: 5px
+  a
+    text-decoration: none
+  span
+    font-size: 12px
+    margin: 0 10px
+    line-height: 24px
+  .found-listings-count
+    width: auto
+    color: #4f4f4f
+    font-family: 'eurostileregular', serif
+    font-size: 16px
+    list-style: none outside none
+    padding: 0
+    text-align: left
+    line-height: 24px
+    margin-left: 5px
+  .listings-per-page
+    float: right
+    .select-wrapper
+      display: inline-block
+    form
+      display: inline-block
+  .apply-jobs
+    height: 25px
+    line-height: 25px
+    padding: 0 20px
+    margin-right: 10px
+  .gray-button
+    margin-right: 10px
+  .apply-now
+    float: right
+    height: 25px
+    line-height: 25px
+    padding: 0 25px
+  @media (max-width: $xs-max-width)
+    width: auto
+    padding: 0
+    border-right: none
+    border-left: none
+    margin: 0 -15px
+    .listings-per-page
+      display: none
+    .controls
+      overflow: auto
+      width: 100%
+      .gray-button
+        display: block
+        float: left
+        width: 100%
+        margin: 0
+        height: 35px
+        line-height: 35px
+        border-radius: 0
+        border: none
+        border-right: 1px solid #dedede
+        text-align: center
+        &:before
+          top: 5px
+        &:last-child
+          border-right: none
+  @media (max-width: $md-max-width)
+    .controls span
+      display: none
+
+// Contact Us page
+.contact-us-page
+  > .row
+    margin-top: 10px
+  .contact-captcha-input
+    float: left !important
+    font-size: 14px !important
+    height: 42px !important
+  .heading
+    font-family: Arial, Helvetica, sans-serif
+    font-size: 14px
+    color: #5e5e5e
+    line-height: 1.5em
+    .title
+      font-size: 16px
+      font-weight: bold
+  .contact-form
+    .row-wrapper
+      margin-top: 12px
+    textarea
+      height: 140px
+      resize: none
+    .button-wrapper
+      text-align: right
+  .contact-details
+    margin: 12px 0
+    .image-wrapper
+      max-width: 165px
+      img
+        max-width: 100%
+    h1
+      font-size: 30px
+      color: #8d4f8f
+      margin: 0
+      font-family: 'eurostileregular', serif
+    .contact-details-info
+      font-size: 13px
+      color: #444444
+      margin-top: 10px
+      line-height: 1.5em
+      a
+        text-decoration: underline
+        color: #444444
+
+// Items List
+
+.items-list
+  font-size: 12px
+  color: #444444
+  .item
+    border-bottom: 1px solid #dedede
+    padding: 15px 0
+    &.featured
+      background: #f9f6f9
+      .details h1
+        font-style: italic
+        font-weight: bold
+    .left-side
+      display: table-cell
+      vertical-align: top
+      &.logo
+        width: 100px
+        min-width: 100px
+        img
+          margin-left: 15px
+          border: 1px solid #ddd
+          width: 100%
+          max-width: 70px
+          max-height: 70px
+      &.small-logo
+        width: 65px
+        min-width: 65px
+        img
+          border: 1px solid #ddd
+          width: 100%
+          max-width: 50px
+          max-height: 50px
+      &.checkbox
+        width: 30px
+      &.rss
+        width: 30px
+        img
+          width: 20px
+    .content
+      display: table-cell
+      vertical-align: top
+      padding-right: 10px
+      width: 100%
+    h1
+      width: 100%
+      font-family: Arial, Helvetica, sans-serif
+      font-size: 14px
+      line-height: 18px
+    p
+      font-family: Arial, Helvetica, sans-serif
+      font-size: 12px
+      color: #424242
+      margin: 5px 0
+      line-height: 18px
+      a
+        color: #424242
+        font-weight: bold
+        &.company-name
+          margin-right: 10px
+      span
+        color: #6c6c6c
+        margin-right: 10px
+        &:last-child
+          margin-right: 0
+      strong.listing-title
+        margin-right: 10px
+    .note-container
+      color: #787878
+      margin-top: 3px
+    .controls
+      font-size: 12px
+      text-align: left
+      margin-top: 15px
+      line-height: 16px
+      &:after
+        content: " "
+        display: block
+        height: 0
+        clear: both
+      ul
+        border: medium none
+        list-style: none outside none
+        margin: 0
+        padding: 0
+        li
+          display: block
+          float: left
+          margin-right: 15px
+          padding-right: 15px
+          border-right: 1px solid #8b8b8b
+          &:last-child
+            border-right: none
+            margin-right: 0
+            padding-right: 0
+          span
+            color: #864288
+            &:hover
+              text-decoration: underline
+    .my-notes
+      margin-top: 15px
+      color: #787878
+      span
+        font-weight: bold
+
+// Quick Search Form
+
+.quick-search-form
+  .quick-search-top-link
+    text-align: right
+    margin-bottom: 10px
+    a
+      color: #454545
+      font-weight: bold
+      font-size: 12px
+  .advanced-search-link
+    display: block
+    font-size: 12px
+    text-decoration: none
+    margin-top: 15px
+    color: #884389
+    .left
+      display: none
+    &.expanded
+      .left
+        display: inline
+      .down
+        display: none
+  .row
+    > div
+      margin-bottom: 20px
+    .location-field
+      @media (min-width: $sm-min-width) and (max-width: 850px)
+        width: 46%
+      > div
+        margin-right: 50px
+      > a
+        position: absolute
+        right: 0
+        margin-right: 5px
+        width: 42px
+        height: 42px
+        padding: 0
+        background-image: image-url("location_icon.svg")
+        background-position: center
+        background-repeat: no-repeat
+      .input-hint.right
+        position: absolute
+        right: 0
+        bottom: 0
+        margin-right: 5px
+
+.search-radius-wrapper
+  @media (min-width: $sm-min-width) and (max-width: 850px)
+    width: 54%
+  .search-button
+    float: right
+    text-align: right
+    @media (min-width: $sm-min-width) and (max-width: 850px)
+      input
+        padding: 0 10px
+    @media (max-width: 420px)
+      input
+        padding: 0 15px
+    @media (max-width: 380px)
+      input
+        padding: 0 5px
+  .search-radius
+    margin-right: 180px
+    text-align: center
+    @media (max-width: $xs-max-width)
+      text-align: left
+    @media (min-width: $sm-min-width) and (max-width: 850px)
+      margin-right: 125px
+    @media (max-width: 420px)
+      margin-right: 140px
+    @media (max-width: 380px)
+      margin-right: 115px
+    > div
+      display: inline-block
+      text-align: left
+    a
+      display: inline-block
+      background-color: #cfcfcf
+      font-family: Arial, Helvetica, sans-serif
+      font-size: 15px
+      color: #fff
+      text-align: center
+      text-decoration: none
+      margin-right: 5px
+      padding: 0 11px
+      line-height: 42px
+      font-weight: bold
+      transition: all 0.5s ease 0s
+      @media (max-width: 350px)
+        padding: 0 7px
+      &:hover, &.selected
+        background-color: #81b31a
+    #radius100
+      margin-right: 0
+
+// Advanced Search Form
+
+.advanced-search-form
+  padding-top: 20px
+  border-top: 1px solid #eee
+  text-align: left
+
+// Tabs
+
+#tabs
+  > ul
+    margin: 0
+    padding: 0
+    list-style: none outside none
+    overflow: auto
+    position: relative
+    &:after
+      position: absolute
+      content: ""
+      width: 100%
+      bottom: 0
+      left: 0
+      border-bottom: 1px solid #ccc
+      z-index: 1
+    > li
+      margin: 0
+      float: left
+      position: relative
+      a
+        font-family: 'eurostileregular', serif
+        display: block
+        text-decoration: none
+        border: 1px solid #ccc
+        padding: 8px 30px
+        color: #333
+        background: #f5f5f5
+        position: relative
+        margin-right: -1px
+        @media (max-width: $xs-max-width)
+          padding: 8px 20px
+        &.active
+          color: #884389
+          background: none
+          z-index: 2
+          border-bottom-color: #fff
+          width: auto
+  > div
+    display: none
+
+// Main Page
+
+.main-page
+  .browse-by
+    color: #333333
+    font-size: 12px
+    text-align: right
+    margin-bottom: 20px
+    > div
+      display: inline-block
+      color: #454545
+      font-weight: bold
+    @media (max-width: 420px)
+      text-align: center
+      > div
+        display: block
+        margin-bottom: 10px
+    ul
+      display: inline-block
+      list-style: none outside none
+      padding: 0
+      margin: 0
+      vertical-align: bottom
+      li
+        float: left
+        display: block
+        padding: 0 10px
+        border-right: 1px solid #454545
+        a
+          color: #884389
+          text-decoration: none
+          &:hover
+            text-decoration: underline
+        &:last-child
+          border-right: none
+          padding-right: 0
+  .aerotage-logo
+    text-align: center
+    margin-bottom: 20px
+    img
+      max-width: 90%
+  .welcome-panel h1,
+  .featured-companies h1
+    font-family: 'eurostileregular', serif
+    font-size: 18px
+    color: #28488f
+    border-bottom: none
+    font-weight: normal
+    padding-bottom: 5px
+    margin: 0 0 10px
+    position: relative
+    &:after
+      content: " "
+      border-top: 1px solid #ccc
+      display: block
+      height: 2px
+      position: absolute
+      top: 9px
+      left: 220px
+      right: 0
+  .welcome-panel
+    overflow: hidden
+    margin-top: 20px
+    .welcome-slider
+      p
+        font-size: 12px
+        color: #313131
+      .slider-img
+        width: 166px
+        height: 110px
+        float: right
+        background: image-url("slider.jpg") left center no-repeat
+        margin-left: 20px
+      .read-more
+        text-decoration: underline
+        color: #28488f
+        font-size: 12px
+  .featured-companies
+    text-align: center
+    margin-top: 20px
+    .company-logo-container
+      display: block
+      float: left
+      height: 112px
+      width: 32%
+      margin-right: 2%
+      &:last-child
+        margin-right: 0
+      a.featured-company-logo
+        background-color: #FDFDFD
+        border: 1px solid #EDEDED
+        display: block
+        width: 100%
+        padding: 10px 0
+        height: 92px
+        &:hover
+          text-decoration: none
+        .image-wrapper
+          padding: 0 10px
+          height: 100%
+          > span
+            display: inline-block
+            height: 100%
+            vertical-align: middle
+          img
+            max-width: 90%
+            max-height: 100%
+            vertical-align: middle
+    h1:after
+      left: 165px !important
+  .block-wrapper
+    position: relative
+    .ad-block
+      float: right
+      border: 1px solid #CCCCCC
+      box-sizing: border-box
+      color: #CCCCCC
+      font-size: 12px
+      height: 250px
+      width: 250px
+      padding: 20px
+    .featured-jobs
+      padding-top: 10px
+      border: 1px solid #CCCCCC
+      margin: 30px 280px 50px 0
+      > h1
+        background-color: #FFFFFF
+        margin: -20px 0 0 10px
+        padding: 0 10px
+        position: absolute
+        font-family: 'eurostileregular', serif
+        font-size: 17px
+        color: #28488f
+        font-weight: bold
+      table.items-list
+        display: none
+        min-width: 100%
+        border-spacing: 15px 10px
+        border-collapse: separate
+        td
+          width: 50%
+          padding: 0 5px 0 0
+          &.odd
+            padding: 0 0 0 5px
+          .item
+            height: 100%
+            padding: 0 0 5px 0
+            border-bottom: 1px dotted #dedede
+            box-sizing: content-box
+            overflow: auto
+            span
+              color: #969696
+            .company-info
+              font-size: 13px
+              font-style: italic
+              color: #5B5B5B
+              margin-right: 5px
+        tr:last-child td .item
+          border-bottom: none
+      div.items-list
+        margin-bottom: 5px
+        .item
+          margin: 0 10px
+          padding: 15px 0 5px 0
+          border-bottom: 1px dotted #dedede
+          &:last-child
+            border-bottom: none
+      @media (min-width: $md-min-width)
+        table.items-list
+          display: table
+        div.items-list
+          display: none
+    #tabs
+      margin-right: 280px
+      ul li a
+        margin-right: 5px
+        border-color: #eee
+        &.active
+          border-color: #ccc
+          border-bottom-color: #fff
+      > div
+        padding-top: 10px
+        .features-profiles
+          div
+            float: left
+            margin-right: 20px
+            padding: 10px
+            border: 1px solid #eee
+        .right-text
+          p
+            font-family: 'eurostileregular', serif
+            font-size: 14px
+          a
+            text-decoration: underline
+            color: #28488f
+            font-size: 12px
+      #latest-jobs
+        table.items-list
+          display: none
+          min-width: 100%
+          td
+            width: 50%
+            padding: 0 10px 0 0
+            &.odd
+              padding: 0 0 0 10px
+            .item
+              height: 100%
+              padding: 10px 0 5px 0
+              box-sizing: content-box
+              overflow: auto
+        div.items-list
+          margin-bottom: 10px
+          .item
+            padding: 15px 0 5px 0
+        .view-all
+          text-align: right
+          margin-top: 10px
+          a
+            font-size: 12px
+            text-decoration: none
+            &:hover
+              text-decoration: underline
+        @media (min-width: $md-min-width)
+          table.items-list
+            display: table
+          div.items-list
+            display: none
+    @media (max-width: $xs-max-width)
+      .ad-block
+        display: none
+      .featured-jobs
+        margin-right: 0
+      #tabs
+        margin-right: 0
+
+// Form with 2 columns
+
+form
+  .row > div
+    margin-bottom: 15px
+  .row.buttons > div
+    text-align: right
+    margin-top: 10px
+    margin-bottom: 10px
+    @media (max-width: $xs-max-width)
+      text-align: center
+      input[type=reset],
+      input[type=submit],
+      input[type=button]
+        margin-bottom: 10px
+        width: 100%
+        &:last-child
+          margin-bottom: 0
+  @media (max-width: 380px)
+    .youtube-hint,
+    .hint
+      font-size: 11px
+
+form
+  .hint
+    font-size: 12px
+    margin-top: 5px
+    .right
+      float: right
+      text-align: right
+      @media (max-width: $xs-max-width)
+        width: 50%
+    &.push-bottom
+      margin-bottom: 15px
+
+// Social Plugins
+
+.social-plugins
+  .inner
+    text-align: center
+    max-width: 490px
+    margin: 0 auto
+    padding: 0 15px
+    h1
+      font-family: Arial, Helvetica, sans-serif
+      font-size: 14px
+      font-weight: bold
+      color: #5c5c5c
+      margin: 10px 0
+      text-align: center
+    .plugins-wrapper
+      a
+        width: 130px
+        height: 40px
+        display: inline-block
+        margin-right: 30px
+        background: image-url("login_social.svg") no-repeat
+        @media (max-width: 550px)
+          width: 40px
+        &:last-child
+          margin-right: 0
+        &:hover
+          opacity: 0.9
+    #slb-google
+      background-position: -130px
+    #slb-linkedin
+      background-position: -260px
+
+// Popups
+
+.dialog
+  .message-item
+    padding: 15px
+  fieldset
+    padding: 20px
+    margin: 0
+    border: none
+    > p
+      font-size: 14px
+      margin-bottom: 20px
+  .button-wrapper
+    margin-bottom: 20px
+    text-align: center
+    input
+      width: 90%
+      max-width: 340px
+    &.cancel
+      padding-top: 20px
+      border-top: 1px solid #ccc
+  .dialog-content
+    padding: 20px
+    p
+      margin-bottom: 15px
+
+.login-page
+  .warning
+    margin: 0
+  .social-plugins .inner .plugins-wrapper a
+    margin-right: 5px
+  fieldset
+    background-color: #fbfbfb
+    border: none
+    border-top: 1px solid #ebebeb
+    margin-top: 30px
+    padding-bottom: 0
+    padding-top: 30px
+    position: relative
+    font-family: Arial, Helvetica, sans-serif
+    font-size: 12px
+    color: #444444
+    .or-icon
+      position: absolute
+      left: 50%
+      margin-left: -25px
+      top: -25px
+      line-height: 40px
+      height: 50px
+      width: 50px
+      border-radius: 25px
+      background-color: #bbb
+      color: #fff
+      text-align: center
+      font-size: 17px
+      font-family: 'eurostileregular', serif
+      border: 5px solid #fff
+    input[type="text"],
+    input[type="password"]
+      margin-bottom: 15px
+    .login-links-wrapper
+      font-family: 'eurostileregular', serif
+      font-size: 14px
+      label
+        margin-bottom: 10px
+      a
+        line-height: 25px
+        float: right
+        color: #7e4580
+        background: image-url("forgot_pass_icon.svg") left center no-repeat
+        padding-left: 25px
+        display: inline-block
+        @media (max-width: 420px)
+          float: none
+  .button-wrapper
+    margin-top: 20px
+  .sign-up-button-wrapper
+    border-top: 1px solid #ebebeb
+    text-align: center
+    font-size: 13px
+    padding: 20px 0 20px
+    strong
+      display: block
+      margin-bottom: 15px
+    input
+      width: 90%
+      max-width: 340px
+
+.flag-listing-dialog
+  .select-wrapper
+    margin-bottom: 10px
+  textarea
+    margin-bottom: 10px
+  input[type=submit]
+    margin-top: 10px
+    float: right
+
+#delete-profile-popup
+  p
+    margin: 20px 20px 0
+  textarea
+    margin-bottom: 20px
+  .buttons-wrapper
+    text-align: right
+
+.reset-password-page
+  input[type=password]
+    margin-bottom: 15px
+  .buttons-wrapper
+    text-align: right
+
+.apply-page
+  .select-wrapper,
+  input[type=text],
+  textarea
+    margin-bottom: 10px
+  .buttons-wrapper
+    text-align: right
+  .question-wrapper
+    margin: 10px 0
+    h2
+      margin-bottom: 5px
+    .radio-wrapper,
+    .checkbox-wrapper
+      margin-bottom: 5px
+  .captcha-wrapper
+    margin-top: 10px
+  .caption
+    margin: 15px 0 10px 0
+
+#already-applied-popup
+  padding: 20px
+
+.save-search-page
+  input[type=text], label, .select-wrapper
+    margin-bottom: 10px
+  input[type=submit]
+    float: right
+
+.notes-page
+  textarea
+    width: 300px
+    margin-bottom: 20px
+  .buttons-wrapper
+    text-align: right
+  .redirecting
+    padding: 20px
+
+// Side Block Container
+
+.side-block
+  border: 1px solid #e0e0e0
+  margin-bottom: 15px
+  > h1
+    background-color: #f3f3f3
+    padding: 10px
+    border-bottom: 1px solid #E0E0E0
+    font-size: 17px
+  .listing-summary,
+  .company-info
+    padding: 15px 10px
+    font-size: 12px
+    color: #444
+    p
+      margin-bottom: 5px
+      &:last-child
+        margin-bottom: 0
+      span
+        font-weight: bold
+        a
+          color: #444
+  .company-info
+    .company-logo
+      display: block
+      margin: 0 auto 10px auto
+      max-height: 190px
+      max-width: 180px
+    & > a
+      display: block
+      padding: 10px
+      border: 1px solid #e0e0e0
+      margin-top: 10px
+      text-decoration: none
+      color: #444
+      transition: all 0.5s ease 0s
+      position: relative
+      &:before
+        content: ''
+        position: absolute
+        right: 5px
+        top: 50%
+        margin-top: -12.5px
+        width: 25px
+        height: 25px
+        background: image-url("button_icons.svg") no-repeat -150px 0
+      &:hover
+        background-color: #fafafa
+
+// Suggested jobs
+
+.suggested-jobs
+  .item
+    padding: 10px
+    border-bottom: 1px solid #EDEDED
+    text-align: left
+    .details
+      h1
+        font-size: 13px
+  .view-all-jobs
+    float: right
+    font-size: 12px
+    margin-top: 15px
+
+.side-block .suggested-jobs
+  .item
+    &:last-child
+      border-bottom: none
+    .suggested-job-description
+      color: #6c6c6c
+  .view-all-jobs
+    display: none
+
+// Search results page
+
+.search-results-page
+  .top-panel
+    margin-top: 10px
+    @media (max-width: $xs-max-width)
+      margin-top: 0
+      .gray-button
+        width: 50%
+  .search-results-top-panel
+    background-color: #f6f6f6
+    border-bottom: 1px solid #dedede
+    margin: -15px -15px 0 -15px
+    padding: 10px 20px
+    h1
+      font-family: 'eurostileregular', serif
+      font-size: 18px
+      color: #4d4d4d
+      margin: 0
+    .you-searched
+      color: #444444
+      font-size: 12px
+      margin-top: 10px
+      padding: 0
+      text-align: left
+      .searched-for
+        display: inline-block
+        margin-bottom: 5px
+        line-height: 20px
+        .undolink
+          a
+            color: #884389
+      ul
+        border: medium none
+        list-style: none outside none
+        margin: 0
+        padding: 0
+        line-height: 20px
+        li
+          display: inline-block
+          margin: 0 5px 0 0
+          padding: 0 10px 0 0
+          border-right: 1px solid #8b8b8b
+          a
+            color: #884389
+            text-decoration: none
+            &:hover
+              text-decoration: underline
+          &:last-child
+            border-right: none
+    @media (max-width: $xs-max-width)
+      padding: 10px 15px
+  .page-with-left-block
+    margin-top: 15px
+    .left-side-wrapper
+      .refine-search-header
+        background-color: #5d5d5d
+        padding: 9px
+        .refine-search-title
+          color: #ffffff
+          float: left
+          font-size: 13px
+          list-style: none outside none
+          padding: 0
+          text-align: left
+          line-height: 24px
+        .new-search
+          padding: 5px 10px
+          float: right
+          display: inline-block
+      .refine-search-block
+        width: 100%
+        .refine-filter-block
+          background-color: #FBFBFB
+          border: 1px solid #E0E0E0
+          .refine-keywords
+            border: 1px solid #c1c1c1
+            margin: 10px
+            position: relative
+            .input-wrapper
+              margin-right: 70px
+              input[type="text"]
+                border: 0 none !important
+                color: #494949
+                font-size: 12px
+                font-weight: normal
+                height: 35px
+                padding: 5px 10px
+            .refine-button
+              position: absolute
+              right: 0
+              top: 0
+              margin: 0
+              width: 70px
+              height: 35px
+              line-height: 35px
+              font-family: Arial, Helvetica, sans-serif
+              text-align: center
+              font-size: 12px
+              font-weight: bold
+              color: #5d5d5d
+              text-decoration: none
+              background-color: #f2f2f2
+              border-left: 1px solid #e6e6e6 !important
+              border-right: 0 !important
+              border-top: 0 !important
+              border-bottom: 0 !important
+              cursor: pointer
+              &:hover
+                background-color: #eee
+          .refine-items
+            color: #333333
+            font-size: 12px
+            font-weight: bold
+            list-style: none outside none
+            padding: 0
+            width: 100%
+            text-align: left
+            ul
+              border: medium none
+              list-style: none outside none
+              margin: 0
+              padding: 0
+              li a
+                background: image-url("arrow_down.svg") right 5px center no-repeat
+                color: #4d4d4d
+                display: block
+                margin-top: 1px
+                padding: 11px 10px 11px 10px
+                text-decoration: none
+                border-top: 1px solid #e0e0e0
+                &:hover
+                  color: #292929
+            .refine-button
+              background: image-url("arrow_down.svg") no-repeat scroll right center rgba(0, 0, 0, 0)
+              border-top: 1px solid #E0E0E0
+              color: #4D4D4D
+              display: block
+              margin-top: 1px
+              margin-bottom: -1px
+              text-decoration: none
+              font-family: Arial, Helvetica, sans-serif
+              cursor: pointer
+              padding: 11px 0 11px 13px
+              strong
+                display: block
+                height: 28px
+                border: 1px solid #ebebeb
+                padding-left: 36px
+                line-height: 28px
+                font-weight: normal
+                font-size: 12px
+                color: #708e08
+              &:hover strong
+                background: #fcfcfc
+            .refine-block
+              padding: 0 0 9px 11px
+              font-family: Arial, Helvetica, sans-serif
+              font-size: 12px
+              overflow: hidden
+              .refineItem
+                clear: both
+                padding: 0 0 6px 3px
+                color: #28488f
+                font-weight: normal
+                a
+                  text-decoration: none
+                  color: #28488f
+                  font-weight: normal
+                  font-size: 12px
+                  &:hover
+                    text-decoration: none
+            .block-values-button
+              display: block
+              float: right
+              background: #864288
+              font-size: 11px
+              font-weight: bold
+              padding: 2px 5px
+              color: #FFFFFF
+              line-height: 17px
+              cursor: pointer
+              &:hover
+                background: #954897
+      .suggested-jobs-block
+        margin: 15px 0 0 0
+  @media (max-width: $xs-max-width)
+    .page-with-left-block
+      margin-top: 0
+      .right-side-wrapper
+        .top-panel
+          .controls .gray-button
+            width: 100%
+        .items-list
+          margin: 0 -15px
+      .left-side-wrapper
+        display: block
+        width: auto
+        padding: 0
+        margin: 0 -15px
+        .refine-search-header
+          display: none
+        .refine-search-block
+          display: none
+          .refine-filter-block
+            border: none
+        .suggested-jobs-block
+          display: none
+
+// My Profile Page
+
+.my-profile-page
+  .profile-details-wrapper
+    padding: 10px
+    background-color: #fbfbfb
+    border: 1px solid #dedede
+    min-height: 175px
+    position: relative
+    @media (max-width: $xs-max-width)
+      margin: -15px -15px 0 -15px
+      padding: 15px
+      border-top: none
+      border-left: none
+      border-right: none
+    .profile-details
+      margin-right: 380px
+      position: relative
+      @media (max-width: $sm-max-width)
+        margin-right: 200px
+      @media (max-width: $xs-max-width)
+        margin-right: 0
+      .details
+        color: #424242
+        font-size: 14px
+        > div
+          float: left
+          @media (max-width: $xs-max-width)
+            float: none
+        h1
+          font-family: 'eurostileregular', serif
+          font-size: 20px
+          color: #945495
+          line-height: 21px
+          margin: 0 0 5px 0
+        p
+          margin: 5px 0
+          a
+            text-decoration: none
+            color: inherit
+            &:hover
+              text-decoration: underline
+        .right-user-block-wrapper
+          .right-user-block
+            border-left: 1px solid #cccccc
+            font-size: 13px
+            position: absolute
+            bottom: 0
+            margin-left: 30px
+            padding-left: 20px
+            @media (max-width: $xs-max-width)
+              position: relative
+              margin: 15px 0 0 0
+              padding: 10px 0 0 0
+              border-left: none
+              border-top: 1px solid #ccc
+        .profile-logo
+          float: left
+          margin: 0 15px 0 0
+          img
+            max-height: 165px
+            max-width: 230px
+        .user-details
+          float: left
+          max-width: 470px
+          margin-right: 80px
+      .settings
+        font: bold 12px/18px sans-serif
+        position: absolute
+        right: 0
+        top: 0
+        div
+          padding: 5px 0
+          background: image-url("setting_list.svg") no-repeat
+          background-position: top center
+          position: relative
+          text-align: center
+          cursor: pointer
+          font-size: 13px
+          width: 134px
+        ul
+          display: none
+          padding: 10px 0 0 0
+          margin: -10px 0 0 0
+          border: 1px solid #d6d6d6
+          border-top: none
+          background: #fff
+          -webkit-box-shadow: 0 0 5px 0 rgba(50, 50, 50, 0.75)
+          -moz-box-shadow: 0 0 5px 0 rgba(50, 50, 50, 0.75)
+          box-shadow: 0 0 5px 0 rgba(50, 50, 50, 0.75)
+          li
+            list-style: none
+            border-bottom: 1px solid #d6d6d6
+            &:last-child
+              border-bottom: none
+            &:hover
+              background: #f0f0f0
+            a
+              display: block
+              padding: 10px
+              text-decoration: none
+              color: #494949
+        @media (max-width: $xs-max-width)
+          color: transparent
+          text-align: right
+          div
+            background-image: image-url("setting_list2.svg")
+            width: 64px
+            display: inline-block
+          ul
+            margin: 10px 0 0 0
+            padding: 10px
+            border-top: 1px solid #d6d6d6
+            position: relative
+            &:after, &:before
+              bottom: 100%
+              left: 86%
+              border: solid transparent
+              content: " "
+              height: 0
+              width: 0
+              position: absolute
+              pointer-events: none
+            &:after
+              border: 10px rgba(255, 255, 255, 0)
+              border-bottom-color: #ffffff
+              margin-left: -10px
+            &:before
+              border: 11px rgba(204, 204, 204, 0)
+              border-bottom-color: #cccccc
+              margin-left: -11px
+            li
+              border: 1px solid #ddd
+              margin-bottom: 5px
+              &:last-child
+                border-bottom: 1px solid #ddd
+                margin-bottom: 0
+              a
+                font-family: 'eurostileregular', serif
+                background: #f2f4f5
+                text-align: center
+                font-size: 14px
+                padding: 10px 30px
+                &:hover
+                  background: #fff
+    .ad-block
+      position: absolute
+      top: 10px
+      width: 180px
+      height: 150px
+      border: 1px solid #ccc
+      color: #ccc
+      font-size: 12px
+      padding: 20px
+      box-sizing: border-box
+      &.ad-block1
+        right: 200px
+        @media (max-width: $sm-max-width)
+          display: none
+      &.ad-block2
+        right: 10px
+        @media (max-width: $xs-max-width)
+          display: none
+    @media (max-width: $xs-max-width)
+      min-height: 0
+    &.with-image
+      @media (max-width: $sm-max-width)
+        min-height: 0
+      .ad-block1
+        @media (max-width: $md-max-width)
+          display: none
+      .ad-block2
+        @media (max-width: $sm-max-width)
+          display: none
+      .profile-details
+        @media (max-width: $md-max-width)
+          margin-right: 200px
+        @media (max-width: $sm-max-width)
+          margin-right: 0
+        .profile-logo
+          @media (max-width: 500px)
+            margin-bottom: 15px
+            float: none
+  .recently-viewed-listings-wrapper,
+  .suggested-jobs-wrapper
+    > h1
+      position: relative
+      font-weight: bold
+      font-size: 18px
+      margin-bottom: 5px
+      &:after
+        border-top: 2px solid #ccc
+        display: block
+        height: 2px
+        content: " "
+        position: absolute
+        left: 150px
+        right: 0
+        top: 9px
+  .suggested-jobs-wrapper
+    .suggested-jobs
+      .item
+        padding-left: 0
+        padding-right: 0
+        h1
+          font-size: 15px
+  .tabs-wrapper
+    width: 48%
+    float: right
+    #tabs
+      width: 100%
+      ul
+        li
+          a
+            font-weight: bold
+            &.active
+              color: #000
+      & > div
+        border: 1px solid #ccc
+        border-top: none
+        padding: 20px 10px
+      #messages
+        text-align: center
+        font-size: 14px
+        padding: 0
+        .list
+          margin: 0
+        .message-row
+          width: auto
+          padding: 10px 15px
+          .main-block
+            margin-right: 150px
+          &:first-child
+            border-top: none !important
+          &:last-child
+            border-bottom: none !important
+  &.employer
+    .block-wrapper
+      .tabs-wrapper
+        float: none
+        width: auto
+        margin-right: 260px
+      .right-side-wrapper
+        float: right
+        width: 235px
+        @media (max-width: $sm-max-width)
+          display: none
+
+// Listing Details Page
+
+.listing-details-page
+  .left-side-wrapper
+    color: #494949
+    h1
+      font-size: 22px
+      color: #708e08
+      margin: 15px 0 -10px 0
+    .items-list
+      h1
+        font-size: inherit
+        color: inherit
+        margin: inherit
+    .detail
+      word-wrap: break-word
+      border-top: 1px solid #ddd
+      margin-top: 20px
+      h2
+        margin: 15px 0 10px
+        font-size: 13px
+        background-color: #fff
+        color: #864288
+        text-transform: uppercase
+      > div, ul
+        font-size: 14px
+        line-height: 1.5
+        p
+          margin-bottom: 10px
+        ol, ul
+          margin: 0 0 10px 0
+        .tree-item
+          margin-bottom: 5px
+          line-height: 1.5
+          strong
+            font-style: italic
+      .summary
+        font-size: 13px
+        padding-bottom: 20px
+        margin-bottom: 20px
+        border-bottom: 1px solid #eee
+        p
+          margin-top: 5px
+          span
+            font-weight: bold
+      .field
+        font-size: 13px
+        margin-bottom: 20px
+        .leftDisplaySIde
+          display: inline-block
+        .rightDisplaySIde
+          display: inline-block
+          .degreeLevel
+            font-style: italic
+      li
+        margin-bottom: 10px
+    .listing-comments
+      font-size: 12px
+      h2
+        font-size: 16px
+        margin: 10px 0
+      #message-form
+        margin: 10px 0
+        label
+          font-size: 13px
+        form
+          margin: 5px 0
+          input[type=button]
+            margin-top: 8px
+      a
+        color: #494949
+        text-decoration: none
+      .comment-item
+        margin-bottom: 5px
+        padding: 10px
+        background: #fefefe
+        border: 1px solid #eee
+        &.even
+          background: #fafafa
+        .comment-header
+          margin: 0 -10px 10px -10px
+          padding: 0 10px 10px 10px
+          border-bottom: 1px solid #eee
+          a
+            margin-left: 10px
+            font-style: italic
+            float: right
+            display: inline-block
+    .preview-buttons
+      margin-top: 30px
+  .right-side-wrapper
+    .side-block
+      text-align: left
+      a
+        color: #494949
+      .widget-block
+        margin: 10px 0
+    .listing-tools
+      a
+        display: block
+        text-decoration: none
+        font-size: 13px
+        color: #444
+        padding: 12px 10px 12px 37px
+        border-bottom: 1px solid #e0e0e0
+        position: relative
+        &:last-child
+          border-bottom: none
+        &:hover
+          background-color: #fafafa
+        &:before
+          content: ''
+          position: absolute
+          left: 5px
+          top: 50%
+          margin-top: -12.5px
+          width: 25px
+          height: 25px
+          background: image-url("button_icons.svg") no-repeat
+        &.save-job:before
+          background-position: -225px 0
+        &.notes:before
+          background-position: 0 0
+        &.flag-job:before
+          background-position: -25px 0
+        &.print-job:before
+          background-position: -100px 0
+        &.view-map:before
+          background-position: -500px 0
+  @media (max-width: $sm-max-width)
+    padding-top: 50px
+    position: relative
+    .left-side-wrapper
+      h1
+        margin-top: 5px
+      .top-panel
+        position: absolute
+        left: 0
+        right: 0
+        top: 0
+    .right-side-wrapper
+      width: 220px
+      .headingbanner, .banner
+        display: none
+  @media (max-width: $xs-max-width)
+    display: block
+    padding-top: 75px
+    .left-side-wrapper
+      display: block
+      .top-panel
+        margin: -16px
+        padding: 37px 0 0 0
+        background: #f3f3f3
+        .st-sharethis-custom
+          display: none
+        .apply-now
+          position: absolute
+          right: 7px
+          top: 7px
+        .single-back-button
+          width: 100%
+          border-top: 1px solid #dedede
+        .back-button
+          width: 60%
+          border-right: 1px solid #e0e0e0
+          padding-left: 30px
+        .modify-button
+          width: 40%
+          border-top: 1px solid #dedede
+          padding-left: 30px
+    .right-side-wrapper
+      display: block
+      width: auto
+      padding-left: 0
+      .listing-summary
+        margin-top: 40px
+      .listing-tools
+        position: absolute
+        top: -16px
+        left: -15px
+        right: 110px
+        h1
+          border-bottom: none
+          cursor: pointer
+          background: image-url("arrow_down.svg") right 5px center no-repeat
+          &.expanded
+            border-bottom: 1px solid #e0e0e0
+        a
+          display: none
+          &.expanded
+            display: block
+            background-color: #fff
+            &:hover
+              background-color: #eee
+      .company-info
+        margin-bottom: 0
+    &.resume-details
+      .right-side-wrapper .listing-tools
+        right: -16px
+
+// User Notifications
+
+.user-notifications
+  fieldset
+    border: none
+    border-bottom: 1px solid #eee
+    font-size: 13px
+    position: relative
+    padding: 10px 0
+    &:last-child
+      border-bottom: none
+      margin-top: 10px
+    input[type="checkbox"] + label
+      margin-left: 10px
+    .days-wrapper
+      position: absolute
+      left: 320px
+      top: 50%
+      margin-top: -17.5px
+      input[type="text"]
+        width: 60px
+        text-align: center
+        background: #f5f5f5
+        height: 35px
+        margin-right: 5px
+      @media (max-width: $xs-max-width)
+        position: static
+        margin-top: 10px
+
+// Registration Page
+
+.edit-profile-page, .registration-page, .add-listing-page, .edit-listing-page
+  .social-login
+    margin-bottom: 10px
+    text-align: right
+  .social-registration-message
+    margin: 0 0 30px
+  .fields-wrapper
+    margin-top: 40px
+    border-top: 1px solid #ccc
+  .or-icon
+    text-align: center
+    margin: 40px 0
+    border-bottom: 1px solid #ccc
+    height: 1px
+    position: relative
+    div
+      position: absolute
+      left: 50%
+      margin-left: -25px
+      top: -25px
+      line-height: 40px
+      height: 50px
+      width: 50px
+      border-radius: 25px
+      background-color: #bbb
+      color: #fff
+      text-align: center
+      font-size: 17px
+      font-family: 'eurostileregular', serif
+      border: 5px solid #fff
+  .user-group
+    margin-bottom: 20px
+    font-weight: bold
+    label
+      margin-right: 30px
+      &:last-child
+        margin-right: 0
+  .input-hint
+    margin-bottom: 20px
+    @media (min-width: $sm-min-width)
+      text-align: right
+  .info-popup
+    color: #444
+    text-decoration: underline
+
+.edit-profile-page
+  .username
+    font-family: 'eurostileregular', serif
+    font-size: 20px
+    color: #945495
+  .controls
+    text-align: right
+    a.button
+      font-weight: normal
+      padding: 5px 20px
+      margin-left: 20px
+      border-radius: 3px
+      &:first-child
+        margin-left: 0
+    @media (max-width: $xs-max-width)
+      text-align: center
+      a.button
+        padding: 5px 15px
+
+.registration-page, .edit-profile-page
+  .textarea-field
+    height: 116px
+
+.social-registration-success-page
+  a
+    color: #444
+  ul
+    margin-top: 20px
+    padding-left: 20px
+
+// My Listings Page
+
+.my-listings-form, .billing-history-search-form
+  .listings-info
+    margin-bottom: 15px
+    font-style: italic
+    line-height: 30px
+    position: relative
+    input
+      position: absolute
+      right: 0
+      top: 0
+  form
+    padding: 15px 15px 0 15px
+    border: 1px solid #ccc
+    background: #f5f5f5
+    margin-bottom: 15px
+    .row.with-button
+      padding-right: 120px
+      position: relative
+      .date-field
+        position: relative
+        img
+          position: absolute
+          right: 15px
+          top: 8px
+      .filter-button
+        position: absolute
+        right: 0
+        width: auto
+  @media (max-width: $xs-max-width)
+    .listings-info
+      line-height: 20px
+      input
+        position: relative
+        width: 100%
+        margin-top: 10px
+    form
+      display: none
+      margin: 0 -16px
+      border-top: none
+      border-bottom: none
+      .row.with-button
+        padding-right: 0
+        .filter-button
+          position: relative
+          width: 100%
+          input
+            width: 100%
+
+.billing-history-search-form
+  @media (max-width: $xs-max-width)
+    margin-top: -15px
+
+.my-listings
+  .bulk-import
+    margin: 10px 0
+    a
+      font-size: 13px
+      text-decoration: none
+      font-style: italic
+      &:hover
+        text-decoration: underline
+  .listings-info
+    margin: 10px 0
+    line-height: 42px
+    overflow: auto
+    text-align: right
+  @media (max-width: $xs-max-width)
+    .items-list .item .controls
+      line-height: 20px
+    .top-panel .gray-button
+      width: 33.33333%
+
+.job-seeker .my-listings .items-list .item:last-child
+  border-bottom: none
+
+// Messages block
+
+.messages-page, .my-profile-page
+  #tabs
+    margin-bottom: 20px
+    ul li
+      width: 135px
+      a
+        background: #f1f1f1
+        color: #494949
+        text-align: center
+        padding: 12px 0
+        font-size: 16px
+        text-decoration: none
+        &.active
+          background: #ffffff
+          font-weight: bold
+      &.compose
+        margin-left: 10px
+        width: 160px
+        a
+          font-family: 'eurostileregular', serif
+          color: #fff
+          background-color: #894d8b
+          border: 1px solid #7a427f
+  .messages
+    .items-list .item
+      position: relative
+      padding: 10px 0
+      .time
+        position: absolute
+        right: 10px
+        top: 15px
+        color: #585858
+        .icon
+          margin-right: 10px
+          vertical-align: middle
+      .send-message
+        position: absolute
+        right: 0
+        top: 15px
+        text-decoration: none
+        padding-left: 35px
+      p
+        margin-bottom: 0
+      &.unread
+        background-color: #F7F7F7
+        h1
+          font-weight: bold
+        p
+          font-weight: bold
+  .message-detail
+    margin-top: 15px
+    font-size: 13px
+    .property
+      padding: 10px 0
+      margin: 5px 0
+      border-bottom: 1px solid #EEEEEE
+      position: relative
+      .left-caption
+        display: inline-block
+        min-width: 80px
+      .time
+        position: absolute
+        right: 10px
+        top: 50%
+        margin-top: -6px
+    .message-body
+      margin-top: 15px
+      line-height: 1.5
+  // New message page
+  .new-message-block
+    font-size: 14px
+    .row.with-label
+      padding-left: 120px
+      position: relative
+      > div:first-child
+        position: absolute
+        left: 0
+        top: 12px
+        label
+          color: #4D4D4D
+          font-size: 14px
+          font-weight: bold
+      textarea
+        height: 182px
+    .with-indent
+      padding-left: 120px
+  .mobile-panel
+    display: none
+  @media (max-width: $xs-max-width)
+    .mobile-panel
+      display: block
+      margin: -15px -15px 0 -15px
+      background-color: #f2f2f2
+      height: 51px
+      position: relative
+      padding: 8px 8px 8px 65px
+      z-index: 10
+      border-bottom: 1px solid #dedede
+      .messages-menu-button
+        display: block
+        position: absolute
+        left: 8px
+        top: 8px
+        height: 35px
+        width: 45px
+        background: image-url("left_menu_button.svg") no-repeat center #eaeaea
+        border: 1px solid #ccc
+        border-radius: 3px
+        &:hover
+          background-color: #f2f2f2
+      > div
+        line-height: 35px
+      .compose
+        font-family: 'eurostileregular', serif
+        color: #fff
+        background-color: #894d8b
+        border: 1px solid #7a427f
+        padding: 9px
+        position: absolute
+        right: 8px
+        top: 8px
+        text-decoration: none
+      ul
+        background: #fff
+        border: 1px solid #ccc
+        position: absolute
+        left: 5px
+        top: 37px
+        padding: 10px
+        list-style: none
+        display: none
+        &:after, &:before
+          bottom: 100%
+          left: 27px
+          border: solid transparent
+          content: " "
+          height: 0
+          width: 0
+          position: absolute
+          pointer-events: none
+        &:after
+          border: 10px rgba(255, 255, 255, 0)
+          border-bottom-color: #ffffff
+          margin-left: -10px
+        &:before
+          border: 11px rgba(204, 204, 204, 0)
+          border-bottom-color: #cccccc
+          margin-left: -11px
+        li
+          border: 1px solid #ddd
+          margin-bottom: 5px
+          display: block
+          &:last-child
+            border-bottom: 1px solid #ddd
+            margin-bottom: 0
+          a
+            font-family: 'eurostileregular', serif
+            background: #f2f4f5
+            text-align: center
+            font-size: 15px
+            padding: 10px 30px
+            display: block
+            text-decoration: none
+            color: #494949
+            &:hover
+              background: #fff
+    #tabs
+      display: none
+    .top-panel
+      border-top: none
+      .two-buttons .gray-button
+        width: 50%
+      .three-buttons .gray-button
+        width: 33.33333%
+    .messages .items-list .item
+      .time, .send-message
+        position: relative
+        margin-top: 10px
+        top: 0
+        right: 0
+    .new-message-block
+      margin-top: 15px
+      .row.with-label
+        padding-left: 0
+        > div:first-child
+          position: static
+      .with-indent
+        padding-left: 0
+    .read-message .top-panel
+      margin-top: -15px
+    .message-detail .property .time
+      position: static
+      margin: 10px 0 0 85px
+
+.messages-page
+  @media (max-width: $xs-max-width)
+    .items-list
+      margin: 0 -15px
+      .item
+        .left-side
+          width: 35px
+          input
+            margin-left: 10px
+
+.my-profile-page
+  .left-side-block
+    margin-right: 260px
+    @media (max-width: $sm-max-width)
+      margin-right: 0
+  .messages-block
+    border: 1px solid #DFDFDF
+    margin-top: 20px
+    .messages
+      margin-top: 20px
+      .my-account-messages-header
+        background-color: #FFFFFF
+        margin: -30px 0 0 30px
+        padding: 0 20px
+        position: absolute
+      .items-list .item
+        padding: 10px 15px
+        &:last-child
+          border-bottom: none
+        @media (max-width: $sm-max-width)
+          .time
+            position: static
+            margin: 7px 0 0 0
+  .additional-link
+    text-align: right
+    margin: 10px 0 0 0
+    a
+      color: #945495
+      font-size: 13px
+      text-decoration: none
+      &:hover
+        text-decoration: underline
+  &.job-seeker
+    .row > div
+      margin-top: 20px
+    .messages-wrapper
+      .messages-block
+        border: 1px solid #dfdfdf
+        margin-top: 10px
+        .messages
+          padding: 0
+          .list
+            .message-row
+              &:last-child
+                border: none
+    .recently-viewed-listings-wrapper
+      margin-top: 30px
+      > h1
+        position: relative
+        font-weight: bold
+        font-size: 18px
+        &:after
+          border-top: 2px solid #ccc
+          display: block
+          height: 2px
+          content: " "
+          position: absolute
+          left: 200px
+          right: 0
+          top: 9px
+    .recently-viewed-listings-wrapper
+      .recently-viewed-listings
+        > div
+          margin-top: 0
+        .item
+          border-bottom: none
+          padding: 10px 15px
+
+// Contact Card
+.messages-contact-page
+  > h1
+    background-color: #efefef
+    border-bottom: 1px solid #d9d9d9
+    padding: 15px
+    font-size: 18px
+    line-height: 18px
+    margin: 0
+  table
+    margin: 15px
+    font-size: 13px
+    tr:first-child td
+      padding-bottom: 10px
+    td
+      vertical-align: top
+      line-height: 1.5
+      &:first-child
+        font-weight: bold
+        min-width: 110px
+        width: 40%
+  .contact-block
+    margin: 15px
+    .contact-buttons
+      margin: 25px 0 15px
+      a
+        text-decoration: none
+    .contact-note
+      font-size: 13px
+      label
+        font-weight: bold
+        display: inline-block
+        margin-bottom: 7px
+      .buttons
+        margin: 10px 0 25px
+        text-align: right
+        float: right
+        overflow: auto
+        input:first-child
+          margin-right: 7px
+      textarea
+        font-size: 13px
+    .user-listings-link
+      margin-top: 8px
+      clear: both
+      a
+        color: #864288
+        font-weight: normal
+        font-style: italic
+        font-size: 13px
+
+// Add Listing page
+
+.edit-listing-page,
+.add-listing-page
+  .page-buttons
+    overflow: auto
+    font-size: 18px
+    font-family: 'eurostileregular', serif
+    margin-bottom: 10px
+    @media (max-width: $xs-max-width)
+      display: none
+    .button-wrapper
+      display: block
+      float: left
+      width: 33.333%
+      height: 40px
+      line-height: 40px
+      position: relative
+      div
+        display: inline-block
+        background: #eee
+        padding: 0 10px
+        color: #8c8c8c
+        position: absolute
+        right: 15px
+        left: 15px
+        a
+          text-decoration: none
+          color: #8c8c8c
+          display: inline-block
+          width: 100%
+        &.first
+          left: 0
+          &:before
+            display: none
+        &.last
+          right: 0
+          &:after
+            display: none
+        &.active
+          background: #8c8c8c
+          color: #fff
+          a
+            color: #fff
+          &:before
+            border-top: 20px solid #8c8c8c
+            border-bottom: 20px solid #8c8c8c
+          &:after
+            border-left: 20px solid #8c8c8c
+        &:before
+          border-left: 20px solid transparent
+          border-top: 20px solid #eee
+          border-bottom: 20px solid #eee
+          right: 100%
+          top: 0
+          content: " "
+          height: 0
+          width: 0
+          position: absolute
+          pointer-events: none
+        &:after
+          border-top: 20px solid transparent
+          border-left: 20px solid #eee
+          border-bottom: 20px solid transparent
+          left: 100%
+          top: 0
+          content: " "
+          height: 0
+          width: 0
+          position: absolute
+          pointer-events: none
+  .section-header
+    background: #eee
+    padding: 10px
+    color: #8c8c8c
+    border: 1px solid #ccc
+    margin-bottom: 20px
+  .upgrade-buttons
+    float: left
+    @media (max-width: $xs-max-width)
+      margin-bottom: 20px
+      float: none
+      a
+        width: 49%
+        text-align: center
+        &:last-child
+          float: right
+  .top-hint
+    float: right
+    margin-bottom: 30px
+  .error
+    clear: right
+  form
+    .date-field
+      position: relative
+      img
+        position: absolute
+        right: 15px
+        top: 8px
+    .nested-fields
+      border-bottom: 1px solid #eee
+      margin-bottom: 20px
+    .add-button-wrapper
+      text-align: right
+      margin-bottom: 20px
+    .remove-button-wrapper
+      text-align: right
+      margin-bottom: 10px
+    .application
+      margin-left: 35px
+      .input-hint
+        margin-bottom: 0
+      &.url
+        position: relative
+        input[type="text"]
+          padding-right: 120px
+        input[type="button"]
+          position: absolute
+          top: 0
+          right: 0
+  .pictures-container
+    margin: 10px 0 0
+    .image
+      border: 1px solid #CFCFCF
+      border-radius: 3px
+      float: left
+      margin-left: 10px
+      padding: 15px 5px
+      text-align: center
+      width: 130px
+    .image-caption
+      font-style: italic
+      font-size: 12px
+  .social-autofill-button
+    margin: 3px 0
+  .autofill-button-on-edit
+    margin-bottom: 15px
+
+// Browsing
+
+table.browsing
+  width: 100%
+  border-collapse: collapse
+  tr.odd td
+    background: #fdfdfd
+    &:hover
+      background: #f3f3f3
+  td
+    width: 25%
+    border: 1px solid #e7e7e7
+    vertical-align: middle
+    &:hover
+      background: #f3f3f3
+    a
+      text-decoration: none
+      color: #935394
+      font-size: 14px
+      display: block
+      padding: 15px
+  &.zipcode td
+    width: 20%
+  &.responsive-table
+    display: none
+    @media (max-width: $xs-max-width)
+      &.xs-table
+        display: table
+        width: 100%
+    @media (min-width: $sm-min-width) and (max-width: $sm-max-width)
+      &.sm-table
+        display: table
+    @media (min-width: $md-min-width)
+      &.md-table
+        display: table
+
+.browse-by-company-page,
+.browse-by-zip-code-page,
+.browse-by-city-page
+  .letters-wrapper
+    background-color: #f0f0f0
+    border: 1px solid #dedede
+    overflow: auto
+    margin-bottom: 15px
+    .starting-with
+      width: 140px
+      text-align: center
+      background-color: #fbfbfb
+      border-right: 1px solid #dedede
+      font-family: 'eurostileregular', serif
+      font-size: 17px
+      color: #4d4d4d
+      line-height: 35px
+      float: left
+    ul
+      padding: 0
+      margin: 0 0 0 140px
+      border: medium none
+      list-style: none outside none
+      li
+        float: left
+        width: 3.846%
+        a
+          text-align: center
+          line-height: 35px
+          color: #4d4d4d
+          display: block
+          text-decoration: none
+          text-transform: uppercase
+          font-family: 'eurostileregular', serif
+          font-size: 15px
+          &.active,
+          &:hover
+            background-color: #999
+            color: #fff
+  @media (max-width: $xs-max-width)
+    position: relative
+    .letters-wrapper
+      margin: 0
+      border: none
+      border-bottom: 1px solid #dedede
+      .starting-with
+        float: none
+        border-right: none
+        width: auto
+        text-align: left
+        padding-left: 15px
+        font-size: 16px
+        height: 45px
+        line-height: 45px
+        background: image-url("arrow_down.svg") right 5px center no-repeat
+        cursor: pointer
+      ul
+        display: none
+        background-color: #f0f0f0
+        margin: 0
+        li
+          width: 14.285%
+
+.browse-by-city-page
+  @media (min-width: $sm-min-width) and (max-width: $sm-max-width)
+    .letters-wrapper
+      .starting-with
+        height: 70px
+        line-height: 70px
+      ul li
+        width: 7.692%
+
+.browse-by-zip-code-page .letters-wrapper ul li
+  width: 10%
+  @media (max-width: $xs-max-width)
+    width: 20%
+
+.browse-by-company-page
+  .letters-wrapper ul li
+    width: 3.703%
+  .company-filter-toggle
+    display: none
+  @media (min-width: $sm-min-width) and (max-width: $sm-max-width)
+    .letters-wrapper
+      .starting-with
+        height: 70px
+        line-height: 70px
+      ul li
+        width: 7.142%
+  @media (max-width: $xs-max-width)
+    .letters-wrapper
+      .starting-with
+        width: 50%
+      .company-filter-toggle
+        display: block
+        float: right
+        width: 50%
+        border-left: 1px solid #dedede
+        height: 45px
+        line-height: 45px
+        padding-left: 15px
+        background: image-url("arrow_down.svg") right 5px center no-repeat #f0f0f0
+        cursor: pointer
+        font-size: 16px
+        font-family: 'eurostileregular', serif
+        color: #4d4d4d
+      ul
+        border-top: 1px solid #dedede
+        z-index: 100
+        li
+          width: 14.285%
+
+@media (max-width: $xs-max-width)
+  body.browse-by-company,
+  body.browse-by-city,
+  body.browse-by-zip-code
+    .main-content
+      padding: 0 0 15px 0
+
+.search-company-form
+  background: #f6f6f6
+  border: 1px solid #dedede
+  padding: 15px 15px 0 15px
+  .row
+    position: relative
+    padding-right: 130px
+    .search-button
+      position: absolute
+      right: 0
+      width: auto
+  @media (max-width: $xs-max-width)
+    display: none
+    border: none
+    border-bottom: 1px solid #dedede
+    .row
+      padding-right: 0
+      .search-button
+        position: static
+        width: 100%
+        input
+          width: 100%
+
+.company-search-results
+  h3
+    font-size: 16px
+    color: #424242
+    margin: 20px 0 5px 0
+  h4
+    font-family: 'eurostileregular', serif
+    font-size: 18px
+    color: #4d4d4d
+    font-weight: normal
+    margin: 10px 0
+  .top-panel
+    margin-bottom: 10px
+  .items-list
+    padding: 0 10px
+    .item
+      position: relative
+      padding: 10px 70px 10px 0
+      .jobs-count
+        position: absolute
+        right: 0
+        top: 50%
+        margin-top: -6px
+      p
+        margin-bottom: 0
+        strong
+          margin-right: 10px
+  .listings-per-page form
+    display: inline-block
+  @media (max-width: $xs-max-width)
+    .top-block
+      padding: 15px
+      background: #f0f0f0
+      h3
+        margin: 0
+      h4
+        margin: 10px 0 0 0
+    .top-panel
+      margin: 0
+
+// Terms of Use, Privacy Policy
+
+.terms-of-use-page,
+.privacy-policy-page
+  h1
+    font-weight: bold
+    font-family: Arial, Helvetic, sans-serif
+    font-size: 18px
+    text-align: center
+    margin-bottom: 20px
+    color: #444
+  h2
+    font-size: 13px
+    margin-bottom: 10px
+    color: #444
+  p
+    font-size: 13px
+    margin-bottom: 10px
+    color: #444
+  img
+    float: right
+    margin: 10px 0 20px 30px
+    max-width: 50%
+    @media (max-width: 500px)
+      max-width: 100%
+
+.privacy-policy-page p
+  text-align: justify
+
+// Applied jobs page
+
+.applied-jobs-page
+  .cover-letter
+    display: none
+  form
+    padding: 15px 15px 0 15px
+    border: 1px solid #ccc
+    background: #f5f5f5
+    margin-bottom: 15px
+    .row
+      position: relative
+      padding-right: 115px
+      .filter-button
+        position: absolute
+        right: 0
+        width: auto
+  .items-list p a
+    color: #7e4580
+    font-weight: normal
+  @media (max-width: $xs-max-width)
+    margin-top: -15px
+    form
+      display: none
+      border: none
+      margin: 0 -15px
+      .row
+        padding-right: 0
+        .filter-button
+          position: static
+          width: 100%
+          input
+            width: 100%
+    .top-panel.three-buttons .gray-button
+      width: 33.3333%
+
+// Saved searches page
+
+.saved-searches-page
+  .items-list
+    .item
+      position: relative
+      padding: 10px 0
+      .content
+        padding-right: 110px
+      h1
+        color: #4F4F4F
+      .controls
+        margin-top: 10px
+      .go-search-form
+        position: absolute
+        right: 0
+        top: 50%
+        margin-top: -12.5px
+        .gray-button
+          padding: 0 30px 0 8px
+          border-radius: 5px
+          &:hover
+            text-decoration: none
+          &:before
+            left: auto
+            right: 2px
+            background-position: -150px 0
+
+// My Credits page
+
+.my-credits-page
+  .top-block
+    padding: 15px
+    border: 1px solid #ccc
+    background: #f5f5f5
+    > div
+      margin: 15px 0
+
+.products-page
+  text-align: center
+  .product-wrapper
+    display: inline-block
+    width: 300px
+    margin: 0 20px 20px 20px
+    color: #4d4d4d
+    text-align: left
+    .product
+      border: 1px solid #dedede
+      background-color: #fafafa
+      > h1
+        background-color: #f3f3f3
+        border-bottom: 1px solid #dedede
+        text-align: center
+        font-family: 'eurostileregular', serif
+        font-size: 18px
+        padding: 20px 0
+      .product-price
+        border-bottom: 1px solid #dedede
+        font-family: 'eurostileregular', serif
+        font-size: 24px
+        padding: 40px 0
+        text-align: center
+        strong
+          font-size: 40px
+      .product-description
+        background-color: #fff
+        border-bottom: 1px solid #dedede
+        font-size: 12px
+        padding: 10px
+        line-height: 18px
+        text-align: center
+        list-style: none
+        height: 100px
+        width: 300px
+        display: table-cell
+        overflow: auto
+        vertical-align: middle
+      .buy-now-button
+        text-align: center
+        padding: 20px 0
+    > a
+      color: #7e4580
+      font-size: 12px
+      text-decoration: none
+      margin-top: 10px
+      display: inline-block
+      &:hover
+        text-decoration: underline
+    @media (max-width: 400px)
+      width: 290px
+      margin: 0 0 20px 0
+
+.product-details-page
+  .item
+    position: relative
+    .save-wrapper
+      position: absolute
+      right: 0
+      bottom: 15px
+      strong
+        color: #7e4580
+  .quantity-wrapper
+    margin-top: 20px
+    label
+      font-size: 18px
+      margin-right: 20px
+    .select-wrapper
+      display: inline-block
+      width: 100px
+    .volume-price
+      display: inline-block
+      margin-left: 20px
+      font-size: 20px
+      font-family: 'eurostileregular', serif
+  .buttons-wrapper
+    margin-top: 20px
+  .product-description
+    margin-top: 20px
+    border-top: 1px solid #ccc
+    padding-top: 20px
+    p
+      margin-bottom: 20px
+    ul
+      padding-left: 20px
+      margin-bottom: 20px
+      li
+        margin-bottom: 10px
+  @media (max-width: $xs-max-width)
+    .buttons-wrapper input
+      display: block
+      width: 100%
+      margin-bottom: 10px
+
+.shopping-cart-page
+  .item
+    position: relative
+    .quantity
+      position: absolute
+      top: 18px
+      right: 250px
+      width: 150px
+      font-size: 14px
+      &.without-select
+        top: 22px
+      .select-wrapper
+        width: 60px
+        display: inline-block
+        margin-left: 10px
+    .price
+      position: absolute
+      top: 22px
+      right: 60px
+      width: 150px
+      font-size: 14px
+      color: #424242
+    .close-button
+      position: absolute
+      top: 18px
+      right: 5px
+      width: 22px
+      height: 22px
+      background: image-url("close_shopping_button.svg") no-repeat
+      &:hover
+        background-position: 0 -32px
+  .shop-total
+    height: 50px
+    position: relative
+    div
+      position: absolute
+      right: 0
+      top: 20px
+      width: 210px
+      font-weight: bold
+      font-size: 16px
+  .controls-wrapper
+    position: relative
+    .promotion-code-wrapper
+      padding: 10px
+      border: 1px solid #ccc
+      background: #f5f5f5
+      display: inline-block
+      input[type=text]
+        width: 300px
+        margin-right: 10px
+    .buttons-wrapper
+      position: absolute
+      top: 10px
+      right: 0
+  .confirmation-block
+    color: #5E5E5E
+    .products
+      margin: 15px 0
+      padding: 0 0 12px 0
+      border-bottom: 1px solid #E4E4E4
+
+// Billing history page
+
+.billing-history-list
+  margin-top: 20px
+  .item
+    .controls
+      margin-top: 8px
+    &:first-child
+      border-top: 1px solid #DEDEDE
+  .payment-total-amount
+    text-align: right
+    margin: 20px 0
+    font-size: 16px
+    font-weight: bold
+
+// Select Product Page
+
+.select-product-page
+  p
+    margin-bottom: 10px
+
+// Sub Accounts page
+
+.sub-accounts-page
+  .input-hint
+    margin-bottom: 20px
+  h2
+    margin-bottom: 15px
+    font-size: 14px
+  .items-list .item a.email
+    color: #444
+  @media (max-width: $xs-max-width)
+    .messages-wrapper
+      margin-bottom: 30px
+    .top-panel
+      margin-top: -15px
+      &.two-buttons .gray-button
+        width: 50%
+
+// Screening Questionnaires Page
+
+.questionnaires-page
+  .items-list .item .details h1
+    color: #444
+  .field-caption
+    font-size: 14px
+    font-weight: bold
+  .top-panel.with-bottom-margin
+    margin-bottom: 15px
+  .top-panel
+    .short
+      display: none
+    .long
+      display: inline
+  form
+    margin-bottom: 20px
+    ul
+      margin: 0
+      padding-left: 15px
+      li
+        list-style: none
+        margin-bottom: 10px
+    .with-label
+      position: relative
+      padding-left: 60px
+      span
+        position: absolute
+        left: 15px
+        top: 10px
+    .with-delete-button
+      padding-right: 80px
+      a
+        display: block
+        color: #444
+        position: absolute
+        right: 5px
+        padding: 14px
+        background: #ddd
+        text-decoration: none
+        font-size: 14px
+  table
+    border-spacing: 0
+    width: 100%
+    font-size: 14px
+    th
+      border-bottom: 2px solid #999
+      padding: 10px 0
+      text-align: left
+    td
+      padding: 15px 5px
+      border-bottom: 1px solid #ddd
+    .actions
+      width: 100px
+      a
+        margin-right: 10px
+        &:last-child
+          margin-right: 0
+    .answer-type
+      width: 120px
+    .is-required
+      width: 100px
+    .order
+      width: 60px
+      img
+        margin-right: 5px
+    .name
+      padding-right: 15px
+  @media (max-width: $xs-max-width)
+    .messages-wrapper
+      margin-bottom: 30px !important
+    .top-panel
+      margin-top: -15px
+      &.two-buttons .gray-button
+        width: 50%
+    table
+      .is-required, .answer-type
+        display: none
+      .order
+        width: 50px
+      .actions
+        width: 60px
+        line-height: 25px
+  @media (max-width: 450px)
+    .top-panel.two-buttons .gray-button
+      .short
+        display: inline
+      .long
+        display: none
+
+// SEO Landing Page
+
+.community-landing-page
+  .page-with-banners
+    .page-content
+      border: 1px solid #ddd
+      h1
+        background-color: #fafafa
+        border-bottom: 1px solid #eee
+        padding: 10px
+        color: #864288
+        font-size: 18px
+        margin: 0
+      > div
+        padding: 10px
+        font-size: 13px
+        img
+          float: left
+          margin-right: 15px
+          margin-bottom: 10px
+        p
+          margin: 0 0 10px
+          text-align: justify
+  .row
+    > div
+      margin-top: 10px
+    h2
+      background: #f9f9f9
+      padding: 12px 15px
+      font-size: 18px
+      font-weight: normal
+      color: #666
+      font-family: 'eurostileregular', serif
+      span
+        float: right
+        font-weight: bold
+        font-size: 16px
+    .list-wrapper
+      padding-left: 20px
+      > div
+        padding: 15px 0
+        border-bottom: 1px dotted #ccc
+        a
+          text-decoration: none
+          &:hover
+            text-decoration: underline
+        .jobs-count
+          font-size: 12px
+          color: #999
+          margin-top: 5px
+          span
+            color: #666
+            margin-right: 5px
+            font-style: italic
+    .view-all-link
+      margin-top: 20px
+      text-align: right
+      a
+        font-size: 12px
+        text-decoration: none
+        &:hover
+          text-decoration: underline
+    @media (max-width: $xs-max-width)
+      h2
+        margin-left: -15px
+        margin-right: -15px
+        span
+          font-size: 15px
+      .list-wrapper
+        padding-left: 0
+
+.seo-landing-page
+  .page-content
+    font-size: 13px
+    margin-bottom: 20px
+    p
+      margin: 0 0 10px
+      text-align: justify
+  @media (max-width: $xs-max-width)
+    .top-panel
+      padding: 5px 15px
+    .items-list
+      margin: 0 -15px
+
+// Company Profile Page
+
+.company-profile-page
+  .left-side-wrapper
+    .company-logo
+      display: inline-block
+      float: left
+      border: 1px solid #ECECEC
+      border-radius: 3px
+      max-width: 180px
+      max-height: 100px
+      padding: 9px
+      margin: 0 15px 5px 0
+    h2
+      font-size: 14px
+      margin-bottom: 10px
+      width: 100%
+    .description-wrapper
+      overflow: auto
+      margin-bottom: 15px
+      h1
+        font-size: 22px
+        color: #708e08
+        margin-bottom: 10px
+      .description
+        font-size: 13px
+        color: #333
+    .items-list
+      .content p > strong
+        margin-right: 10px
+    .company-jobs-wrapper
+      border-top: 1px solid #eee
+    .side-block
+      display: none
+  .side-block
+    text-align: left
+  @media (max-width: $xs-max-width)
+    display: block
+    .right-side-wrapper
+      display: none
+    .left-side-wrapper
+      display: block
+      .top-panel, .pagination
+        display: none
+      .company-jobs-wrapper
+        border-top: none
+        h2
+          padding-bottom: 10px
+          margin-bottom: 0
+          border-bottom: 1px solid #ccc
+      .side-block
+        display: block
+
+// Payment confirmation page
+
+.payment-confirmation-page
+  .products-to-pay-for
+    margin: 10px 0
+    font-weight: bold
+    font-style: italic
+    li
+      margin: 5px 25px
+  .payment-gateway
+    margin-bottom: 10px
+  @media (max-width: $xs-max-width)
+    .top-panel
+      margin-top: -15px
+      border-top: none
+
+.job-import-page
+  .job-import-hint
+    font-size: 13px
+    font-weight: bold
+    margin-bottom: 10px
+  .file-field-wrapper
+    margin: 20px 0
+  .buttons-wrapper
+    text-align: right
+
+// Print Listing Page
+
+#print-button
+  text-align: center
+  margin: 20px
+
+.print-page
+  background: #fff
+  padding: 30px
+  color: #333
+  width: 920px
+  margin: 20px auto
+  border: 1px solid #ddd
+  .invoice-block
+    font-size: 14px
+    position: relative
+    margin-bottom: 20px
+    &:last-child
+      margin-bottom: 0
+    img
+      height: 100px
+    h1
+      font-size: 20px
+      font-weight: bold
+      margin-bottom: 15px
+    .invoice-info
+      text-align: right
+      position: absolute
+      right: 0
+      top: 0
+      h1
+        text-align: right
+    .send-payment-to,
+    .bill-to
+      width: 45%
+      float: left
+      border-top: 1px solid #ddd
+      padding-top: 20px
+    .send-payment-to
+      margin-left: 10%
+    table
+      border-collapse: collapse
+      width: 100%
+      td, th
+        border: 1px solid #d9d9d9
+        padding: 7px 10px
+        &:first-child
+          text-align: left
+        &:last-child
+          text-align: right
+          width: 200px
+      th
+        background: #ededed
+      .total td
+        background: #f9f9f9
+        font-weight: bold
+        &:first-child
+          text-align: right
+  .top-block
+    margin-bottom: 20px
+    .block
+      float: left
+      margin-right: 40px
+    h1
+      font-size: 18px
+      color: #708e08
+      font-family: 'eurostileregular', serif
+      margin-bottom: 10px
+    h2
+      font-size: 18px
+      color: #864288
+      font-family: 'eurostileregular', serif
+      margin: 0 0 10px 0
+      font-weight: normal
+    p
+      font-size: 13px
+  .bottom-block
+    margin-top: 20px
+    font-size: 13px
+    > div
+      border-top: 1px solid #ddd
+    h3
+      font-size: 13px
+      text-transform: uppercase
+      font-weight: bold
+      color: #864288
+      margin: 10px 0 10px 0
+    > div
+      margin-bottom: 30px
+
+.raw-search-form
+  padding: 20px
+
+.page-not-found
+  text-align: center
+  margin-top: 50px
+  h1, h2
+    color: #864288
+    font-size: 130px
+    font-family: 'eurostileregular', serif
+    text-align: center
+  h2
+    font-size: 35px
+  div
+    margin-top: 20px
+    color: #666
+    font-size: 18px
+    font-family: 'eurostileregular', serif
+    a
+      text-decoration: none
+      &:hover
+        text-decoration: underline
+
+.latest-listings-page
+  .top-panel
+    @media (max-width: $xs-max-width)
+      margin: -15px -15px 0 -15px
+      padding: 5px 10px
+      border-top: none
+
+.blog-page
+  .top-panel
+    .results-count
+      font-family: 'eurostileregular', serif
+      line-height: 25px
+      margin-left: 5px
+  .blog-post-item
+    h1
+      color: #864288
+      margin: 0 0 15px
+      font-size: 18px
+      font-weight: bold
+    img
+      float: left
+      margin: 0 15px 5px 0
+    .post-date
+      margin-bottom: 10px
+      font-size: 12px
+      color: #8E8E8E
+    .post-body
+      font-size: 13px
+      p
+        margin: 0 0 10px 0
+    .blog-comments
+      border-top: 1px solid #EFEFEF
+      h3
+        font-size: 16px
+        margin: 20px 0 10px 0
+    .comments
+      clear: both
+  .right-side-wrapper
+    .side-block
+      text-align: left
+      color: #424242
+      h1
+        font-size: 17px
+        margin: 0
+      ul
+        list-style: none
+        padding-left: 0
+        margin: 0
+        li
+          border-bottom: 1px solid #EFEFEF
+          font-size: 13px
+          padding: 12px
+          a
+            color: #424242
+          &:last-child
+            border-bottom: none
+          &:before
+            content: '\2023'
+            color: #989898
+            font-size: 15px
+            margin-right: 8px
+  .blog-search
+    background-color: #5F5F5F
+    color: #FFFFFF
+    padding: 12px
+    margin-bottom: 15px
+    h1
+      color: #FFFFFF
+      margin: 3px 0 10px
+      font-size: 15px
+    .searchBlogBlock
+      position: relative
+      #searchBlogButton
+        position: absolute
+        right: 0
+        top: 0
+        margin: 0
+        width: 36px
+        height: 42px
+        line-height: 35px
+        font-family: Arial, Helvetica, sans-serif
+        text-align: center
+        background: image-url("menu_sprite.svg") no-repeat scroll -476px 8px white
+        border: 1px solid #cfcfcf
+        border-left: 0 !important
+        cursor: pointer
+      .input-wrapper
+        margin-right: 35px
+  .communities
+    background-color: #F3F3F3
+    border: 1px solid #DEDEDE
+    color: #424242
+    padding: 10px
+    margin-bottom: 15px
+    h1
+      margin: 3px 0 10px
+      font-size: 17px
+    select
+      background-color: #FFFFFF
+  .blog-control-panel
+    display: none
+  @media (max-width: $xs-max-width)
+    display: block
+    .right-side-wrapper
+      display: block
+      width: auto
+      padding: 0
+      .blog-search,
+      .communities
+        display: none
+      .side-block
+        margin: 15px 0 0 0
+    .left-side-wrapper
+      display: block
+      .top-panel
+        padding: 5px 10px
+        border-top: none
+      .items-list
+        margin: 0 -15px
+      .blog-control-panel
+        display: block
+        margin: -15px -15px 0 -15px
+        border-bottom: 1px solid #dedede
+        .control-buttons
+          > div
+            float: left
+            background: #f3f3f3
+            padding: 15px
+            font-size: 14px
+            cursor: pointer
+            position: relative
+          .community-trigger
+            width: 60%
+            border-right: 1px solid #dedede
+            background: image-url("arrow_down.svg") right 5px center no-repeat #f3f3f3
+          .blog-search-trigger
+            width: 40%
+            &:after
+              content: ''
+              position: absolute
+              right: 10px
+              top: 50%
+              margin-top: -12.5px
+              width: 25px
+              height: 25px
+              background: image-url("menu_sprite.svg") no-repeat -480px 0
+        .blog-search, .communities
+          padding: 15px
+          border: none
+          border-top: 1px solid #dedede
+          background: #f3f3f3
+          margin: 0
+          display: none
+          h1
+            display: none
+    .blog-post-item
+      margin-top: 15px
+
+.refine-toggle,
+.filter-toggle
+  background: #5d5d5d
+  color: #fff
+  padding: 10px 15px
+  position: relative
+  cursor: pointer
+  display: none
+  font-size: 15px
+  text-align: left
+  .down, .left
+    position: absolute
+    right: 15px
+    top: 10px
+    font-size: 16px
+  .left
+    display: none
+  &.expanded
+    .left
+      display: block
+    .down
+      display: none
+  @media (max-width: $xs-max-width)
+    display: block
+
+.filter-toggle
+  margin: 0 -15px
+
+.blog-comments
+  .comments-list
+    .item
+      font-family: Arial, Helvetic, sans-serif
+      color: #616161
+      background-color: #FBFBFB
+      border-radius: 2px
+      border: 1px solid #E5E5E5
+      padding: 10px
+      margin-bottom: 15px
+      position: relative
+      .user-avatar
+        float: left
+        width: 50px
+        height: 50px
+        margin: 0 15px 0 0
+        text-align: center
+        img
+          max-width: 100%
+          max-height: 100%
+      .user-name
+        font-size: 13px
+        font-weight: bold
+        position: relative
+        padding-right: 120px
+        @media (max-width: $sm-min-width)
+          padding-right: 0
+      .date
+        margin: 0
+        font-size: 12px
+        font-weight: normal
+        color: #8E8E8E
+        position: absolute
+        top: 10px
+        right: 10px
+        @media (max-width: $sm-min-width)
+          position: static
+          margin-top: 7px
+      .body
+        color: #616161
+        font-size: 13px
+        line-height: 1.5em
+        margin-top: 5px
+      .controls
+        text-align: right
+        margin: 6px 0 0 0
+        color: #616161
+        .reply, .reply > a
+          font-size: 12px
+          font-weight: bold
+          color: #616161
+      &.level1
+        margin-left: 5%
+      &.levelx
+        margin-left: 5%
+      &.level1, &.levelx
+        &:after, &:before
+          bottom: 100%
+          left: 40px
+          border: solid transparent
+          content: " "
+          height: 0
+          width: 0
+          position: absolute
+          pointer-events: none
+        &:after
+          border: 11px rgba(253, 253, 253, 0)
+          border-bottom-color: #FDFDFD
+          margin-left: -11px
+        &:before
+          border: 12px rgba(229, 229, 229, 0)
+          border-bottom-color: #E5E5E5
+          margin-left: -12px
+  #add-comment-block
+    margin-top: 10px
+    .controls
+      text-align: right
+      margin-top: 15px
+    textarea
+      height: 80px
+  .add-comment-error-block
+    display: none
+
+.community-landing-page
+  .latest-blog-posts
+    .item
+      border-bottom: none
+      .title h2
+        background: none
+        color: #864288
+        font-family: Arial, Helvetic, sans-serif
+        padding: 0
+  h1.latest-blog
+    position: relative
+    font-weight: bold
+    font-size: 16px
+    margin: 30px 0 0 0
+    &:after
+      border-top: 1px solid #C9C9C9
+      display: block
+      height: 1px
+      content: " "
+      position: absolute
+      left: 190px
+      right: 0
+      top: 9px
+
+.alerts-page
+  @media (max-width: $xs-max-width)
+    .top-panel
+      margin-top: -15px
+      border-top: none
+      .controls .gray-button
+        width: 50%
+
+.saved-listings-page
+  @media (max-width: $xs-max-width)
+    .top-panel
+      margin-top: -15px
+      border-top: none
+      .controls .gray-button
+        width: 100%
+
+#latest-blog, .latest-blog-posts, .blog-page
+  .items-list
+    .item
+      position: relative
+      .content
+        h1
+          padding-right: 110px
+          @media (max-width: $xs-max-width)
+            padding-right: 0
+        p
+          a
+            font-weight: normal
+            color: #864288
+        .comments-count
+          position: absolute
+          top: 17px
+          right: 10px
+          color: #616161
+          font-size: 11px
+          background: image-url("blog_comments_icon.svg") no-repeat left center
+          padding-left: 23px
+          min-height: 14px
+          .comments-number
+            color: #864288
+            font-size: 12px
+          @media (max-width: $sm-min-width)
+            position: static
+            width: auto
+            margin: 5px 0
+        .date
+          color: #8e8e8e
+
+#location-loading-wrapper
+  display: none
+  text-align: center
+  img
+    margin-top: 5px
+
+.communities-page
+  text-align: center
+  .community-wrapper
+    display: inline-block
+    width: 250px
+    height: 230px
+    margin: 0 10px 20px 10px
+    text-align: left
+    border: 1px solid #dedede
+    position: relative
+    vertical-align: top
+    &:hover
+      background-color: #fbfbfb
+    .community
+      padding: 10px
+      font-size: 14px
+      color: #333
+      display: block
+      text-decoration: none
+      > h1
+        font-family: 'eurostileregular', serif
+        font-weight: bold
+        font-size: 18px
+        padding-left: 60px
+        color: #864288
+        position: relative
+        height: 60px
+        display: table
+        > div
+          vertical-align: middle
+          display: table-cell
+        &:before
+          content: ''
+          position: absolute
+          left: 0
+          top: 5px
+          width: 50px
+          height: 50px
+          background: image-url("community_icons.svg") no-repeat 0 0
+        &.administrative:before
+          background-position: -50px 0
+        &.media:before
+          background-position: -100px 0
+        &.aerospace:before
+          background-position: -150px 0
+        &.automotive:before
+          background-position: -200px 0
+        &.banking-finance:before
+          background-position: -500px 0
+        &.community-fitness:before
+          background-position: -1400px 0
+        &.construction:before
+          background-position: -250px 0
+        &.consulting:before
+          background-position: -300px 0
+        &.customer-service:before
+          background-position: -350px 0
+        &.education:before
+          background-position: -400px 0
+        &.engineering:before
+          background-position: -450px 0
+        &.government-defense:before
+          background-position: -550px 0
+        &.healthcare:before
+          background-position: -600px 0
+        &.hospitality-tourism:before
+          background-position: -650px 0
+        &.hr-recruitment:before
+          background-position: -700px 0
+        &.industrial-utilities:before
+          background-position: -750px 0
+        &.informational-technology:before
+          background-position: -850px 0
+        &.insurance:before
+          background-position: -800px 0
+        &.legal:before
+          background-position: -900px 0
+        &.logistics-transportation:before
+          background-position: -950px 0
+        &.management-business:before
+          background-position: -1000px 0
+        &.manufacturing:before
+          background-position: -1050px 0
+        &.mining-oil-gas:before
+          background-position: -1100px 0
+        &.real-estate:before
+          background-position: -1150px 0
+        &.retail-consumer:before
+          background-position: -1200px 0
+        &.sales-marketing:before
+          background-position: -1250px 0
+        &.science-research:before
+          background-position: -1300px 0
+        &.transit-travel:before
+          background-position: -1350px 0
+      .description
+        line-height: 1.3
+        margin: 10px 0
+      .specialties
+        line-height: 1.3
+        span
+          font-style: italic
+          color: #888
+    .community-bottom
+      position: absolute
+      left: 0
+      right: 0
+      bottom: 1px
+      height: 30px
+      background: #fbfbfb
+      border-top: 1px solid #dedede
+      .jobs, .blog
+        float: left
+        width: 50%
+        line-height: 30px
+        font-size: 13px
+        padding-left: 50px
+        color: #333
+        position: relative
+        text-decoration: none
+        &:hover
+          background-color: #f3f3f3
+        &:before
+          content: ''
+          position: absolute
+          left: 10px
+          top: 2px
+          width: 30px
+          height: 25px
+          background: image-url("menu_sprite.svg") no-repeat -60px 0
+      .jobs
+        border-right: 1px solid #dedede
+        &:before
+          background-position: -570px 0
+
+.todo::before
+  content: "Todo: "
+
+.todo
+  color: #ff1e87
+  font-size: 8pt
+
+.option-description
+  margin: 20px 0
+  div
+    margin-bottom: 10px
+    span
+      font-weight: bold
+      font-size: 17px
+
+// BXSlider
+
+.bx-wrapper
+  margin: 0 auto 40px
+
+.bx-wrapper .bx-viewport
+  -moz-box-shadow: none
+  -webkit-box-shadow: none
+  box-shadow: none
+  border: 0
+  left: 0
+
+.bx-controls-direction a
+  opacity: 0
+  transition: opacity .25s ease-in-out
+  -moz-transition: opacity .25s ease-in-out
+  -webkit-transition: opacity .25s ease-in-out
+
+.bx-wrapper:hover .bx-controls-direction a
+  opacity: 1
+
+ul.bxslider
+  margin: 0
+  padding: 0
+
+  &.hidden
+    display: none
+
+.resumes-form-js .ui-datepicker-calendar
+  display: none
+
+.jstree-default a
+  white-space: normal !important
+  height: auto
+
+.jstree-anchor
+  height: auto !important
+
+.jstree-default li > ins
+  vertical-align: top
+
+.jstree-leaf
+  height: auto
+
+.jstree-leaf a
+  height: auto !important
+
+.status-wrapper img
+  display: none
+
+.apply-page
+  .messages
+    .message
+      padding: 10px
+      border-bottom: 1px solid #eee
+
+      .title
+        font-size: 13px
+        font-weight: bold
+        color: #333
+        margin-bottom: 5px
+
+      .content
+        font-size: 13px
+        font-style: italic
+        line-height: 1.3
+
+.transactions
+  th
+    text-align: left
+  td, th
+    padding: 5px 30px 5px 0

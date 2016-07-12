@@ -1,0 +1,7 @@
+# config/solano.yml
+---
+test_pattern:
+  - features/*.feature
+  - features/api/*.feature
+  - spec/**/*_spec.rb
+  - test/**/*_test.rb

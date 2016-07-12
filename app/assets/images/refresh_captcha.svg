@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="15px" height="18px" viewBox="0 0 15 18" enable-background="new 0 0 15 18" xml:space="preserve">
+<g>
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="0.5" y1="12.9375" x2="14.4443" y2="12.9375">
+		<stop  offset="0" style="stop-color:#27AAE1"/>
+		<stop  offset="0.9818" style="stop-color:#2B3990"/>
+	</linearGradient>
+	<path fill="url(#SVGID_1_)" d="M2.324,9.874H0.5v4.374l1.295-1.192C3.063,14.837,5.148,16,7.498,16
+		c3.571,0,6.515-2.676,6.946-6.126h-1.769c-0.414,2.481-2.576,4.374-5.178,4.374c-1.841,0-3.465-0.948-4.4-2.388L5.26,9.874H2.324z"
+		/>
+	<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="2.3242" y1="9.874" x2="2.3242" y2="9.874">
+		<stop  offset="0" style="stop-color:#27AAE1"/>
+		<stop  offset="0.9818" style="stop-color:#2B3990"/>
+	</linearGradient>
+	<path fill="url(#SVGID_2_)" d="M2.324,9.874"/>
+	<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="0.5557" y1="5.0635" x2="14.5" y2="5.0635">
+		<stop  offset="0" style="stop-color:#27AAE1"/>
+		<stop  offset="0.9818" style="stop-color:#2B3990"/>
+	</linearGradient>
+	<path fill="url(#SVGID_3_)" d="M7.498,2C3.931,2,0.982,4.669,0.556,8.126h1.769C2.739,5.639,4.9,3.751,7.498,3.751
+		c1.901,0,3.563,1.004,4.485,2.516l-1.858,1.859H14.5V3.751l-1.252,1.251C11.983,3.188,9.878,2,7.498,2L7.498,2z"/>
+	<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="7.498" y1="2" x2="7.498" y2="2">
+		<stop  offset="0" style="stop-color:#27AAE1"/>
+		<stop  offset="0.9818" style="stop-color:#2B3990"/>
+	</linearGradient>
+	<path fill="url(#SVGID_4_)" d="M7.498,2"/>
+</g>
+<rect x="6.054" y="6.767" fill="none" width="4.401" height="4.465"/>
+<text transform="matrix(1 0 0 1 6.0537 10.3174)" fill="#3083BA" font-family="'MyriadPro-Bold'" font-size="5">C</text>
+</svg>

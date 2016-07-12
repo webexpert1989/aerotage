@@ -1,0 +1,36 @@
+$('.resumes-form-js').ready ->
+  datepicker_options =
+    dateFormat: "MM yy"
+    showOtherMonths: true
+    selectOtherMonths: true
+    changeMonth: true
+    changeYear: true
+    showButtonPanel: true
+    yearRange: "-30:+0"
+    showOn: "button"
+    buttonImage: "<%= image_url('calendar.svg') %>"
+    buttonImageOnly: true
+    onClose: (dateText, inst) ->
+      isDonePressed = ->
+        $('#ui-datepicker-div').html().indexOf('ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all ui-state-hover') > -1
+
+      if isDonePressed()
+        month = $('#ui-datepicker-div .ui-datepicker-month :selected').val()
+        year = $('#ui-datepicker-div .ui-datepicker-year :selected').val()
+        $(this).datepicker('setDate', new Date(year, month, 1)).trigger 'change'
+#        $('.date-picker').focusout()
+    beforeShow: (input, inst) ->
+      inst.dpDiv.addClass 'month_year_datepicker'
+      if (datestr = $(this).val()).length > 0
+        year = datestr.substring(datestr.length - 4, datestr.length)
+        month = jQuery.inArray(datestr.substring(0, datestr.length - 5), $(this).datepicker('option', 'monthNames'))
+        $(this).datepicker 'option', 'defaultDate', new Date(year, month, 1)
+        $(this).datepicker 'setDate', new Date(year, month, 1)
+
+  $(".with-datepicker").datepicker(datepicker_options)
+
+  $('#educations').on 'cocoon:after-insert', (e, insertedItem) ->
+    insertedItem.find(".with-datepicker").datepicker(datepicker_options)
+
+  $('#work-experiences').on 'cocoon:after-insert', (e, insertedItem) ->
+    insertedItem.find(".with-datepicker").datepicker(datepicker_options)

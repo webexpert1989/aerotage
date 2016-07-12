@@ -1,0 +1,323 @@
+1;Executive;
+2;"Corporate Audit Officer";1
+3;"Contracts Executive";1
+4;"Compliance Officer";1
+5;President;1
+6;"General Counsel ";1
+7;"Chief Operating Officer";1
+8;"Chief Executive Officer";1
+9;"Chief Financial Officer";1
+10;"Chief Information Officer";1
+11;"Product Development Executive";1
+12;"Marketing Executive";1
+13;"Manufacturing Engineering Executive";1
+14;"Human Resources Executive";1
+15;"Engineering Executive";1
+16;"Division Operations Executive";1
+17;"Division Manufacturing Executive";1
+18;"Corporate Executive";1
+19;"Executive - Other";1
+20;"Business Development Executive";1
+21;"VP of Finance";1
+22;Treasurer;1
+23;"Quality Executive";1
+24;"Supply Chain Executive ";1
+25;"Sales Executive";1
+26;"Risk Officer";1
+27;"R & D Officer";1
+28;"Human Resources";
+29;"Benefits Manager";28
+30;"Benefits Coordinator";28
+31;"Benefits Clerk";28
+32;"EEO Compliance Officer";28
+33;"Compensation Manager";28
+34;"Compensation Director";28
+35;"Compensation Analyst - Senior";28
+36;"Compensation Analyst";28
+37;"Compensation & Benefits Manager";28
+38;"Human Resources Manager";28
+39;"Human Resources Generalist";28
+40;"Human Resources Director";28
+41;"Human Resources Assistant - Senior";28
+42;"Human Resources Assistant";28
+43;"HRIS Technical Specialist";28
+44;"Employee Relations Manager";28
+45;"Employment Manager";28
+46;"Safety Manager ";28
+47;"Safety Director";28
+48;"Safety Administrator";28
+49;Recruiter;28
+50;"Organizational Development Director";28
+51;"Labor Relations Manager";28
+52;"Labor Relations Director";28
+53;"Human Resources - Other";28
+54;"Workers Compensation Coordinator";28
+55;"Training Supervisor";28
+56;"Training Manager";28
+57;"Training Director";28
+58;"Training Coordinator";28
+59;Trainer;28
+60;"Staffing Coordinator";28
+61;"Security Director";28
+62;"Information Technology";
+63;"Applications Programmer III (Lead)";62
+64;"Applications Programmer II (Senior)";62
+65;"Desktop/Computer Support Coordinator";62
+66;"Data Entry Clerk II (Senior)";62
+67;"Data Entry Clerk I";62
+68;"Database Analyst";62
+69;"Database Administrator Supervisor";62
+70;"Database Administrator";62
+71;"Data Architect";62
+72;"Computer Repair Technician";62
+73;"Computer Operations Supervisor";62
+74;"Computer Operations Specialist II (Senior)";62
+75;"Computer Operations Specialist I";62
+76;"Computer Operations Manager";62
+77;"Client/Server Operations Specialist";62
+78;"Audio Visual Technician ";62
+79;"Technical Writer";62
+80;"Systems Analyst III (Lead)";62
+81;"Systems Analyst II (Senior)";62
+82;"Systems Analyst I";62
+83;"Information Systems Supervisor";62
+84;"Information Systems Manager";62
+85;"Information Systems Director";62
+86;"Information Security Administrator";62
+87;"Help Desk Supervisor";62
+88;"Help Desk Coordinator";62
+89;"Electronic Data Interchange (EDI) Analyst/Developer";62
+90;"Desktop/Computer Support Specialist";62
+91;"Systems Administrator";62
+92;"Systems & Programming Manager";62
+93;"Software Technician";62
+94;"Software Quality Assurance Tester";62
+95;"Software Engineer";62
+96;"Project Manager - IT";62
+97;"Programmer/Analyst III (Lead)";62
+98;"Programmer/Analyst II (Senior)";62
+99;"Programmer/Analyst I";62
+100;"Network Services Director";62
+101;"Network Manager";62
+102;"Network Administrator";62
+103;"Telecommunications Analyst";62
+104;"Telecommunications Manager";62
+105;"Telecommunications Supervisor";62
+106;"Telecommunications Technician";62
+107;"Web Administrator";62
+108;"Web Developer";62
+109;"Information Technology - Other";62
+110;Engineering;
+111;"Industrial Engineer";110
+112;"Industrial Engineer II (Senior)";110/111
+113;"Industrial Engineer II (Lead)";110/111
+114;"Industrial Engineer I";110/111
+115;"Industrial Engineering Manager";110/111
+116;"Failure Analysis Engineer ";110
+117;"Environment Engineer";110
+118;"Environmental Specialist";110/117
+119;"Environmental Engineer";110/117
+120;"Engineering Technician";110
+121;"Engineering Supervisor ";110
+122;"Engineering Analyst ";110
+123;"Mechanical Engineer";110
+124;"Mechanical Engineering Manager";110/123
+125;"Mechanical Engineer III (Lead)";110/123
+126;"Mechanical Engineer II (Senior)";110/123
+127;"Mechanical Engineer I";110/123
+128;"Manufacturing Engineer";110
+129;"Manufacturing Engineering Manager";110/128
+130;"Manufacturing Engineer III (Lead)";110/128
+131;"Manufacturing Engineer II (Senior)";110/128
+132;"Manufacturing Engineer I";110/128
+133;"Logistics Engineer ";110
+134;"Process Engineer";110
+135;"Process Engineering Manager ";110/134
+136;"Process Engineer III (Lead) ";110/134
+137;"Process Engineer II (Senior) ";110/134
+138;"Process Engineer I";110/134
+139;"Packaging Engineer ";110
+140;"Plant Engineer";110
+141;"Plant Engineer ";110/140
+142;"Plant Engineering Manager";110/140
+143;"Structural Engineer";110
+144;"Structural Engineer II";110/143
+145;"Structural Engineer I";110/143
+146;"Structural Engineer III";110/143
+147;"Structural Engineer Manager";110/143
+148;"Research Associate";110
+149;"Research and Development Manager";110
+150;"Reliability Engineer ";110
+151;"Product Engineer ";110
+152;"Project Controls Specialist";110
+153;"Project Engineer";110
+154;"Quality Control Engineer";110
+155;"Quality Control Engineer II (Senior) ";110/154
+156;"Quality Control Engineer I";110/154
+157;"Test Engineer ";110
+158;"Test Engineer Manager";110/157
+159;"Test Engineer III";110/157
+160;"Test Engineer I";110/157
+161;"Test Engineer II";110/157
+162;"Systems Engineer ";110
+163;"Systems Engineering Manager";110/162
+164;"Systems Engineer III (Lead)";110/162
+165;"Systems Engineer II (Senior)";110/162
+166;"Systems Engineer I";110/162
+167;"Engineering - Other";110
+168;"Water/Waste Water Environmental Engineer";110
+169;"Engineering Manager";110
+170;"Engineering Director";110
+171;"Electronic Engineer";110
+172;"Electronic Technician II (Senior)";110/171
+173;"Electronic Technician I";110/171
+174;"Electronic Engineer ";110/171
+175;"Electrical Engineer";110
+176;"Electrical Engineering Manager";110/175
+177;"Electrical Engineer III (Lead)";110/175
+178;"Electrical Engineer II (Senior)";110/175
+179;"Electrical Engineer I";110/175
+180;"Design Engineer";110
+181;"Design Manager";110/180
+182;"Design Engineer III (Lead)";110/180
+183;"Design Engineer II (Senior)";110/180
+184;"Design Engineer I";110/180
+185;"Controls Engineer ";110
+186;"Civil Engineer";110
+187;"Civil Engineering Manager";110/186
+188;"Civil Engineer III (Lead)";110/186
+189;"Civil Engineer II (Senior)";110/186
+190;"Civil Engineer I";110/186
+191;"Chemical Engineer";110
+192;"Chemical Engineer (PhD) ";110/191
+193;"Chemical Engineer I";110/191
+194;"Chemical Engineering Manager";110/191
+195;"Chemical Engineer III (Lead)";110/191
+196;"Chemical Engineer II (Senior)";110/191
+197;CAD;110
+198;"CAD Supervisor";110/197
+199;"CAD Designer I";110/197
+200;"CAD Designer II (Senior)";110/197
+201;"CAD Draftsperson";110/197
+202;"Applications Engineer";110
+203;"Applications Engineering Manager";110/202
+204;"Applications Engineer III (Lead)";110/202
+205;"Applications Engineer II (Senior)";110/202
+206;"Applications Engineer I";110/202
+207;"Applications Engineer";110/202
+208;Dispatch;
+209;"Flight Dispatcher/Production Control";208
+210;"Dispatch Associate";208
+211;"Dispatcher / Loadmaster";208
+212;"Dispatch - Other";208
+213;"Flight Coordinator";208
+214;"Flight Dispatcher ";208
+215;Administration;
+216;"Administration - Other";215
+217;Scheduler;215
+218;"Records Clerk";215
+219;"Office Manager";215
+220;"Executive Assistant";215
+221;"Office Administrator";215
+222;Receptionist;215
+223;Avionics;
+224;"Avionics - Other";223
+225;"Avionics Manager";223
+226;"Avionics Engineer";223
+227;"Avionics Installer";223
+228;"Avionics Technician Lead";223
+229;"Avionics Technician";223
+230;Accounting/Finance;
+231;"Tax Manager";230
+232;"Accounting/Finance - Other";230
+233;"Accountant - CPA";230
+234;"Accounting - General";230
+235;"Accounts Payable/Receivable Clerk";230
+236;"Auditing - General";230
+237;"Bookkeping - General";230
+238;"Collections - General";230
+239;Controller;230
+240;"Cost Accountant";230
+241;"Credit Analyst";230
+242;"Finance - General";230
+243;"Payroll - General";230
+244;"Risk Management - General";230
+245;"Tax Accountant";230
+246;Inspector;
+247;"Inspector - Maintenance";246
+248;"Inspector - Aircraft";246
+249;"Inspector - Aerospace";246
+250;"Inspector - Safety";246
+251;"Inspector - Quality Assurance";246
+252;"Inspector - Quality Control";246
+253;"Inspector - Other";246
+254;Interiors;
+255;"Interior Installer";254
+256;"Cabinet Shop Installer";254
+257;"Design & Construction Director";254
+258;"Interior - Paint";254
+259;"Interior - Aircraft ";254
+260;"Interior - Design";254
+261;"Interior - Sheet Metal";254
+262;Sewing;254
+263;"Sheet Metal Installer";254
+264;"Sheet Metal Technician";254
+265;"Tool Maker";254
+266;"Upholstery Technician";254
+267;"Interiors - Other";254
+268;Inventory/Parts;
+269;"Inventory/Parts Clerk";268
+270;"Inventory/Parts Manager";268
+271;"Inventory/Parts Supervisor";268
+272;"Inventory/Parts Supervisor Lead";268
+273;"Inventory/Parts Clerk Driver";268
+274;Maintenance/Technicians;
+275;Laborer;274
+276;"Line Services";274
+277;"Maintenance Electrician I";274
+278;"Maintenance Electrician II (Senior)";274
+279;"Maintenance Installer/Repairer";274
+280;"Maintenance Manager";274
+281;"Maintenance Director - DOM";274
+282;"Maintenance Mechanic I";274
+283;"Maintenance Mechanic II (Senior)";274
+284;"Maintenance Mechanic Supervisor";274
+285;"Maintenance Supervisor I";274
+286;"Maintenance Supervisor II (Senior)";274
+287;"Maintenance Technician Airframe";274
+288;"Maintenance Technician Powerplant";274
+289;"Mainenance Technician  - A&P";274
+290;"Maintenance Worker";274
+291;"Maintenance - Ground Support";274
+292;"Maintenance - Warehouse";274
+293;"Maintenance - Forklift";274
+294;"Maintenance - Other";274
+295;Other;
+296;Other;295
+297;Pilot;
+298;"Pilot - Fixed Wing";297
+299;"Pilot - Rotor Wing";297
+300;Production;
+301;"Production - Assistant";300
+302;"Production - Coordinator";300
+303;"Production - Kitting";300
+304;"Production - Manager";300
+305;"Production - Other";300
+306;Purchasing;
+307;"Purchasing - Assistant";306
+308;"Purchasing - Coordinator";306
+309;"Purchasing - Manager";306
+310;"Purchasing - Sr. Buyer";306
+311;"Purchasing - Other";306
+312;Sales/Marketing;
+313;Sales/Marketing;312
+314;"Sales/Marketing - Assistant";312
+315;"Sales/Marketing - Coordinator";312
+316;"Sales/Marketing - Manager";312
+317;"Sales/Marketing - Director";312
+318;"Sales/Marketing - Other";312
+319;Shipping;
+320;"Shipping Clerk";319
+321;"Shipping Coordinator";319
+322;"Shipping & Warehouse Manager";319
+323;"Shipping & Warehouse Supervisor";319
