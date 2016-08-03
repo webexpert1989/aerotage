@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Aerotage" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Aerotage" %>">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body class="container">
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
-    <main role="main">
+  <head><%= render 'layouts/head' %></head>
+  <body class="<%= yield(:scripts) if content_for?(:scripts) %>">
+    <%= render 'layouts/header' %>
+    <%= render 'layouts/menu', show_user_menu: false %>
+    <!--<main role="main">-->
+    <div class="main-content clear">
        <%= render 'layouts/messages' %>
        <%= yield %>
-    </main>
+    <!--</main>-->
+    </div>
+    <%= render 'layouts/footer' %>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
+

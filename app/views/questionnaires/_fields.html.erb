@@ -1,0 +1,36 @@
+<div class="row narrow">
+  <div class="col-xs-12 col-sm-6">
+    <%= f.text_field :name, placeholder: '* Name' %>
+  </div>
+  <div class="col-xs-12 col-sm-6">
+    <div class="select-wrapper">
+      <%= f.select :passing_score, Questionnaire.passing_scores.map { |k, v| ["#{v} - #{k.titleize}", k] }, include_blank: '* Passing Score' %>
+    </div>
+  </div>
+</div>
+<div class="row field-caption">
+  <div class="col-xs-12">Send Auto-Reply email to candidates whose score is</div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <%= check_box_tag :more_email_present, '1', @questionnaire.more_email.present?, class: 'green' %>
+    <%= label_tag :more_email_present, 'equal or more than passing score' %>
+  </div>
+</div>
+<div class="row" id="more-email-wrapper" style=<%= 'display: none;' unless @questionnaire.more_email.present? %>>
+  <div class="col-xs-12">
+    <%= render 'fields/input/text', f: f, field: :more_email, placeholder: 'Email text to candidates whose score is equal or more than passing score' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <%= check_box_tag :less_email_present, '1', @questionnaire.less_email.present?, class: 'green' %>
+    <%= label_tag :less_email_present, 'less than passing score' %>
+  </div>
+</div>
+<div class="row" id="less-email-wrapper" style=<%= 'display: none;' unless @questionnaire.less_email.present? %>>
+  <div class="col-xs-12">
+    <%= render 'fields/input/text', f: f, field: :less_email, placeholder: 'Email text to candidates whose score is less than passing score' %>
+  </div>
+</div>
+<% include_script 'questionnaires-form' %>

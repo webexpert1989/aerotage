@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-xs-12 input-hint">Fields marked with an asterisk (*) are mandatory</div>
+</div>
+
+<%= render 'listings/fields', f: f %>
+
+<div class="row narrow">
+  <div class="col-xs-12 col-sm-6">
+    <%= render 'fields/input/text', f: f, field: :job_description_raw, placeholder: 'Job Description' %>
+  </div>
+  <div class="col-xs-12 col-sm-6">
+    <%= render 'fields/input/text', f: f, field: :job_requirements_raw, placeholder: 'Job Requirements' %>
+  </div>
+</div>
+
+<div class="row narrow">
+  <%= render 'locations/location_fields', object: f.object %>
+  <div class="col-xs-12 col-sm-6">
+    <% if @listing.employer.questionnaires.empty? %>
+      <input type="text"  disabled placeholder='You have not created any questionnaires' />
+    <% else %>
+      <div class="select-wrapper">
+        <%= f.collection_select :questionnaire_id, @listing.employer.questionnaires, :id, :name, include_blank: 'Screening Questionnaire' %>
+      </div>
+    <% end %>
+  </div>
+</div>

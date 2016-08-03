@@ -1,0 +1,54 @@
+<% provide(:title, 'Questions of ' + @questionnaire.name) %>
+
+<div class="questionnaires-page">
+  <div class="top-panel with-bottom-margin two-buttons">
+    <div class="controls">
+      <%= link_to questionnaires_path, class: 'gray-button back-button' do %>
+        <span class="long">Back to Questionnaires</span>
+        <span class="short">Back</span>
+      <% end %>
+      <%= link_to new_questionnaire_question_path(@questionnaire), class: 'gray-button add-note' do %>
+        <span class="long">Add New Question</span>
+        <span class="short">New Question</span>
+      <% end %>
+    </div>
+  </div>
+  <% if @questions.present? %>
+    <table>
+      <tr>
+        <th class="order">Order</th>
+        <th class="name">Name</th>
+        <th class="is-required">Required</th>
+        <th class="answer-type">Answer Type</th>
+        <th class="actions">Actions</th>
+      </tr>
+      <% @questions.each do |question| %>
+        <tr>
+          <td class="order">
+            <% unless question.first? %>
+              <%= link_to move_up_questionnaire_question_path(@questionnaire, question) do %>
+                <%= image_tag 'arrow_up_small.svg' %>
+              <% end %>
+            <% end %>
+            <% unless question.last? %>
+              <%= link_to move_down_questionnaire_question_path(@questionnaire, question) do %>
+                <%= image_tag 'arrow_down_small.svg' %>
+              <% end %>
+            <% end %>
+          </td>
+          <td class="name"><%= question.content %></td>
+          <td class="is-required"><%= question.required ? 'Yes' : 'No'%></td>
+          <td class="answer-type"><%= question.answer_type_caption %></td>
+          <td class="actions">
+            <%= link_to 'Edit', edit_questionnaire_question_path(@questionnaire, question) %>
+            <%= link_to 'Delete', questionnaire_question_path(@questionnaire, question), method: :delete, data: { confirm: 'Are you sure you want to delete this question?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <div class="no-jobs">
+      You have not created any questions yet
+    </div>
+  <% end %>
+</div>

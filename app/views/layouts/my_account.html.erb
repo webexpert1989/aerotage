@@ -1,0 +1,15 @@
+
+<html>
+  <head><%= render 'layouts/head' %></head>
+
+  <body class="my-account <%= [current_user_class, (yield(:scripts) if content_for?(:scripts))] %>">
+    <%= render 'layouts/header' %>
+    <%= render 'layouts/menu', show_user_menu: true %>
+    <div class="main-content clear">
+      <%= render 'layouts/flash' %>
+      <%= yield %>
+
+    <%= render 'layouts/footer' %>
+    <%= debug(params) if Rails.env.development? %>
+  </body>
+</html>

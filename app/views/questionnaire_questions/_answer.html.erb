@@ -1,0 +1,13 @@
+<% answer = { answer: '', score: '' } if local_assigns[:answer].nil? %>
+
+<div class="row narrow">
+  <div class="col-xs-12 col-sm-6">
+    <%= text_field_tag 'answers[]', answer['answer'], placeholder: 'Answer' %>
+  </div>
+  <div class="col-xs-12 col-sm-6 with-delete-button">
+    <a class="delete-answer-block" href='#'>Delete</a>
+    <div class="select-wrapper">
+      <%= select_for_score('answer_scores[]', answer['score']) %>
+    </div>
+  </div>
+</div>

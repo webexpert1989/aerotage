@@ -1,0 +1,19 @@
+<div class="save-search-page.dialog">
+  <div class="page-title">"Save Search</div>
+
+  <%= form_for @search, html: { class: 'ajax-form' } do |f| %>
+    <%= hidden_field_tag :referer, params[:referer] %>
+    <%= render 'shared/error_messages', target: f.object %>
+
+    <fieldset>
+      <%= f.text_field :title, placeholder: 'Search Name' %>
+      <%= f.check_box :active, class: 'green' %>
+      <%= f.label :active, 'Notify Via Email' %>
+      <div class="select-wrapper">
+        <%= f.select :frequency, Search.frequencies.map { |k, v| [k.titleize, k] } %>
+      </div>
+
+      <%= f.submit 'Save' %>
+    </fieldset>
+  <% end %>
+</div>

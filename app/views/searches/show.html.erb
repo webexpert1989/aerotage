@@ -1,0 +1,74 @@
+<% provide(:title, @search.target_class + ' Search Results') %>
+
+<div class="search-results-page">
+  <div class="search-results-top-panel">
+    <h1>
+      <% if @items.total_count == 0 %>
+        No <%= @search.target_class.pluralize %> Found
+      <% else %>
+        <%= pluralize(@items.total_count, @search.target_class) %>
+        Found
+      <% end %>
+    </h1>
+    <div class="you-searched">
+      <div class="searched-for">
+        <% criteria = search_criteria(@search) %>
+        <% unless criteria.empty? %>
+          You searched for:
+          <% criteria.each do |criterion| %>
+            <strong>
+              <%= criterion[:display_value] %>
+              ( <%= link_to 'undo', undo_criterion_search_path(@search, condition: criterion[:condition], value: criterion[:value]), class: 'undo-link' %> )
+            </strong>
+          <% end %>
+        <% end %>
+      </div>      
+      <% if user_signed_in? %>
+        <ul>
+          <li class="save-search">
+            <% if @search.user %>
+              Search saved as "#{@search.title}"
+            <% else %>
+              <%= link_to 'Save Search', edit_search_path(@search, referer: :search), class: 'fancybox fancybox.ajax' %>
+            <% end %>
+          </li>    
+          <li class="saved-searches">
+            <%= link_to 'Saved Searches', saved_searches_path %>
+          </li>
+          <% if @search.target_class == 'Job' && logged_in? && current_user.job_seeker? %>
+            <li class="saved-jobs">
+              <%= link_to 'Saved Jobs', saved_jobs_path %>
+            </li>
+          <% end %>
+          <% if @search.target_class == 'Resume' %>
+            <li class="saved-resumes">
+              <%= link_to 'Saved Resumes', saved_resumes_path %>
+            </li>
+          <% end %>
+          
+        </ul>
+      <% end %>
+    </div>
+  </div>
+  <div class="top-panel">
+    <div class="controls">
+      <%= link_to 'New Search', @search.target_class == 'Job' ? root_path : search_form_resumes_path, class: 'gray-button add-note' %>
+      <% if @search.target_class == 'Job' %>
+        <a href="#" class="modify-search-button gray-button modify-icon">Modify Search</a>
+      <% else %>
+        <%= link_to 'Modify Search', search_form_resumes_path(search_id: @search), class: 'gray-button modify-icon' %>
+      <% end %>
+    </div>
+ 
+  <% if @items.present? %>
+    <div class="items-list">
+      <%= render partial: @search.target_class.underscore.pluralize + '/search_item', collection: @items, as: @search.target_class.underscore %>
+    <%= paginate @items %>
+    </div>
+  <% else %>
+    <div class ="no-jobs">There are no #{@search.target_class.titleize.downcase.pluralize} meeting the criteria you specified
+    </div>
+  <% end %>
+  </div>
+</div>
+

@@ -1,0 +1,8 @@
+<p class="message dialog">
+  Your comment has been posted.
+</p>
+<javascript>
+  $(function() {
+    $('#comments-wrapper').html("#{j (render 'blog_posts/comments')}");
+  });
+</javascript>

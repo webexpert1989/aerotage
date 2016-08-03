@@ -1,0 +1,38 @@
+<header>
+  <div class="page-title" ><%= yield(:title) %></div>
+  <div class="right-header">
+    <div class="buttons-wrapper">
+      <% if logged_in? %>
+        <span class="welcome">
+          <span>Welcome</span>
+          <%= current_user.display_name %>
+        </span>
+        <%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' , class: 'button sign-out' %>
+      <% else %>
+        
+        <%= link_to 'Sign in', new_user_session_path, class: 'button sign-in' %>
+        <%= link_to 'Sign up', new_user_registration_path, class: 'button sign-up' %>
+      <% end %>
+    </div>
+  </div>
+  <% unless action?(:static_pages, :home) %>
+    <div class="search-dropdown-wrapper">
+      <a id="search-dropdown-trigger" class="search" href='#'>
+        <span></span>
+      </a>
+    </div>
+  <% end %>
+
+  <div class="left-header">
+    <a class="menu-button" href='#'></a>
+  </div>
+</header>
+<% unless action?(:static_pages, :home) %>
+  <div class="search-dropdown" class="search-dropdown">
+    <div class="top-line"></div>
+
+    <div class="search-forms-wrapper">
+      <%= render 'jobs/search_form', job_ransack: @job_ransack || Job.ransack %>
+    </div>
+  </div>
+<% end %>

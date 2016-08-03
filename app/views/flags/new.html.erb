@@ -1,0 +1,17 @@
+<div class="flag-listing-dialog.dialog">
+  <div class="page-title">Flag This Listing</div>
+
+  <%= form_for @flag, html: { class: 'ajax-form' } do |f| %>
+    <%= f.hidden_field :listing_id %>
+    <%= render 'shared/error_messages', target: f.object %>
+
+    <fieldset>
+      <div class="select-wrapper">
+        <%= f.select :flag_type, Flag.flag_types.map { |k, v| [k.titleize, k] }, include_blank: 'Select Flag Type' %>
+      </div>
+      <%= f.text_area :comment, placeholder: 'Your Comment' %>
+
+      <%= f.submit 'Send' %>
+    </fieldset>
+  <% end %>
+</div>

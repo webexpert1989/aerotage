@@ -1,0 +1,16 @@
+<%= provide(:title, 'My Resumes') %>
+
+<div class="my-listings-form">
+  <div class="listings-info">
+    <div>You have <%= pluralize(current_user.resumes.count, 'resume') %></div>
+    <%= submit_tag 'Add Resume', class: 'small green', onclick: "location.href = '" + new_resume_url + "'" %>
+  </div>
+</div>
+<div class="my-listings">
+  <% if @listings %>
+    <div class="items-list">
+      <%= render partial: 'listings/my_listing', collection: @listings, as: :listing %>
+    </div>
+    <%= paginate @listings %>
+  <% end %>
+</div>

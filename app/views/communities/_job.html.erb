@@ -1,0 +1,7 @@
+<div>
+  <%= link_to job.title, community_job_path(@community, job) %>
+  <div class="jobs-count">
+    %span= job.employer.company_name
+    ( #{job.first_activated_at.to_date.to_formatted_s(:long)}, #{job.location.city} )
+  </div>
+</div>

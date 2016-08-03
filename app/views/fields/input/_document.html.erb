@@ -1,0 +1,25 @@
+<% object = f.object.send(field) %>
+
+<%= f.fields_for field do |ff| %>
+  <div class="file-field-wrapper" { data: { placeholder: placeholder } }
+    <% if object.stored? %>
+      <div class="file-info-wrapper"><%= link_to object.document.name, object.url, target: '_blank' %></div>
+    <% else %>
+      <div class="file-info-wrapper placeholder"><%= placeholder %></div>
+    <% end %>  
+    <div class="buttons-wrapper">
+      <div class="file-button remove-button" style=<%= 'display: none;' unless object.stored? %>>Remove</div>
+      <div class="upload-button" style=<%= 'display: none;' if object.stored? %>>
+        <divlc class="file-button">Upload</div>
+        <%= ff.file_field :document %>
+        <%= ff.hidden_field :retained_document %>
+        <%= ff.hidden_field :_destroy, value: '0', class: 'destroy-flag' %>
+      </div>
+    </div>
+  </div>
+  <div class="hint push-bottom">
+    <div class="right">Accepted formats: pdf, doc, docx</div>
+    Max file size: 20 MB
+  </div>
+<% end %>
+<%= include_script 'file-field' %>

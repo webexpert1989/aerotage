@@ -1,0 +1,23 @@
+<%= provide(:title, 'Communities') %>
+
+<div class="communities-page">
+  <% @communities.each do |community| %>
+    <div class="community-wrapper">
+      <%= link_to community_path(community), class: 'community' do %>
+        <h1 class="community title downcase">
+          <div><%= community.title %></div>
+        </h1>
+        <div class="description"><%= community.brief_description %></div>
+        <div class="specialties">
+          Specialties include
+          <span><%= community.specialties %></span>
+        </div>
+
+        <div class="community-bottom">
+          <%= link_to 'Jobs ' + Job.active.in_community(community.id).size.to_s, search_jobs_path(q: { listing_communities_id_in: [community.id] }), method: :post, class: 'jobs' %>
+          <%= link_to 'Blog ' + community.blog_posts.size.to_s, blog_community_path(community.slug), class: 'blog' %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

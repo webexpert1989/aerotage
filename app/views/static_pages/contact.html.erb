@@ -1,0 +1,44 @@
+<% provide(:title, 'Contact Us') %>
+
+<div class="contact-us-page">
+  <div class="heading">
+    <div class="title">Thank you for contacting AerotageJobs.</div>
+    Please complete the form below to contact one of our customer service representatives
+    <br>
+    Fields marked with an asterisk (*) are mandatory.
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-push-6 col-lg-push-7 col-lg-5 contact-details">
+      <div class="row">
+        <div class="col-xs-4 image-wrapper"><%= image_tag 'message_img.svg' %></div>
+        <div class="col-xs-8">
+          <h1>AerotageJobs</h1>
+          <div class="contact-details-info">
+            c/o Aerotage Design Group<br/>
+            P.O. Box 1026<br/>
+            Central, SC 29630 USA<br/>
+            Phone: 864.633.5038<br/>
+            Email:
+            <a href='mailto:info@aerotagejobs.com'>info@aerotagejobs.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-sm-pull-6 col-lg-pull-5 contact-form">
+      <%= form_for @contact_us, url: contact_path do |f| %>
+        <%= render 'shared/error_messages', target: f.object %>
+
+        <div class="row-wrapper"><%= f.text_field :name, placeholder: '* Full Name' %></div>
+        <div class="row-wrapper"><%= f.text_field :email, placeholder: '* Email' %></div>
+        <div class="row-wrapper"><%= render 'fields/input/text', f: f, field: :comments, placeholder: '* Comments' %>
+        <% unless Rails.env.development? %>
+          <div class="row-wrapper"><%= recaptcha_tags %></div>
+        <% end %>
+
+        <div class="row-wrapper button-wrapper">
+          <%= f.submit 'Submit', class: 'green' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

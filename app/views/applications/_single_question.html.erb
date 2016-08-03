@@ -1,0 +1,10 @@
+<div class="row narrow">
+  <div class="col-xs-12">
+    <div class="caption"><%= label_tag "question_#{index}" %>, <%= index + 1 %>. <%=  question.required? ? '* ' : '' %> <%= question.content %></div>
+    <% question.answers.each_with_index do |answer, answer_index| %>
+      <%= radio_button_tag "question_#{index}", answer_index, params["question_#{index}"] && params["question_#{index}"].include?(answer_index.to_s), id: "question_#{index}_#{answer_index}" %>
+      <%= label_tag "question_#{index}_#{answer_index}", answer['answer'] %>
+      <br>
+    <% end %>
+  </div>
+</div>

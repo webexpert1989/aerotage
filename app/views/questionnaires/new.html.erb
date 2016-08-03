@@ -1,0 +1,13 @@
+<% provide(:title, 'Create New Questionnaire') %>
+
+<div class="questionnaires-page">
+  <%= form_for(@questionnaire) do |f| %>
+    <%= render 'shared/error_messages', target: f.object %>
+    <%= render 'fields', f: f %>
+    <div class="row narrow buttons">
+      <div class="col-xs-12">
+        <%= f.submit 'Create', class: 'wide' %>
+      </div>
+    </div>
+  <% end %>
+</div>

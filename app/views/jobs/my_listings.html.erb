@@ -1,0 +1,34 @@
+<%= provide(:title, 'My Jobs') %>
+
+<div class="my-listings-form">
+  <div class="listings-info">
+    <div>You have <%= pluralize(current_user.jobs.count, 'job') %></div>
+    <%= submit_tag 'Add Job', class: 'small green', onclick: "location.href = '" + new_job_url + "'" %>
+  </div>
+  <div class="filter-toggle">
+    Filter
+    .down ▼
+    .left ◄
+  </div>
+  <%= search_form_for @search, url: my_jobs_path, method: :post do |f| %>
+    <div class="row narrow">
+      <div class="col-xs-12 col-sm-6"><%= f.search_field :listing_title_or_job_description_or_job_requirements_cont, placeholder: 'Keywords' %></div>
+      <div class="col-xs-12 col-sm-6"><%= f.search_field :id_eq, placeholder: 'ID' %></div>
+    </div>
+    <div class="row narrow with-button">
+      <div class="col-xs-12 col-sm-6 date-field"><%= f.text_field :listing_created_at_date_gteq, placeholder: 'From Date', class: 'with-datepicker', readonly: true %></div>
+      <div class="col-xs-12 col-sm-6 date-field"><%= f.text_field :listing_created_at_date_lteq, placeholder: 'To Date', class: 'with-datepicker', readonly: true %></div>
+      <div class="col-xs-12 filter-button"><%= f.submit 'Filter' %></div>
+    </div>
+  <% end %>
+</div>
+<div class="my-listings">
+  <% if @listings %>
+    <div class="items-list">
+      <%= render partial: 'listings/my_listing', collection: @listings, as: :listing %>
+    </div>
+    <%= paginate @listings %>
+  <% end %>
+</div>
+
+<% include_script 'my-jobs' %>

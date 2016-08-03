@@ -1,0 +1,40 @@
+<div class="activate-option-page dialog">
+  <div class="page-title"><%= @action.titleize %></div>
+
+  <% if @credits < @price %>
+    <% amount = @price - @credits %>
+    <div class="dialog-content">
+      <p>Unfortunately you don't have enough credits to <%= @action %>.</p>
+      <p>
+        You have <%= pluralize(@credits, 'credit') %>. You need additional
+        <strong><%= pluralize(amount, 'credit') %></strong>
+      </p>
+      <%= form_tag purchase_credits_path do %>
+        <%= hidden_field_tag :amount, amount %>
+        <%= submit_tag 'Purchase More Credits' %>
+      <% end %>
+    </div>
+  <% else %>
+    <%= form_tag do %>
+      <% preserve_params = @preserve_params.present? ? @preserve_params : [] %>
+      <% preserve_params.each do |param| %>
+        <%= hidden_field_tag param, params[param] %>
+      <% end %>
+
+      <fieldset>
+        <p>You are about to <%= @action %> <%= @duration.present? ? ' for ' + @duration : '' %>. </p>
+        <div class="option-description">
+          <div>
+            Current credits:
+            <span><%= pluralize(@credits, 'credit') %></span>
+          </div>
+          <div>
+            Price:
+            <span><%= @price == 0 ? 'Free' : pluralize(@price, 'credit') %></span>
+          </div>
+        </div>
+        <%= submit_tag 'Confirm' %>
+      </fieldset>
+    <% end %>
+  <% end %>
+</div>

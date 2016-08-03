@@ -1,0 +1,18 @@
+<div class="blog-search">
+  <h1>Blog Search</h1>
+  <%= search_form_for @blog_post_ransack, url: blog_posts_path do |f| %>
+    <div class="searchBlogBlock">
+      <a href="#" class="searchBlogButton" onclick="$(this).closest('form').submit();" />
+      <div class="input-wrapper">
+        <%= f.search_field :title_or_body_cont, placeholder: 'Search' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="communities">
+  <h1>View Community Posts</h1>
+  <div class="select-wrapper">
+    <%= select_tag 'community', options_from_collection_for_select(Community.all, 'slug', 'title', @community.nil? ? nil : @community.slug), prompt: 'All Communities' %>
+  </div>
+</div>
+<% include_script 'blog-controls' %>

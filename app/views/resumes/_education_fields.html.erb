@@ -1,0 +1,18 @@
+<div class="nested-fields">
+  <div class="row narrow">
+    <div class="col-xs-12"><%= f.text_field :institution_name, placeholder: '* Institution Name' %></div>
+    <div class="col-xs-12 col-sm-6"><%= f.text_field :major, placeholder: '* Major' %></div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="select-wrapper">
+        <%= f.select :degree_level, Education.degree_levels, include_blank: '* Degree level' %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 date-field"><%= f.text_field :entrance_date, value: f.object.entrance_date, placeholder: 'Entrance Date', class: 'with-datepicker' %>
+    </div>
+    <div class="col-xs-12 col-sm-6 date-field"><%= f.text_field :graduation_date, value: f.object.graduation_date, placeholder: 'Graduation Date', class: 'with-datepicker' %>
+    </div>
+  </div>
+  <div class="remove-button-wrapper">
+    <%= link_to_remove_association 'Remove', f, class: 'button purple' %>
+  </div>
+</div>

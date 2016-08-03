@@ -1,0 +1,30 @@
+<div class="item <%= 'featured' if resume.featured? %>">
+  <div class="left-side logo"><%= image_tag resume.job_seeker.profile_picture ? resume.job_seeker.profile_picture.thumb('70x70#') : 'dummy_logo.svg' %></div>
+  <div class="content">
+    <h1><%= link_to resume.title, resume_path(resume, search_id: @search.token) %></h1>
+    <p>
+      <span class="company-name"><%= resume.job_seeker.display_name %></span>
+      <span class="location"><%= short_caption(resume.location) %></span>
+      <span class="date"><%= resume.first_activated_at.to_date.to_formatted_s(:short_with_year) %></span>
+    </p>  
+    <p>
+      <% items = [] %>
+      <% items << formatted_salary(resume) if formatted_salary(resume) %>
+      <% items << employment_types_list(resume) if employment_types_list(resume).present? %>
+      <%= items.join(', ') %>
+    </p>  
+    <div class="controls">
+      <ul>
+        <% if logged_in? && current_user.employer? %>
+          <% if current_user.has_saved_resume?(resume) %>
+            <li>Resume is saved</li>
+          <% else %>
+            <li id="save-resume-button-<%= resume.id %>">
+              <%= link_to 'Save Resume', add_saved_resumes_path(resume_id: resume.id), class: 'fancybox fancybox.ajax' %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

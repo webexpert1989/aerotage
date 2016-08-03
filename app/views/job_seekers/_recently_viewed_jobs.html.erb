@@ -1,0 +1,24 @@
+<% if jobs.present? %>
+  <div class="row recently-viewed-listings items-list">
+    <% jobs.each_with_index do |job, index| %>
+      <div class="col-xs-6 col-sm-4 col-md-3 item">
+        <div class="details">
+          <h1><%= link_to job.title, job_path(job, referer: 'my_account') %></h1>
+          <p><%= job.employer.company_name %></p>
+        </div>
+      </div>
+      <% if index % 2 == 1 %>
+        <div class="clearfix visible-xs-block">
+      <% end %>
+      <% if index % 3 == 2 %>
+        <div class="clearfix visible-sm-block"></div>
+      <% end %>
+      <% if index % 4 == 3 %>
+        <div class="clearfix visible-md-block"></div>
+        <div class="clearfix visible-lg-block"></div>
+      <% end %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="no-jobs">There are no recently viewed jobs at the moment</div>
+<% end %>

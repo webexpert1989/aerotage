@@ -1,0 +1,11 @@
+<% provide(:title, 'Saved Searches') %>
+
+<div class="alerts-page">
+  <% if @searches.present? %>
+    <div class="items-list">
+      <%= render partial: 'saved_search', collection: @searches, as: :search %>
+    </div>
+  <% else %>
+    <div class="no-jobs">You current have no saved searches</div>
+  <% end %>
+</div>

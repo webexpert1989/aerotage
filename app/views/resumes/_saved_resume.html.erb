@@ -1,0 +1,23 @@
+<div class="item">
+  <div class="content">
+    <h1><%= link_to resume.title, resume_path(resume, referer: 'saved_resumes') %></h1>
+    <p>
+      <span class="company-name"><%= resume.job_seeker.display_name %></span>
+      <span class="location"><%= short_caption(resume.location) %></span>
+      <span class="date"><%= resume.first_activated_at.to_date.to_formatted_s(:long) %></span>
+    </p>  
+    <p>
+      <% items = [] %>
+      <% items << formatted_salary(resume) if formatted_salary(resume) %>
+      <% items << employment_types_list(resume) if employment_types_list(resume).present? %>
+      <%= items.join(', ') %>
+    </p>
+    <div class="controls">
+      <ul>
+        <li>
+          <%= link_to 'Delete', remove_saved_resumes_path(resume_id: resume.id), data: { confirm: 'Are you sure you want to delete this resume?' } %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

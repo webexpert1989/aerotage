@@ -1,0 +1,7 @@
+<div class="row narrow">
+  <div class="col-xs-12 col-sm-6"><%= f.text_field :first_name, placeholder: '* First Name' %></div>
+  <div class="col-xs-12 col-sm-6"><%= f.text_field :last_name, placeholder: '* Last Name' %></div>
+  <div class="row narrow">
+    <%= render 'locations/location_fields', object: f.object %>
+  </div>
+</div>

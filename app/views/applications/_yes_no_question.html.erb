@@ -1,0 +1,9 @@
+<div class="row narrow">
+  <div class="col-xs-12">
+    <div class="caption"><%= label_tag "question_#{index}", "#{index + 1}. #{question.required? ? '* ' : ''} #{question.content}" %></div>
+    <%= radio_button_tag "question_#{index}", 'Yes', params["question_#{index}"] == 'Yes', id: "question_#{index}_yes" %>
+    <%= label_tag "question_#{index}_yes", 'Yes' %>
+    <%= radio_button_tag "question_#{index}", 'No', params["question_#{index}"] == 'No', id: "question_#{index}_no" %>
+    <%= label_tag "question_#{index}_no", 'No' %>
+  </div>
+</div>

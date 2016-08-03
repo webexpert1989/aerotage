@@ -1,0 +1,29 @@
+<div class="item">
+  <div class="left-side logo">
+    <% if blog_post.image %>
+      <%= image_tag(blog_post.image.thumb('70x70#')) %>
+    <% else %>
+      <%= image_tag('dummy_logo.svg') %>
+    <% end %>
+    </div>
+  <div class="content">
+    <h1><%= link_to blog_post.title, blog_post_path(blog_post) %></h1>
+    <div class="comments-count"><%= pluralize blog_post.comments.length, 'Comment' %></div>
+    <p class="date">
+      <%= blog_post.created_at.to_formatted_s(:long) %>
+       posted
+      <% unless blog_post.author.empty? %>
+        by
+        <strong><%= blog_post.author %></strong>
+      <% end %>
+      to <%= link_to blog_post.community.title + ' Community', community_path(blog_post.community) %>
+    </p>
+
+    <p>
+      <%= blog_post.summary.html_safe %>
+    </p>  
+    <div class="controls">
+      <%= link_to 'Read More...', blog_post_path(blog_post) %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<script>
+  $(function() {
+    $('#saved-search-#{@search.id} h1').html('#{@search.title}');
+    $('#saved-search-notification-#{@search.id}').html('#{@search.active ? @search.frequency.titleize : 'Off'}');
+    setTimeout("$.fancybox.close()", 1);
+  });
+</script>

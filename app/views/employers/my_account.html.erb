@@ -1,0 +1,67 @@
+<% provide(:title, 'My Account') %>
+
+<div class="my-profile-page employer">
+  <div class="profile-details-wrapper">
+    <div class="profile-details">
+      <div class="details.clear">
+        <% if @user.logo %>
+          <%= link_to image_tag(@user.logo.thumb('230x165')), @user.logo.url, target: '_blank', class: 'profile-logo fancybox-preview' %>
+        <% end %>
+        <div>
+          <h1><%= @user.company_name %></h1>
+          <p>
+            <strong><%= @user.email %></strong>
+            <br/>
+            <% if @user.contact_name.present? %>
+              <%= @user.contact_name %>
+              <br/>
+            <% end %>
+            <% if @user.address.present? %>
+              <%= @user.address %>
+              <br/>
+            <% end %>
+            <%= @user.location.city %>
+            <div>, <%= @user.location.state %></div>
+            <br/>
+            <%= @user.location.zip_code %>
+            <div>, <%= @user.location.country %></div>
+            <% if @user.phone_number.present? %>
+              <br/>
+              <%= @user.phone_number %>
+            <% end %>
+          </p>
+        </div>
+        <div class="right-user-block-wrapper">
+          <div class="right-user-block">
+            <p>
+              Company:
+              <strong><%= @user.company_name %></strong>
+              <% if @user.web_site.present? %>
+                <br/>
+                Website:
+                <strong><%= @user.web_site %></strong>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="settings">
+        <div>Settings</div>
+        <ul>
+          <li><%= link_to 'Edit Profile', edit_profile_path %></li>
+          <li><%= link_to 'Change Email', new_email_change_path, class: 'fancybox fancybox.ajax' %></li>
+          <li>= link_to 'Change Password', new_password_change_path, class: 'fancybox fancybox.ajax' </li>
+          <li><%= link_to 'Delete Account', delete_profile_path, method: :delete, data: { confirm: 'Are you sure  you want to delete your account?' } %></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ad-block ad-block1">Google AdSense Block 1</div>
+    <div class="ad-block ad-block2">Google AdSense Block 2</div>
+  </div>
+
+  <div class="block-wrapper">
+    <div class="right-side-wrapper">
+    <div class="left-side-block">
+  </div>
+</div>
+<% include_script 'my-account' %>

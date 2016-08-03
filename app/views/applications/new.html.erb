@@ -1,0 +1,36 @@
+<%= provide(:title, "Apply to `#{@job.title}` job") %>
+
+<div class="apply-page">
+  <%= form_for [@job, @application] do |f| %>
+    <%= render 'shared/error_messages', target: f.object %>
+
+    <div class="row narrow">
+      <div class="col-xs-12 col-sm-6">
+        <div class="select-wrapper">
+          <%= f.collection_select :resume_id, current_user.resumes, :id, :title, include_blank: 'Select Resume' %>
+        </div>
+      </div>
+      <div class="col-xs-12.col-sm-6">
+        <%= render 'fields/input/text', f: f, field: :cover_letter_raw, placeholder: 'Cover Letter (optional)' %>
+      </div>
+    </div>
+    <% if @job.questionnaire.present? %>
+      <% @job.questionnaire.questions.each_with_index do |question, index| %>
+        <% if question.text? %>
+          <%= render 'applications/text_question', question: question, index: index %>
+        <% elsif question.yes_no? %>
+          <%= render 'applications/yes_no_question', question: question, index: index %>
+        <% elsif question.multiple? %>
+          <%= render 'applications/multiple_question', question: question, index: index %>
+        <% elsif question.single? %>
+          <%= render 'applications/single_question', question: question, index: index %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <div class="row narrow buttons">
+      <div class="col-xs-12">
+        <%= f.submit 'Apply', class: 'wide' %>
+      </div>
+    </div>
+  <% end %>
+</div>

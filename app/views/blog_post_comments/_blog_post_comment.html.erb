@@ -1,0 +1,29 @@
+<div class="item<%= ' level1' if blog_post_comment.parent_comment %>">
+  <div class="left-side small-logo">
+    <% if blog_post_comment.commenter.employer? and blog_post_comment.commenter.logo %>
+      <%= image_tag(blog_post_comment.commenter.logo.thumb('50x50#')) %>
+    <% elsif blog_post_comment.commenter.job_seeker? and blog_post_comment.commenter.profile_picture %>
+      <%= image_tag(blog_post_comment.commenter.profile_picture.thumb('50x50#')) %>
+    <% else %>
+      <%= image_tag('dummy_logo.svg') %>
+    <% end %>
+  </div>
+  <div class="content">
+    <div class="user-name">
+      <%= blog_post_comment.commenter.display_name %>
+    </div>
+    <div class="date timeago" title="<%= blog_post_comment.created_at.to_formatted_s(:long) %>">
+      <%= time_ago_in_words blog_post_comment.created_at %>
+      ago
+    </div>
+    <div class="body">
+      <%= blog_post_comment.text %>
+    </div>
+    <div class="controls">
+      <div class="reply">
+        <%= link_to 'Reply', new_blog_post_comment_path(blog_post_comment.blog_post, parent_comment_id:  blog_post_comment.id), class: 'replyButton fancybox fancybox.ajax' unless blog_post_comment.parent_comment %>
+      </div>
+    </div>
+  </div>
+</div>
+

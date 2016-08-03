@@ -1,0 +1,5 @@
+- if @saved_resumes.present?
+  .items-list
+    = render partial: 'resumes/saved_resume', collection: @saved_resumes, as: :resume
+- else
+  .no-jobs There are no saved resumes yet

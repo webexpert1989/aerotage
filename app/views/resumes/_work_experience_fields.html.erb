@@ -1,0 +1,22 @@
+<div class="nested-fields">
+  <div class="row narrow">
+    <div class="col-xs-12 col-sm-6"><%= f.text_field :company_name, placeholder: '* Company Name' %></div>
+    <div class="col-xs-12 col-sm-6"><%= f.text_field :job_title, placeholder: '* Job Title' %></div>
+    <div class="col-xs-12 col-sm-6">
+      <%= render 'fields/input/text', f: f, field: :description_raw, placeholder: 'Description' %>
+    </div>
+    <div class="col-xs-12.col-sm-6">
+      <div class="row narrow">
+        <div class="col-xs-12 date-field"><%= f.text_field :start_date, value: f.object.start_date, placeholder: 'Start Date', class: 'with-datepicker' %>
+        </div>
+      </div>
+      <div class="row narrow">
+        <div class="col-xs-12 date-field"><%= f.text_field :end_date, value: f.object.end_date, placeholder: 'End Date', class: 'with-datepicker' %>
+        </div>
+      </div>
+    </div>
+  </div>  
+  <div class="remove-button-wrapper">
+    <%= link_to_remove_association 'Remove', f, class: 'button purple' %>
+  </div>
+</div>

@@ -1,0 +1,142 @@
+<nav class="left-menu">
+  <ul>
+    <li class="<%= :active if action?(:static_pages, :home) %>">
+      <%= link_to root_path do %>
+        <span class="home-icon">></span>
+        Home
+      <% end %>
+    </li>
+    <li class="<%= :active if action?(:communities, :index) %>">
+      <%= link_to communities_path do %>
+        <span class="communities-icon">></span>
+        Communities
+      <% end %>
+    </li>
+    <li class="<%= :active if controller?(:blog_posts) %>">  
+      <%= link_to blog_posts_path do %>
+        <span class="blog-icon">></span>
+        Job Blog
+      <% end %>
+    </li>
+    <% if logged_in? %>
+      <li class="<%= :active if action?(:users, :my_account) %>">
+        <%= link_to my_account_path, class: 'user-menu-toggle' do %>
+          <span class="my-account-icon">></span>
+          My Account
+          <div class="arrow"></div>
+        <% end %>
+      </li>
+    <% end %>
+    <% unless logged_in? && current_user.job_seeker? %>
+      <li class="<%= :active if action?(:jobs, :new) %>">
+        <%= link_to new_job_path do %>
+          <span class="post-jobs-icon">></span>
+          Post Jobs
+        <% end %>
+      </li>
+      <li class="<%= :active if action?(:resumes, :search_form) %>">
+        <%= link_to search_form_resumes_path do %>
+          <span class="search-resumes-icon">></span>
+          Search Resumes
+        <% end %>
+      </li>
+    <% end %>
+
+    <% unless logged_in? && current_user.employer? %>
+      <li class="<%= :active if action?(:resumes, :new) %>">
+        <%= link_to new_resume_path do %>
+          <span class="post-resumes-icon">></span>
+          Post Resumes
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</nav>
+<% if show_user_menu && logged_in? %>
+  <nav class="user-menu opened">
+    <ul>
+      <li class="user-menu-toggle">
+        <%= link_to 'Hide', '#' %>
+      </li>
+      <li id="my-profile" class="<%= :active if action?(:users, :my_account) %>">
+        <%= link_to my_account_path do %>
+          <span class="my-account-icon">></span>
+          My Profile
+        <% end %>
+      </li>
+
+      <% if current_user.job_seeker? %>
+        <li class="<%= :active if action?(:resumes, :my_resumes) %>">
+          <%= link_to my_resumes_path do %>
+            <span class="my-resumes-icon">></span>
+            My Resumes
+          <% end %>
+        </li>
+        <li class="<%= :active if action?(:saved_jobs, :index) %>">
+          <%= link_to saved_jobs_path do %>
+            <span class="saved-jobs-icon"></span>
+            <div class="caption">
+              <div>Saved Jobs</div>
+            </div>
+          <% end %>
+        </li>
+      <% else %>
+        <li class="<%= :active if action?(:jobs, :my_jobs) %>">
+          <%= link_to my_jobs_path do %>
+            <span class="my-jobs-icon"></span>
+            <div class="caption">
+              <div>My Jobs</div>
+            </div>
+          <% end %>
+        </li>
+        <li class="<%= :active if action?(:saved_resumes, :index) %>">
+          <%= link_to saved_resumes_path do %>
+            <span class="saved-resumes-icon"></span>
+            <div class="caption">
+              <div>Saved Resumes</div>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+      <li class="<%= :active if action?(:searches, :saved) %>">
+        <%= link_to saved_searches_path do %>
+          <span class="saved-searches-icon"></span>
+          <div class="caption">
+            <div>Saved Searches</div>
+          </div>
+        <% end %>
+      </li>
+      <li class="<% :active if action?(:users, :my_credits) %>">
+        <%= link_to my_credits_path do %>
+          <span class="my-products-icon"></span>
+          <div class="caption">
+            <div>My Credits</div>
+          </div>
+        <% end %>
+      </li>
+      <li class="<%= :active if controller?(:applications) %>">
+        <%= link_to applications_path do %>
+          <% if current_user.application_alerts_count > 0 %>
+            <div class="messages-counter-container">
+              <div class="counter"><%= current_user.application_alerts_count %></div>
+            </div>
+          <% end %>
+          <span class="applied-jobs-icon"></span>
+          <div class="caption">
+            <div><%= current_user.job_seeker? ? 'Applied Jobs' : 'Application Tracking' %></div>
+          </div>
+        <% end %>
+      </li>
+      <% if current_user.employer? %>
+        <li class="<%= :active if controller?(:questionnaires) %>">
+          <%= link_to questionnaires_path do %>
+            <span class="screening-icon"></span>
+            <div class="caption">
+              <div>Screening Questionnaires</div>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+<% end %>

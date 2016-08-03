@@ -1,0 +1,83 @@
+<%= provide(:title, @listing.title) %>
+
+<% job = @listing %>
+
+<div class="print-page">
+  <div class="top-block.clear">
+    <% if job.employer.logo %>
+      <div class="block">
+        <%= image_tag job.employer.logo.thumb('180x180'), class: 'company-logo' if job.employer.logo %>
+      </div>
+    <% end %>
+    <div class="block">
+      <h1><%= job.employer.company_name %></h1>
+      <p><%= job.employer.address %></p>
+      <p><%= job.employer.location.city %>, <%= job.employer.location.state %>, <%= job.employer.location.country %></p>
+      <p>
+        <strong>Phone:</strong>
+        <%= job.employer.phone_number %>
+      </p>
+      <p>
+        <strong>Web:</strong>
+        <%= job.employer.web_site %>
+      </p>
+    </div>  
+    <div class="block">
+      <h2><%= job.title %></h2>
+      <p>
+        <strong>Job ID:</strong>
+        <%= job.id %>
+      </p>
+      <p>
+        <strong>Location:</strong>
+        <%= job.location.city %>, <%= job.location.state %>
+      </p>
+      <% if employment_types_list(job).present? %>
+        <p>
+          <strong>Employment Type:</strong>
+          <%= employment_types_list(job) %>
+        </p>
+      <% end %>
+      <% if formatted_salary(job) %>
+        <p>
+          <strong>Salary:</strong>
+          <%= formatted_salary(job) %>
+        </p>
+      <% end %>
+      <p>
+        <strong>Posted:</strong>
+        <%= job.created_at.to_date.to_formatted_s(:long) %>
+      </p>
+    </div>
+  </div>
+  <div class="bottom-block">
+    <% if job.job_description.present? %>
+      <div>
+        <h3>Job Description:</h3>
+        <%= job.job_description.html_safe %>
+      </div>
+    <% end %>
+    <% if job.job_requirements.present? %>
+      <div>
+        <h3>Job Requirements:</h3>
+        <%= job.job_requirements.html_safe %>
+      </div>
+    <% end %>
+    <% if job.communities.present? %>
+      <div>
+        <h3>Community:</h3>
+        <%= communities_list(job) %>
+      </div>
+    <% end %>
+    <% if job.occupations.present? %>
+      <div>
+        <h3>Occupations:</h3>
+        <%= render 'fields/display/tree', nodes: grouped_tree_nodes(job.occupations) %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div id="print-button">
+  <input type="button" value="Print" />
+</div>
+<% include_script 'listing-print' %>

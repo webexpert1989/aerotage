@@ -1,0 +1,29 @@
+<div class="blog-page page-with-right-block">
+  <div class="left-side-wrapper clear">
+    <% unless @blog_posts.empty? %>
+      <%= render 'blog_control_panel' %>
+      <div class="top-panel.clear">
+        <div class="listings-per-page">
+          <span>Results per Page:</span>
+          <%= form_tag '', method: :get do %>
+            <div class="select-wrapper.small">
+              <%= select_tag :limit, options_for_select([10, 20, 50, 100], selected: @limit), onchange: "this.form.submit();" %>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="results-count"><%= pluralize @blog_posts.length, 'Blog Post' %></div>
+      </div>
+      <div class="items-list">
+        <%= render partial: 'blog_post', collection: @blog_posts %>
+      </div>
+      <%= paginate @blog_posts %>
+    <% else %>
+      <div class="no-jobs"> There are currently no blog posts. </div>
+    <% end %>
+  </div>
+
+  <div class="right-side-wrapper">
+    <%= render 'right_panel' %>
+  </div>
+</div>

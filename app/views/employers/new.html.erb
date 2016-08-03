@@ -1,0 +1,64 @@
+<div class="authform">
+  <%= @log %>
+  <%= form_for(@user, :as => :employer, :url => employers_path(@user), :html => { :role => 'form'}) do |f| %>
+    <h3>Job Seeker Sign up</h3>
+                                                                                                                                    
+    <div class="form-group">
+      <%= f.label :company_name %>
+      <%= f.text_field :company_name, :autofocus => true, class: 'form-control' %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :contact_name %>
+      <%= f.text_field :contact_name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :phone_number %>
+      <%= f.text_field :phone_number, class: 'form-control' %>
+    </div>
+
+   
+    <div class="form-group">
+      <%= f.label :address %>
+      <%= f.text_field :address, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :web_site %>
+      <%= f.text_field :web_site, :autofocus => true, class: 'form-control' %>
+    </div>
+    <div class="form-group">                                                                                                                        
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :location %>
+      <%= f.text_field :location_id, :autofocus => true, class: 'form-control' %>
+    </div>
+ 
+     <div class="form-group">
+      <%= f.label :company_description %>
+      <%= f.text_field :company_description, :autofocus => true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.check_box :terms, class:"form-control" %>
+    </div>
+     <%= f.submit 'Sign up', :class => 'button right' %>
+  <% end %>
+</div>
+                                                                                                                                    
+
+     
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  

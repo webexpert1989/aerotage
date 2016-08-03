@@ -1,0 +1,13 @@
+<div class="comments">
+  <div class="blog-comments">
+    <% if @blog_post.comments.empty? %>
+      <div class="no-jobs">There are currently no comments for this blog posts.</div>
+    <% else %>
+      <h3>Comments:</h3>
+      <div class="comments-list items-list" id="comments">
+        <%= render @blog_post.comments.where(parent_comment: nil) %>
+      </div>
+    <% end %>
+    <%= link_to 'Post Comment', new_blog_post_comment_path(@blog_post), class: 'fancybox fancybox.ajax' %>
+  </div>
+</div>

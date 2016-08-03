@@ -1,0 +1,8 @@
+<ul>
+  <% nodes.each do |node, children| %>
+    <li class=<% "jstree-checked" if selected.include?(node.id) %>id="<%= node.id %>">
+      <%= node.title %>
+      <%= render 'fields/input/tree_level', selected: selected, nodes: children unless children.empty? %>
+    </li>
+  <% end %>
+</ul>

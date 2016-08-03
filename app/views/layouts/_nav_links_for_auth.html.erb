@@ -1,13 +1,39 @@
-<% if user_signed_in? %>
+<% if logged_in? %>
   <% if current_user.try(:admin?) %>
     <li><%= link_to 'Users', users_path %></li>
   <% end %>
 <% end %>
-
-<% if user_signed_in? %>
-  <li><%= link_to 'Edit account', edit_user_registration_path %></li>
+<% if logged_in? %>
+  <li><%= link_to 'My account', edit_user_registration_path %></li>
   <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
+  <li class= "<%= :active if action?(:resumes, :search_form) %>">
+    <%= link_to search_form_resumes_path do %>
+      <span class="search-resumes-icon">Search Resumes</span>
+    <% end %>
+  </li>
 <% else %>
   <li><%= link_to 'Sign in', new_user_session_path %></li>
   <li><%= link_to 'Sign up', new_user_registration_path %></li>
+<% end %>
+<li>
+  <%= link_to communities_path do %>
+    Communities
+  <% end %>
+</li>
+<li>
+  <%= link_to new_job_path do %>
+      Post Jobs
+  <% end %>
+</li>
+<li>
+  <%= link_to blog_posts_path do %>
+    Job Blog
+  <% end %>
+</li>
+<% unless logged_in? && current_user.employer? %>
+  <li class="<%= :active if action?(:resumes, :new) %>">
+    <%= link_to new_resume_path do %>
+      <span class="post-resumes-icon">Post Resumes</span>
+    <% end %>
+  </li>
 <% end %>

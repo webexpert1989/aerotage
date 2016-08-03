@@ -1,0 +1,130 @@
+<%= provide(:title, @listing.title) %>
+
+<% resume = @listing %>
+
+<div class="listing-details-page page-with-right-block">
+  <div class="left-side-wrapper">
+    <div class="top-panel">
+      <div class="controls">
+        <% if @search %>
+          <%= link_to 'Back To Search Results', @search, class: 'gray-button back-icon back-button' %>
+          <%= link_to 'Modify Search', search_form_resumes_path(search_id: @search), class: 'gray-button modify-icon' %>
+        <% elsif @referer == 'my_listings' %>
+          <%= link_to 'Back To My Resumes', my_resumes_path, class: 'gray-button back-icon' %>
+          <%= link_to 'Edit Resume', edit_resume_path(resume), class: 'gray-button modify-icon modify-button' %>
+        <% elsif @referer == 'saved_resumes' %>
+          <%= link_to 'Back To Saved Resumes', saved_resumes_path, class: 'gray-button back-icon single-back-button' %>
+        <% elsif @referer == 'applications' %>
+          <%= link_to 'Back To Applications', applications_path, class: 'gray-button back-icon single-back-button' %>
+        <% else %>
+          <%= link_to 'Back To Home Page', root_url, class: 'gray-button back-icon single-back-button' %>
+        <% end %>
+      </div>
+    </div>
+    <h1><%= resume.title %></h1>
+
+    <% if resume.objective.present? %>
+      <div class="detail">
+        <h2>Objective:</h2>
+        <div><%= resume.objective.html_safe %></div>
+      </div>
+    <% end %>
+    <% if resume.skills.present? %>
+      <div class="detail">
+        <h2>Skills:</h2>
+        <div><%= resume.skills.html_safe %></div>
+      </div>
+    <% end %>
+    <% if resume.communities.present? %>
+      <div class="detail">
+        <h2>Communities:</h2>
+        <div><%= communities_list(resume) %></div>
+      </div>
+    <% end %>
+    <% if resume.occupations.present? %>
+      <div class="detail">
+        <h2>Occupations:</h2>
+        <%= render 'fields/display/tree', nodes: grouped_tree_nodes(resume.occupations) %>
+      </div>  
+    <% end %>
+    <% if resume.educations.present? %>
+      <div class="detail">
+        <h2>Education:</h2>
+        <ul>
+          <%= render partial: 'education', collection: resume.educations %>
+        </ul>
+      </div>
+    <% end %>
+    <% if resume.work_experiences.present? %>
+      <div class="detail">
+        <h2>Work Experience:</h2>
+        <ul>
+          <%= render partial: 'work_experience', collection: resume.work_experiences %>
+        </ul>
+      </div>
+    <% end %>
+    <% if resume.total_experience.present? %>
+      <div class="detail">
+        <h2>Total Years of Experience:</h2>
+        <div><%= pluralize resume.total_experience, 'year' %></div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="right-side-wrapper">
+    .side-block.listing-tools
+      %h1 Resume Tools
+      - if logged_in?
+        = link_to 'Flag This Resume', new_flag_path(listing_id: resume.listing.id), class: 'fancybox fancybox.ajax flag-job'
+      %a#map-dialog.view-map{ href: '#map-canvas' } View on Map
+      = link_to 'Print This Resume', print_resume_path, class: 'print-job', target: '_blank'
+      - if resume.resume
+        = link_to 'Download Resume', download_resume_path(resume)
+
+    .side-block.listing-summary
+      %h1 Resume Summary
+      .listing-summary
+        %p
+          City:
+          %span= resume.location.city
+        %p
+          State:
+          %span= resume.location.state
+        %p
+          Country:
+          %span= resume.location.country
+        %p
+          Zip Code:
+          %span= resume.location.zip_code
+        -if resume.employment_types.present?
+          %p
+            Employment Type:
+            %span= employment_types_list(resume)
+        - if resume.salary && resume.salary_type
+          %p
+            Desired Salary:
+            %span= formatted_salary(resume)
+
+    .side-block
+      %h1 Job Seeker Info
+      .company-info
+        = image_tag resume.job_seeker.profile_picture.thumb('180x180'), class: 'company-logo' if resume.job_seeker.profile_picture
+        %p
+          %strong
+            = resume.job_seeker.first_name
+            = resume.job_seeker.last_name
+        %p= resume.job_seeker.address
+        %p
+          = resume.job_seeker.location.city
+          , #{resume.job_seeker.location.state}, #{resume.job_seeker.location.country}
+        %p
+          %strong Phone Number:
+          = resume.job_seeker.phone_number
+        %p
+          %strong Email:
+          = resume.job_seeker.email
+  </div>
+
+  #map-canvas{ style: 'display: none;', data: { latitude: resume.location.latitude, longitude: resume.location.longitude, title: resume.title } }
+</div>
+<% include_script 'show-listing' %>

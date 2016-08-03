@@ -1,0 +1,85 @@
+<%= provide(:title, 'Application Tracking') %>
+
+<div class="applied-jobs-page">
+  <div class="filter-toggle">
+    Filter
+    <div class="down">&#9660;</div>
+    <div class="left">&#9668;</div>
+  </div>
+
+  <%= search_form_for @search, url: applications_path, method: :post do |f| %>
+    <div class="row narrow">
+      <div class="col-xs-12 col-sm-4">
+        <div class="select-wrapper">
+          <%= f.collection_select :job_id_eq, current_user.jobs, :id, :title, include_blank: 'All Jobs' %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="multi-select-wrapper">
+          <%= f.select :status_in, Application.statuses.map { |k, v| [k.titleize, v] }, {}, { multiple: 'multiple', class: 'multiselect', data: { caption: 'Status' } } %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">Passing Score</div>
+      <div class="col-xs-12 filter-button"><%= f.submit 'Filter' %></div>
+    </div>
+  <% end %>
+
+  <% if @applications.present? %>
+    <div class="items-list">
+      <% @applications.each do |application| %>
+        <div class="item">
+          <div class="content">
+            <% new_messages = application.new_messages_count('job seeker') %>
+            <h1><%= link_to application.job.title + (new_messages > 0 ? " (#{new_messages})" : ''), application %></h1>
+            <p>
+              <strong>Applicant Name:</strong>
+              <%= application.resume.job_seeker.display_name %>
+              <br>
+              <strong>Attached Resume:</strong>
+              <%= link_to application.resume.title, resume_path(application.resume, referer: 'applications') %>
+              <br>
+              <strong>Date Applied:</strong>
+              <%= application.created_at.to_date %>
+              <br>
+              <% if application.questionnaire.present? %>
+                <strong>Score:</strong>
+                <%= application.questionnaire['score'] %>
+                <%= '-' %>
+                <%= link_to application.questionnaire['score'] < application.questionnaire['passing_score'] ? 'Not Passed' : 'Passed', "#questionnaire-#{application.id}", class: 'fancybox' %>
+                <div class="cover-letter" id="questionnaire-<%= application.id %>">
+                  <table>
+                    <% application.questionnaire['answers'].each_with_index do |answer, index| %>
+                      <tr>
+                        <td><%= index + 1 %>. <%= answer['question'] %></td>
+                        <td><%= answer['answer'] %></td>
+                      </tr>
+                    <% end %>
+                  </table>
+                </div>
+              <% end %>
+              <strong>Status:</strong>
+              <span class="status-wrapper">
+                <%= select_tag :status, options_for_select(Application.statuses.map { |k, v| [k.titleize, k] }, selected: application.status), data: { url: change_status_application_path(application) }, class: :status, id: "status-#{application.id}" %>
+                <%= image_tag 'ajax_spinner.svg' %>
+              </span>
+            </p>
+          </div>  
+          <div class="controls">
+            <ul>
+              <% if application.cover_letter.present? %>
+                <li>
+                  <%= link_to 'Cover Letter', "#cover-letter-#{application.id}", class: 'fancybox' %>
+                  <div class="cover-letter" id="cover-letter-<%= application.id %>"><= application.cover_letter.html_safe %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  
+  <% else %>
+    <div class="no-jobs">No applications found</div>
+  <% end %>
+</div>
+<% include_script 'applications' %>

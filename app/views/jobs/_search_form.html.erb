@@ -1,0 +1,76 @@
+<%= search_form_for job_ransack, url: search_jobs_path, method: :post do |f| %>
+  <div class="quick-search-form">
+    <%= f.search_field :listing_title_or_job_description_or_employer_company_name_cont, placeholder: "I'm looking for...", class: 'with-autocomplete' %>
+    <div class="row narrow">
+      <div class="col-xs-12 col-sm-5 col-md-6 col-lg-7 location-field">
+        <%= f.search_field :smart_location_eq, placeholder: 'In location...', id: :location, class: 'with-autocomplete' %>
+      </div>
+      <div class="col-xs-12 col-sm-7 col-md-6 col-lg-5 search-radius-wrapper">
+        <div class="search-button">
+          <%= f.submit 'Search Jobs' %>
+          <a href="#" class="advanced-search-link">
+            Advanced Search
+            <span class="down">▼</span>
+            <span class="left">◄</span>
+          </a>
+        </div>
+
+        <div class="search-radius">
+          <% job_ransack.smart_location_radius = '100' unless job_ransack.smart_location_radius%>
+          <%= f.hidden_field :smart_location_radius, id: 'radius' %>
+          <div>
+            <% %w(10 20 50 100).each do |r| %>
+              <%= link_to r, nil, id: 'radius' + r, class: (:selected if job_ransack.smart_location_radius == r) %>
+            <% end %>
+            <div class="input-hint">
+              <em>Select Distance In Miles</em>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="advanced-search-form" style="display: none;">
+    <div class="row narrow">
+      <div class=".col-xs-12 col-sm-6">
+        <%= render 'fields/input/multiselect', f: f, field: :listing_communities_id_in, values: Community.order(:title), caption: 'Communities' %>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <%= render 'fields/input/tree', object: 'q', field: :listing_occupations_id_in, model: Occupation, selected: extract_tree_values(job_ransack, :listing_occupations_id), caption: 'Occupations' %>
+      </div>
+    </div>
+    <div class="row narrow">
+      <div class="col-xs-12 col-sm-6">
+        <%= render 'fields/input/multiselect', f: f, field: :listing_employment_types_id_in, values: EmploymentType.all, caption: 'Employment Types' %>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="select-wrapper">
+          <%= f.select :listing_activated_at_within, options_for_select([['Last 30 Days', 30], ['Last 7 Days', 7], ['Last 3 Days', 3], ['Since Yesterday', 1]], job_ransack.listing_activated_at_within), include_blank: 'Posted Within' %>
+        </div>
+      </div>
+    </div>
+    <div class="row narrow">
+      <div class="col-xs-12 col-sm-6">
+        <div class="monetary-wrapper range">
+          <div class="input-wrapper">
+            <div class="currency">$</div>
+            <%= f.text_field :listing_salary_gteq, class: 'monetary', placeholder: 'Salary' %>
+            
+          </div>
+          <div>To</div>
+          <div class="input-wrapper">
+            <div class="currency">$</div>
+            <%= f.text_field :listing_salary_lteq, class: 'monetary', placeholder: 'Salary' %>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="select-wrapper">
+          <%= f.select :listing_salary_type_eq, Listing.salary_types, include_blank: 'Salary Type' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= f.submit "Search jobs" %>
+<% end %>

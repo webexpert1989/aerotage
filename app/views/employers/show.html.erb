@@ -1,0 +1,66 @@
+<%= provide :title, "Jobs at #{@employer.company_name}" %>
+<%= provide :description, "Find a job at #{@employer.company_name}. Get advice on finding your job and apply on line today." %>
+<%= provide :keywords, "Jobs at #{@employer.company_name}, jobs, job search, job search engine, search engine for jobs, job listing, search jobs, jobs, job listings, career, employment, work, find jobs" %>
+
+<div class="company-profile-page page-with-right-block">
+  <div class="left-side-wrapper">
+    <% if @employer.logo or @employer.company_description? %>
+      <div class="description-wrapper">
+        <%= image_tag @employer.logo.thumb('300x300') if @employer.logo %>
+        <% if @employer.company_description? %>
+          <h1>Company Description:</h1>
+          <div class="description"><%= @employer.company_description.html_safe %></div>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="company-jobs-wrapper">
+      <% if @jobs.present? %>
+        <h2>Jobs by <%= @employer.company_name %></h2>
+        <div class="top-panel clear">
+          <div class="listings-per-page">
+            <span>Results per Page:</span>
+            <%= form_tag @employer, method: :get do %>
+              <div class="select-wrapper small">
+                <%= select_tag :limit, options_for_select([10, 20, 50, 100], selected: @limit), onchange: "this.form.submit();" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="search-results-listings items-list">
+          <%= render partial: 'jobs/search_item', collection: @jobs, as: :job, locals: {employer: @employer} %>
+        </div>
+        <%= paginate @jobs %>
+      <% else %>
+        <div class="no-jobs">There are no jobs available at this company</div>
+      <% end %>
+    </div>
+  </div>
+  <div class="right-side-wrapper">
+    <div class="side-block">
+      <h1>Company Info</h1>
+      <div class="company-info">
+        <p>
+          <strong><%= @employer.company_name %></strong>
+        </p>
+        <% if @employer.address? %>
+          <p><%= @employer.address %></p>
+        <% end %>
+        <p>
+          <%= @employer.location.city %>
+          <div>, <%= @employer.location.state %>, <%= @employer.location.country %></div>
+        </p>
+        <% if 1 or :allowViewContactInfo %>
+          <% if @employer.phone_number? %>
+            <p>Phone: <%= @employer.phone_number %></p>
+          <% end %>
+          <% if @employer.web_site? %>
+            <p>
+              Web:
+              <a href="<%= @employer.web_site %>", target='_blank'>http://<%= @employer.web_site.sub('http://', '') %></a>
+            </p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

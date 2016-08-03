@@ -1,0 +1,29 @@
+<% object = f.object.send(field) %>
+
+<%= f.fields_for field do |ff| %>
+  <div class="file-field-wrapper{ data: { placeholder: placeholder} }">
+    <% if object.stored? %>
+      <div class="file-info-wrapper with-thumbnail">
+        <%= image_tag object.thumb('40x40#'), class: 'thumbnail' %>
+        <%= link_to 'View Image', object.url, target: '_blank', class: 'fancybox-preview' %>
+      </div>
+    <% else %>
+      <div class="file-info-wrapper placeholder"><%= placeholder %></div>
+    <% end %>
+
+    <div class="buttons-wrapper">
+      <div class="file-button remove-button" style=<%= 'display: none;' unless object.stored? %>>Remove</div>
+      <div class="upload-button" style=<%= 'display: none;' if object.stored? %>>
+        <div class="file-button">Upload</div>
+        <%= ff.file_field :image %>
+        <%= ff.hidden_field :retained_image %>
+        <%= ff.hidden_field :_destroy, value: '0', class: 'destroy-flag' %>
+      </div>
+    </div>
+  </div>
+  <div class="hint">
+    <div class="right">Accepted formats: jpeg, jpg, png, gif</div>
+    Max file size: 10 MB
+  </div>
+<% end %>
+<%= include_script 'file-field' %>

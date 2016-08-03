@@ -1,0 +1,14 @@
+<%= provide(:title, 'Post ' + @listing.class.to_s.titleize) %>
+
+<div class="add-listing-page">
+  <%= form_for(@listing) do |f| %>
+    <%= render 'shared/error_messages', target: f.object %>
+    <%= render 'fields', f: f %>
+
+    <div class="row.narrow.buttons">
+      <div class="col-xs-12">
+        <%= f.submit 'Post', class: 'wide' %>
+      </div>
+    </div>
+  <% end %>
+</div>

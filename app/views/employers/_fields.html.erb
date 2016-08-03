@@ -1,0 +1,21 @@
+<div class="row narrow">
+  <div class="col-xs-12 col-sm-6"><%= f.text_field :company_name, placeholder: '* Company Name' %></div>
+  <div class="col-xs-12 col-sm-6"><%= f.text_field :contact_name, placeholder: 'Contact Name' %></div>
+</div>
+<div class="row narrow">
+  <%= render 'locations/location_fields', object: f.object %>
+  <div class="col-xs-12 col-sm-6"><%= f.text_field :address, placeholder: 'Address' %></div>
+</div>
+<div class="row narrow">
+  <div class="col-xs-12 col-sm-6"><%= f.text_field :web_site, placeholder: 'Web Site' %></div>
+  <div class="col-xs-12 col-sm-6"><%= f.text_field :phone_number, placeholder: 'Phone Number' %></div>
+</div>
+<div class="row narrow">
+  <div class="col-xs-12.col-sm-6">
+    <%= render 'fields/input/text', f: f, field: :company_description, placeholder: 'Company Description' %>
+  </div>
+  <div class="col-xs-12 col-sm-6">
+    <%= render 'fields/input/video', f: f, field: :video, placeholder: 'Video' %>
+    <%= render 'fields/input/image', f: f, field: :logo, placeholder: 'Logo' %>
+  </div>
+</div>

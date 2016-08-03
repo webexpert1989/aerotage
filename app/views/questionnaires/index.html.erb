@@ -1,0 +1,28 @@
+<% provide(:title, 'Screening Questionnaires') %>
+
+<div class="questionnaires-page">
+  <div class="top-panel">
+    <div class="controls">
+      <%= link_to new_questionnaire_path, class: 'gray-button add-note' do %>
+        <span class="long">Create New Questionnaire</span>
+        <span class="short">Create</span>
+      <% end %>
+    </div>
+  </div>
+  <div class="items-list">
+    <% @questionnaires.each do |sq| %>
+      <div class="item">
+        <div class="content">
+          <h1><%= sq.name %></h1>
+          <div class="controls">
+            <ul>
+              <li><%= link_to 'Edit', edit_questionnaire_path(sq) %></li>
+              <li><%= link_to 'Manage Questions', questionnaire_questions_path(sq) %></li>
+              <li><%= link_to 'Delete', sq, method: :delete, data: { confirm: 'Are you sure you want to delete this screening questionnaire?' } %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

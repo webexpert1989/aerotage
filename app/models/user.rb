@@ -19,10 +19,11 @@ class User < ActiveRecord::Base
   validates :email, presence: true, confirmation: true, uniqueness: { case_sensitive: false }
   validates_format_of :email, with: VALID_EMAIL_REGEX, allow_blank: true
 
-  has_secure_password
+  #has_secure_password
   validates :password, length: { minimum: 6 }, if: -> { new_record? || reset_password_action }
 
-  validates :location, presence: true
+  validates :location_id, presence: false
+  validates :terms, presence: true
   validates :terms, acceptance: { message: 'of Use and Privacy Policy must be accepted' }
 
 

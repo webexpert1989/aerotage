@@ -1,0 +1,45 @@
+<%= provide(:title, 'My Credits') %>
+
+<div class="my-credits-page">
+  <div class="top-block">
+    <div>
+      Credits: <%= @user.credits %>
+      <%= link_to 'Buy Credits', buy_credits_path, class: 'fancybox fancybox.ajax' %>
+    </div>
+    <% if @user.employer? %> 
+      <div>
+        Featured Option: <%= featured_info(@user) %>
+        <%= link_to @user.featured_until.present? ? 'Prolong' : 'Activate', featured_employer_credits_path, class: 'fancybox fancybox.ajax' %>
+      </div>
+      <div>
+        Resume Database Access: <%= resume_database_access_info(@user) %>
+        <%= link_to @user.resume_database_access_until.present? ? 'Prolong' : 'Activate', resume_database_access_credits_path, class: 'fancybox fancybox.ajax' %>
+      </div>
+    <% end %>
+  </div>
+  <div class="transactions">
+    <h4>Transactions</h4>
+    <% if @user.transactions.present? %>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th>Amount</th>
+          <th>Balance</th>
+        </tr>
+        <% @user.transactions.each do |transaction| %>
+          <tr>
+            <td><%= transaction.id %></td>
+            <td><%= transaction.description %></td>
+            <td><%= transaction.created_at.to_date %></td>
+            <td><%= (transaction.income? ? '+' : '-') + transaction.amount.to_s %></td>
+            <td><%= transaction.balance %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% else %>
+      <div class="no-jobs">No transactions</div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,168 @@
+<%= provide(:title, @listing.title) %>
+
+<% job = @listing %>
+
+<div class="listing-details-page page-with-right-block">
+  <div class="left-side-wrapper">
+    <div class="top-panel">
+      <div class="controls">
+        <% if @search %>
+          <%= link_to 'Back To Search Results', @search, class: 'gray-button back-icon back-button' %>
+          <%= link_to 'Modify Search', nil, class: 'gray-button modify-icon modify-button', id: 'modify-search-button' %>
+        <% elsif @referer == 'my_listings' %>
+          <%= link_to 'Back To My Jobs', my_jobs_path, class: 'gray-button back-icon' %>
+          <%= link_to 'Edit Job', edit_job_path(job), class: 'gray-button modify-icon modify-button' %>
+        <% elsif @referer == 'saved_jobs' %>
+          <%= link_to 'Back To Saved Jobs', saved_jobs_path, class: 'gray-button back-icon single-back-button' %>
+        <% elsif @referer == 'saved_jobs' %>
+          <%= link_to 'Back To Saved Jobs', saved_jobs_path, class: 'gray-button back-icon single-back-button' %>
+        <% elsif @referer == 'my_account' %>
+          <%= link_to 'Back To My Account', my_account_path, class: 'gray-button back-icon single-back-button' %>
+        <% elsif params[:location] %>
+          <%= link_to 'Back To Jobs List', jobs_in_location_path(params[:location]), class: 'gray-button  back-icon single-back-button' %>
+        <% elsif params[:community_id] %>
+          <% community = Community.friendly.find(params[:community_id]) %>
+          <%= link_to 'Back To Community', community, class: 'gray-button back-icon single-back-button' %>
+        <% elsif params[:company] %>
+          <% employer = Employer.friendly.find(params[:company]) %>
+          <%= link_to 'Back To Company', employer, class: 'gray-button back-icon single-back-button' %>
+        <% else %>
+          <%= link_to 'Back To Home Page', root_url, class: 'gray-button back-icon single-back-button' %>
+        <% end %>
+
+        <% unless logged_in? && current_user.employer? %>
+          <% if already_applied?(job) %>
+            <%= link_to 'Already Applied', applications_path, class: 'button apply-now' %>
+          <% else %>
+            <%= link_to 'Apply Now', new_job_application_path(job), class: 'button apply-now' %>
+          <% end %>
+        <% end %>
+
+      </div>
+    </div>
+    <h1><%= job.title %></h1>
+
+    <% if job.job_description.present? %>
+      <div class="detail">
+        <h2>Job Description:</h2>
+        <div><%= job.job_description.html_safe %></div>
+      </div>
+    <% end %>  
+    <% if job.job_requirements.present? %>
+      <div class="detail">
+        <h2>Job Requirements:</h2>
+        <div><%= job.job_requirements.html_safe %></div>
+      </div>
+    <% end %>
+    <% if job.communities.present? %>
+      <div class="detail">
+        <h2>Communities:</h2>
+        <div><%= communities_list(job) %></div>
+      </div>
+    <% end %>
+    <% if job.occupations.present? %>
+      <div class="detail">
+        <h2>Occupations:</h2>
+        <%= render 'fields/display/tree', nodes: grouped_tree_nodes(job.occupations) %>
+      </div>
+    <% end %>
+    <% other_jobs = other_jobs_from_employer(job) %>
+    <% if other_jobs.count > 0 %>
+      <div class="detail.other-jobs">
+        <h2>Other jobs at <%= job.employer.company_name %></h2>
+        <div clas="items-list">
+          <%= render partial: 'search_item', collection: other_jobs, as: :job %>
+        </div>
+      </div>
+    <% end %>
+    <% similar_jobs = similar_jobs(job) %>
+    <% if similar_jobs.count > 0 %>
+      <div class="detail.similar-jobs">
+        <h2>Similar Jobs</h2>
+        <div clss="items-list">
+          <%= render partial: 'search_item', collection: similar_jobs, as: :job %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="right-side-wrapper">
+    <div class="side-block listing-tools">
+      <h1>Job Tools</h1>
+      <% if logged_in? %>
+        <%= link_to 'Flag This Job', new_flag_path(listing_id: job.listing.id), class: 'fancybox fancybox.ajax flag-job' %>
+      <% end  %>
+      <a id="map-dialog" class="view-map" href="#map-canvas">View on Map</a>
+      <%= link_to 'Print This Job', print_job_path, class: 'print-job', target: '_blank' %>
+    </div>
+    <div class="side-block listing-summary">
+      <h1>Job Summary</h1>
+      <div class="listing-summary">
+        <p>
+          City:
+          <span><%= job.location.city %></span>
+        </p>
+        <p>
+          State:
+          <span><%= job.location.state %></span>
+        </p>
+        <p>
+          Country:
+          <span><%= job.location.country %></span>
+        </p>
+        <p>
+          Zip Code:
+          <span><%= job.location.zip_code %></span>
+        </p>
+        <% if employment_types_list(job).present? %>
+          <p>
+            Employment Type:
+            <span><%= employment_types_list(job) %></span>
+          </p>
+        <% end %>
+        <% if formatted_salary(job) %>
+          <p>
+            Salary:
+            <span><%= formatted_salary(job) %></span>
+          </p>
+        <% end %>
+      </div>
+    </div>
+    <div class="side-block company-info">
+      <h1>Company Info</h1>
+      <div class="company-info">
+        <%= image_tag job.employer.logo.thumb('180x180'), class: 'company-logo' if job.employer.logo %>
+        <p>
+          Company Name:
+          <span><%= job.employer.company_name %></span>
+        </p>
+        <p>
+          Address:
+          <span><%= job.employer.address %></span>
+        </p>
+        <p>
+          City:
+          <span><%= job.employer.location.city %></span>
+        </p>
+        <p>
+          State:
+          <span><%= job.employer.location.state %></span>
+        </p>
+        <p>
+          Country:
+          <span><%= job.employer.location.country %></span>
+        </p>
+        <p>
+          Phone Number:
+          <span><%= job.employer.phone_number %></span>
+        </p>
+        <p>
+          Web:
+          <span><%= link_to job.employer.web_site, job.employer.web_site %></span>
+        </p>
+        <%= link_to 'Company Profile', job.employer %>
+      </div>
+    </div>
+  </div>
+</div>
+#map-canvas{ style: 'display: none;', data: { latitude: job.location.latitude, longitude: job.location.longitude, title: job.title } }
+<% include_script 'show-listing' %>

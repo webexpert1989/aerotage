@@ -1,0 +1,30 @@
+<%= provide(:title, "Application from `#{@application.job_seeker.display_name}`") %>
+
+<div class="apply-page">
+  <div class="top-panel">
+    <div class="controls">
+      <%= link_to 'Back to Application Tracking', applications_path, class: 'gray-button back-icon' %>
+    </div>
+  </div>
+
+  <div class="messages">
+    <% recipient = current_user.employer? ? @application.job_seeker.display_name : @application.employer.display_name %>
+    <h3>Messaging with <%= recipient %></h3>
+
+    <% @application.messages.each do |message| %>
+      <% is_you = message.sender == current_user.to_s %>
+      <div class="message <%= 'you' if is_you %>">
+        <div class="title"><%= is_you ? 'You' : recipient %></div>
+        <div class="content"><%= message.content %></div>
+      </div>
+    <% end %>
+    <div class="controls">
+      <%= form_tag new_message_application_path(@application) do %>
+        <div class="text-field-wrapper">
+          <%= text_field_tag :message, nil, placeholder: 'Type message here' %>
+        </div>
+        <%= submit_tag 'Send' %>
+      <% end %>
+    </div>
+  </div>
+</div>

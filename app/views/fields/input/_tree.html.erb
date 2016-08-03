@@ -1,0 +1,15 @@
+<div class="tree-wrapper">
+  <%= render 'fields/input/tree_button', object: object, field: field, selected: selected, caption: caption %>
+
+  <div clss="tree-div-wrapper" style="display: none;">
+    <div class="page-title= caption">
+      <div class="tree-div">
+        <%= render 'fields/input/tree_level', selected: selected, nodes: model.arrange(order: :title) %>
+      </div>
+      <div class="controls">
+      <input class="small deselect-all" type="button" value="Deselect All" />
+      <input class="small green done" type="button" value="Done" />
+      </div>
+    </div>
+  </div>  
+</div>

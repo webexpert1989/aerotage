@@ -1,0 +1,13 @@
+<% provide(:title, 'Edit Question') %>
+
+<div class="questionnaires-page">
+  <%= form_for @question, url: questionnaire_question_path(@questionnaire, @question) do |f| %>
+    <%= render 'shared/error_messages', target: f.object %>
+    <%= render 'fields', f: f %>
+    <div class="row narrow buttons">
+      <div class="col-xs-12">
+        <%= f.submit 'Save', class: 'wide' %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

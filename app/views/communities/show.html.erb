@@ -1,0 +1,40 @@
+<%= provide(:title, @community.title) %>
+
+<div class="community-landing-page">
+  <div class="page-with-banners">
+    <div class="left-side-wrapper">
+      <div class="page-content">
+        <h1><%= @community.content_title %></h1>
+        <div>
+          <%= image_tag @community.image.url if @community.image %>
+          <%= @community.content.html_safe if @community.content %>
+        </div>
+      </div>
+    </div>
+    <div class="right-side-wrapper">
+      Banners
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>
+        Current #{@community.title} Jobs
+        %span= pluralize(@jobs.size, 'Job')
+      </h2>
+      <div class="list-wrapper">
+        <%= render partial: 'job', collection: @jobs.page(1), as: :job %>
+      </div>
+      <% if @jobs.size > 10 %>
+        <div class="view-all-link">
+          <%= link_to 'View All Jobs', search_jobs_path(q: { listing_communities_id_in: [@community.id] }), method: :post %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="latest-blog-posts">
+    <h1 class="latest-blog">Latest Community Blog</h1>
+    <div class="items-list">
+      <%= render @community.blog_posts.limit(4) %>
+    </div>
+  </div>
+</div>

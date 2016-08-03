@@ -1,0 +1,16 @@
+<div class="item" id="saved-search-<%= search.id %>">
+  <div class="content">
+    <h1><%= search.title %></h1>
+    <div class="controls">
+      <ul>
+        <li>
+          Notification:
+          <strong id="saved-search-notification-<%= search.id %>"><%= search.active ? search.frequency.titleize : 'Off' %></strong>
+        </liv>
+        <li><%= link_to 'Launch Search', search %></li>
+        <li><%= link_to 'Edit', edit_search_path(search, referer: :saved_searches), class: 'fancybox fancybox.ajax' %></li>
+        <li><%= link_to 'Delete', search, method: :delete, data: { confirm: "Are you sure you want to delete \"#{search.title}\" search?" } %></li>
+      </ul>
+    </div>
+  </div>
+</div>

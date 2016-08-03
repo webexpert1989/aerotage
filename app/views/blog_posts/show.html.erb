@@ -1,0 +1,30 @@
+<div class="blog-page page-with-right-block">
+  <div class="left-side-wrapper">
+    <%= render 'blog_posts/blog_control_panel' %>
+    <div class="blog-post-item">
+      <h1><%= @blog_post.title %></h1>
+      <% if @blog_post.image %>
+        <%= image_tag(@blog_post.image.thumb('300x200')) %>
+      <% end %>
+      <div class="post-date">
+        <%= @blog_post.created_at.to_formatted_s(:long) %>
+        posted
+        <% unless @blog_post.author.empty? %>
+          by
+          <strong><%= @blog_post.author %></strong>
+        <% end %>
+        to <%= link_to @blog_post.community.title + ' Community', @blog_post.community %>
+
+      </div>
+      <div class="post-body">
+        <p><%= @blog_post.body.html_safe %></p>
+      </div>
+      <div class="comments-wrapper">
+        <%= render 'comments' %>
+      </div>
+    </div>
+  </div>
+  <div class="right-side-wrapper">
+    <%= render 'blog_posts/right_panel' %>
+  </div>
+</div>

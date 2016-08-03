@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="col-xs-12"><%= f.text_field :content, placeholder: '* Question' %></div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <%= f.check_box :required, class: 'green' %>
+    <%= f.label :required, 'Required' %>
+  </div>
+</div>
+<div class="row field-caption">
+  <div class="col-xs-12">Answer Type</div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <ul>
+      <% QuestionnaireQuestion.answer_types.each do |value, key| %>
+        <li>
+          <%= f.radio_button :answer_type, value %>
+          <%= f.label 'answer_type_' + value.to_s, QuestionnaireQuestion.answer_type_caption(value) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<div id="yes-no" style=<%= 'display: none' unless @question.yes_no? %>>
+  <div class="row field-caption">
+    <div class="col-xs-12">Answers</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 with-label">
+      <span>Yes</span>
+      <div class="select-wrapper">
+        <%= select_for_score(:yes_score, @question.yes_no? ? @question.answers[:yes] : nil) %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12.with-label">
+      <span>No</span>
+      <div class="select-wrapper">
+        <%= select_for_score(:no_score, @question.yes_no? ? @question.answers[:no] : nil) %>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="answers" style=<%= 'display: none' unless @question.multiple? || @question.single? %>>
+  <div class="rowfield-caption">
+    <div class="col-xs-12">Answers</div>
+  </div>
+  <div id="answers-list">
+    <% if (@question.multiple? || @question.single?) && @question.answers %>
+      <% @question.answers.each do |answer| %>
+        <%= render 'answer', answer: answer %>
+      <% end %>
+    <% else %>
+      <%= render 'answer' %>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <a class="button" id="add-answer-block" href='#'>Add Answer</a>
+    </div>
+  </div>
+</div>
+<div id="answer-placeholder" style="display: none;">
+  <%= render 'answer' %>
+</div>
+
+<% include_script 'questionnaire-questions-form' %>

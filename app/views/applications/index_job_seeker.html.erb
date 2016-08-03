@@ -1,0 +1,38 @@
+<%= provide(:title, 'Applied Jobs') %>
+
+<div class="applied-jobs-page">
+  <% if @applications.present? %>
+    <div class="items-list">
+      <% @applications.each do |application| %>
+        <div class="item">
+          <div class="content">
+            <% new_messages = application.new_messages_count('employer') %>
+            <h1><%= link_to application.job.title + (new_messages > 0 ? " (#{new_messages})" : ''), application %></h1>
+            <p>
+              <strong>Company Name:</strong>
+              <%= link_to application.job.employer.company_name, application.job.employer %>
+              <br>
+              <strong>Resume:</strong>
+              <%=link_to application.resume.title, my_resume_path(application.resume) %>
+              <br>
+              <strong>Date Applied:</strong>
+              <%= application.created_at.to_date %>
+              <br>
+              <strong>Status:</strong>
+              <%= application.status.titleize %>
+            </p>
+          </div>
+          <div class="controls">
+            <ul>
+              <li><%= link_to 'View Application', application %></li>
+              <li><%= link_to 'Cancel and Delete', application, method: :delete, data: { confirm: 'Are you sure you want to cancel and delete this application?' } %></li>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="no-jobs">You currently do not have any active applications</div>
+  <% end %>
+</div>
+<% include_script 'applications' %>

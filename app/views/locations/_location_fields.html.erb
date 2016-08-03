@@ -1,0 +1,8 @@
+<div class="col-xs-12 col-sm-2">
+  <%= text_field_tag nil, object.location ? object.location.zip_code : nil, id: 'zip_code', placeholder: '* Zip Code', data: {source: autocomplete_zip_code_url, url: locations_zip_code_info_url, object: object_name(object), selected: object.location ? object.location.id : nil} %>
+</div>
+<div class="col-xs-12 col-sm-4">
+  <div id="location-loading-wrapper"><%= image_tag 'ajax_preloader.svg' %></div>
+  <div id="location-field-wrapper"><%= text_field_tag nil, nil, placeholder: '* Location (enter Zip Code first)', disabled: 'disabled' %></div>
+</div>
+<% include_script 'location-field' %>

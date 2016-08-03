@@ -57,6 +57,7 @@ gem "fb_graph"
 gem 'httpclient', '~> 2.6.0.1'
 gem "breadcrumbs_on_rails"
 gem 'quiet_assets'
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 group :development do
   gem 'better_errors'

@@ -1,0 +1,9 @@
+<% provide(:title, 'Purchase Credits') %>
+
+<%= form_tag charge_credits_path do %>
+  <%= hidden_field_tag :user_id, @user.id %>
+  <%= hidden_field_tag :amount, @amount %>
+  <%= label_tag pluralize(@amount, 'credit') %>
+
+  %script.stripe-button{ data: { email: @user.email, name: 'AerotageJobs', description: pluralize(@amount, 'credit'), amount: @amount.to_i * 100, image: image_path('logo.svg'), key: Rails.configuration.stripe[:publishable_key] }, src: 'https://checkout.stripe.com/checkout.js' }
+<% end %>

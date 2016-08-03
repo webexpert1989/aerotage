@@ -1,0 +1,66 @@
+<%= search_form_for @resume_ransack, url: search_resumes_path, method: :post do |f| %>
+  <div class="form">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.search_field :listing_title_or_objective_or_skills_cont, placeholder: "I'm looking for...", class: 'with-autocomplete', data: { source: autocomplete_resumes_url } %>
+      </div>
+    </div>
+    <div class="row narrow">
+      <div class="col-xs-12">
+        <div>
+          <%= f.search_field :smart_location_eq, placeholder: 'In location...', id: :location, class: 'with-autocomplete', data: { source: autocomplete_location_url } %>
+          <%= f.hidden_field :smart_location_radius, value: '100' %>
+        </div>
+        <div class="input-hint">i.e. City, State or Zip Code</div>
+      </div>
+    </div>    
+    <div class="row narrow">
+      <div class="col-xs-12 col-sm-6">
+        <%= render 'fields/input/multiselect', f: f, field: :listing_communities_id_in, values: Community.order(:title), caption: 'Communities' %>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <%= render 'fields/input/tree', object: 'q', field: :listing_occupations_id_in, model: Occupation, selected: extract_tree_values(@resume_ransack, :listing_occupations_id), caption: 'Occupations' %>
+      </div>
+    </div>
+    <div class="row narrow">
+      <div class="col-xs-12 col-sm-6">
+        <%= render 'fields/input/multiselect', f: f, field: :listing_employment_types_id_in, values: EmploymentType.all, caption: 'Employment Types' %>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="select-wrapper">
+          <%= f.select :listing_activated_at_within, options_for_select([['Last 30 Days', 30], ['Last 7 Days', 7], ['Last 3 Days', 3], ['Since Yesterday', 1]], @resume_ransack.listing_activated_at_within), include_blank: 'Posted Within' %>
+        </div>
+      </div>
+    </div>
+    <div class="row narrow">
+      <div class="col-xs-12 col-sm-6">
+        <div class="monetary-with-label">
+          <span>Desired Salary</span>
+          <div class="monetary-wrapper range">
+            <div class="input-wrapper">
+              <div class="currency">$</div>
+              <%= f.text_field :listing_salary_gteq, class: 'monetary', placeholder: 'Salary' %>
+            </div>
+            <div>to</div>
+            <div class="input-wrapper">
+              <div class="currency">$</div>
+              <%= f.text_field :listing_salary_lteq, class: 'monetary', placeholder: 'Salary' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="select-wrapper">
+          <%= f.select :listing_salary_type_eq, Listing.salary_types, include_blank: 'Salary Type' %>
+        </div>
+      </div>
+    </div>
+    <div class="row narrow buttons">
+      <div class="col-xs-12">
+        <div class="search-button">
+          <%= f.submit 'Search' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

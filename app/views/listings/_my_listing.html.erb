@@ -1,0 +1,43 @@
+<div class="item">
+  <div class="content">
+    <h1><%= link_to listing.title, listing.job? ? my_job_path(listing) : my_resume_path(listing) %></h1>
+    <p>
+      <strong>ID:</strong>
+      <%= listing.id %>
+      <br/>
+      <strong>Posted:</strong>
+      <%= listing.created_at.to_date.to_formatted_s(:short_with_year) %>
+      <br/>
+      <strong>Status:</strong>
+      <%= listing_activity_info(listing) %>
+      <br/>
+      <strong>Options:</strong>
+      <%= listing_options(listing) %>
+      <br/>
+      <strong>No of Views:</strong>
+      <%= listing.views %>
+    </p>  
+    <div class="controls">
+      <ul>
+        <li>
+          <% if listing.active %>
+            <%= link_to 'Deactivate', listing.job? ? deactivate_job_path(listing) : deactivate_resume_path(listing), data: { confirm: "Are you sure you want to deactivate \"#{listing.title}\" #{listing.class.name.downcase}?" } %>
+          <% else %>
+            <% unless listing.expired? %>
+              <%= link_to 'Activate', listing.job? ? activate_job_path(listing) : activate_resume_path(listing) %>
+            <% end %>
+          <% end %>
+        </li>
+        <li><%= link_to listing.never_activated? ? 'Activate' : 'Prolong', prolong_listing_credits_path(listing_id: listing.listing.id), class: 'fancybox fancybox.ajax' %></li>
+        <% unless listing.featured? %> 
+          <li><%= link_to 'Make Featured', featured_listing_credits_path(listing_id: listing.listing.id), class: 'fancybox fancybox.ajax' %></li>
+        <% end %>
+        <% unless listing.priority? %>
+          <li><%= link_to 'Make Priority', priority_listing_credits_path(listing_id: listing.listing.id), class: 'fancybox fancybox.ajax' %></li>
+        <% end %>
+        <li><%= link_to 'Edit', listing.job? ? edit_job_path(listing) : edit_resume_path(listing) %></li>
+        <li><%= link_to 'Delete', listing, method: :delete, data: { confirm: "Are you sure you want to delete \"#{listing.title}\" #{listing.class.name.downcase}?" } %></li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="dialog">
+  <div class="page-title">Buy Credits</div>
+
+  <%= form_tag purchase_credits_path do %>
+    <fieldset>
+      <%= label_tag :amount, 'Amount:' %>
+      <%= text_field_tag :amount, '100' %>
+      <%= submit_tag 'Proceed' %>
+    </fieldset>
+  <% end %>
+</div>

@@ -1,0 +1,100 @@
+<%= provide(:title, @listing.title) %>
+
+<% resume = @listing %>
+
+<div class="print-page">
+  <div class="top-block.clear">
+    <% if resume.job_seeker.profile_picture %>
+      <div class="block">
+        <%= image_tag resume.job_seeker.profile_picture.thumb('180x180'), class: 'profile-logo' %>
+      </div>
+    <% end %>
+    <div class="block">
+      <h1><%= resume.job_seeker.first_name %> <%= resume.job_seeker.last_name %></h1>
+      <p><%= resume.job_seeker.address %></p>
+      <p><%= resume.job_seeker.location.city %> , <%= resume.job_seeker.location.state %>, <%= resume.job_seeker.location.country %></p>
+      <p>
+        <strong>Phone:</strong>
+        <%= resume.job_seeker.phone_number %>
+      </p>
+      <p>
+        <strong>Email:</strong>
+        <%= resume.job_seeker.email %>
+      </p>
+    </div>
+    <div class="block">
+      <h2><%= resume.title %></h2>
+      <p>
+        <strong>Resumes ID:</strong>
+        <%= resume.id %>
+      </p>
+      <p>
+        <strong>Location:</strong>
+        <%= resume.location.city, <%= resume.location.state %>
+      </p>
+      <% if resume.salary && resume.salary_type %>
+        <p>
+          <strong>Desired Salary:</strong>
+          <%= formatted_salary(resume) %>
+        </p>
+      <% end %>
+      <p>
+        <strong>Posted:</strong>
+        <%= resume.first_activated_at.to_date.to_formatted_s(:long) %>
+      </p>
+    </div>
+  </div>
+  <div class="bottom-block">
+    <% if resume.objective.present? %>
+      <div>
+        <h3>Objective:</h3>
+        <div><%= resume.objective.html_safe %></div>
+      </div>
+    <% end %>
+    <% if resume.skills.present? %>
+      <div>
+        <h3>Skills:</h3>
+        <div><%= resume.skills.html_safe %></div>
+      </div>
+    <% end %>
+    <% if resume.educations.present? %>
+      <div>
+        <h3>Education:</h3>
+        <ul>
+          <%= render partial: 'education', collection: resume.educations %>
+        </ul>
+      </div>
+    <% end %>
+    <% if resume.work_experiences.present? %>
+      <div>
+        <h3>Work Experience:</h3>
+        <ul>
+          <%= render partial: 'work_experience', collection: resume.work_experiences %>
+        </ul>
+      </div>
+    <% end %>
+    <% if resume.total_experience.present? %>
+      <div>
+        <h3>Total Years of Experience:</h3>
+        <%= pluralize resume.total_experience, 'year' %>
+      </div>
+    <% end %>  
+    <% if resume.communities.present? %>
+      <div>
+        <h3>Communities:</h3>
+        <div><%= communities_list(resume) %></div>
+      </div>
+    <% end %>  
+    <% if resume.occupations.present? %>
+      <div>
+        <h3>Occupations:</h3>
+        <%= render 'fields/display/tree', nodes: grouped_tree_nodes(resume.occupations) %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div id="print-button">
+  <input type="button" value='Print' />
+</div>
+<% include_script 'listing-print' %>

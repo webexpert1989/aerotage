@@ -1,0 +1,6 @@
+<div class="row narrow">
+  <div class="col-xs-12">
+    <div class="caption"<%= label_tag "question_#{index}", "#{index + 1}. #{question.required? ? '* ' : ''} #{question.content}" %></div>
+    <%= text_field_tag "question_#{index}", params["question_#{index}"], placeholder: 'Type answer here' %>
+  </div>
+</div>

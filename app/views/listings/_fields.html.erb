@@ -1,0 +1,33 @@
+<div class="row narrow">
+  <div class="col-xs-12 col-sm-6"><%= f.text_field :title, placeholder: '* Title' %></div>
+  <div class="col-xs-12 col-sm-6">
+    <%= render 'fields/input/multiselect', f: f, field: :community_ids, values: Community.order(:title), caption: '* Communities' %>
+  </div>
+</div>
+
+<div class="row narrow">
+  <div class="col-xs-12 col-sm-6">
+     <%= render 'fields/input/tree', object: @listing.class.name.underscore, field: :occupation_ids, model: Occupation, selected: @listing.occupations.map{ |o| o.id }, caption: 'Occupations' 
+     %>
+  </div>
+  <div class="col-xs-12 col-sm-6">
+    <%= render 'fields/input/multiselect', f: f, field: :employment_type_ids, values: EmploymentType.all, caption: 'Employment Types' %>
+  </div>
+</div>
+<div class="row narrow">
+  <div class="col-xs-12 col-sm-6">
+    <div class="monetary-wrapper">
+      <div class="input-wrapper">
+        <div class="currency">$</div>
+        <%= f.text_field :salary, placeholder: @listing.job? ? 'Salary' : 'Desired Salary', class: 'monetary' %>
+      </div>  
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6">
+    <div class="select-wrapper">
+      <%= f.select :salary_type, Listing.salary_types, include_blank: @listing.job? ? 'Salary Type' : 'Desired Salary Type' %>
+    </div>
+  </div>
+</div>
+
+

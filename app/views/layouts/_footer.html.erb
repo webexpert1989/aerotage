@@ -1,0 +1,90 @@
+<footer>
+  <div class="container">
+    <div class="row.narrow">
+      <% unless logged_in? && current_user.employer? %>
+        <div class="col-xs-6 col-sm-4 col-md-2">
+          <h2>Job Seekers</h2>
+          <ul>
+            <% unless logged_in? %>
+              <li><%= link_to 'Registration', new_job_seeker_path %></li>
+            <% end %>
+            <li><%= link_to 'My Profile', my_account_path %></li>
+            <li><%= link_to 'Post Resume', new_resume_path %></li>
+          </ul>
+        </div>
+      <% end %>
+      <% unless logged_in? && current_user.job_seeker? %>
+        <div class="col-xs-6 col-sm-4 col-md-2">
+          <h2>Employers</h2>
+          <ul>
+            <% unless logged_in? %>
+              <li><%= link_to 'Registration', new_employer_path %></li>
+            <% end %>
+            <li><%= link_to 'My Profile', my_account_path %></li>
+            <li><%= link_to 'Search Resumes', search_form_resumes_path %></li>
+            <li><%= link_to 'Post Job', new_job_path %></li>
+          </ul>
+        </div>  
+      <% end %>
+      <div class="col-xs-6 col-sm-4 col-md-2">
+        <h2>Products</h2>
+        <ul>
+          <% unless logged_in? && current_user.employer? %>
+            <li><%= link_to 'Job Seeker', '#' %></li>
+          <% end %>
+          <% unless logged_in? && current_user.job_seeker? %>
+            <li><%= link_to 'Employer', '#' %></li>
+            <li><%= link_to 'Advertising', '#' %></li>
+          <% end %>
+          <li><%= link_to 'Promotions', '#' %></li>
+        </ul>
+      </div>
+      <div class="col-xs-6 col-sm-4 col-md-2">
+        <h2>Site Info</h2>
+        <ul>
+          <li><%= link_to 'Site Map', root_path %></li>
+          <li><%= link_to 'Privacy Policy', privacy_policy_path %></li>
+          <li><%= link_to 'Terms of Use', terms_of_use_path %></li>
+        </ul>
+      </div>
+      <% unless logged_in? %>
+        <div class="clearfix visible-xs-block"></div>
+      <% end %>
+
+      <div class="col-xs-6 col-sm-4 col-md-2">
+        <h2>AerotageJobs</h2>
+        <ul>
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'About Us', about_path %></li>
+          <li><%= link_to 'Contact', contact_path %></li>
+        </ul>
+      </div>
+
+      <% if logged_in? %>
+        <div class="clearfix visible-xs-block"></div>
+      <% end %>
+
+      <div class="col-xs-6 col-sm-4 col-md-2 social-icons">
+        <h2>Connect With Us</h2>
+        <a href='https://www.facebook.com/pages/AerotageJobs/210375332432566?fref=ts' target='_blank'>
+          <span class="facebook"></span>
+        </a>
+        <a href='https://www.twitter.com/aerotage' target='_blank'>
+          <span class="twitter"></span>
+        </a>
+        <a href='https://plus.google.com/115448958253763452154/posts' target='_blank'>
+          <span class="google-plus"></span>
+        </a>
+        <br/>
+        <a href='http://www.linkedin.com/company/aerotagejobs' target='_blank'>
+          <span class="linked-in"></span>
+        </a>
+        <a href='#' target='_blank'>
+          <span class="rss"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyright"><%= "@2011-#{Date.today.year} Aerotage Design Group, Inc. All Rights Reserved" %></div>
+</footer>

@@ -1,0 +1,10 @@
+<% employers.each do |employer| %>
+  <div class="company-logo-container">
+    <%= link_to employer_path(employer), class: 'featured-company-logo' do %>
+      <div class="image-wrapper">
+        <span></span>
+        <%= image_tag employer.logo.thumb('155x70') if employer.logo %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,8 @@
+<ul>
+  <% nodes.each do |node| %>
+    <li>
+      <%= node[:item].title %>
+      <%= render 'fields/display/tree', nodes: node[:children] unless node[:children].empty? %>
+    </li>
+  <% end %>
+</ul>

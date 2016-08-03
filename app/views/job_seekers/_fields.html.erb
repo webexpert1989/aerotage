@@ -1,0 +1,14 @@
+<div class="row narrow">
+  <div class="col-xs-12 col-sm-6"><%= f.text_field :first_name, placeholder: '* First Name' %></div>
+  <div class="col-xs-12 col-sm-6"><%= f.text_field :last_name, placeholder: '* Last Name' %></div>
+</div>
+<div class="row narrow">
+  <%= render 'locations/location_fields', object: f.object %>
+  <div class="col-xs-12 col-sm-6"><%= f.text_field :address, placeholder: 'Address' %></div>
+</div>
+<div class="row narrow">
+  <div class="col-xs-12 col-sm-6"><%= f.text_field :phone_number, placeholder: 'Phone Number' %></div>
+  <div class="col-xs-12 col-sm-6">
+    <%= render 'fields/input/image', f: f, field: :profile_picture, placeholder: 'Profile Picture' %>
+  </div>
+</div>

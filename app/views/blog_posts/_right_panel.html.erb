@@ -1,0 +1,14 @@
+<%= render 'blog_posts/blog_controls' %>
+
+<% unless logged_in? %>
+  <div class="promotion">
+    <span></span>
+  </div>
+<% end %>
+
+<div class="side-block">
+  <h1>Archives</h1>
+  <div class="archive-items">
+    <%= render 'blog_posts/archive_list', items: archive_list %>
+  </div>
+</div>

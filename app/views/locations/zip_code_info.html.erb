@@ -1,0 +1,13 @@
+<% if @locations.count == 0 %>
+  <%= text_field_tag nil, nil, placeholder: 'Unknown Zip Code', disabled: 'disabled', class: 'form-control' %>
+
+<% elsif @locations.count == 1 %>
+  <% location = @locations.first %>
+  <%= hidden_field params[:object], :location_id, value: location.id %>
+  <%= text_field_tag nil, smart_caption(location), disabled: 'disabled', class: 'form-control' %>
+
+<% else %>
+  <div clss="select-wrapper">
+    <%= select params[:object], :location_id, @locations.collect { |location| [ smart_caption(location), location.id ] }, { include_blank: '* Location', selected: params[:selected] }, class: 'form-control' %>
+  </div>
+<% end %>

@@ -1,0 +1,5 @@
+<ul>
+  <% items.each do |item| %>
+    <li><%= link_to item['str'], blog_archive_path(item['year'], item['month']) %></li>
+  <% end %>
+</ul>

@@ -1,0 +1,70 @@
+<% provide(:title, 'My Account') %>
+
+<div class="my-profile-page job-seeker">
+  <div class="profile-details-wrapper <%= 'with-image' if @user.profile_picture %>">
+    <div class="profile-details">
+      <div class="details.clear">
+        <% if @user.profile_picture %>
+          <%= link_to image_tag(@user.profile_picture.thumb('230x165')), @user.profile_picture.url, target: '_blank', class: 'profile-logo fancybox-preview' %>
+        <% end %>
+        <div class="user-details">
+          <h1>
+            <%= @user.first_name %>
+            <%= @user.last_name %>
+          </h1>
+          <strong><%= @user.email %></strong>
+          <p>
+            <% if @user.address.present? %>
+              <%= @user.address %>
+              <br/>
+            <% end %>
+            <%= @user.location.city %>
+            <div>, <%= @user.location.state %></div>
+            <br/>
+            <%= @user.location.zip_code %>
+            <div>, <%= @user.location.country %></div>
+            <% if @user.phone_number.present? %>
+              <br/>
+              <%= @user.phone_number %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+      <div class="settings">
+        <div>Settings</div>
+        <ul>
+          <li><%= link_to 'Edit Profile', edit_profile_path %></li>
+          <li><%= link_to 'Change Email', new_email_change_path, class: 'fancybox fancybox.ajax' %></li>
+          <li> link_to 'Change Password', new_password_change_path, class: 'fancybox fancybox.ajax' </li>
+          <li><%= link_to 'Delete Account', delete_profile_path, method: :delete, data: { confirm: 'Are you sure you want to delete your account?' } %></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ad-block.ad-block1">Google AdSense Block 1</div>
+    <div class="ad-block.ad-block2">Google AdSense Block 2</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 messages-wrapper"></div>
+    <div class="col-xs-12 col-sm-6 suggested-jobs-wrapper">
+      <h1>Suggested Jobs</h1>
+      <% suggested_jobs = suggested_jobs(current_user) %>
+      <div class="suggested-jobs">
+        <% if suggested_jobs.count > 0 %>
+          <div class="items-list">
+            <%= render partial: 'jobs/search_item', collection: suggested_jobs, as: :job %>
+          </div>
+        <% else %>
+          <span class="no-jobs">
+            There are no suggested jobs at the moment. Please try to enrich your profile info and resume(s)
+          </span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="recently-viewed-listings-wrapper">
+    <h1>Recently Viewed Jobs</h1>
+    <%= render 'job_seekers/recently_viewed_jobs', jobs: current_user.recently_viewed_jobs %>
+  </div>
+</div>
+
+<% include_script 'my-account' %>

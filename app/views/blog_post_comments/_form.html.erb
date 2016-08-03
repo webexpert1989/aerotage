@@ -1,0 +1,12 @@
+<%= form_for [@blog_post, @blog_post_comment], url: blog_post_comments_path(@blog_post), html: { class: 'ajax-form' } do |f| %>
+  <% if f.object.errors.any? %>
+    <% f.object.errors.full_messages.each do |msg| %>
+      <p class="error alert alert-danger"><%= msg %></p>
+    <% end %>  
+  <% end %>
+  <%= hidden_field_tag :parent_comment_id, @parent_comment.id if @parent_comment %>
+  <fieldset>
+    <%= f.text_area :text, placeholder: 'Enter comment text' %>
+    <div class="controls"><%= f.submit 'Post', class: 'green' %></div>
+  </fieldset>
+<% end %>
