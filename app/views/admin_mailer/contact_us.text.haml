@@ -1,0 +1,9 @@
+Dear Admin,
+
+#{@contact_us.name} has sent you a message from the Contact Us page.
+
+You can reply to #{@contact_us.name} at #{@contact_us.email}
+
+The body of the message is as follows:
+
+= @contact_us.comments_raw

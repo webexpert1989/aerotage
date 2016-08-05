@@ -72,59 +72,78 @@
   </div>
 
   <div class="right-side-wrapper">
-    .side-block.listing-tools
-      %h1 Resume Tools
-      - if logged_in?
-        = link_to 'Flag This Resume', new_flag_path(listing_id: resume.listing.id), class: 'fancybox fancybox.ajax flag-job'
-      %a#map-dialog.view-map{ href: '#map-canvas' } View on Map
-      = link_to 'Print This Resume', print_resume_path, class: 'print-job', target: '_blank'
-      - if resume.resume
-        = link_to 'Download Resume', download_resume_path(resume)
-
-    .side-block.listing-summary
-      %h1 Resume Summary
-      .listing-summary
-        %p
+    <div class="side-block listing-tools">
+      <h1>Resume Tools</h1>
+      <% if logged_in? %>
+        <%= link_to 'Flag This Resume', new_flag_path(listing_id: resume.listing.id), class: 'fancybox fancybox.ajax flag-job' %>
+      <% end %>
+      <a id="map-dialog" class="view-map" href='#map-canvas'>View on Map</a>
+      <%= link_to 'Print This Resume', print_resume_path, class: 'print-job', target: '_blank' %>
+      <% if resume.resume %>
+        <%= link_to 'Download Resume', download_resume_path(resume) %>
+      <% end %>
+    </div>
+    <div class="side-block listing-summary">
+      <h1>Resume Summary</h1>
+      <div class="listing-summary">
+        <p>
           City:
-          %span= resume.location.city
-        %p
+          <span><%= resume.location.city %></span>
+        </p>
+        <p>
           State:
-          %span= resume.location.state
-        %p
+          <span><%= resume.location.state %></span>
+        </p>
+        <p>
           Country:
-          %span= resume.location.country
-        %p
+          <span><%= resume.location.country %></span>
+        </p>
+        <p>
           Zip Code:
-          %span= resume.location.zip_code
-        -if resume.employment_types.present?
-          %p
+          <span><%= resume.location.zip_code %></span>
+        </p>
+        <% if resume.employment_types.present? %>
+          <p>
             Employment Type:
-            %span= employment_types_list(resume)
-        - if resume.salary && resume.salary_type
-          %p
+            <span><%= employment_types_list(resume) %></span>
+          </p>
+        <% end %>
+        <% if resume.salary && resume.salary_type %>
+          <p>
             Desired Salary:
-            %span= formatted_salary(resume)
+            <span><%= formatted_salary(resume) %></span>
+          </p>
+        <% end %>
 
-    .side-block
-      %h1 Job Seeker Info
-      .company-info
-        = image_tag resume.job_seeker.profile_picture.thumb('180x180'), class: 'company-logo' if resume.job_seeker.profile_picture
-        %p
-          %strong
-            = resume.job_seeker.first_name
-            = resume.job_seeker.last_name
-        %p= resume.job_seeker.address
-        %p
-          = resume.job_seeker.location.city
-          , #{resume.job_seeker.location.state}, #{resume.job_seeker.location.country}
-        %p
-          %strong Phone Number:
-          = resume.job_seeker.phone_number
-        %p
-          %strong Email:
-          = resume.job_seeker.email
+      </div>
+    </div>
+    <div class="side-block">
+      <h1>Job Seeker Info</h1>
+      <div class="company-info">
+        <%= image_tag resume.job_seeker.profile_picture.thumb('180x180'), class: 'company-logo' if resume.job_seeker.profile_picture %>
+        <p>
+          <strong>
+            <%= resume.job_seeker.first_name %>
+            <%= resume.job_seeker.last_name %>
+          </strong>
+        </p>
+        <p><%= resume.job_seeker.address %></p>
+        <p>
+          <%= resume.job_seeker.location.city %>
+          , <%= resume.job_seeker.location.state %>, <%= resume.job_seeker.location.country %>
+        </p>
+        <p>
+          <strong>Phone Number:</strong>
+          <%= resume.job_seeker.phone_number %>
+        </p>
+        <p>
+          <strong>Email:</strong>
+          <%= resume.job_seeker.email %>
+        </p>
+      </div>
+    </div>
   </div>
 
-  #map-canvas{ style: 'display: none;', data: { latitude: resume.location.latitude, longitude: resume.location.longitude, title: resume.title } }
+  <div id="map-canvas" style="display: none;"> data: { latitude: resume.location.latitude, longitude: resume.location.longitude, title: resume.title } }</div>
 </div>
 <% include_script 'show-listing' %>

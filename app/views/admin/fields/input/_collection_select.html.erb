@@ -1,0 +1,8 @@
+<% required = false if local_assigns[:required].nil? %>
+
+<div class="form-group">
+  <%= f.label field, class: "col-sm-4 control-label #{required ? 'required' : ''}" %>
+  <div class="col-sm-8">
+    <%= f.collection_select field, collection, value, text, { include_blank: '' }, class: 'form-control' %>
+  </div>
+</div>

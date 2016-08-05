@@ -1,0 +1,18 @@
+<% required = false if local_assigns[:required].nil? %>
+<% object = f.object.send(field) %>
+
+<%= f.fields_for field do |ff| %>
+  <div class="form-group">
+    <%= ff.label field, class: "col-sm-4 control-label#{required ? ' required' : ''}" %>
+    <div class="col-sm-8">
+      <% if object.stored? %>
+        <%= link_to image_tag(object.thumb('200x200>')), object.url, target: '_blank', class: 'img-thumbnail fancybox-preview' %>
+        <%= ff.check_box :_destroy %>
+        <%= ff.label :_destroy, 'Remove?' %>
+      <% end %>
+      <%= ff.file_field :image %>
+      <%= ff.hidden_field :retained_image %>
+      <p class="help-block">Accepted formats: jpeg, jpg, png, gif. Max file size: 10 MB</p>
+    </div>
+  </div>
+<% end %>

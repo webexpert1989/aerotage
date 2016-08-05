@@ -1,0 +1,36 @@
+<% provide(:title, 'Resumes') %>
+
+<%= page_entries_info @listings %>
+
+<%= search_form_for [:admin, @search], html: { class: 'form-inline' } do |f| %>
+  <div class="form-group">
+    <%= f.search_field :id_eq, class: 'form-control', placeholder: 'ID' %>
+  </div>
+  <div class="form-group">
+    <%= f.search_field :listing_title_cont, class: 'form-control', placeholder: 'Title' %>
+  </div>
+  <div class="form-group">
+    <% selected = params[:q].present? && params[:q][:listing_active_eq].present? ? params[:q][:listing_active_eq] : nil %>
+    <%= f.select :listing_active_eq, options_for_select([ ['Active', 1], ['Inactive', 0] ], selected), { include_blank: 'Any Status' }, { class: 'form-control' } %>
+  </div>
+  <div class="form-group">
+    <% selected = params[:q].present? && params[:q][:listing_created_at_this].present? ? params[:q][:listing_created_at_this] : nil %>
+    <%= f.select :listing_created_at_this, options_for_select([ ['Today', 'day'], ['This Week', 'week'], ['This Month', 'month'] ], selected), { include_blank: 'Any Time' }, { class: 'form-control' } %>
+  </div>
+
+  <%= f.submit 'Filter', class: 'btn btn-default' %>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Job Seeker</th>
+      <th>Activation Date</th>
+      <th>Expiration Date</th>
+    </tr>
+  </thead>
+  <%= render @listings %>
+</table>
+<%= paginate @listings, views_prefix: 'admin' %>

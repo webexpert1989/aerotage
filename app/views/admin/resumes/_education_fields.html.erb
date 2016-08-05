@@ -1,0 +1,11 @@
+<div class="nested-fields">
+  <%= render 'admin/fields/input/string', f: f, field: :institution_name, required: true %>
+  <%= render 'admin/fields/input/string', f: f, field: :major, required: true %>
+  <%= render 'admin/fields/input/select', f: f, field: :degree_level, options: Education.degree_levels, required:  true %>
+  <%= render 'admin/fields/input/string', f: f, field: :entrance_date %>
+  <%= render 'admin/fields/input/string', f: f, field: :graduation_date %>
+
+  <div class="remove-button-wrapper">
+    <%= link_to_remove_association 'Remove', f, class: 'btn btn-danger btn-xs' %>
+  </div>
+</div>

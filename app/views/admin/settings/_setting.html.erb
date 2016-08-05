@@ -1,0 +1,9 @@
+<div class="form-group">
+  <%= label_tag 'settings_' + setting_id, caption, class: 'col-sm-4 control-label' %>
+  <div class="col-sm-4">
+    <%= text_field_tag "settings[#{setting_id}]", Settings[setting_id], class: 'form-control' %>
+  </div>
+  <div class="col-sm-4">
+    <p class="help-block"><%= hint %></p>
+  </div>
+</div>

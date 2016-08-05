@@ -1,0 +1,6 @@
+<% id = false if local_assigns[:id].nil? %>
+
+<tr>
+  <th class="col-sm-4"><%= key %></th>
+  <td class="col-sm-8" id="<%= id if id %>"><%= value %></td>
+</tr>

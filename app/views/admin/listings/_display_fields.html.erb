@@ -1,0 +1,6 @@
+<%= render 'admin/fields/display/string', key: 'Options', value: listing_options(listing) %>
+<%= render 'admin/fields/display/string', key: 'Title', value: listing.title %>
+<%= render 'admin/fields/display/string', key: 'Communities', value: communities_list(listing) %>
+<%= render 'admin/fields/display/string', key: 'Occupations', value: occupations_list(listing) %>
+<%= render 'admin/fields/display/string', key: 'Employment Types', value: employment_types_list(listing) %>
+<%= render 'admin/fields/display/string', key: 'Salary', value: formatted_salary(listing) %>

@@ -1,0 +1,23 @@
+<tr>
+  <td><%= job_seeker.id %></td>
+  <td><%= link_to job_seeker.display_name, admin_job_seeker_path(job_seeker) %></td>
+  <td><%= job_seeker.email %></td>
+  <td>
+    <% if job_seeker.activated %>
+      <%= job_seeker.activated_at.to_date.to_formatted_s(:short_with_year) %>
+    <% else %>
+      <span class="label label-default">Inactive</span>
+    <% end %>
+  </td>
+  <td>
+    <span class="label label-default id="credits-<%= job_seeker.id %>"><%= job_seeker.credits %></span>
+  </td>
+  <td>
+    <%= link_to 'Login', login_admin_job_seeker_path(job_seeker), class: 'btn btn-primary btn-xs', target: '_blank' %>
+    <% if job_seeker.activated %>
+      <%= link_to 'Deactivate', deactivate_admin_job_seeker_path(job_seeker), class: 'btn btn-warning btn-xs', data: { confirm: 'Are you sure you want to deactivate this job seeker?' } %>
+    <% else %>
+      <%= link_to 'Activate', activate_admin_job_seeker_path(job_seeker), class: 'btn btn-success btn-xs' %>
+    <% end %>
+  </td>
+</tr>

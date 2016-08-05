@@ -1,0 +1,7 @@
+<p>Dear <%= @employer.display_name %>,</p>
+
+<p>Your "<%= @option %>" option is set to expire in 3 days.</p>
+
+<p>To prolong this option, go to "My Credits" page in your account and use the "Prolong" link adjacent to the expired option.</p>
+
+<%= link_to 'My Credits', my_credits_url %>

@@ -1,0 +1,10 @@
+<p> Dear <%= @user.display_name %>,</p>
+
+<% if @user.employer? %>
+  <p> Thank you for registering at AerotageJobs! You can post your jobs, search our resume database, create resume alerts and much more!</p>
+<% else %>
+  <p> Thank you for registering at AerotageJobs! You can post your resume, search for jobs, create jobs alerts and much more!</p>
+
+<p> Use the following link to sign in to your account:</p>
+
+<%= link_to 'Sign In', login_url %>

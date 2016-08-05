@@ -1,0 +1,170 @@
+<div class="dashboard">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Employers</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <tr>
+              <th></th>
+              <th>Active</th>
+              <th>Inactive</th>
+              <th>Total</th>
+            </tr>
+            <tr>
+              <td>Today</td>
+              <td><%= link_to Employer.ransack(user_created_at_this: 'day', user_activated_eq: 1).result.count, admin_employers_path(q: { user_created_at_this: 'day', user_activated_eq: 1 }) %></td>
+              <td><%= link_to Employer.ransack(user_created_at_this: 'day', user_activated_eq: 0).result.count, admin_employers_path(q: { user_created_at_this: 'day', user_activated_eq: 0 }) %></td>
+              <td><%= link_to Employer.ransack(user_created_at_this: 'day').result.count, admin_employers_path(q: { user_created_at_this: 'day' }) %></td>
+            </tr>
+            <tr>
+              <td>This Week</td>
+              <td><%= link_to Employer.ransack(user_created_at_this: 'week', user_activated_eq: 1).result.count, admin_employers_path(q: { user_created_at_this: 'week', user_activated_eq: 1 }) %></td>
+              <td><%= link_to Employer.ransack(user_created_at_this: 'week', user_activated_eq: 0).result.count, admin_employers_path(q: { user_created_at_this: 'week', user_activated_eq: 0 }) %></td>
+              <td><%= link_to Employer.ransack(user_created_at_this: 'week').result.count, admin_employers_path(q: { user_created_at_this: 'week' }) %></td>
+            </tr>
+            <tr>
+              <td>This Month</td>
+              <td><%= link_to Employer.ransack(user_created_at_this: 'month', user_activated_eq: 1).result.count, admin_employers_path(q: { user_created_at_this: 'month', user_activated_eq: 1 }) %></td>
+              <td><%= link_to Employer.ransack(user_created_at_this: 'month', user_activated_eq: 0).result.count, admin_employers_path(q: { user_created_at_this: 'month', user_activated_eq: 0 }) %></td>
+              <td><%= link_to Employer.ransack(user_created_at_this: 'month').result.count, admin_employers_path(q: { user_created_at_this: 'month' }) %></td>
+            </tr>
+            <tr>
+              <td>Totals</td>
+              <td><%= link_to Employer.ransack(user_activated_eq: 1).result.count, admin_employers_path(q: { user_activated_eq: 1 }) %></td>
+              <td><%= link_to Employer.ransack(user_activated_eq: 0).result.count, admin_employers_path(q: { user_activated_eq: 0 }) %></td>
+              <td><%= link_to Employer.ransack.result.count, admin_employers_path %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Job Seekers</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <tr>
+              <th></th>
+              <th>Active</th>
+              <th>Inactive</th>
+              <th>Total</th>
+            </tr>
+            <tr>
+              <td>Today</td>
+              <td><%= link_to JobSeeker.ransack(user_created_at_this: 'day', user_activated_eq: 1).result.count, admin_job_seekers_path(q: { user_created_at_this: 'day', user_activated_eq: 1 }) %></td>
+              <td><%= link_to JobSeeker.ransack(user_created_at_this: 'day', user_activated_eq: 0).result.count, admin_job_seekers_path(q: { user_created_at_this: 'day', user_activated_eq: 0 }) %></td>
+              <td><%= link_to JobSeeker.ransack(user_created_at_this: 'day').result.count, admin_job_seekers_path(q: { user_created_at_this: 'day' }) %></td>
+            </tr>
+            <tr>
+              <td>This Week</td>
+              <td><%= link_to JobSeeker.ransack(user_created_at_this: 'week', user_activated_eq: 1).result.count, admin_job_seekers_path(q: { user_created_at_this: 'week', user_activated_eq: 1 }) %></td>
+              <td><%= link_to JobSeeker.ransack(user_created_at_this: 'week', user_activated_eq: 0).result.count, admin_job_seekers_path(q: { user_created_at_this: 'week', user_activated_eq: 0 }) %></td>
+              <td><%= link_to JobSeeker.ransack(user_created_at_this: 'week').result.count, admin_job_seekers_path(q: { user_created_at_this: 'week' }) %></td>
+            </tr>
+            <tr>
+              <td>This Month</td>
+              <td><%= link_to JobSeeker.ransack(user_created_at_this: 'month', user_activated_eq: 1).result.count, admin_job_seekers_path(q: { user_created_at_this: 'month', user_activated_eq: 1 }) %></td>
+              <td><%= link_to JobSeeker.ransack(user_created_at_this: 'month', user_activated_eq: 0).result.count, admin_job_seekers_path(q: { user_created_at_this: 'month', user_activated_eq: 0 }) %></td>
+              <td><%= link_to JobSeeker.ransack(user_created_at_this: 'month').result.count, admin_job_seekers_path(q: { user_created_at_this: 'month' }) %></td>
+            </tr>
+            <tr>
+              <td>Totals</td>
+              <td><%= link_to JobSeeker.ransack(user_activated_eq: 1).result.count, admin_job_seekers_path(q: { user_activated_eq: 1 }) %></td>
+              <td><%= link_to JobSeeker.ransack(user_activated_eq: 0).result.count, admin_job_seekers_path(q: { user_activated_eq: 0 }) %></td>
+              <td><%= link_to JobSeeker.ransack.result.count, admin_job_seekers_path %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>  
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Jobs</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <tr>
+              <th>
+              <th>Active</th>
+              <th>Inactive</th>
+              <th>Total</th>
+            </tr>
+            <tr>
+              <td>Today</td>
+              <td><%= link_to Job.ransack(listing_created_at_this: 'day', listing_active_eq: 1).result.count, admin_jobs_path(q: { listing_created_at_this: 'day', listing_active_eq: 1 }) %></td>
+              <td><%= link_to Job.ransack(listing_created_at_this: 'day', listing_active_eq: 0).result.count, admin_jobs_path(q: { listing_created_at_this: 'day', listing_active_eq: 0 }) %></td>
+              <td><%= link_to Job.ransack(listing_created_at_this: 'day').result.count, admin_jobs_path(q: { listing_created_at_this: 'day' }) %></td>
+            </tr>
+            <tr>
+              <td>This Week</td>
+              <td><%= link_to Job.ransack(listing_created_at_this: 'week', listing_active_eq: 1).result.count, admin_jobs_path(q: { listing_created_at_this: 'week', listing_active_eq: 1 }) %></td>
+              <td><%= link_to Job.ransack(listing_created_at_this: 'week', listing_active_eq: 0).result.count, admin_jobs_path(q: { listing_created_at_this: 'week', listing_active_eq: 0 }) %></td>
+              <td><%= link_to Job.ransack(listing_created_at_this: 'week').result.count, admin_jobs_path(q: { listing_created_at_this: 'week' }) %></td>
+            </tr>
+            <tr>
+              <td>This Month</td>
+              <td><%= link_to Job.ransack(listing_created_at_this: 'month', listing_active_eq: 1).result.count, admin_jobs_path(q: { listing_created_at_this: 'month', listing_active_eq: 1 }) %></td>
+              <td><%= link_to Job.ransack(listing_created_at_this: 'month', listing_active_eq: 0).result.count, admin_jobs_path(q: { listing_created_at_this: 'month', listing_active_eq: 0 }) %></td>
+              <td><%= link_to Job.ransack(listing_created_at_this: 'month').result.count, admin_jobs_path(q: { listing_created_at_this: 'month' }) %></td>
+            </tr>
+            <tr>
+              <td>Totals</td>
+              <td><%= link_to Job.ransack(listing_active_eq: 1).result.count, admin_jobs_path(q: { listing_active_eq: 1 }) %></td>
+              <td><%= link_to Job.ransack(listing_active_eq: 0).result.count, admin_jobs_path(q: { listing_active_eq: 0 }) %></td>
+              <td><%= link_to Job.ransack.result.count, admin_jobs_path %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Resumes</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <tr>
+              <th></th>
+              <th>Active</th>
+              <th>Inactive</th>
+              <th>Total</th>
+            </tr>
+            <tr>
+              <td>Today</td>
+              <td><%= link_to Resume.ransack(listing_created_at_this: 'day', listing_active_eq: 1).result.count, admin_resumes_path(q: { listing_created_at_this: 'day', listing_active_eq: 1 }) %></td>
+              <td><%= link_to Resume.ransack(listing_created_at_this: 'day', listing_active_eq: 0).result.count, admin_resumes_path(q: { listing_created_at_this: 'day', listing_active_eq: 0 }) %></td>
+              <td><%= link_to Resume.ransack(listing_created_at_this: 'day').result.count, admin_resumes_path(q: { listing_created_at_this: 'day' }) %></td>
+            </tr>
+            <tr>
+              <td>This Week</td>
+              <td><%= link_to Resume.ransack(listing_created_at_this: 'week', listing_active_eq: 1).result.count, admin_resumes_path(q: { listing_created_at_this: 'week', listing_active_eq: 1 }) %></td>
+              <td><%= link_to Resume.ransack(listing_created_at_this: 'week', listing_active_eq: 0).result.count, admin_resumes_path(q: { listing_created_at_this: 'week', listing_active_eq: 0 }) %></td>
+              <td><%= link_to Resume.ransack(listing_created_at_this: 'week').result.count, admin_resumes_path(q: { listing_created_at_this: 'week' }) %></td>
+            </tr>
+            <tr>
+              <td>This Month</td>
+              <td><%= link_to Resume.ransack(listing_created_at_this: 'month', listing_active_eq: 1).result.count, admin_resumes_path(q: { listing_created_at_this: 'month', listing_active_eq: 1 }) %></td>
+              <td><%= link_to Resume.ransack(listing_created_at_this: 'month', listing_active_eq: 0).result.count, admin_resumes_path(q: { listing_created_at_this: 'month', listing_active_eq: 0 }) %></td>
+              <td><%= link_to Resume.ransack(listing_created_at_this: 'month').result.count, admin_resumes_path(q: { listing_created_at_this: 'month' }) %></td>
+            </tr>
+            <tr>
+              <td>Totals</td>
+              <td><%= link_to Resume.ransack(listing_active_eq: 1).result.count, admin_resumes_path(q: { listing_active_eq: 1 }) %></td>
+              <td><%= link_to Resume.ransack(listing_active_eq: 0).result.count, admin_resumes_path(q: { listing_active_eq: 0 }) %></td>
+              <td><%= link_to Resume.ransack.result.count, admin_resumes_path %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<ol class="breadcrumb">
+  <li><%= link_to 'Jobs', admin_jobs_path %></li>
+  <li class="active"><%= yield(:title) %></li>
+</ol>
+<%= form_for [:admin, @listing], html: { class: 'form-horizontal' } do |f| %>
+  <%= render 'shared/error_messages', target: f.object %>
+
+  <%= render 'admin/listings/input_fields', f: f %>
+
+  <%= render 'admin/fields/input/text', f: f, field: :job_description_raw, caption: 'Job Description' %>
+  <%= render 'admin/fields/input/text', f: f, field: :job_requirements_raw, caption: 'Job Requirements' %>
+  <%= render 'admin/fields/input/collection_select', f: f, field: :questionnaire_id, collection: @listing.employer.questionnaires, value: :id, text: :name %>
+
+  <%= render 'admin/fields/input/location', object: f.object, required: true %>
+
+  <%= render 'admin/fields/input/submit_button', f: f, caption: action?('admin/jobs', :new) ? 'Create' : 'Save' %>
+<% end %>

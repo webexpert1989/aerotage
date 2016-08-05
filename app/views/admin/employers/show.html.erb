@@ -1,0 +1,33 @@
+<% employer = @user %>
+
+<% provide(:title, employer.company_name) %>
+
+<ol class="breadcrumb">
+  <li><%= link_to 'Employers', admin_employers_path %></li>
+  <li class="active"><%= yield(:title) %></li>
+</ol>
+<div class="button-toolbar">
+  <%= link_to 'Credits', credits_admin_employer_path(employer), class: 'btn btn-primary btn-sm fancybox fancybox.ajax' %>
+  <%= link_to 'Edit', edit_admin_employer_path(employer), class: 'btn btn-primary btn-sm' %>
+  <%= link_to 'Delete', admin_employer_path(employer), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Are you sure you want to delete this employer?' } %>
+  <%= link_to 'Featured Option', featured_admin_employer_path(employer), class: 'btn btn-primary btn-sm fancybox fancybox.ajax' %>
+  <%= link_to 'Resume Database Access Option', resume_database_access_admin_employer_path(employer), class: 'btn btn-primary btn-sm fancybox fancybox.ajax' %>
+</div>
+<div class="table-responsive">
+  <table class="table">
+    <%= render 'admin/fields/display/string', key: 'Credits', value: employer.credits, id: 'credits' %>
+    <%= render 'admin/fields/display/string', key: 'Featured', value: featured_info(employer), id: 'featured' %>
+    <%= render 'admin/fields/display/string', key: 'Resume Database Access', value: resume_database_access_info(employer), id: 'resume-database-access' %>
+    <%= render 'admin/fields/display/string', key: 'Email', value: employer.email %>
+    <%= render 'admin/fields/display/boolean', key: 'Send Mailings', value: employer.send_mailings %>
+    <%= render 'admin/fields/display/string', key: 'Company Name', value: employer.company_name %>
+    <%= render 'admin/fields/display/string', key: 'Contact Name', value: employer.contact_name %>
+    <%= render 'admin/fields/display/location', object: employer %>
+    <%= render 'admin/fields/display/string', key: 'Address', value: employer.address %>
+    <%= render 'admin/fields/display/string', key: 'Web Site', value: employer.web_site %>
+    <%= render 'admin/fields/display/string', key: 'Phone Number', value: employer.phone_number %>
+    <%= render 'admin/fields/display/text', key: 'Company Description', value: employer.company_description %>
+    <%= render 'admin/fields/display/video', key: 'Video', object: employer.video %>
+    <%= render 'admin/fields/display/image', key: 'Logo', object: employer.logo %>
+  </table>
+</div>

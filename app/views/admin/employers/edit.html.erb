@@ -1,0 +1,8 @@
+<% provide(:title, 'Edit Employer') %>
+
+<ol class="breadcrumb">
+  <li><%= link_to 'Employers', admin_employers_path %></li>
+  <li><%= link_to @user.display_name, admin_employer_path(@user) %></li>
+  <li class="active">Edit</li>
+</ol>
+<%= render 'form' %>

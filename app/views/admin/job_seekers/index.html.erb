@@ -1,0 +1,40 @@
+<% provide(:title, 'Job Seekers') %>
+
+<%= page_entries_info @users %>
+<%= link_to 'Add New Job Seeker', new_admin_job_seeker_path, class: 'btn btn-primary btn-sm pull-right' %>
+
+<%= search_form_for [:admin, @search], html: { class: 'form-inline' } do |f| %>
+  <div class="form-group">
+    <%= f.search_field :id_eq, class: 'form-control', placeholder: 'ID' %>
+  </div>
+  <div class="form-group">
+    <%= f.search_field :first_name_or_last_name_cont, class: 'form-control', placeholder: 'Name' %>
+  </div>
+  <div class="form-group">
+    <%= f.search_field :user_email_cont, class: 'form-control', placeholder: 'Email' %>
+  </div>
+  <div class="form-group">
+    <% selected = params[:q].present? && params[:q][:user_activated_eq].present? ? params[:q][:user_activated_eq] : nil %>
+    <%= f.select :user_activated_eq, options_for_select([ ['Active', 1], ['Inactive', 0] ], selected), { include_blank: 'Any Status' }, { class: 'form-control' } %>
+  </div>
+  <div class="form-group">
+    <% selected = params[:q].present? && params[:q][:user_created_at_this].present? ? params[:q][:user_created_at_this] : nil %>
+    <%= f.select :user_created_at_this, options_for_select([ ['Today', 'day'], ['This Week', 'week'], ['This Month', 'month'] ], selected), { include_blank: 'Any Time' }, { class: 'form-control' } %>
+  </div>
+  <%= f.submit 'Filter', class: 'btn btn-default' %>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Activation Date</th>
+      <th>Credits</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <%= render @users %>
+</table>
+<%= paginate @users, views_prefix: 'admin' %>

@@ -1,0 +1,16 @@
+Dear <%= @application.employer.display_name %>,
+
+You have received a new application for <%= @application.job.title %> from <%= @application.job_seeker.display_name %>.
+
+- <%= @application.job_seeker.display_name %>
+
+- <%= @application.job_seeker.email %>
+
+- <%= @application.job_seeker.phone_number %>
+
+<% if @application.cover_letter.present? %>
+  - <%= @application.cover_letter_raw %>
+<% end %>
+You can view all application details and download a current resume using the following link:
+
+<%= application_url(@application) %>

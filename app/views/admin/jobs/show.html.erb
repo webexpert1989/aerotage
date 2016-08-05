@@ -1,0 +1,18 @@
+<% job = @listing %>
+
+<% provide(:title, job.title) %>
+
+<ol class="breadcrumb">
+  <li><%= link_to 'Jobs', admin_jobs_path %></li>
+  <li class="active"><%= yield(:title) %></li>
+</ol>
+
+<div class="table-responsive">
+  <table class="table">
+    <%= render 'admin/listings/display_fields', listing: job %>
+    <%= render 'admin/fields/display/text', key: 'Job Description', value: job.job_description.html_safe %>
+    <%= render 'admin/fields/display/text', key: 'Job Requirements', value: job.job_requirements.html_safe %>
+    <%= render 'admin/fields/display/text', key: 'Screening Questionnaire', value: job.questionnaire ? job.questionnaire.name.html_safe : '' %>
+    <%= render 'admin/fields/display/location', object: job %>
+  </table>
+</div>

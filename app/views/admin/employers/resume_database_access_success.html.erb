@@ -1,0 +1,10 @@
+<p class="alert alert-success dialog">
+  <%= pluralize(@amount, 'day') + ' ' + (@action == 'add' ? 'added to' : 'subtracted from') %>
+  <%= @user.display_name %>
+  's Resume Database Access Option
+</p>
+<script>
+  $(function() {
+    $('#resume-database-access').html('#{h(resume_database_access_info(@user))}');
+  });
+</script>

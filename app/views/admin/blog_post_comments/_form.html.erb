@@ -1,0 +1,11 @@
+<ol class="breadcrumb">
+  <li><%= link_to 'Blog Posts', admin_blog_posts_path %></li>
+  <li><%= link_to 'Edit Blog Post', edit_admin_blog_post_path(@post) %>
+  <li><%= link_to 'Manage Comments', admin_blog_post_comments_path(@post) %></li>
+  <li class="active"><%= yield(:title) %></li>
+</ol>
+<%= form_for [:admin, @comment], html: { class: 'form-horizontal' } do |f| %>
+  <%= render 'shared/error_messages', target: f.object %>
+  <%= render 'admin/fields/input/text', f: f, field: :text, caption: '', required: true %>
+  <%= render 'admin/fields/input/submit_button', f: f, caption: 'Save' %>
+<% end %>

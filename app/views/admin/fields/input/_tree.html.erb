@@ -1,0 +1,18 @@
+<div class="tree-wrapper">
+  <%= render 'fields/input/tree_button', object: object, field: field, selected: selected, caption: caption %>
+
+  <div class="tree-div-wrapper" style='display: none;'>
+    <div class="modal-header">
+      <h4 class="modal-title"><%= caption %></h4>
+    </div>
+    <div class="modal-body">
+      <div class="tree-div">
+        <%= render 'fields/input/tree_level', selected: selected, nodes: model.arrange(order: :title) %>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <input class="btn btn-primary btn-sm deselect-all" type='button' value='Deselect All' />
+      <input class="btn btn-success btn-sm done" type='button' value='Done' />
+    </div>
+  </div>
+</div>

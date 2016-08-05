@@ -1,0 +1,12 @@
+<tr>
+  <th class="col-sm-4"><%= key %></th>
+  <td class="col-sm-8">
+    <% if object %>
+      <%= link_to object.url, target: '_blank' do %>
+        %video{ controls: '', height: '240', width: '320' }
+          %source{ src: object.url, type: 'video/mp4' }
+          Your browser does not support the video tag.
+      <% end %>
+    <% end %>
+  </td>
+</tr>

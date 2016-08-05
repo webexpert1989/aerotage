@@ -1,0 +1,10 @@
+<li>
+  <strong><%= education.institution_name %></strong>
+  ,
+  <%= education.major %>
+  ,
+  <%=education.degree_level %>
+  <% if education.entrance_date && education.graduation_date %>
+    ( <%= education.entrance_date.to_date.to_formatted_s(:month_year) %> - <%= education.graduation_date.to_date.to_formatted_s(:month_year) %>)
+  <% end %>
+</li>

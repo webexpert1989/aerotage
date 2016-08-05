@@ -1,0 +1,9 @@
+<p class="alert alert-success dialog">
+  <%= pluralize(@amount, 'day') + ' ' + (@action == 'add' ? 'added to' : 'subtracted from') %>
+  <%= @user.display_name %>
+  's Featured Option
+</p>
+:javascript
+  $(function() {
+    $('#featured').html('#{h(featured_info(@user))}');
+  });

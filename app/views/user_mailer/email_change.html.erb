@@ -1,0 +1,7 @@
+<p>Dear <%= @user.display_name %>, </p>
+
+<p>You have requested to change your email address for your account on AerotageJobs.</p>
+
+<p>Please click on the following link to confirm your new email address:</p>
+
+<%= link_to 'Confirm', edit_email_change_url(@user.activation_token, email: @user.email) %>

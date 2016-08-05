@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  #devise_for :admins
   root 'static_pages#home'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", registrations:"registrations", sessions:"sessions" }
 
@@ -166,5 +167,54 @@ Rails.application.routes.draw do
       match :featured, via: [ :get, :post ]
       match :resume_database_access, via: [ :get, :post ]
     end
-  end 
+  end
+  namespace :admin do
+    get '', to: 'dashboard#index', as: '/'
+    get 'login', to: 'sessions#new'
+    post 'login', to: 'sessions#create'
+    delete 'logout', to: 'sessions#destroy'
+
+    match 'product-settings', to: 'settings#products', via: [ :get, :post ]
+    match 'admin-password', to: 'settings#admin_password', via: [ :get, :post ]
+
+    resources :employers do
+      member do
+        get :activate
+        get :deactivate
+        get :login
+        match :credits, via: [ :get, :post ]
+        match :featured, via: [ :get, :post ]
+        match :resume_database_access, via: [ :get, :post ]
+      end
+    end
+    resources :job_seekers do
+      member do
+        get :activate
+        get :deactivate
+        get :login
+        match :credits, via: [ :get, :post ]
+      end
+    end
+    resources :jobs, except: [:new, :create] do
+      member do
+        match :manage, via: [ :get, :post ]
+      end
+    end
+    resources :resumes, except: [:new, :create] do
+      member do
+        match :manage, via: [ :get, :post ]
+      end
+    end
+
+    resources :flags, only: [:index, :destroy]
+
+    resources :communities
+    resources :blog_posts, path: 'blog' do
+      resources :blog_post_comments, as: :comments, only: [:index], path: 'comments'
+    end
+
+    resources :blog_post_comments, except: [:index]
+
+  end
+
 end

@@ -1,0 +1,11 @@
+<tr>
+  <td><%= resume.id %></td>
+  <td class="title-column"><%= link_to resume.title, admin_resume_path(resume) %></td>
+  <td><%= link_to resume.job_seeker.display_name, admin_job_seeker_path(resume.job_seeker) %></td>
+  <td id="listing-activity-<%= resume.id %>"><%= listing_activity_info(resume) %></td>
+  <td>
+    <%= link_to 'Manage', manage_admin_resume_path(resume), class: 'btn btn-primary btn-xs fancybox fancybox.ajax' %>
+    <%= link_to 'Edit', edit_admin_resume_path(resume), class: 'btn btn-primary btn-xs' %>
+    <%= link_to 'Delete', admin_resume_path(resume), method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure you want to delete this resume?' } %>
+  </td>
+</tr>

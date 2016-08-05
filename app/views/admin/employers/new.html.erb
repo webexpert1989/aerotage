@@ -1,0 +1,7 @@
+<% provide(:title, 'Add New Employer') %>
+
+<ol class="breadcrumb">
+  <li><%= link_to 'Employers', admin_employers_path %></li>
+  <li class="active"><%= yield(:title) %></li>
+</ol>
+<%= render 'form' %>

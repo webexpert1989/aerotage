@@ -1,0 +1,11 @@
+<tr>
+  <td><%= job.id %></td>
+  <td class="title-column"><%= link_to job.title, admin_job_path(job) %></td>
+  <td><%= link_to job.employer.display_name, admin_employer_path(job.employer) %></td>
+  <td id="listing-activity-<%= job.id %>"><%= listing_activity_info(job) %></td>
+  <td>
+    <%= link_to 'Manage', manage_admin_job_path(job), class: 'btn btn-primary btn-xs fancybox fancybox.ajax' %>
+    <%= link_to 'Edit', edit_admin_job_path(job), class: 'btn btn-primary btn-xs' %>
+    <%= link_to 'Delete', admin_job_path(job), method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure you want to delete this job?' } %>
+  </td>
+</tr>

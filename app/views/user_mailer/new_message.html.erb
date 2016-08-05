@@ -1,0 +1,12 @@
+<p>Dear <%= @message.to_employer? ? @application.employer.display_name : @application.job_seeker.display_name %>,</p>
+
+<% if @message.to_employer? %>
+  <p> You have received a new message from <%= @application.job_seeker.display_name %> for you current job posting ID# <%= @application.job.id %>, Title "<%= @application.job.title %>".
+<% else %>
+  <p> You have received a new message from <%= @application.employer.display_name %> for your application for job posting "<%= @application.job.title %>".
+<% end %>
+<p><%= @message.content %></p>
+
+<p>You can view the full conversation in your account using the following link:</p>
+
+<%= link_to 'View Message', application_url(@application) %>

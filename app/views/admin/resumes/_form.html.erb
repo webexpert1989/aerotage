@@ -1,0 +1,43 @@
+<ol class="breadcrumb">
+  <li><%= link_to 'Resumes', admin_resumes_path %></li>
+  <li class="active"><%= yield(:title) %></li>
+</ol>
+
+<%= form_for [:admin, @listing], html: { class: 'form-horizontal' } do |f| %>
+  <%= render 'shared/error_messages', target: f.object %>
+
+  <%= render 'admin/fields/input/boolean', f: f, field: :hidden %>
+  <%= render 'admin/listings/input_fields', f: f %>
+  <%= render 'admin/fields/input/text', f: f, field: :objective_raw, caption: 'Objective' %>
+  <%= render 'admin/fields/input/text', f: f, field: :skills_raw, caption: 'Skills' %>
+  <%= render 'admin/fields/input/location', object: f.object, required: true %>
+  <%= render 'admin/fields/input/document', f: f, field: :resume %>
+
+  <h4>Education</h4>
+
+  <div id="educations">
+    <%= f.fields_for :educations do |education| %>
+      <%= render 'education_fields', f: education %>
+    <% end %>
+    <div class="links add-button-wrapper">
+      <%= link_to_add_association 'Add Education', f, :educations, class: 'btn btn-primary btn-xs' %>
+    </div>
+  </div>
+
+  <h4>Work Experience</h4>
+
+  <div id="work-experiences">
+    <%= f.fields_for :work_experiences do |work_experience| %>
+      <%= render 'work_experience_fields', f: work_experience %>
+    <% end %>
+    <div class="links add-button-wrapper">
+      <%= link_to_add_association 'Add Work Experience', f, :work_experiences, class: 'btn btn-primary btn-xs' %>
+    </div>
+  </div>
+
+  <%= render 'admin/fields/input/string', f: f, field: :total_experience %>
+
+  <%= render 'admin/fields/input/submit_button', f: f, caption: action?('admin/resumes', :new) ? 'Create' : 'Save' %>
+
+  <% include_script 'resumes-form' %>
+<% end %>

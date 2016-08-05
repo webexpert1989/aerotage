@@ -1,0 +1,16 @@
+<p> Dear #{@application.employer.display_name},</p>
+
+<p> You have received a new application for <%= @application.job.title %> from <%= @application.job_seeker.display_name %> .
+
+<p> <%= @application.job_seeker.display_name %></p>
+
+<p> <%= @application.job_seeker.email %></p>
+
+<p> <%= @application.job_seeker.phone_number %></p>
+
+<% if @application.cover_letter.present? %>
+  <p> <%= @application.cover_letter.html_safe %> </p>
+<% end %>
+<p> You can view all application details and download a current resume using the following link:</p>
+
+<%= link_to 'View Application', application_url(@application) %>

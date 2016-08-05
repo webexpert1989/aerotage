@@ -1,0 +1,21 @@
+<ol class="breadcrumb">
+  <li><%= link_to 'Blog Posts', admin_blog_posts_path %></li>
+  <li class="active"><%= yield(:title) %></li>
+</ol>
+<% if action?('admin/blog_posts', :edit) %>
+  <div class="button-toolbar">
+    <%= link_to 'Manage Comments', admin_blog_post_comments_path(@post), class: 'btn btn-primary btn-sm' %>
+  </div>
+<% end %>
+<%= form_for [:admin, @post], html: { class: 'form-horizontal' } do |f| %>
+  <%= render 'shared/error_messages', target: f.object %>
+
+  <%= render 'admin/fields/input/string', f: f, field: :title, required: true %>
+  <%= render 'admin/fields/input/string', f: f, field: :author %>
+  <%= render 'admin/fields/input/text', f: f, field: :summary_raw, caption: 'Summary', required: true %>
+  <%= render 'admin/fields/input/text', f: f, field: :body_raw, caption: 'Body', required: true %>
+  <%= render 'admin/fields/input/select', f: f, field: :community_id, options: Community.all.collect { |c| [ c.title, c.id ] }, required: true %>
+  <%= render 'admin/fields/input/image', f: f, field: :image %>
+
+  <%= render 'admin/fields/input/submit_button', f: f, caption: action?('admin/blog_posts', :new) ? 'Create' : 'Save' %>
+<% end %>

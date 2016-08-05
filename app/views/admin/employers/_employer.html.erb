@@ -1,0 +1,23 @@
+<tr>
+  <td><%= employer.id %></td>
+  <td><%= link_to employer.display_name, admin_employer_path(employer) %></td>
+  <td><%= employer.email %></td>
+  <td>
+    <% if employer.activated %>
+      <%= employer.activated_at.to_date.to_formatted_s(:short_with_year) %>
+    <% else %>
+      <span class="label label-default Inactive"></span>
+    <% end %>
+  </td>
+  <td>
+    <span class="label label-default" id="credits-<%= employer.id %>"><%= employer.credits %></span>
+  </td>
+  <td>
+    <%= link_to 'Login', login_admin_employer_path(employer), class: 'btn btn-primary btn-xs', target: :blank %>
+    <% if employer.activated %>
+      <%= link_to 'Deactivate', deactivate_admin_employer_path(employer), class: 'btn btn-warning btn-xs', data: { confirm: 'Are you sure you want to deactivate this employer?' } %>
+    <% else %>
+      <%= link_to 'Activate', activate_admin_employer_path(employer), class: 'btn btn-success btn-xs' %>
+    <% end %>
+  </td>
+</tr>

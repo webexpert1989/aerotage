@@ -1,0 +1,11 @@
+<div class="nested-fields">
+  <%= render 'admin/fields/input/string', f: f, field: :company_name, required: true %>
+  <%= render 'admin/fields/input/string', f: f, field: :job_title, required: true %>
+  <%= render 'admin/fields/input/text', f: f, field: :description_raw, caption: 'Description' %>
+  <%= render 'admin/fields/input/string', f: f, field: :start_date %>
+  <%= render 'admin/fields/input/string', f: f, field: :end_date %>
+
+  <div class="remove-button-wrapper">
+    <%= link_to_remove_association 'Remove', f, class: 'btn btn-danger btn-xs' %>
+  </div>
+</div>

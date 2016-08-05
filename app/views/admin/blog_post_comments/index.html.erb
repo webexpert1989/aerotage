@@ -1,0 +1,19 @@
+<% provide(:title, 'Manage Comments') %>
+
+<ol class="breadcrumb">
+  <li><%= link_to 'Blog Posts', admin_blog_posts_path %></li>
+  <li><%= link_to 'Edit Blog Post', edit_admin_blog_post_path(@post) %></li>
+  <li class="active"><%= yield(:title) %></li>
+</ol>
+
+<table class="table.table-striped">
+  <thead>
+    <tr>
+      <th>Commenter</th>
+      <th>Text</th>
+      <th>Creation Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>  
+  <%= render @comments %>
+</table>

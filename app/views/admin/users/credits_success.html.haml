@@ -1,0 +1,8 @@
+%p.alert.alert-success.dialog
+  = pluralize(@amount, 'credit') + ' ' + (@action == 'add' ? 'added to' : 'subtracted from')
+  = @user.display_name
+
+:javascript
+  $(function() {
+    $('#credits').html('#{h(@user.credits)}');
+  });

@@ -1,0 +1,9 @@
+<p class="alert alert-success dialog">
+  <%= pluralize(@amount, 'day') + ' ' + (@action == 'add' ? 'added to' : 'subtracted from') %>
+  listing's active period 
+</p>
+<script>
+  $(function() {
+    $('#listing-activity-#{@listing.id}').html('#{h(listing_activity_info(@listing))}');
+  });
+</script>

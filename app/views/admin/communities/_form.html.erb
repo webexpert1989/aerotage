@@ -1,0 +1,17 @@
+<ol class="breadcrumb">
+  <li><%= link_to 'Communities', admin_communities_path %></li>
+  <li class="active"><%= yield(:title) %></li>
+</ol>
+<%= form_for [:admin, @community], html: { class: 'form-horizontal' } do |f| %>
+  <%= render 'shared/error_messages', target: f.object %>
+
+  <%= render 'admin/fields/input/string', f: f, field: :title, required: true %>
+  <%= render 'admin/fields/input/string', f: f, field: :brief_description %>
+  <%= render 'admin/fields/input/string', f: f, field: :specialties %>
+  <%= render 'admin/fields/input/image', f: f, field: :image %>
+  <%= render 'admin/fields/input/string', f: f, field: :content_title %>
+  <%= render 'admin/fields/input/text', f: f, field: :content_raw, caption: 'Content' %>
+
+  <%= render 'admin/fields/input/submit_button', f: f, caption: action?('admin/communities', :new) ? 'Create' : 'Save' %>
+<% end %>
+

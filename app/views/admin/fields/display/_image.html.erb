@@ -1,0 +1,8 @@
+<tr>
+  <th class="col-sm-4"><%= key %></th>
+  <td class="col-sm-8">
+    <% if object %>
+      <%= link_to image_tag(object.thumb('200x200>')), object.url, target: '_blank', class: 'img-thumbnail fancybox-preview' %>
+    <% end %>
+  </td>
+</tr>

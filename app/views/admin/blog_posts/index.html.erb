@@ -1,0 +1,14 @@
+<% provide(:title, 'Blog Posts') %>
+
+<%= link_to 'Add New Blog Post', new_admin_blog_post_path, class: 'btn btn-primary btn-sm' %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th> Title</th>
+      <th> Creation Date</th>
+      <th> Actions</th>
+    </tr>
+  </thead>
+  <%= render @posts %>
+</table>

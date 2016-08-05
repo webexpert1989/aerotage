@@ -1,0 +1,9 @@
+%p Dear Admin,
+
+%p #{@contact_us.name} has sent you a message from the Contact Us page.
+
+%p You can reply to #{@contact_us.name} at #{@contact_us.email}
+
+%p The body of the message is as follows:
+
+= @contact_us.comments.html_safe

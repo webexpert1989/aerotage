@@ -1,0 +1,24 @@
+<div class="modal-header">
+  <h4 class="modal-title"><%= @options[:title] %></h4>
+</div>
+
+<%= form_tag @options[:url], class: 'ajax-form' do %>
+  <div class="modal-body">
+    <%= render 'shared/raw_error_messages', errors: @errors %>
+
+    <div class="form-group">
+      <label class="radio-inline">
+        <%= radio_button_tag :manage_action, 'add', @action == 'add' || @action == nil %>
+        Add
+      </label>
+      <label class="radio-inline">
+        <%= radio_button_tag :manage_action, 'subtract', @action == 'subtract' %>
+        Subtract
+      </label>
+    </div>
+    <%= text_field_tag :amount, params[:amount], placeholder: @options[:amount_placeholder], autocomplete: 'off', class: 'form-control' %>
+  </div>
+  <div class="modal-footer">
+    <%= submit_tag 'Apply', class: 'btn btn-primary' %>
+  </div>
+<% end %>

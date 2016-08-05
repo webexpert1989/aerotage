@@ -1,0 +1,19 @@
+<% required = false if local_assigns[:required].nil? %>
+<% object = f.object.send(field) %>
+
+<%= f.fields_for field do |ff| %>
+  <div class="form-group">
+    <%= ff.label field, class: "col-sm-4 control-label #{required ? 'required' : ''}" %>
+    <div class="col-sm-8">
+      <% if object.stored? %>
+        <%= link_to object.document.name, object.url, target: '_blank' %>
+        <%= ff.check_box :_destroy %>
+        <%= ff.label :_destroy, 'Remove?' %>
+      <% end %>
+
+      <%= ff.file_field :document %>
+      <%= ff.hidden_field :retained_document %>
+      <p class="help-block">Accepted formats: pdf, doc,docx. Max file size: 20 MB</p>
+    </div>
+  </div>
+<% end %>

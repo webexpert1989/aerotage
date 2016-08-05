@@ -1,0 +1,22 @@
+<%= form_tag admin_product_settings_path, class: 'form-horizontal' do %>
+
+  <%= render 'setting', caption: 'Featured Employer', setting_id: 'products.featured_employer', hint: 'credits for 30 days' %>
+  <%= render 'setting', caption: 'Resume Database Access', setting_id: 'products.resume_database_access', hint: 'credits for 1 month' %>
+  <hr/>
+
+  <%= render 'setting', caption: 'Job', setting_id: 'products.job', hint: 'credits for 30 days' %>
+  <%= render 'setting', caption: 'Featured Job', setting_id: 'products.featured_job', hint: 'credits' %>
+  <%= render 'setting', caption: 'Priority Job', setting_id: 'products.priority_job', hint: 'credits' %>
+  <hr/>
+
+  <%= render 'setting', caption: 'Resume', setting_id: 'products.resume', hint: 'credits for 30 days' %>
+  <%= render 'setting', caption: 'Featured Resume', setting_id: 'products.featured_resume', hint: 'credits' %>
+  <%= render 'setting', caption: 'Priority Resume', setting_id: 'products.priority_resume', hint: 'credits' %>
+  <hr/>
+
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-8">
+      <%= submit_tag 'Save', class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

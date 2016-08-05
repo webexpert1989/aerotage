@@ -1,0 +1,19 @@
+<%= render 'admin/fields/input/boolean', f: f, field: :is_priority, caption: 'Priority' %>
+<%= render 'admin/fields/input/boolean', f: f, field: :is_featured, caption: 'Featured' %>
+
+<%= render 'admin/fields/input/string', f: f, field: :title, required: true %>
+
+<%= render 'admin/fields/input/multiselect', f: f, field: :community_ids, title: 'Communities', options: Community.order(:title).collect { |community| [ community.title, community.id ] }, required: true %>
+<% # %>
+<div class="form-group">
+  <%= f.label :occupation_ids, 'Occupations', class: 'col-sm-4 control-label' %>
+  <div class="col-sm-8">
+    <%= render 'admin/fields/input/tree', object: @listing.class.name.underscore, field: :occupation_ids, model: Occupation, selected: @listing.occupations.map{ |o| o.id }, caption: 'Occupations' %>
+  </div>
+</div>
+<% # %>
+<%= render 'admin/fields/input/multiselect', f: f, field: :employment_type_ids, title: 'Employment Types', options: EmploymentType.all.collect { |employment_type| [ employment_type.title, employment_type.id ] } %>
+
+<%= render 'admin/fields/input/string', f: f, field: :salary %>
+<%= render 'admin/fields/input/select', f: f, field: :salary_type, options: Listing.salary_types %>
+<%= render 'admin/fields/input/string', f: f, field: :views %>

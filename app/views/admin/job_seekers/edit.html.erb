@@ -1,0 +1,8 @@
+<% provide(:title, 'Edit Job Seeker') %>
+
+<ol class="breadcrumb">
+  <li><%= link_to 'Job Seekers', admin_job_seekers_path %></li>
+  <li><%= link_to @user.display_name, admin_job_seeker_path(@user) %></li>
+  <li class="active">Edit</li>
+</ol>
+<%= render 'form' %>

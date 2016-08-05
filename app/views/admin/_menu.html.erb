@@ -1,0 +1,31 @@
+<nav class="left-menu">
+  <ul class="nav nav-pills nav-stacked">
+    <li class=<%= :active if controller?('admin/dashboard') %>><%= link_to 'Dashboard', admin_path %></li>
+    <li class="separator"></li>
+
+    <li class=<%= :active if controller?('admin/employers') %>><%= link_to 'Employers', admin_employers_path %></li>
+    <li class=<%= :active if controller?('admin/job_seekers') %>><%= link_to 'Job Seekers', admin_job_seekers_path %></li>
+    <li class="separator"></li>
+
+    <li class=<%= :active if controller?('admin/jobs') %>><%= link_to 'Jobs', admin_jobs_path %></li>
+    <li class=<%= :active if controller?('admin/resumes') %>><%= link_to 'Resumes', admin_resumes_path %></li>
+    <li class=<%= :active if controller?('admin/flags') %>>
+      <%= link_to  admin_flags_path do %>
+        Flagged Listings
+        <% if Flag.count > 0 %>
+          <span class="badge"><%= Flag.count %></span>
+        <% end %>
+      <% end %> 
+    </li>
+    <li class="separator"></li>
+
+    <li class=<%= :active if controller?('admin/communities') %>><%= link_to 'Communities', admin_communities_path %></li>
+    <li class="separator"></li>
+
+    <li class=<%= :active if controller?('admin/blog_posts') or controller?('admin/blog_post_comments') %>><%= link_to 'Blog Posts', admin_blog_posts_path %></li>
+    <li class="separator"></li>
+
+    <li class=<%= :active if action?('admin/settings', :products) %>><%= link_to 'Product Settings', admin_product_settings_path %></li>
+    <li class=<%= :active if action?('admin/settings', :admin_password) %>><%= link_to 'Admin Password', admin_admin_password_path %></li>
+  </ul>
+</nav>

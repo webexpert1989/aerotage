@@ -1,0 +1,9 @@
+<% required = false if local_assigns[:required].nil? %>
+
+<div class="form-group">
+  <%= f.label field, caption, class: "col-sm-4 control-label #{required ? 'required' : ''}" %>
+  <div class="col-sm-8">
+    <%= f.text_area field, class: 'form-control', required: required, rows: 6 %>
+    <p class="help-block">Formatting Options: &nbsp;&nbsp;&nbsp; **bold** &nbsp;&nbsp;&nbsp; *italic* &nbsp;&nbsp;&nbsp; * bulleted list</p>
+  </div>
+</div>

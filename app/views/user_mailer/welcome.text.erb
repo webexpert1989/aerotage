@@ -1,0 +1,11 @@
+Dear <%= @user.display_name %>,
+
+<% if @user.employer? %>
+  Thank you for registering at AerotageJobs! You can post your jobs, search our resume database, create resume alerts and much more!
+<% else %>
+  Thank you for registering at AerotageJobs! You can post your resume, search for jobs, create jobs alerts and much more!
+<% end %>
+
+Use the following link to sign in to your account:
+
+<%= login_url %>

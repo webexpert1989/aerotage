@@ -1,0 +1,28 @@
+<% provide(:title, 'Flagged Listings') %>
+
+<%= page_entries_info @flags %>
+
+<%= search_form_for [:admin, @search], html: { class: 'form-inline' } do |f| %>
+  <div class="form-group">
+    <%= f.select :flag_type_eq, Flag.flag_types.map { |k, v| [k.titleize, v] }, { include_blank: 'Flag Type' }, { class: 'form-control' } %>
+  </div>
+
+  <%= f.submit 'Filter', class: 'btn btn-default' %>
+<% end %>
+
+<table class="table.table-striped">
+  <thead>
+    <tr>
+      <th>Listing Title</th>
+      <th>Status</th>
+      <th>Listing Owner</th>
+      <th>Flagged By</th>
+      <th>Date</th>
+      <th>Reason</th>
+      <th>Comment</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <%= render partial: 'flag', collection: @flags %>
+</table>
+<%= paginate @flags, views_prefix: 'admin' %>

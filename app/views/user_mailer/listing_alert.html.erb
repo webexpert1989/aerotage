@@ -1,0 +1,9 @@
+<p>Dear <%= @search.user.display_name %>,</p>
+
+<p>New #{@search.target_class.to_s.downcase.pluralize} appeared that match your saved search named "<%= @search.title %>". To view them, please follow the link(s) below:</p>
+
+<ol>
+  <% @listings.each do |listing| %>
+    <li><%= link_to listing.title, listing.job? ? job_url(listing) : resume_url(listing) %></li>
+  <% end %>
+</ol>

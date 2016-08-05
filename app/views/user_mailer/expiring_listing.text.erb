@@ -1,0 +1,13 @@
+Dear <%= @user.display_name %>,
+
+Your <%= @listing %> posting ID# <%= @listing.id %>, "<%= @listing.title %>" is set to expire in 3 days.
+
+<% if @listing.job? %>
+  To prolong your job posting, go to "My Jobs" and use the "Prolong" link adjacent to the expiring job posting.
+
+  <%= my_jobs_url %>
+<% else %>
+  To prolong your resume posting, go to "My Resumes" and use the "Prolong" link adjacent to the expiring resume posting.
+
+  <%= my_resumes_url %>
+<% end %>

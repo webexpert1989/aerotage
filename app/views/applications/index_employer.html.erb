@@ -69,7 +69,7 @@
               <% if application.cover_letter.present? %>
                 <li>
                   <%= link_to 'Cover Letter', "#cover-letter-#{application.id}", class: 'fancybox' %>
-                  <div class="cover-letter" id="cover-letter-<%= application.id %>"><= application.cover_letter.html_safe %>
+                  <div class="cover-letter" id="cover-letter-<%= application.id %>"><%= application.cover_letter.html_safe %>
                 </li>
               <% end %>
             </ul>

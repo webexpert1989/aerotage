@@ -1,0 +1,38 @@
+<% resume = @listing %>
+
+<% provide(:title, resume.title) %>
+
+<ol class="breadcrumb">
+  <li><%= link_to 'Resumes', admin_resumes_path %></li>
+  <li class="active"><%= yield(:title) %></li>
+</ol>
+
+<div class="table-responsive">
+  <table class="table">
+    <%= render 'admin/fields/display/boolean', key: 'Hidden Resume', value: resume.hidden %>
+    <%= render 'admin/listings/display_fields', listing: resume %>
+    <%= render 'admin/fields/display/text', key: 'Objective', value: resume.objective.html_safe %>
+    <%= render 'admin/fields/display/text', key: 'Skills', value: resume.skills.html_safe %>
+    <%= render 'admin/fields/display/location', object: resume %>
+
+    <tr>
+      <th class="col-sm-4"><%= 'Education' %></th>
+      <td class="col-sm-8">
+        <ul>
+          <%= render partial: 'education', collection: resume.educations %>
+        </ul>
+      </td>
+    </tr>
+
+    <tr>
+      <th class="col-sm-4"><%= 'Work Experience' %></th>
+      <td class="col-sm-8">
+        <ul>
+          <%= render partial: 'work_experience', collection: resume.work_experiences %>
+        </ul>
+      </td>
+    </tr>
+
+    <%= render 'admin/fields/display/string', key: 'Total Experience', value: pluralize(resume.total_experience, 'year') %>
+  </table>
+</div>

@@ -1,0 +1,27 @@
+<% job_seeker = @user %>
+
+<% provide(:title, job_seeker.display_name) %>
+
+<ol class="breadcrumb">
+  <li><%= link_to 'Job Seekers', admin_job_seekers_path %></li>
+  <li class="active"><%= yield(:title) %></li>
+</ol>
+<div class="button-toolbar">
+  <%= link_to 'Credits', credits_admin_job_seeker_path(job_seeker), class: 'btn btn-primary btn-sm fancybox fancybox.ajax' %>
+  <%= link_to 'Edit', edit_admin_job_seeker_path(job_seeker), class: 'btn btn-primary btn-sm' %>
+  <%= link_to 'Delete', admin_job_seeker_path(job_seeker), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Are you sure you want to delete this job seeker?' } %>
+</div>
+<div class="table-responsive">
+  <table class="table">
+    <%= render 'admin/fields/display/string', key: 'Credits', value: job_seeker.credits, id: 'credits' %>
+
+    <%= render 'admin/fields/display/string', key: 'Email', value: job_seeker.email %>
+    <%= render 'admin/fields/display/boolean', key: 'Send Mailings', value: job_seeker.send_mailings %>
+    <%= render 'admin/fields/display/string', key: 'First Name', value: job_seeker.first_name %>
+    <%= render 'admin/fields/display/string', key: 'Last Name', value: job_seeker.last_name %>
+    <%= render 'admin/fields/display/location', object: job_seeker %>
+    <%= render 'admin/fields/display/string', key: 'Address', value: job_seeker.address %>
+    <%= render 'admin/fields/display/string', key: 'Phone Number', value: job_seeker.phone_number %>
+    <%= render 'admin/fields/display/image', key: 'Profile Picture', object: job_seeker.profile_picture %>
+  </table>
+</div>

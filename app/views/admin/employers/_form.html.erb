@@ -1,0 +1,18 @@
+<%= form_for [:admin, @user], html: { class: 'form-horizontal' } do |f| %>
+  <%= render 'shared/error_messages', target: f.object %>
+
+  <%= render 'admin/fields/input/string', f: f, field: :email, required: true %>
+  <%= render 'admin/fields/input/password', f: f, field: :password, required: action?('admin/employers', :new) %>
+  <%= render 'admin/fields/input/boolean', f: f, field: :send_mailings %>
+  <%= render 'admin/fields/input/string', f: f, field: :company_name, required: true %>
+  <%= render 'admin/fields/input/string', f: f, field: :contact_name %>
+  <%= render 'admin/fields/input/location', object: f.object, required: true %>
+  <%= render 'admin/fields/input/string', f: f, field: :address %>
+  <%= render 'admin/fields/input/string', f: f, field: :web_site %>
+  <%= render 'admin/fields/input/string', f: f, field: :phone_number %>
+  <%= render 'admin/fields/input/text', f: f, field: :company_description_raw, caption: 'Company Description' %>
+  <%= render 'admin/fields/input/video', f: f, field: :video %>
+  <%= render 'admin/fields/input/image', f: f, field: :logo %>
+
+  <%= render 'admin/fields/input/submit_button', f: f, caption: action?('admin/employers', :new) ? 'Create' : 'Save' %>
+<% end %>

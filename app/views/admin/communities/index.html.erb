@@ -1,0 +1,14 @@
+<% provide(:title, 'Communities') %>
+
+<%= link_to 'Add New Community', new_admin_community_path, class: 'btn btn-primary btn-sm' %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Permalink</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <%= render @communities %>
+</table>

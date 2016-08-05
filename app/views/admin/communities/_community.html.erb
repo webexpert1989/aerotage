@@ -1,0 +1,8 @@
+<tr>
+  <td><%= community.title %></td>
+  <td><%= link_to '/' + community.slug + '/', community_path(community), target: :blank %></td>
+  <td>
+    <%= link_to 'Edit', edit_admin_community_path(community), class: 'btn btn-primary btn-xs' %>
+    <%= link_to 'Delete', admin_community_path(community), method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure you want to delete this community?' }  %>
+  </td>
+</tr>

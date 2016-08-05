@@ -1,0 +1,7 @@
+<% provide(:title, 'Add New Job Seeker') %>
+
+<ol class="breadcrumb">
+  <li><%= link_to 'Job Seekers', admin_job_seekers_path %></li>
+  <li class="active"><%= yield(:title) %></li>
+</ol>
+<%= render 'form' %>

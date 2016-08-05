@@ -1,0 +1,13 @@
+<p>Dear <%= @user.display_name %>,</p>
+
+<p>Your #{@listing} posting ID# <%= @listing.id %>, "<%= @listing.title %>" has just expired.</p>
+
+<% if @listing.job? %>
+  <p>To prolong your job posting, go to "My Jobs" and use the "Prolong" link adjacent to the expired job posting.</p>
+
+  <%= link_to 'My Jobs', my_jobs_url %>
+<% else %>
+  <p>To prolong your resume posting, go to "My Resumes" and use the "Prolong" link adjacent to the expired resume posting.</
+
+  <%= link_to 'My Resumes', my_resumes_url %>
+<% end %>

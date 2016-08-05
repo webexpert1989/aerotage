@@ -1,0 +1,7 @@
+Dear <%= @user.display_name %>,
+
+An account has been created for you at AerotageJobs.
+
+Please click on the following link to activate your account.
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
