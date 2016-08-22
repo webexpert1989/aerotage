@@ -1,0 +1,36 @@
+
+// MIXINS
+// ============================================================================
+
+@mixin fullbg {
+    background: {
+        position: center;
+        repeat: no-repeat;
+        size: cover;
+    }
+}
+
+//Responsive
+@mixin respond-to($breakpoint) {
+    $raw-query: map-get($breakpoints, $breakpoint);
+
+    @if $raw-query {
+        $query: if(type-of($raw-query) == 'string', unquote($raw-query), inspect($raw-query));
+
+        @media #{$query} {
+            @content;
+        }
+    } @else {
+        @error 'No value found for `#{$breakpoint}`. '
+        + 'Please make sure it is defined in `$breakpoints` map.';
+    }
+}
+
+//RESPONSIVE
+$breakpoints: (
+'lg': (max-width: 1199px),
+'md': (max-width: 991px),
+'sm': (max-width: 767px),
+'xs': (max-width: 480px),
+'xxs': (max-width: 380px)
+);

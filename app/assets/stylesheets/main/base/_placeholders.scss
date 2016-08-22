@@ -1,0 +1,33 @@
+
+// PLACEHOLDERS
+// ============================================================================
+
+%button {
+    @include border-radius(25px);
+    font-family: $font-family-medium;
+    display: inline-block;
+    height: 44px;
+    padding: 0 30px;
+    line-height: 44px;
+    border: none;
+
+    &-lg {
+        @include border-radius(30px);
+        font-family: $font-family-bold;
+        text-transform: uppercase;
+        height: 50px;
+        padding: 0 35px;
+        line-height: 50px;
+        display: inline-block;
+    }
+
+    &-sm {
+        height: 38px;
+        padding: 0 30px;
+        line-height: 38px;
+    }
+}
+
+%link {
+    font-family: $font-family-medium;
+}

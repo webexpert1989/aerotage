@@ -6,6 +6,22 @@ class StaticPagesController < ApplicationController
   def about
   end
 
+  def workingwithus
+    render layout: 'static'
+  end
+
+  def faq
+    render layout: 'static'
+  end
+
+  def about
+    render layout: 'static'
+  end
+
+  def staffing_solution
+    render layout: 'static'
+  end
+
   def contact
     if request.post?
       contact_send

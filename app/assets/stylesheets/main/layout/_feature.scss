@@ -1,0 +1,49 @@
+
+/* FEATURE
+   ========================================================================== */ 
+
+.feature {
+    text-align: left;
+
+    @include respond-to('sm') {
+        text-align: center;
+        margin-bottom: 30px; 
+    }
+
+    &__icon {
+        @include square(48px);
+        margin-bottom: 20px;
+    }
+
+    h4 {
+        font-family: $font-family-medium;
+        color: $color-feature-title;
+        margin: 0 0 15px;
+    }
+
+    p {
+        color: $color-feature;
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    &--left {
+
+        .feature__icon {
+            float: left;
+
+            @include respond-to('md') {
+                float: none;
+            }
+        }
+    }
+
+    &__btn {
+        clear: both;
+
+        a {
+            @extend %button;
+            margin-top: 40px;
+        }
+    }
+}

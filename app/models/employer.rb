@@ -29,7 +29,7 @@ class Employer < ActiveRecord::Base
   scope :with_logo, -> { eager_load(:logo).where('images.imageable_id IS NOT NULL') }
   scope :featured, -> { with_logo.where('featured_until > NOW()').reorder('featured_last_shown ASC NULLS FIRST') }
 
-  validates :company_name, presence: true
+  validates :company_name, presence: false
 
   ransacker :smart_location
 

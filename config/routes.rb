@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   end
 
   get :about, to: 'static_pages#about'
+  get :faq, to: 'static_pages#faq'
+  get :staffing_solution, to: 'static_pages#staffing_solution'
+  get :workingwithus, to: 'static_pages#workingwithus'
   match :contact, to: 'static_pages#contact', via: [:get, :post]
   get 'privacy-policy', to: 'static_pages#privacy_policy'
   get 'terms-of-use', to: 'static_pages#terms_of_use'

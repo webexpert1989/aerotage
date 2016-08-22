@@ -1,38 +1,43 @@
 <header>
-  <div class="page-title" ><%= yield(:title) %></div>
-  <div class="right-header">
-    <div class="buttons-wrapper">
-      <% if logged_in? %>
-        <span class="welcome">
-          <span>Welcome</span>
-          <%= current_user.display_name %>
-        </span>
-        <%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' , class: 'button sign-out' %>
-      <% else %>
-        
-        <%= link_to 'Sign in', new_user_session_path, class: 'button sign-in' %>
-        <%= link_to 'Sign up', new_user_registration_path, class: 'button sign-up' %>
-      <% end %>
-    </div>
-  </div>
-  <% unless action?(:static_pages, :home) %>
-    <div class="search-dropdown-wrapper">
-      <a id="search-dropdown-trigger" class="search" href='#'>
-        <span></span>
-      </a>
-    </div>
-  <% end %>
+    <nav class="navbar navbar--home">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#home-nav" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><svg class="icon icon-logo-nav"><use xlink:href="assets/symbol-defs.svg#icon-logo-nav"></use></svg></a>
+            </div>
 
-  <div class="left-header">
-    <a class="menu-button" href='#'></a>
-  </div>
+            <div class="collapse navbar-collapse" id="home-nav">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="/workingwithus">Working with us<span class="sr-only">(current)</span></a></li>
+                    <li class="dropdown">
+                        <a href="/staffing_solution" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Aerotage solutions<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/staffing_solution">About Aerotage</a></li>
+                            <li><a href="/faq">F.A.Q</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/about">About Aerotage</a></li>
+                            <li><a href="/faq">F.A.Q</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Contact</a></li>
+                    <li><%= link_to blog_posts_path do %>Blog<% end %></li>
+                    <% if logged_in? %>
+                    <%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %>  
+                    <% else %>
+                      <li><%= link_to 'Log in', new_user_session_path %></li>
+                      <li><%= link_to 'Sign Up', new_job_seeker_path, class:'btn__nav' %></li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </header>
-<% unless action?(:static_pages, :home) %>
-  <div class="search-dropdown" class="search-dropdown">
-    <div class="top-line"></div>
-
-    <div class="search-forms-wrapper">
-      <%= render 'jobs/search_form', job_ransack: @job_ransack || Job.ransack %>
-    </div>
-  </div>
-<% end %>

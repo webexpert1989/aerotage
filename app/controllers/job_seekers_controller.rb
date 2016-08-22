@@ -1,5 +1,5 @@
 class JobSeekersController < UsersController
-
+layout 'login'
   private
 
     def user_class

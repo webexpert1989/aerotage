@@ -12,9 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+
 //= require bootstrap-sprockets
+//= require turbolinks
+//= require bootstrap
 //= require common
 //= require bxslider
-//= require_tree ./frontend
+//= require svgxuse
+//= require main
 //= require_tree .

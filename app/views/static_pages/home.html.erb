@@ -1,2 +1,203 @@
-<%= render 'jobs/search_form', job_ransack: Job.ransack %>
-<% include_script 'home' %>
+
+<section class="hero hero--home" style="background-image: url('assets/home-intro.jpg')">
+    <div class="hero__wrap">
+        <div class="intro">
+            <h1>
+                Aerospace Technical Staffing,<br>
+                Recruiting and Engineering Solutions
+            </h1>
+            <p>
+                Aerotage is a leader in aerospace staffing, engineering and recruiting services.
+                Get qualified, professional candidates with aerospace recruiting.
+            </p>
+            <a class="intro__btn btn__secondary" href="#">more about aerotage</a>
+        </div>
+        <div class="intro__form">
+            <h3>Find a Job in the Aerospace Industry</h3>  
+            <form>
+                <div class="form-group">
+                    <input type="search" class="form-control" id="searchField-home" placeholder="Looking for...">
+                    <svg class="icon icon-search"><use xlink:href="assets/symbol-defs.svg#icon-search"></use></svg>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="stateField-home" placeholder="Where...">
+                    <svg class="icon icon-marker"><use xlink:href="assets/symbol-defs.svg#icon-marker"></use></svg>
+                </div>
+                <button type="submit" class="btn__form btn__primary">Search Jobs</button>
+                <a href="#"><svg class="icon icon-advanced-search"><use xlink:href="assets/symbol-defs.svg#icon-advanced-search"></use></svg> Advanced Search</a>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="section section--solutions">
+    <div class="section__wrap">
+        <div class="section__heading">
+            <small>aerotage staffing solutions</small>
+            <h2>You Need The Right People To Succeed</h2>
+            <div class="divider"></div>
+            <p>
+                Aerotage offers innovative and cost effective aerospace staffing solutions that meet immediate staffing needs;
+                both long and short term staffing. We have specialized technical search programs that allow us to provide experienced
+                and qualified personnel ranging from contractors, direct hires, 
+                large volume staffing and managed services programs (on‐site recruiting). 
+            </p>
+        </div>
+
+        <div class="section__inner">
+            <div class="feature feature--left">
+                <svg class="feature__icon icon icon-employees"><use xlink:href="assets/symbol-defs.svg#icon-employees"></use></svg>
+                <div class="feature__caption">
+                    <h4>Quality Employees</h4>
+                    <p>
+                        We take time to fully understand your business requirements.
+                        We deliver specific expertise in the aerospace industry providing our clients with the best aerospace engineers,
+                        technicians and mechanics. The Aerotage team is comprised of aviation professionals,
+                        with both military and commercial aviation experience.
+                    </p>
+                </div>
+            </div>
+            <div class="feature feature--left">
+                <svg class="feature__icon icon icon-relationships"><use xlink:href="assets/symbol-defs.svg#icon-relationships"></use></svg>
+                <div class="feature__caption">
+                    <h4>Building Strong Relationships</h4>
+                    <p>
+                        Aerotage ensures contractors are meeting business expectations,
+                        can ensure regulatory compliance and increase workplace performance through proven quality assurance programs.
+                        Our dedication to providing excellence drives motivation for building long standing business relationships.
+                    </p>
+                </div>
+            </div>
+            <div class="feature feature--left">
+                <svg class="feature__icon icon icon-strategy"><use xlink:href="assets/symbol-defs.svg#icon-strategy"></use></svg>
+                <div class="feature__caption">
+                    <h4>Good Staffing Strategy</h4>
+                    <p>
+                        Aerotage takes the hassle out of staffing.
+                        We have specialized technical search programs that provide our clients with exceptional personnel ranging from contractors,
+                        direct hires, large volume staffing, and managed services programs (on-site).
+                    </p>
+                </div>
+            </div>
+            <div class="feature__btn">
+                <a href="#" class="btn__reverse btn__reverse--sec">Learn More</a>
+            </div>
+        </div>
+
+    </div>
+</section>                                                                                  
+
+<section class="section section--right">
+    <div class="section__wrap">
+        <div class="section__img">
+            <img src="<%= asset_path('home-bg-1.jpg') %>" alt="section background"/>
+        </div>
+        <div class="section__heading">
+            <svg class="section__icon icon icon-work"><use xlink:href="assets/symbol-defs.svg#icon-work"></use></svg>
+            <small>working with us</small>
+            <h2>
+                Shape Your Future Today:
+                Your Next Aviation Job Is Here
+            </h2>
+            <p>
+                Aerotage works with the most successful aerospace companies, providing opportunities that vary from cutting edge research roles to servicing engines. Aerotage is a go to resource for all job seekers; from those looking to land their
+                first position to the more seasoned professionals looking to advance their career.
+            </p>
+            <a href="#" class="section__btn btn__secondary">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<section class="section section--cta">
+    <h3>Contact Us Today</h3>
+    <p>If you have questions or would like additional information, please provide contact information. We would be glad to speak with you.</p>
+    <a href="#" class="btn__primary btn__primary--light">Contact Aerotage</a>
+</section>
+
+<section class="section section--right">
+    <div class="section__wrap">
+        <div class="section__img section__img--fluid">
+            <img src="<%= asset_path('home-bg-2.jpg') %>" alt="section background"/>
+        </div>
+        <div class="section__heading">
+            <svg class="section__icon icon icon-experience"><use xlink:href="assets/symbol-defs.svg#icon-experience"></use></svg>
+            <small>project experience</small>
+            <h2>
+                Aerospace Engineering Solutions
+            </h2>
+            <p>
+                Aerotage founders bring more than sixty years of aviation experience,
+                first hand professional aerospace engineering and working knowledge in aircraft modification, system design and program management.
+                Our knowledge and experience allows us to provide data packages that are tailored for easy installation, being the best time and cost effective option.
+            </p>
+            <a href="#" class="section__btn btn__secondary">View Our Solutions</a>
+        </div>
+    </div>
+</section>
+
+<section class="section section--left">
+    <div class="section__wrap">
+        <div class="section__heading">
+            <svg class="section__icon icon icon-recruiting"><use xlink:href="assets/symbol-defs.svg#icon-recruiting"></use></svg>
+            <small>aerotage recruiting solutions</small>
+            <h2>Looking For An Aerospace Professional?</h2>
+        </div>
+        <div class="section__img">
+            <img src="<%= asset_path('home-bg-3.jpg') %>" alt="section background"/>
+        </div>
+        <div class="section__inner">
+            <div class="feature">
+                <svg class="feature__icon icon icon-industry"><use xlink:href="assets/symbol-defs.svg#icon-industry"></use></svg>
+                <div class="feature__caption">
+                    <h4>The Aviation Industry's Best </h4>
+                    <p>
+                        Aerotage provides turn-key solutions to your aerospace engineering, certification, and personnel business needs.
+                        Aerotage is driven by our employees and strong network of qualified and reliable candidates.
+                    </p>
+                </div>
+            </div>
+            <div class="feature">
+                <svg class="feature__icon icon icon-engineer"><use xlink:href="assets/symbol-defs.svg#icon-engineer"></use></svg>
+                <div class="feature__caption">
+                    <h4>Aerospace Engineer Recruiting Process</h4>
+                    <p>
+                        The recruiting process begins with a comprehensive talent search within our extensive database and aviation specific networks.
+                        We fully understand the importance and sensitivity of your recruitment demands.
+                        Aerotage is ready to deliver fast and cost effective solutions to meet your unique business needs.
+                    </p>
+                </div>
+            </div>
+            <div class="feature">
+                <svg class="feature__icon icon icon-aerospace"><use xlink:href="assets/symbol-defs.svg#icon-aerospace"></use></svg>
+                <div class="feature__caption">
+                    <h4>Aerospace Recruiting</h4>
+                    <p>
+                        Aerotage Recruiting Solutions are a cost and time effective option to ensure compliance with local, state, and Federal laws.
+                        Our significant experience and hands on approach guarantees a full understanding of your product, culture, and unique business needs.
+                    </p>
+                </div>
+            </div>
+            <div class="feature">
+                <svg class="feature__icon icon icon-knowledge"><use xlink:href="assets/symbol-defs.svg#icon-knowledge"></use></svg>
+                <div class="feature__caption">
+                    <h4>Specific Knowledge & Experience</h4>
+                    <p>
+                        We bring over a decade of experience in providing best in class aerospace recruiting engineering, executive management, mechanical and technical positions.
+                        We specialize in technical staffing (mechanics, technicians, engineers) to service aircrafts and drive aerospace engineering designs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section--cta">
+    <h3>Find Your Dream Job Today</h3>
+    <p>
+        The Aerotage team is comprised of aviation professionals, with both
+        military and commercial aviation experience. Join the Aerotage team to
+        steer your career into a new and prosperous direction.
+    </p>
+    <a href="#" class="btn__light">View Aviation Jobs</a>
+</section>
+

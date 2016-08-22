@@ -1,5 +1,7 @@
 class SessionsController < Devise::SessionsController
   before_action :guest_user, only: [:new, :create]
+  layout 'login'
+
   def new
     super
   end

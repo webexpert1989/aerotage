@@ -1,0 +1,14 @@
+
+/* CONTACT US - PAGE
+   ========================================================================== */ 
+
+.intro {
+
+    &__contact {
+        @include make-row();
+
+        &-box {
+               @include make-sm-column(4);
+        }
+    }
+}

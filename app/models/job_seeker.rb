@@ -17,7 +17,7 @@ class JobSeeker < ActiveRecord::Base
 
   default_scope -> { order('users.created_at DESC') }
 
-  validates :first_name, :last_name, presence: true
+  validates :first_name, :last_name, presence: false
 
   def to_s
     'job seeker'
@@ -28,7 +28,7 @@ class JobSeeker < ActiveRecord::Base
   end
 
   def display_name
-    first_name + ' ' + last_name
+    #first_name + ' ' + last_name
   end
 
   def has_saved_job?(job)

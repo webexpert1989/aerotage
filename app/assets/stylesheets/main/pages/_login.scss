@@ -1,0 +1,145 @@
+
+/* HOME - PAGE
+   ========================================================================== */ 
+
+.hero--login {
+    height: 100%;
+    padding-bottom: 50px;
+
+    &:before {
+        background: rgba(0, 0, 0, 0.65);
+    }
+}
+
+.login {
+
+    &__logo {
+        position: relative;
+        text-align: center;
+        padding-top: 15px;
+
+        svg{
+            width: 195px;
+        }
+    }
+
+    &__block {
+        @include border-top-right-radius(5px);
+        @include border-top-left-radius(5px);
+        @include border-bottom-right-radius(2px);
+        @include border-bottom-left-radius(2px);
+        background: $color-light;
+        max-width: 555px;
+        width: 100%;
+        margin: 0 auto 50px;
+        position: relative;
+
+        p {
+            font-size: 14px;
+            color: $color-dark-gray;
+            margin-bottom: 30px;
+
+            a {
+                color: $color-secondary;
+            }
+        }
+
+        .form-control:focus {
+            border-color: $color-secondary;
+        }
+
+        &-line {
+            height: 3px;
+            background: $color-secondary;
+            position: relative;
+            margin: 0 3px;
+            top: 3px;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0; 
+                left: -3px;
+                border-bottom: 3px solid transparent;
+                border-right: 3px solid $color-secondary;
+                width: 0;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0; 
+                right: -3px;
+                border-bottom: 3px solid transparent;
+                border-left: 3px solid $color-secondary;
+                width: 0;
+            }
+        }
+    }
+
+    &__form {
+        margin: 0 auto;
+        max-width: 240px;
+        padding: 65px 0 80px;
+    }
+
+    &__divider {
+        font-family: $font-family-bold;
+        color: $color-light-gray;
+        margin-bottom: 30px;
+
+        span {
+            height: 1px;
+            background: $color-lght-gray;
+            width: 42%;
+            display: inline-block;
+            vertical-align: middle;
+
+            &:nth-child(1) {
+                margin-right: 10px;
+            }
+
+            &:nth-child(2) {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .btn__social {
+        @extend %button;
+        position: relative;
+        width: 100%;
+        display: block;
+        color: $color-light;
+        font-family: $font-family-medium;
+        font-size: 15px;
+        padding: 0 0 0 64px;
+
+        span {
+            border-right: 1px solid rgba(255,255,255, 0.2);
+            display: inline-block;
+            height: 24px;
+            margin: 10px 0;
+            position: absolute;
+            width: 44px;
+            left: 0;
+        }
+
+        svg {
+            @include square(75%);
+            position: absolute;
+            fill: $color-light;
+            left: 20%;
+            top: 10%;
+
+        }
+    }
+
+    .btn__submit {
+        @extend %button;
+        font-family: $font-family-bold;
+        display: block;
+        width: 100%;
+    }
+
+}

@@ -1,10 +1,73 @@
-<div class="authform">
-    <h3>Sign up</h3>
-    <%= devise_error_messages! %>
-    <div class="form-group">
-      <%= link_to 'Job Seeker', new_job_seeker_path, class:"" %>
-      <%= link_to 'Employer', new_employer_path, class:"" %>
+<section class="hero hero--login" style="background-image: url('<%= asset_path('signup-bg.jpg') %>');">
+    <div class="login">
+        <div class="login__logo">
+            <svg class="icon icon-logo-nav"><use xlink:href="<%= asset_path('sprite-login.svg#icon-logo-nav') %>"></use></svg>
+        </div>
+        <div class="login__block">
+            <%= @log %>
+            <%= form_for(@user, :as => :job_seeker, :url => job_seekers_path(@user), :html => { :class => 'login__form'}) do |f| %>
+                <div class="form-group">
+                    <span class="input">
+                        <%= f.text_field :name, :autofocus => true, class: 'input__field form-control' %>
+                        <label class="input__label" for="input-1">
+                            <span class="input__label-content">Name</span>
+                        </label>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <span class="input">
+                        <input id="input-2"  type="text" class="input__field form-control" maxlength="40" name="email" size="20" required>
+                        <label class="input__label" for="input-2">
+                            <span class="input__label-content">Last Name</span>
+                        </label>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <span class="input">
+                        <%= f.email_field :email, class: 'input__field form-control' %>
+                        <label class="input__label" for="input-3">
+                            <span class="input__label-content">Email</span>
+                        </label>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <span class="input">
+                        <%= f.password_field :password, class: 'input__field form-control' %>
+                        <label class="input__label" for="input-4">
+                            <span class="input__label-content">Password</span>
+                        </label>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <span class="input">
+                        <%= f.password_field :password_confirmation, class: 'input__field form-control' %>
+                        <label class="input__label" for="input-4">
+                            <span class="input__label-content">Confirmation Password</span>
+                        </label>
+                    </span>
+                </div>
+                <div class="checkbox">
+                    <input id="check1" type="checkbox" name="check" value="check1">
+                    <label for="check1">I'm an associate</label>
+                </div>
+                <div class="form-group">
+                    <%= f.submit 'Sign up', :class => 'btn__submit btn__secondary' %>
+                </div>
+                <p>Already a memeber? <%= link_to 'Login', new_session_path(resource_name) %></p>
+                <div class="login__divider">
+                    <span></span>or<span></span>
+                </div>
+                <div class="form-group">
+                    <a href="#" class="btn__social btn__facebook">
+                        <span><svg class="icon icon-facebook"><use xlink:href="<%= asset_path('sprite-login.svg#icon-facebook-small') %>"></use></svg></span>Login with Facebook
+                    </a>
+                </div>
+                <div class="form-group">
+                    <a href="#" class="btn__social btn__google">
+                        <span><svg class="icon icon-google"><use xlink:href="<%= asset_path('sprite-login.svg#icon-google-small') %>"></use></svg></span>Login with Google+</a>
+                </div>
+            <% end %>
+            <div class="login__block-line"></div>
+        </div>
     </div>
-</div>
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+</section>

@@ -41,8 +41,7 @@
         <% end %>
       </li>
     <% end %>
-
-    <% unless logged_in? && current_user.employer? %>
+helloed_in? && current_user.employer? %>
       <li class="<%= :active if action?(:resumes, :new) %>">
         <%= link_to new_resume_path do %>
           <span class="post-resumes-icon">></span>
