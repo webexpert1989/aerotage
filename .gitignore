@@ -41,6 +41,7 @@ add /config/database.yml if it contains passwords
 /doc/features.html
 /doc/specs.html
 /public/cache
+/public/assets
 /public/stylesheets/compiled
 /public/system/*
 /spec/tmp/*
