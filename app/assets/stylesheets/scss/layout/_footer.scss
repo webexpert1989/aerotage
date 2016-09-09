@@ -1,0 +1,102 @@
+
+/* FOOTER
+   ========================================================================== */ 
+
+.footer {
+    background: $color-footer-bg;
+
+    &__wrap {
+        @extend .container;
+    }
+
+    &__top {
+        @include make-row();
+        padding: 90px 0 65px;
+
+        @include respond-to('md') {
+            padding: 45px 0 10px;
+        }
+        
+         @include respond-to('md') {
+            padding: 30px 0 0;
+        }
+    }
+
+    &__bottom {
+        border-top: 2px solid $color-lght-gray;
+        padding: 30px 0 60px;
+        text-align: center;
+        color: $color-lighter-gray;
+
+        @include respond-to('md') {
+            padding: 30px 0 30px;
+        }
+
+        .icon {
+            fill: $color-gray;
+
+            &-logo {
+                @include size(120px, 45px);
+            }
+        }
+
+        p a {
+            color: #b6c6cd;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+    }
+
+    &__list {
+        @include make-xs-column(6);
+        @include make-md-column(3);
+        min-height: 200px;
+
+        @include respond-to('xs') {
+            width: 100%;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            li a {
+                font-weight: 400;
+                color: $color-metal;
+                font-size: 15px;
+                line-height: 31px;
+
+                &:hover, &:active, &:focus {
+                    color: $color-metal;
+                }
+            }
+        }
+    }
+
+    &__social {
+        margin: 20px auto;
+
+        .social__icon {
+            display: inline-block;
+            margin-right: 20px;
+            height: 32px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &:hover, &:focus, &:active {
+
+                .icon {
+                    fill: $color-primary;
+                }
+            }
+
+            .icon{
+                @include transition(all 0.2s ease 0s);
+                @include square(32px);
+            }
+        }
+    }
+}

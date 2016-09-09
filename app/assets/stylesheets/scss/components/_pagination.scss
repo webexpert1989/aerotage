@@ -1,0 +1,38 @@
+
+/* PAGINATION STYLE
+   ========================================================================== */
+
+.aerotage-pagination {
+
+    & > li > a,
+    & > li > span {
+        @include square(36px);
+        border: none;
+        color: $color-dark-blue;
+        font-weight: 400;
+        font-size: 18px;
+        padding: 0;
+        line-height: 36px;
+
+        &:hover, &:active, &:focus {
+            background: transparent;
+        }
+
+        &.arrow {
+            font-size: 26px;
+        }
+    }
+
+    & > .active > a,
+    & > .active > a:hover,
+        & > .active > a:focus,
+        & > .active > span,
+        & > .active > span:hover,
+        & > .active > span:focus {
+        @include border-radius(50%);
+        background: transparent;
+        border: 1px solid $color-secondary;
+        color: $color-dark-blue;
+    }
+}
+

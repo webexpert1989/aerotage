@@ -1,0 +1,158 @@
+
+/* CONTACT US - PAGE
+   ========================================================================== */ 
+
+.hero--contact {
+
+    &:before {
+        background: rgba(89,84,166, 0.9);
+    }
+
+    .intro {
+        padding-top: 215px; 
+        
+        @include respond-to('sm') {
+             padding-top: 115px; 
+             padding-bottom: 25px;
+        }
+
+        &__contact {
+            @include make-row();
+            @include square(100%);
+            margin-top: 70px;
+            position: relative;
+            top: 30px;
+            display: table;
+
+            @include respond-to('sm') {
+                display: block;
+                width: auto;
+                top: 0;
+            }
+
+            &-box {
+                @include make-sm-column(4);
+                display: table-cell;
+                float: none !important;
+                height: 100%;
+
+                @include respond-to('sm') {
+                    display: block;
+                    margin-bottom: 25px;
+                }
+
+                .box {
+                    min-height: 100%;
+                    max-width: 360px;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}
+
+.section--contact {
+    background: $color-section-bg;
+    padding: 120px 0 80px;
+}
+
+.contact {
+    @include make-sm-column(7);
+
+    &__box {
+        @include border-radius(5px);
+        background: $color-light;
+        overflow: hidden;
+        padding: 45px 10%;
+        -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.13);
+        -moz-box-shadow:    0px 1px 4px 0px rgba(0, 0, 0, 0.13);
+        box-shadow:         0px 1px 4px 0px rgba(0, 0, 0, 0.13);
+    }
+
+    &__caption {
+        max-width: 555px;
+        margin: 0 auto;
+
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+    }
+
+    &__icon {
+        @include square(48px);
+
+        svg {
+            @include square(100%);
+        }
+    }
+
+    &__form {
+        @include make-row();
+
+        .form-group {
+            @include make-md-column(6);
+
+            &:nth-child(11) {
+                @include make-sm-column(12);
+            }
+
+            &:nth-child(12) {
+                @include make-sm-column(12);
+            }
+        }
+
+        .btn__submit {
+            float: right;
+        }
+    }
+}
+
+.faq {
+    @include make-sm-column(5);
+    padding-left: 50px;
+
+    &__caption {
+        padding-top: 45px;
+    }
+
+    &__icon {
+        @include square(48px);
+
+        svg {
+            @include square(100%);
+        }
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    &__links {
+        max-width: 300px;
+
+        a {
+            @extend %link;
+            display: block;
+            color: $color-secondary;
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 22px;
+            padding-left: 15px;
+            position: relative;
+
+            span {
+                @include size(8px, 10px);
+                position: absolute;
+                left: 0;
+
+                svg {
+                    @include square(100%);
+                    fill: $color-primary;
+                }
+            }
+        }
+    }
+}

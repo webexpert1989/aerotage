@@ -1,0 +1,227 @@
+
+/* WORKING WITH US - PAGE
+   ========================================================================== */
+
+.hero--working {
+    padding: 14% 0 10%;
+
+    @include respond-to('sm') {
+        padding: 20% 0;
+    }
+    
+    h1 {
+        margin: 0 0 25px;
+    }
+
+    .intro__btn {
+        margin-top: 30px;
+    }
+}
+
+.section--box.working {
+    background: $color-section-bg;
+    padding: 80px 0 55px;
+
+    .section__inner {
+        text-align: center;
+    }
+
+    .feature {
+        display: inline-block;
+        max-width: 320px;
+        padding: 0 30px;
+        text-align: center;
+
+        @include respond-to('md') {
+            max-width: 225px;
+            padding: 0 15px;
+        }
+
+        @include respond-to('sm') {
+            display: block;
+            max-width: 320px;
+            margin: 0 auto 30px;
+        }
+    }
+}
+
+.section {
+
+    &--tools {
+        padding: 105px 0 130px;
+
+        .section__heading {
+            margin-bottom: 70px;
+        }
+
+        .section__inner {
+            @include make-row();
+        }
+
+        .feature {
+            @include make-sm-column(6);
+
+            h4 {
+                color: #4d5960;
+            }
+
+            &__icon {
+                @include square(110px);
+                position: relative;
+
+                @include respond-to('md') {
+                    margin: 0 0 20px;
+                }
+
+                @include respond-to('sm') {
+                    margin: 0 auto 20px;
+                }
+
+                .icon {
+                    @include square(48px);
+                    @include translate(-50%, -50%);
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+
+                    &-circle {
+                        @include square(100%);
+                        fill: #c6c3fd;
+                    }
+                }
+            }
+
+            &__caption {
+                max-width: 480px;
+
+                @include respond-to('sm') {
+                    margin: 0 auto;
+                }
+
+                .divider-sm {
+
+                    @include respond-to('sm') {
+                        margin: 10px auto 15px;
+                    }
+                }
+            }
+        }
+
+        .section__center {
+            @include make-sm-column(12);
+            text-align: center;
+            margin-top: 10px;
+        }
+    }
+
+    &--left.working {
+        background: #f6f6f6;
+        padding: 0;
+
+        .section__text {
+            @include make-sm-column(6);
+            padding: 135px 0 190px;
+
+            @include respond-to('sm') {
+                padding: 20px;
+            }
+        }
+
+        .section__img {
+
+            @include respond-to('sm') {
+                max-width:none;
+            }
+        }
+    }
+
+    &--right.working {
+        background: $color-footer-bg;
+        padding: 0;
+
+        .section__inner {
+            position: relative;
+        }
+
+        .section__img {
+            margin-left: -50%;
+
+            @include respond-to('md') {
+                margin-left: -70%;
+            }
+
+            @include respond-to('sm') {
+                @include make-sm-column(12);
+                margin-left: -15px;
+            }
+        }
+
+        .section__text {
+            @include make-sm-column-offset(6);
+            @include make-sm-column(6);
+            padding: 130px 0 125px;
+
+            @include respond-to('sm') {
+                padding: 20px;
+            }
+
+            .divider {
+                margin: 0 0 25px;
+
+                @include respond-to('sm') {
+                    margin: 0 auto 25px;
+                }
+            }
+        }
+    }
+
+    &--read {
+        background: $color-primary;
+        padding: 80px 0;
+
+        .box {
+            background: $color-primary;
+            padding: 65px 0;
+            color: $color-light;
+            -webkit-box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.12);
+            -moz-box-shadow:    0px 4px 30px 0px rgba(0, 0, 0, 0.12);
+            box-shadow:         0px 4px 30px 0px rgba(0, 0, 0, 0.12);
+            text-align: center;
+
+            small {
+                color: #928ed5;
+                font: {
+                    size: 14px;
+                    weight: 700;
+                }
+                text-transform: uppercase;
+            }
+
+            h2 {
+                color: $color-light;
+                font-size: 32px;
+                margin: 15px 0;
+            }
+
+            &__caption {
+                max-width: 460px;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            p {
+                line-height: 26px;
+                font-size: 16px;
+            }
+
+            &__btn {
+                @extend %button;
+                color: $color-secondary;
+                margin: 25px 0 0;
+            }
+        }
+    }
+}
+
+
+

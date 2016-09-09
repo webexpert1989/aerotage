@@ -1,0 +1,42 @@
+
+/* HERO
+   ========================================================================== */ 
+
+.hero {
+
+    position: relative;
+    margin-top: 57px;
+    background-attachment: fixed;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.45);
+        display: block;
+        z-index: 1;
+    }
+
+    &__bg {
+        transition-duration: 0;
+        @include square(100%);
+        z-index: 0;
+        position: fixed;
+        background : {
+            repeat: no-repeat;
+            attachment: fixed;
+            position: 50% 0;
+        }
+
+        tranform: translateZ(0);
+        backface-visibility: hidden;
+        perspective: 1000;
+    }
+
+    &__wrap {
+        @extend .container;
+    }
+}

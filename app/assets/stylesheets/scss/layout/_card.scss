@@ -1,0 +1,109 @@
+
+/* CARD BLOCK
+   ========================================================================== */ 
+
+.card {
+
+    &__block {
+        @include border-radius(10px);
+        background: $color-light;
+        border: 1px solid #d8e1e5;
+        padding: 40px 30px 90px 40px;
+        overflow: hidden;
+        position: relative;
+
+        @include respond-to("md") {
+            padding-bottom: 160px;
+        }
+
+        @include respond-to("sm") {
+            max-width: 555px;
+            margin: 0 auto 40px;
+            padding-bottom: 90px;
+            height: 100% !important;
+        }
+
+        @include respond-to("xs") {
+            padding: 40px 25px 160px;
+        }
+    }
+
+    h4 {
+        font-size: 16px;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    span {
+        font-size: 14px;
+        color: #899ca5;
+        margin-bottom: 15px;
+        display: block;
+    }
+
+    p {
+        color: $color-dark-blue;
+        font-size: 14px;
+        line-height: 24px;
+        max-width: 460px;
+        margin-bottom: 35px;
+    }
+
+    &__contact {
+        position: absolute;
+        bottom: 30px;
+
+        @include respond-to("md") {
+            bottom: 100px;
+        }
+
+        @include respond-to("sm") {
+            bottom: 30px;
+        }
+
+        @include respond-to("xs") {
+            bottom: 100px;
+        }
+
+        a {
+            color: #899ca5;
+            font-size: 15px;
+            display: block;
+            margin-bottom: 10px;
+
+            span {
+                @include square(16px);
+                display: inline-block;
+                margin: 0 8px 0 0;
+                vertical-align: middle;
+
+                svg {
+                    @include square(100%);
+                    fill: $color-secondary;
+                }
+            }
+        }
+    }
+
+    &__img {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+
+        @include respond-to("md") {
+            width: 100%;
+        }
+
+        @include respond-to("sm") {
+            width: 15%;
+        }
+
+        @include respond-to("xs") {
+            width: 100%;
+        }
+
+        img {
+            float: right;
+        }
+    }
+}

@@ -1,0 +1,479 @@
+
+/* JOB SEARCH RESULTS - PAGE
+   ========================================================================== */ 
+
+.page {
+    @include square(100%);
+    display: table;
+    margin-top: 57px;
+    position: absolute;
+
+
+    &__top {
+        padding: 42px 40px;
+        background: $color-primary;
+        color: $color-light;
+        display: table-caption;
+        z-index: 9999;
+
+        @include respond-to('lg') {
+            padding: 30px 50px;
+        }
+
+        @include respond-to('md') {
+            padding: 30px 15px;
+        }
+
+        @include respond-to('sm') {
+            padding: 25px 15px;
+        }
+
+        .btn__filter {
+            @extend %icon;
+            font-weight: 700;
+            display: none;
+            font-size: 18px;
+
+            @include respond-to('lg') {
+                display: block;
+                float: left;
+            }
+
+            @include respond-to('sm') {
+                float: none;
+            }
+
+            span {
+                @include square(20px);
+                margin: 0 0 0 10px;
+            }
+        }
+
+        h2 {
+            padding: 0;
+            margin: 0;
+            font-size: 22px;
+            color: $color-light;
+            display: block;
+
+            @include respond-to('lg') {
+                float: right;
+                margin: 9px 0;
+            }
+
+            @include respond-to('sm') {
+                margin: 0 0 25px;
+                float: none;              
+            }
+
+            span {
+                font-weight: 700;
+            }
+        }
+    }
+
+    &__side {
+        @include transition(all 0.2s ease 0s);
+        width: 300px;
+        background: #44425d;
+        display: table-cell;
+        z-index: 999;
+        @include translateX(-100%);
+        position: absolute;
+        bottom: 0;
+    }
+
+    &__main {
+        @include transition(all 0.2s ease 0s);
+        display: table-cell;
+        padding: 0;
+        height: 100%;
+
+
+        .table > thead > tr > th, .table > thead > tr > td,
+        .table > tbody > tr > th, .table > tbody > tr > td,
+        .table > tfoot > tr > th, .table > tfoot > tr > td {
+            height: 70px;
+            vertical-align: middle;
+            border: none;
+            min-width: 140px;
+
+            @include respond-to('md') {
+                min-width: 125px;
+                padding: 8px 0;
+            }
+
+            @include respond-to('sm') {
+                height: auto !important;
+                display: block;
+                position: relative;
+                padding: 10px 15px 10px 55%;
+
+                &:before {
+                    position: absolute;
+                    top: 10px;
+                    left: 15px;
+                    width: 45%; 
+                    padding-right: 10px; 
+                    white-space: nowrap;
+                    content: attr(data-th)" : ";
+                    text-transform: uppercase;
+                    color: $color-primary;
+                    font-weight: 700;
+                }
+
+            }
+
+            &:first-child {
+                padding-left: 5%;
+                padding-right: 20px;
+
+                @include respond-to('md') {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
+
+                @include respond-to('sm') {
+                    padding-left: 55%; 
+                }
+            }
+
+            &:nth-child(4) {
+                min-width: 195px;
+            }
+
+            &:last-child {
+                font-weight: 700;
+            }
+
+            a {
+                font-weight: 700;
+                color: $color-secondary;
+            }
+        }
+
+
+        table {
+            color: $color-dark-blue;
+            font-weight: 400;
+            border-bottom: 1px solid #dbdbdb;
+
+            th {
+                @extend %icon;
+                text-transform: uppercase;
+                color: $color-primary;
+                font-weight: 700;
+                font-size: 14px;
+                padding-top: 25px !important;
+                vertical-align: top !important;
+
+                span {
+                    display: block;
+                    margin-bottom: 1px;
+                    margin-right: 10px;
+                    float: left;
+
+                    .icon {
+                        fill: #56707c;
+                    }
+                }
+
+            }
+
+            tr {
+
+                @include respond-to('sm') {
+                    border-bottom: 1px solid #dbdbdb;
+                    padding: 10px 0;
+                    display: block;
+                }
+            }
+        }
+
+        thead {
+            @include respond-to('sm') {
+                display: none;
+            }
+        }
+    }
+
+    &.side-open {
+
+        .page__side {
+            @include transition(all 0.2s ease 0s);
+            @include translateX(0);
+        }
+
+        .page__main {
+            @include transition(all 0.2s ease 0s);
+            padding-left: 300px;
+            @include translateX(0);
+
+            @include respond-to(lg) {
+                @include translateX(300px);
+                padding-left: 0;
+            }
+
+
+        }
+    }
+
+    &__bottom {
+
+        nav {
+            text-align: center;
+        }
+    }
+
+    &__top-bar {
+        padding: 25px;
+        overflow: hidden;
+        border-bottom: $border;
+
+        @include respond-to('xs') {
+            padding-top: 15px
+        }
+
+        a {
+            @extend %icon;
+
+            &:first-child {
+                float: left;
+                color: $color-secondary;
+                line-height: 44px;
+                fontt-weight: 400;
+                display: block;
+
+                @include respond-to('xs') {
+                    float: none;;
+                }
+
+                span {
+                    @include square(14px);
+                    margin: -2px 2px 0 0;
+                }
+
+                .icon {
+                    @include rotate(90deg);
+                    fill: $color-secondary;
+                }
+            }
+
+            &:last-child {
+                float: right;
+                font-weight: 400;
+
+                @include respond-to('xs') {
+                    float: left;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+
+    &__content {
+        max-width: calc(100% - 320px);
+        margin-right: 320px;
+        width: 100%;
+
+        @include respond-to('md') {
+            margin-right: 0;
+            max-width: 100%;
+        }
+    }
+
+    &__right-bar {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 320px;
+        border-left: $border;
+        height: 100%;
+        background: #fafafa;
+        padding: 40px 30px;
+
+        @include respond-to('md') {
+            position: relative;
+            width: 100%;
+            border: none;
+        }
+
+    }
+}
+
+.job {
+    margin: 0 auto;
+    max-width: 780px;
+    padding:  80px 30px 0;
+    position: relative;
+
+    @include respond-to('lg') {
+        padding-top: 120px;
+    }
+
+    .btn__filter {
+        @extend %icon;
+        display: none;
+        font-size: 18px;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+
+        &:hover, &:active {
+
+            span {
+                .icon {
+                    stroke: $color-light;
+                }
+            }
+        }
+
+
+        @include respond-to('lg') {
+            display: block;
+        }
+
+        span {
+            @include square(20px);
+            margin: 0 0 0 10px;
+
+            .icon {
+                stroke: $color-secondary;
+            }
+        }
+    }
+
+    h2 {
+        font-size: 26px;
+        font-weight: 400;
+        margin-bottom: 15px;
+    }
+
+    &__title {
+        @extend %icon;
+        margin-bottom: 50px;
+
+        span {
+            margin-right: 10px;
+        }
+
+        li {
+            display: inline-block;
+            margin-right: 25px;
+            line-height: 32px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    h3 {
+        font-size: 20px;
+        font-weight: 400;
+        margin: 0 0 15px;
+    }
+
+    p {
+        font-size: 15px;
+        color: $color-dark-blue;
+        line-height: 24px;
+        margin: 0 0 25px;
+    }
+
+    &__details {
+        margin-bottom: 35px;
+
+        &:nth-child(5) {
+            margin-bottom: 45px;
+        }
+
+        li {
+
+            font-size: 15px;
+            color: $color-dark-blue;
+            line-height: 24px;
+            margin: 0 0 25px;
+        }
+
+        ul {
+            margin: 0 0 45px;
+
+            li {
+                padding-left: 15px; 
+                position: relative;
+
+                &:before {
+                    content: '\002022';
+                    color: $color-secondary;
+                    position: absolute;
+                    left: 0;
+                    font-size: 32px;
+                    line-height: 26px;
+                }
+            }
+        }
+
+        ol {
+            margin: 0 0 45px;
+            padding: 0 0 0 15px;
+        }
+
+        p > a {
+            color: $color-secondary;
+        }
+    }
+
+    &__posts {
+        border-top: $border;
+        padding: 45px 0 20px;
+
+        a {
+            font-size: 17px;
+            font-weight: 400;
+            margin: 0 0 3px;
+            display: block;
+        }
+    }
+
+    &__description {
+
+        @include respond-to('md') {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+    }
+
+    &__info {
+
+        h3 {
+            font-size: 15px;
+            font-weight: 400;
+            margin: 0 0 15px;
+            text-transform: uppercase;
+        }
+
+        ul {
+            margin-bottom: 55px;
+        }
+
+        li {
+            font-size: 15px;
+            font-weight: 700;
+            color: $color-dark-blue;
+            line-height: 28px;
+
+            span {
+                font-weight: 400;
+
+                a {
+                    color: $color-secondary;
+                }
+            }
+        }
+    }
+}
+
+
+
+

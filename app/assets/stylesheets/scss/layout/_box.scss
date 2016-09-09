@@ -1,0 +1,95 @@
+
+/* BOX
+   ========================================================================== */ 
+
+.box {
+    @include border-radius(5px);
+    background: $color-light;
+    position: relative;
+    overflow: hidden;
+
+    &__icon {
+        height: 48px;
+        margin: 45px auto 15px;
+
+        svg {
+            @include square(100%);
+        }
+    }
+
+    h2 {
+        font-size: 17px;
+        color: $color-primary;
+        font-weight: 400;
+    }
+
+    a {
+        color: $color-dark-blue;
+        font-size: 16px;
+        font-weight: 400;
+        margin-bottom: 25px;
+        display: block;
+    }
+
+    .divider-sm {
+        margin: 0 auto 15px;
+    }
+
+    &__corner {
+        @include square(120px);
+        position: absolute;
+        right: -40px;
+        bottom: 10px;
+        opacity: 0.08;
+
+        svg {
+            @include square(100%);
+        }
+    }
+
+    &__line {
+        background: $color-secondary;
+        bottom: 0;
+        height: 5px;
+        position: absolute;
+        width: 100%;
+        z-index: 999;
+
+        &:before {
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0; 
+                left: -5px;
+                border-bottom: 5px solid transparent;
+                border-right: 5px solid $color-secondary;
+                width: 0;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0; 
+                right: -5px;
+                border-bottom: 5px solid transparent;
+                border-left: 5px solid $color-secondary;
+                width: 0;
+            }
+        }
+    }
+
+    &__social {
+        margin-bottom: 25px;
+
+        .social__icon {
+            height: 32px;
+            fill: $color-secondary;
+            display: inline-block;
+            margin: 0 3px;
+
+            svg {
+                @include square(32px);
+            }
+        }
+    }
+}

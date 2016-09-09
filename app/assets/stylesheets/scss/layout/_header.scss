@@ -1,0 +1,271 @@
+
+/* HEADER
+   ========================================================================== */ 
+
+.header {
+    @include size(100%, 57px);
+    background: $color-light;
+    position: fixed;
+    top: 0;
+    z-index: 99999;
+
+    &__logo {
+        @include size(220px, 100%);
+        float: left;
+        display: block;
+        position: absolute;
+        left: 0;
+        padding-left: 30px;
+        z-index: 999;
+        border-bottom: 1px solid #e9e9e9;
+
+        @include respond-to('lg') {
+            width: 160px;
+            padding-left: 10px;
+        }
+
+        svg {
+            @include square(100%);
+            fill: $color-secondary;
+            max-width: 130px;
+        }
+    }
+
+    &__form {
+        @include square(100%);
+        float: left;
+        position: relative;
+        padding: 0 160px 0 220px;
+
+        @include respond-to('lg') {
+            padding: 0 160px;
+        }
+
+        &-groups {
+            @include square(100%);
+            padding-right: 160px;
+
+        }
+
+        .form-group {
+            @include size(50%, 100%);
+            margin: 0;
+            float: left;
+            position: relative;
+            border-bottom: 1px solid #e9e9e9;
+
+            svg {
+                position: absolute;
+                left: 40px;
+                top: 13px;
+                fill: $color-secondary;
+
+                @include respond-to('lg') {
+                    left: 20px;
+                }
+
+                &.icon-search {
+                    @include size(24px, 30px);
+                }
+
+                &.icon-marker {
+                    @include size(20px, 30px);
+                }
+            }
+        }
+
+        .form-control {
+            @include square(100%);
+            @include border-radius(0);
+            border: none;
+            border-left: 1px solid #e9e9e9;
+            text-indent: 65px;
+
+            @include respond-to('lg') {
+                text-indent: 45px;
+            }
+
+            &:focus {
+                box-shadow: none;
+                border-color: #e9e9e9;
+            }
+        }
+
+        .btn__header {
+            @include border-radius(0);
+            @include size(160px, 100%);
+            position: absolute;
+            right: 160px;
+            top: 0;
+            text-transform: uppercase;
+            border: none;
+            padding: 0;
+            font-weight: 400;
+
+            &:hover, &:active, &:focus {
+                border: none;
+            }
+        }
+    }
+
+    &--home {
+        height: 115px;
+    } 
+
+    &__menu {
+
+        &-toggle {
+            @include size(160px, 100%);;
+            background: $color-tertiary;
+            position: absolute;
+            right: 0;
+            text-transform: uppercase;
+            border: none;
+            padding: 0;
+            font-weight: 400;
+            color: $color-light;
+
+            &:hover, &:active, &:focus {
+                border: none;
+            }
+        }
+
+        &-btn {
+            @extend %menu-btn;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+    }
+
+    &__hamburger {
+        @extend %hamburger;
+        background: #696872;
+
+        &:before, &:after {
+            background: #696872;
+        }
+    }
+
+    &.menu-open .header__hamburger {
+        @extend %open-hamburger; 
+    }
+}
+
+.menu {
+    @include translateX(100%);
+    @include transition(all 0.2s ease 0s);
+    width: 320px;
+    height: 100%;
+    position: fixed;
+    background: $color-tertiary;
+    right: 0;
+    top: 57px;
+    z-index: 9999;
+    color: $color-light;
+
+    &__inner {
+        overflow: auto;
+        height: 100vh;
+    }
+
+    &__header {
+        padding: 35px 40px;
+        text-align: center;
+        background: #302f3a;
+
+        h3 {
+            font-weight: 700;
+            color: $color-light;
+            font-size: 17px;
+            margin: 15px 0 10px;
+        }
+
+        p {
+            font-weight: 400;
+            color: $color-dark;
+            font-size: 15px;
+            margin: 0;
+        }
+    }
+
+    &__avatar {
+        @include square(80px);
+        @include border-radius(50%);
+        border: 3px solid $color-primary;
+        text-align: center;
+        padding: 7px;
+        margin: 0 auto;
+    }
+
+    &__content {
+        padding: 40px;
+        margin-bottom: 160px;
+
+        h4 {
+            color: $color-dark;
+            font-size: 15px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+    }
+
+    &__list {
+        padding: 0;
+        margin-bottom: 25px;
+
+         a {
+            font-size: 15px;
+            font-weight: 400;
+            color: $color-light;
+            line-height: 42px;
+            height: 42px;
+            margin-bottom: 20px;
+            
+            &.btn__submit {
+                display: block;
+                text-align: center;
+                
+                &:first-child {
+                    margin-top: 25px;
+                }
+            }
+
+            span {
+                @include transition(all 0.35s ease 0s);
+                @include square(9px);
+                @include rotate(-90deg);
+                display: inline-block;
+                position: relative;
+                margin-left: 10px;
+
+                svg {
+                    @include square(100%);
+                    position: absolute;
+                    fill: $color-light;
+                }
+
+                &.rotate {
+                    @include rotate(0);
+                }
+            }
+        }
+    }
+
+    &__sub {
+
+        a {
+            color: $color-light;
+            font-size: 14px;
+            height: 26px;
+            line-height: 26px;
+            display: block;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.menu-open .menu {
+    @include translateX(0);
+}

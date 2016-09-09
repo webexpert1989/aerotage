@@ -1,0 +1,298 @@
+
+/* HOME - PAGE
+   ========================================================================== */ 
+
+.hero--home {
+    height: 822px;
+    margin-top: -125px;
+
+    @include respond-to('sm') {
+        height: auto;
+    }
+
+
+    .intro {
+        padding-top: 21%;
+
+        @include respond-to('lg') {
+            padding-top: 25%;
+        }
+
+        @include respond-to('xs') {
+            padding-top: 40%;
+        }
+
+        &__btn {
+            margin-top: 40px;
+        }
+
+        &__form {
+            position: relative;
+            top: 180px;
+            background: $color-light;
+            text-align: center;
+            overflow: hidden;
+            padding: 55px;
+            z-index: 999;
+            -webkit-box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.08);
+            -moz-box-shadow:    0px 4px 16px 0px rgba(0, 0, 0, 0.08);
+            box-shadow:         0px 4px 16px 0px rgba(0, 0, 0, 0.08);
+
+            @include respond-to('lg') {
+                padding: 55px 30px;
+                top: 140px;
+            }
+
+            @include respond-to('md') {
+                top: 90px;
+                padding: 35px 30px;
+            }
+
+            @include respond-to('xs') {
+                padding: 55px 15px 20px;
+            }
+
+            form {
+                overflow: hidden;
+            }
+
+            h3 {
+                font-size: 24px;
+                margin: 0 auto 35px;
+            }
+
+            .form-group {
+                max-width: 320px;
+                width: 100%;
+                margin: 0 15px 0 0;
+                float: left;
+                position: relative;
+
+                @include respond-to('lg') {
+                    max-width: 49%;
+                }
+
+                @include respond-to('md') {
+                    max-width: 100%;
+                    margin: 0 0 20px;
+                }
+
+                &:nth-child(2) {
+                    @include respond-to('lg') {
+                        margin: 0;
+                    }
+                }
+
+                .icon {
+                    @include square(24px);
+                    position: absolute;
+                    top: 9px;
+                    right: 14px;
+                    fill: $color-secondary;
+                }
+            }
+
+            .form-control {
+                @include input-placeholder {
+                    font-weight: 400;
+                    color: $color-input-placeholder;
+                };
+                @include form-control-focus($color-border-light);
+                @include border-radius(25px);
+                border: 2px solid $color-border-light;
+                height: 44px;
+                box-shadow: none;
+                padding-right: 40px;
+
+
+                &:hover, &:active, &:focus {
+                    box-shadow: none;
+                }
+            }
+
+            .btn__form {
+                @extend %button;
+                border: none;
+                float: left;
+                margin: 0 30px 0 5px;
+
+                &:hover, &:active, &:focus {
+                    border: none;
+                }
+
+                @include respond-to('lg') {
+                    float: none;
+                    margin: 30px 0 0;
+                }
+            }
+
+            a {
+                @extend %link;
+                color: $color-secondary;
+                float: left;
+                line-height: 44px;
+
+                @include respond-to('lg') {
+                    margin: 15px 0 0 15px;
+                    float: none;
+                }
+
+                @include respond-to('xs') {
+                    display: block;
+                    float: none;
+                    margin: 30px auto 0;
+                    max-width: 160px;
+                }
+
+                .icon {
+                    @include square(18px);
+                    margin-right: 5px;
+                    vertical-align: middle;
+                    fill: $color-primary;
+                }
+            }
+        }
+    }
+}
+
+.section {
+
+    &--solutions {
+        padding: 220px 0 70px;
+
+        @include respond-to('lg') {
+            padding: 250px 0 70px;
+        }
+
+        @include respond-to('md') {
+            padding: 180px 0 50px;
+        }
+
+        @include respond-to('sm') {
+            padding: 130px 0 30px;
+        }
+
+        .section__heading {
+            margin-bottom: 60px;
+
+            @include respond-to('lg') {
+                margin-bottom: 45px;
+            }
+        }
+
+        .section__inner {
+            text-align: center;
+        }
+
+        .feature {
+            @include make-sm-column(4);
+        }
+    }
+
+    &--right.home {
+
+        .section__text {
+            margin-top: 120px;
+            margin-bottom: 120px;
+
+            @include respond-to('md') {
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    &--left.home {
+        padding: 50px 0 20px;
+
+        @include respond-to('sm') {
+            padding: 30px 0 0;
+        }
+
+        .section__heading {
+            margin-bottom: 15px;
+
+            @include respond-to('sm') {
+                margin-bottom: 40px;
+            }
+        }
+
+        .section__inner {
+            @include make-sm-column(8);
+            padding: 0;
+
+            @include respond-to('sm') {
+                margin-bottom: 40px;
+            }
+        }
+
+        .feature {
+            @include make-sm-column(6);
+            margin-bottom: 25px;
+
+            p {
+                line-height: 22px;
+            }
+        }
+
+        .section__img {
+            left: 60%;
+            top: 0;
+
+            @include respond-to('sm') {
+                position: relative;
+                margin: 0 -15px 40px;
+                left: auto;
+            } 
+        }
+    }
+
+    &--cta {
+        background: $color-primary;
+        padding: 80px 0 75px;
+        text-align: center;
+        color: $color-light;
+
+        @include respond-to('md') {
+            padding: 50px 0 50px;
+        }
+
+        @include respond-to('md') {
+            padding: 30px 0 30px;
+        }
+
+        h3 {
+            color: $color-light;
+            margin: 0 0 20px;
+        }
+
+        p {
+            margin: 0 auto 30px;
+            font-size: 18px;
+            width: 32%;
+
+            @include respond-to('lg') {
+                width: 40%;
+            }
+
+            @include respond-to('md') {
+                width: 50%;
+            }
+
+            @include respond-to('sm') {
+                width: 70%;
+            }
+
+            @include respond-to('xs') {
+                width: 85%;
+            }
+        }
+
+        a {
+            @extend %button-lg;
+            font-weight: 400;
+            text-transform: inherit;
+        }
+    }
+}
+

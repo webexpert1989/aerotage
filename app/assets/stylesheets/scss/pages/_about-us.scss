@@ -1,0 +1,214 @@
+
+/* ABOUT US - PAGE
+   ========================================================================== */ 
+
+.hero--about-us {
+    padding: 14% 0 10%;
+
+    .intro {
+
+        h1 {
+            margin: 0 0 25px;
+        }
+
+        p {
+            margin-bottom: 35px;
+        }
+    }
+}
+
+.section {
+
+    &--staffing {
+        background: $color-section-bg;
+        padding: 50px 0;
+
+        @include respond-to('sm') {
+            padding: 30px 0 20px;
+        }
+
+        .section__heading {
+            margin-bottom: 90px;
+
+            @include respond-to('md') {
+                margin-bottom: 45px;
+            }
+        }
+
+        .section__inner {
+            text-align: center;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 0;
+            max-width: 22%;
+            width: 100%;
+            display: inline-block;
+
+            @include respond-to('sm') {
+                display: block;
+                margin: 0 auto 35px;
+                max-width: 245px;
+            }
+        }
+
+        .divider__spiral {
+            display: inline-block;
+            max-width: 10%;
+            width: 100%;
+            vertical-align: top;
+
+            @include respond-to('sm') {
+                display: none;
+            }
+
+            svg {
+                @include square(100%);
+                max-width: 95px;
+                max-height: 30px;
+                margin-top: 25px;
+                fill: #9a88c0;
+            }
+        }
+    }
+
+    &--what-we-do {
+        padding: 135px 0 60px;
+
+        @include respond-to('md') {
+            padding: 80px 0 30px;
+        }
+
+        @include respond-to('md') {
+            padding: 40px 0 15px;
+        }
+
+        .section__heading {
+            margin-bottom: 80px;
+
+            @include respond-to('md') {
+                margin-bottom: 40px;
+            }
+        }
+
+        .section__inner {
+            @include make-row();
+        }
+
+        .feature {
+            @include make-sm-column(6);
+            margin-bottom: 50px;
+
+            @include respond-to('sm') {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            &__caption {
+                max-width: 450px;
+
+                @include respond-to('sm') {
+                    margin: 0 auto;
+                }
+
+                h4 {
+                    color: $color-secondary;
+                }
+
+                p {
+                    line-height: 22px;
+                }
+            }
+        }
+    }
+
+    &--members {
+        background: $color-section-bg;
+        padding: 80px 0 85px;
+
+        @include respond-to('md') {
+            padding: 50px 0 50px;
+        }
+
+        @include respond-to('sm') {
+            padding: 30px 0 0;
+        }
+
+        .card {
+            @include make-sm-column(6);
+        }
+    }
+
+    &--left.about {
+        padding: 115px 0 175px;
+
+        @include respond-to('md') {
+            padding: 25px 0 0px;
+        }
+
+        @include respond-to('md') {
+            padding: 30px 0 0px;
+        }
+
+        p {
+            max-width: 500px;
+
+            @include respond-to('sm') {
+                max-width: 100%;
+            }
+        }
+    }
+
+    &--values {
+        background: $color-primary;
+        padding: 50px 0 80px;
+
+        @include respond-to('md') {
+            padding: 50px 0 50px;
+        }
+
+        @include respond-to('sm') {
+            padding: 30px 0 20px;
+        }
+
+        .section__heading {
+            margin-bottom: 40px;
+
+            small {
+                color: #928ed5;
+            }
+
+            h2 {
+                color: $color-light;
+            }
+        }
+
+        .section__inner {
+            @include make-row();
+        }
+
+        .feature {
+            @include make-sm-column(4);
+
+            &__caption {
+
+                @include respond-to('sm') {
+                    margin: 0 auto;
+                    max-width: 450px;
+                }
+            }
+
+            h4 {
+                color: $color-light;
+            }
+
+            p {
+                color: $color-light;
+            }
+        }
+    }
+}
+
+
+

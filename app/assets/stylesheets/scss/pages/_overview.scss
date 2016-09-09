@@ -1,0 +1,228 @@
+
+/* OVERVIEW - PAGE
+   ========================================================================== */
+
+.hero--overview {
+    padding: 12% 0;
+
+    @include respond-to('sm') {
+        padding: 20% 0;
+    }
+
+    .intro__btn {
+        margin-top: 30px;
+    }
+}
+
+.section {
+
+    &--expertise {
+        padding: 75px 0 90px;
+        background: $color-section-bg;
+
+        .section__heading {
+            margin-bottom: 65px;
+        }
+
+        .section__list {
+            @include make-sm-column(12); 
+            padding: 0;
+            text-align: center;
+
+            @include respond-to('sm') {
+                max-width: 380px;
+                margin: 0 auto;
+            }
+
+            li {
+                width: 24.7%;
+                display: inline-block;
+                color: $color-dark-blue;
+                font-size: 15px;
+                line-height: 26px;
+                text-align: left;
+
+                @include respond-to('lg') {
+                    width: 33%;
+                }
+
+                @include respond-to('md') {
+                    width: 49%;
+                }
+
+                @include respond-to('sm') {
+                    width: 100%;
+                }
+
+                span {
+                    @include size(15px, 10px);
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: 7px;
+
+                    svg {
+                        @include square(100%);
+                        fill: $color-secondary;
+                    }
+                }
+            }
+        }
+    }
+
+    &--staff {
+        padding: 100px 0 80px;
+        background: $color-footer-bg;
+
+        .section__heading {
+            margin-bottom: 65px;
+
+            p {
+                max-width: 65%;
+                margin: 0 auto;
+            }
+        }
+
+        .feature {
+            @include make-sm-column(3);
+            text-align: center;
+
+            &__caption {
+                max-width: 200px;
+                margin: 0 auto;
+            }
+
+            h4 {
+                color: $color-dark-blue;
+                font-size: 15px;
+                line-height: 22px;
+            }
+        }
+    }
+
+    &--recruiting {
+        padding: 90px 0;
+
+        .section__heading {
+            margin-bottom: 70px;
+
+            p {
+                max-width: 65%;
+                margin: 0 auto;
+            }
+        }
+
+        .feature {
+            @include make-sm-column(4);
+            
+            &__caption {
+                padding: 0 10px;
+            }
+        }
+    }
+
+    &--offer {
+        background: $color-primary;
+        padding: 90px 0 50px;
+
+        .section__heading {
+            margin-bottom: 60px;
+
+            h2 {
+                color: $color-light;
+            }
+        }
+
+        .feature {
+            @include make-sm-column(6);
+
+            &__box {
+                @include border-radius(5px);
+                background: $color-light;
+                min-height: 200px;
+                padding: 35px 20px 25px;
+                height: 100%;
+                margin-bottom: 45px;
+                position: relative;
+
+                &:before {
+                    @include border-radius(5px);
+                    content: '';
+                    position: absolute;
+                    top: -10px;
+                    bottom: -10px;
+                    left: 10px;
+                    right: 10px;
+                    -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.13);
+                    -moz-box-shadow:    0px 1px 4px 0px rgba(0, 0, 0, 0.13);
+                    box-shadow:         0px 1px 4px 0px rgba(0, 0, 0, 0.13);
+                    background: $color-light;
+                    opacity: 0.1;
+                }
+            }
+
+            &__icon {
+
+                &--circle {
+                    @include square(74px);
+                    -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.13);
+                    -moz-box-shadow:    0px 1px 4px 0px rgba(0, 0, 0, 0.13);
+                    box-shadow:         0px 1px 4px 0px rgba(0, 0, 0, 0.13);
+                    border: none;
+                    padding: 15px;
+
+                    
+                    &.aviation {
+                        background-image: url('/img/sprite-overview.svg#icon-aviation');
+                    }
+                }
+            }
+
+            &__caption {
+                max-width: 470px;
+                
+                @include respond-to('sm') {
+                    margin: 0 auto;
+                }
+            }
+
+            p {
+                font-size: 14px;
+                line-height: 24px;
+            }
+        }
+    }
+
+    &--engineer {
+        padding: 110px 0 40px;
+
+        .section__heading {
+            margin-bottom: 80px;
+        }
+
+        .feature {
+            @include make-sm-column(4);
+            margin-bottom: 45px;
+            text-align: center;
+
+            &__icon {
+                margin-bottom: 15px;
+                
+                &.icon-eurocontrol {
+                    fill: #9a88c0;
+                }
+            }
+
+            &__caption {
+                max-width: 200px;
+                min-height: 50px;
+                margin: 0 auto;
+
+                h4 {
+                    color: #37474f;
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+            }
+        }
+    }
+}

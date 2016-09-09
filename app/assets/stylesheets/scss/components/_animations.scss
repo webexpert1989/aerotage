@@ -1,0 +1,58 @@
+
+/* CSS ANIMATIONS
+   ========================================================================== */ 
+
+.fadeIn-top {
+    opacity: 0;
+    transform: translateY(80px);
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0px);
+        @include transition( all 1s cubic-bezier(0.49, 0.99, 0.54, 0.98) 0s);
+    }
+}
+
+.fadeIn-left {
+    opacity: 0;
+    transform: translateX(80px);
+
+    &.visible {
+        opacity: 1;
+        transform: translateX(0px);
+        @include transition( all 1s cubic-bezier(0.49, 0.99, 0.54, 0.98) 0s);
+    }
+}
+
+.fadeIn-right {
+    opacity: 0;
+    transform: translateX(-80px);
+
+    &.visible {
+        opacity: 1;
+        transform: translateX(0px);
+        @include transition( all 1s cubic-bezier(0.49, 0.99, 0.54, 0.98) 0s);
+    }
+}
+
+.fadeIn {
+    opacity: 0;
+
+    &.visible {
+        opacity: 1;
+        @include transition( all 0.4s cubic-bezier(0.49, 0.99, 0.54, 0.98) 0s);
+    }
+}
+
+.section__img--fluid {
+    opacity: 0;
+    transform: translateX(-80px);
+
+    &.visible {
+        opacity: 1;
+        transform: translateX(0px);
+        @include transition( all 5s cubic-bezier(0.49, 0.99, 0.54, 0.98) 0s);
+    }
+}
+
+

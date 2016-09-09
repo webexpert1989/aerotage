@@ -1,44 +1,181 @@
-<% provide(:title, 'Contact Us') %>
+        <section class="hero hero--contact" style="background-image: url('img/contact-bg.jpg')">
+            <div class="hero__wrap">
+                <div class="intro">
+                    <h1>Contact Aerotage</h1>
+                    <p>Want to work with us? We're here for you.</p>
+                    <div class="intro__contact">
+                        <div class="intro__contact-box">
+                            <div class="box">
+                                <div class="box__icon">
+                                    <svg class="icon icon-email"><use xlink:href="img/sprite-contact.svg#icon-email"></use></svg>
+                                </div>
+                                <h2>Email Us</h2>
+                                <div class="divider-sm"></div>
+                                <a href="mailto:info@aerotage.com">info@aerotage.com</a>
+                                <div class="box__corner">
+                                    <svg class="icon icon-email"><use xlink:href="img/sprite-contact.svg#icon-email"></use></svg>
+                                </div>
+                                <div class="box__line"></div>
+                            </div>
+                        </div>
+                        <div class="intro__contact-box">
+                            <div class="box">
+                                <div class="box__icon">
+                                    <svg class="icon icon-phone"><use xlink:href="img/sprite-contact.svg#icon-phone"></use></svg>
+                                </div>
+                                <h2>Call Aerotage</h2>
+                                <div class="divider-sm"></div>
+                                <a href="tel:+8646335038">864.633.5038</a>
+                                <div class="box__corner">
+                                    <svg class="icon icon-phone"><use xlink:href="img/sprite-contact.svg#icon-phone"></use></svg>
+                                </div>
+                                <div class="box__line"></div>
+                            </div>
+                        </div>
+                        <div class="intro__contact-box">
+                            <div class="box">
+                                <div class="box__icon">
+                                    <svg class="icon icon-social"><use xlink:href="img/sprite-contact.svg#icon-social"></use></svg>
+                                </div>
+                                <h2>We Are Social</h2>
+                                <div class="divider-sm"></div>
+                                <div class="box__social">
+                                    <a class="social__icon" href="#"><svg class="icon icon-facebook"><use xlink:href="img/sprite-contact.svg#icon-facebook"></use></svg></a>
+                                    <a class="social__icon" href="#"><svg class="icon icon-twitter"><use xlink:href="img/sprite-contact.svg#icon-twitter"></use></svg></a>
+                                    <a class="social__icon" href="#"><svg class="icon icon-linkedin"><use xlink:href="img/sprite-contact.svg#icon-linkedin"></use></svg></a>
+                                    <a class="social__icon" href="#"><svg class="icon icon-google"><use xlink:href="img/sprite-contact.svg#icon-google"></use></svg></a>
+                                </div>
+                                <div class="box__corner">
+                                    <svg class="icon icon-social"><use xlink:href="img/sprite-contact.svg#icon-social"></use></svg>
+                                </div>
+                                <div class="box__line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<div class="contact-us-page">
-  <div class="heading">
-    <div class="title">Thank you for contacting AerotageJobs.</div>
-    Please complete the form below to contact one of our customer service representatives
-    <br>
-    Fields marked with an asterisk (*) are mandatory.
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-push-6 col-lg-push-7 col-lg-5 contact-details">
-      <div class="row">
-        <div class="col-xs-4 image-wrapper"><%= image_tag 'message_img.svg' %></div>
-        <div class="col-xs-8">
-          <h1>AerotageJobs</h1>
-          <div class="contact-details-info">
-            c/o Aerotage Design Group<br/>
-            P.O. Box 1026<br/>
-            Central, SC 29630 USA<br/>
-            Phone: 864.633.5038<br/>
-            Email:
-            <a href='mailto:info@aerotagejobs.com'>info@aerotagejobs.com</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-sm-pull-6 col-lg-pull-5 contact-form">
-      <%= form_for @contact_us, url: contact_path do |f| %>
-        <%= render 'shared/error_messages', target: f.object %>
+        <section class="section section--contact">
+            <div class="section__wrap">
+                <div class="section__inner">
+                    <div class="contact">
+                        <div class="contact__box">
+                            <div class="contact__caption">
+                                <div class="contact__icon"><svg class="icon icon-message"><use xlink:href="img/sprite-contact.svg#icon-message"></use></svg></div>
+                                <h2>Send Us A Message</h2>
+                            </div>
+                            <form class="contact__form">
+                                <div class="form-group">
+                                    <span class="input">
+                                        <input id="input-1"  type="text" class="input__field form-control" maxlength="40" name="name" size="20" required>
+                                        <label class="input__label" for="input-1">
+                                            <span class="input__label-content"><span>&#9913</span> Name</span>
+                                        </label>
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <span class="input">
+                                        <input id="input-2"  type="text" class="input__field form-control" maxlength="40" name="last name" size="20" required>
+                                        <label class="input__label" for="input-2">
+                                            <span class="input__label-content"><span>&#9913</span> Last Name</span>
+                                        </label>
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <span class="input">
+                                        <input id="input-3"  type="email" class="input__field form-control" maxlength="40" name="email" size="20" required>
+                                        <label class="input__label" for="input-3">
+                                            <span class="input__label-content"><span>&#9913</span> Email</span>
+                                        </label>
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <span class="input">
+                                        <input id="input-4"  type="text" class="input__field form-control" maxlength="40" name="phone number" size="20" required>
+                                        <label class="input__label" for="input-4">
+                                            <span class="input__label-content"><span>&#9913</span> Phone Number</span>
+                                        </label>
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <span class="input">
+                                        <input id="input-5"  type="text" class="input__field form-control" maxlength="40" name="company name" size="20" required>
+                                        <label class="input__label" for="input-5">
+                                            <span class="input__label-content"><span>&#9913</span> Company Name</span>
+                                        </label>
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <select>
+                                        <option value="" disabled selected hidden>U.S. State / Country</option>
+                                        <option value="alabama">Alabama (U.S.)</option>
+                                        <option value="alaska">Alaska (U.S.)</option>
+                                        <option value="arizona">Arizona (U.S.)</option>
+                                        <option value="arkansas">Arkansas (U.S.)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <span class="input">
+                                        <input id="input-6"  type="text" class="input__field form-control" maxlength="40" name="street" size="20" required>
+                                        <label class="input__label" for="input-6">
+                                            <span class="input__label-content"><span>&#9913</span> Street</span>
+                                        </label>
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <span class="input">
+                                        <input id="input-7"  type="text" class="input__field form-control" maxlength="40" name="zip code" size="20" required>
+                                        <label class="input__label" for="input-7">
+                                            <span class="input__label-content"><span>&#9913</span> Zip Code</span>
+                                        </label>
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <span class="input">
+                                        <input id="input-8"  type="text" class="input__field form-control" maxlength="40" name="city" size="20" required>
+                                        <label class="input__label" for="input-8">
+                                            <span class="input__label-content"><span>&#9913</span> City</span>
+                                        </label>
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <span class="input">
+                                        <input id="input-9"  type="text" class="input__field form-control" maxlength="40" name="message subject" size="20" required>
+                                        <label class="input__label" for="input-9">
+                                            <span class="input__label-content"><span>&#9913</span> Message Subject</span>
+                                        </label>
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <textarea id="input-10" name="your message" class="input__field form-control" rows="3"></textarea>
+                                    <label class="input__label" for="input-10">
+                                        <span class="input__label-content"><span>&#9913</span> Your Message</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn__submit btn__secondary" type="submit"> Send Message</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
-        <div class="row-wrapper"><%= f.text_field :name, placeholder: '* Full Name' %></div>
-        <div class="row-wrapper"><%= f.text_field :email, placeholder: '* Email' %></div>
-        <div class="row-wrapper"><%= render 'fields/input/text', f: f, field: :comments, placeholder: '* Comments' %>
-        <% unless Rails.env.development? %>
-          <div class="row-wrapper"><%= recaptcha_tags %></div>
-        <% end %>
-
-        <div class="row-wrapper button-wrapper">
-          <%= f.submit 'Submit', class: 'green' %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
+                    <div class="faq">
+                        <div class="faq__caption">
+                            <div class="faq__icon">
+                                <svg class="icon icon-question"><use xlink:href="img/sprite-contact.svg#icon-question"></use></svg>
+                            </div>
+                            <h2>Popular FAQs</h2>
+                        </div>
+                        <div class="faq__links">
+                            <a href="#"><span><svg class="icon icon-arrow-right"><use xlink:href="img/sprite-contact.svg#icon-arrow-right"></use></svg></span>How do I get a job with Aerotage?</a>
+                            <a href="#"><span><svg class="icon icon-arrow-right"><use xlink:href="img/sprite-contact.svg#icon-arrow-right"></use></svg></span>How can Aerotage help my company?</a>
+                            <a href="#"><span><svg class="icon icon-arrow-right"><use xlink:href="img/sprite-contact.svg#icon-arrow-right"></use></svg></span>How do I get a job with Aerotage?</a>
+                            <a href="#"><span><svg class="icon icon-arrow-right"><use xlink:href="img/sprite-contact.svg#icon-arrow-right"></use></svg></span>What is the recruitment process like?</a>
+                            <a href="#"><span><svg class="icon icon-arrow-right"><use xlink:href="img/sprite-contact.svg#icon-arrow-right"></use></svg></span>What jobs are available in the aviation industry?</a>
+                            <a href="#"><span><svg class="icon icon-arrow-right"><use xlink:href="img/sprite-contact.svg#icon-arrow-right"></use></svg></span>What is scope of Aerospace engineering?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>

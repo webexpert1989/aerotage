@@ -1,0 +1,78 @@
+
+/* FEATURE
+   ========================================================================== */ 
+
+.feature {
+    text-align: left;
+
+    @include respond-to('sm') {
+        text-align: center;
+        margin-bottom: 30px; 
+    }
+
+    &__icon {
+        @include square(48px);
+        margin-bottom: 20px;
+
+        &--circle {
+            @include square(85px);
+            @include border-radius(50%);
+            border: 1px solid $color-primary;
+            padding: 20px;
+            margin: 0 auto 20px;
+            position: relative;
+
+            svg {
+                @include square(100%);
+            }
+
+            .icon-count {
+                @include square(30px);
+                @include border-radius(50%);
+                background: $color-secondary;
+                position: absolute;
+                color: $color-light;
+                display: block;
+                line-height: 30px;
+                bottom: 0;
+                right: -6px;
+                font-weight: 400;
+            }
+        }
+    }
+
+    h4 {
+        font-weight: 400;
+        color: $color-feature-title;
+        margin: 0 0 15px;
+    }
+
+    p {
+        color: $color-feature;
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    &--left {
+
+        .feature__icon {
+            float: left;
+
+            @include respond-to('md') {
+                float: none;
+            }
+        }
+    }
+
+    &__btn {
+        clear: both;
+
+        a {
+            margin-top: 40px;
+
+            @include respond-to('md') {
+                margin-top: 15px;
+            }
+        }
+    }
+}

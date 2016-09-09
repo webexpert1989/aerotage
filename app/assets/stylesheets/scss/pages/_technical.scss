@@ -1,0 +1,133 @@
+
+/* TECHNICAL SOLUTIONS - PAGE
+   ========================================================================== */
+
+.section {
+
+    &--left.technical {
+        padding: 90px 0 0;
+
+        .section__heading {
+            margin-bottom: 70px;
+        }
+
+        .section__inner {
+            @include respond-to('sm') {
+                @include display-flex;
+                @include flex-flow(column);
+            }
+        }
+
+        .section__text {
+            @include make-sm-column(6);
+            padding: 155px 0 262px;
+
+            @include respond-to('sm') {
+                padding: 55px 15px;
+                @include order(2);
+            }
+        }
+
+        .section__img {
+            max-width: 47%;
+
+            @include respond-to('lg') {
+                max-width: 60%;
+            }
+
+            @include respond-to('sm') {
+                @include order(1);
+            }
+        }
+    }
+
+    &--right.technical {
+        padding: 0;
+
+
+
+        .section__img {
+            margin-left: -32%;
+
+            @include respond-to('md') {
+                margin-left: -50%;
+            }
+
+            @include respond-to('sm') {
+                @include make-sm-column(12);
+                margin-left: -15px;
+            }
+        }
+
+        .section__text {
+            @include make-sm-column-offset(6);
+            @include make-sm-column(6);
+            padding: 160px 0 230px;
+
+            @include respond-to('sm') {
+                padding: 55px 15px;
+            }
+        }
+    }
+
+    &--positions {
+        padding: 80px 0;
+        background: $color-primary;
+
+        .section__heading {
+            margin-bottom: 60px;
+
+            small {
+                color: #8d89d0;
+            }
+
+            h2 {
+                color: $color-light;
+            }
+
+            p {
+                color: $color-light;
+                padding: 0 12%;
+
+                @include respond-to('lg') {
+                    padding: 0 5%;
+                }
+
+                @include respond-to('md') {
+                    padding: 0;
+                }
+            }
+        }
+
+        .feature {
+            @include make-sm-column(4);
+            text-align: center;
+            margin-bottom: 30px;
+
+            &__img {
+                @include square(120px);
+                @include border-radius(20px);
+                overflow: hidden;
+                margin: 0 auto;
+                -webkit-box-shadow: 0px 6px 8px 8px rgba(0, 0, 0, 0.13);
+                -moz-box-shadow:    0px 6px 8px 8px rgba(0, 0, 0, 0.13);
+                box-shadow:         0px 6px 8px 8px rgba(0, 0, 0, 0.13);
+                margin-bottom: 30px;
+            }
+
+            &__caption {
+                padding: 0 5px;
+                max-width: 380px;
+                margin: 0 auto;
+            }
+
+            h4 {
+                color: $color-light;
+            }
+
+            p {
+                color: $color-light;
+            }
+        }
+    }
+}
