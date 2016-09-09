@@ -1,0 +1,120 @@
+
+/* ENGINEERING SOLUTIONS - PAGE
+   ========================================================================== */ 
+
+.hero--engineering {
+    @extend .hero--solutions;
+}
+
+.section {
+
+    &__team {
+        text-align: center;
+
+        span {
+            @include square(68px);
+            @include border-radius(50%);
+            display: inline-block;
+            overflow: hidden;
+            margin-right: 35px;
+            margin-bottom: 50px;
+            vertical-align: middle;
+
+            @include respond-to('lg') {
+                margin-right: 20px;
+            }
+
+            @include respond-to('md') {
+                margin-bottom: 20px;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    &--our-team {
+        padding: 140px 0 130px;
+
+        @include respond-to('md') {
+            padding: 50px 0 50px;
+        }
+
+        @include respond-to('sm') {
+            padding: 30px 0 30px;
+        }
+
+        .section__team {
+            @include make-sm-column(6);
+            left: -8%;
+
+            @include respond-to('lg') {
+                left: auto;
+            }
+        }
+
+        .section__text {
+            @include make-sm-column(6);
+            padding-top: 45px; 
+
+            @include respond-to('md') {
+                padding-top: 5px; 
+            }
+        }
+    }
+
+    &--engineering-solutions {
+        padding: 110px 0;
+        background: #f7f7f7;
+
+        @include respond-to('md') {
+            padding: 50px 0 50px;
+        }
+
+        @include respond-to('sm') {
+            padding: 30px 0 0;
+        }
+
+        .section__heading {
+            max-width: 915px;
+            margin: 0 auto 75px;
+
+            @include respond-to('sm') {
+                max-width: 100%;
+                  margin: 0 0 40px;
+            }
+        }
+
+        .feature {
+            @include make-sm-column(4);
+            margin-bottom: 20px;
+
+            @include respond-to('sm') {
+                margin-bottom: 35px;
+                height: auto !important;
+            }
+
+            h4 {
+                color: $color-title;
+                font-weight: 700;
+            }
+
+            p {
+                color: #4d5960;
+            }
+
+            .divider {
+                margin: 0 0 25px;
+
+                @include respond-to('sm') {
+                    margin: 0 auto 15px;
+                }
+            }
+        }
+    }
+}
+

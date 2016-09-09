@@ -5,22 +5,46 @@
 .hero--home {
     height: 822px;
     margin-top: -125px;
+    padding-top: 300px;
+
+    @include respond-to('lg') {
+        padding-top: 29%;
+    }
 
     @include respond-to('sm') {
         height: auto;
+        padding-top: 200px;
+
+        @include respond-to('landscape') {
+            background-size: 305%;
+            padding-top: 130px;
+        }
     }
 
+    @include respond-to('xxxs') {
+        padding-top: 170px;
+    }
+
+    .hero__wrap {
+        z-index: 1;
+    }
+
+    .hero__bg {
+
+        @include respond-to('sm') {
+            background-size: 680%;
+
+            @include respond-to('landscape') {
+                background-size: 305%;
+            }
+        }
+
+        @include respond-to('xxxs') {
+            background-size: 780%;
+        }
+    }
 
     .intro {
-        padding-top: 21%;
-
-        @include respond-to('lg') {
-            padding-top: 25%;
-        }
-
-        @include respond-to('xs') {
-            padding-top: 40%;
-        }
 
         &__btn {
             margin-top: 40px;
@@ -257,7 +281,7 @@
             padding: 50px 0 50px;
         }
 
-        @include respond-to('md') {
+        @include respond-to('sm') {
             padding: 30px 0 30px;
         }
 

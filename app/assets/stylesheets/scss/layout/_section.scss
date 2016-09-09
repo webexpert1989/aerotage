@@ -6,6 +6,8 @@
     overflow: hidden;
     background: $color-light;
     position: relative;
+    background: $color-light;
+    z-index: 0;
 
     &__wrap {
         @extend .container;
@@ -73,26 +75,26 @@
         @include make-row();
     }
 
+    &__text {
+        text-align: left;
+        z-index: 999;
+
+        @include respond-to('sm') {
+            text-align: center;
+        }
+
+        h3 {
+            margin-bottom: 15px;
+        }
+
+        p {
+            padding: 0;
+            line-height: 26px;
+        }
+    }
+
     &--right, &--left {
         position: relative;
-
-        .section__text {
-            text-align: left;
-            z-index: 999;
-
-            @include respond-to('sm') {
-                text-align: center;
-            }
-
-            h3 {
-                margin-bottom: 15px;
-            }
-
-            p {
-                padding: 0;
-                line-height: 26px;
-            }
-        }
 
         .section__img {
 
@@ -124,6 +126,7 @@
             left: 0;
             top: 0;
             margin-left: -32%;
+            max-width: 100%;
 
             @include respond-to('md') {
                 margin-left: -50%;
@@ -163,7 +166,11 @@
             }
 
             img {
-                @include square(100%);
+                @include size(auto, 100%);
+
+                @include respond-to('md') {
+                    width: 100%;
+                }
             }
         }
     }

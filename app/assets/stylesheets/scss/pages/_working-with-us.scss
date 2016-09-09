@@ -3,12 +3,14 @@
    ========================================================================== */
 
 .hero--working {
-    padding: 14% 0 10%;
+    padding: 17% 0 10%;
 
-    @include respond-to('sm') {
-        padding: 20% 0;
+    @extend %hero-sm; 
+
+    @include respond-to('md-1024') {
+        padding: 57px 0 0;
     }
-    
+
     h1 {
         margin: 0 0 25px;
     }
@@ -22,8 +24,24 @@
     background: $color-section-bg;
     padding: 80px 0 55px;
 
+    @include respond-to('md') {
+        padding: 50px 0;
+    }
+
+    @include respond-to('sm') {
+        padding: 30px 0;
+    }
+
     .section__inner {
         text-align: center;
+
+        @include respond-to('md') {
+            padding: 50px 0;
+        }
+
+        @include respond-to('sm') {
+            padding: 30px 0;
+        }
     }
 
     .feature {
@@ -31,6 +49,7 @@
         max-width: 320px;
         padding: 0 30px;
         text-align: center;
+        vertical-align: top;
 
         @include respond-to('md') {
             max-width: 225px;
@@ -50,8 +69,20 @@
     &--tools {
         padding: 105px 0 130px;
 
+        @include respond-to('md') {
+            padding: 50px 0;
+        }
+
+        @include respond-to('sm') {
+            padding: 30px 0;
+        }
+
         .section__heading {
             margin-bottom: 70px;
+
+            @include respond-to('md') {
+                margin-bottom: 45px;
+            }
         }
 
         .section__inner {
@@ -122,6 +153,10 @@
             @include make-sm-column(6);
             padding: 135px 0 190px;
 
+            @include respond-to('md') {
+                padding: 50px 0 50px;
+            }
+
             @include respond-to('sm') {
                 padding: 20px;
             }
@@ -144,10 +179,10 @@
         }
 
         .section__img {
-            margin-left: -50%;
 
-            @include respond-to('md') {
-                margin-left: -70%;
+
+            @include respond-to('lg') {
+                margin-left: -50%;
             }
 
             @include respond-to('sm') {
@@ -160,6 +195,10 @@
             @include make-sm-column-offset(6);
             @include make-sm-column(6);
             padding: 130px 0 125px;
+
+            @include respond-to('md') {
+                padding: 50px 0 50px;
+            }
 
             @include respond-to('sm') {
                 padding: 20px;
@@ -178,6 +217,14 @@
     &--read {
         background: $color-primary;
         padding: 80px 0;
+
+        @include respond-to('md') {
+            padding: 50px 0;
+        }
+
+        @include respond-to('sm') {
+            padding: 30px 0;
+        }
 
         .box {
             background: $color-primary;

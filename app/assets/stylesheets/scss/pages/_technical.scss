@@ -2,13 +2,29 @@
 /* TECHNICAL SOLUTIONS - PAGE
    ========================================================================== */
 
+.hero--technical {
+    @extend .hero--solutions;
+}
+
 .section {
 
     &--left.technical {
         padding: 90px 0 0;
 
+        @include respond-to('md') {
+            padding: 50px 0 0;
+        }
+
+        @include respond-to('sm') {
+            padding: 30px 0 0;
+        }
+
         .section__heading {
             margin-bottom: 70px;
+
+            @include respond-to('md') {
+                margin-bottom: 45px;
+            }
         }
 
         .section__inner {
@@ -22,8 +38,11 @@
             @include make-sm-column(6);
             padding: 155px 0 262px;
 
+            @include respond-to('md') {
+                padding: 50px 15px;
+            }
+
             @include respond-to('sm') {
-                padding: 55px 15px;
                 @include order(2);
             }
         }
@@ -35,6 +54,10 @@
                 max-width: 60%;
             }
 
+            @include respond-to('md') {
+                max-width: 55%;
+            }
+
             @include respond-to('sm') {
                 @include order(1);
             }
@@ -43,8 +66,6 @@
 
     &--right.technical {
         padding: 0;
-
-
 
         .section__img {
             margin-left: -32%;
@@ -64,8 +85,8 @@
             @include make-sm-column(6);
             padding: 160px 0 230px;
 
-            @include respond-to('sm') {
-                padding: 55px 15px;
+            @include respond-to('md') {
+                padding: 50px 15px;
             }
         }
     }
@@ -74,8 +95,20 @@
         padding: 80px 0;
         background: $color-primary;
 
+        @include respond-to('md') {
+            padding: 50px 0 0;
+        }
+
+        @include respond-to('sm') {
+            padding: 30px 0 0;
+        }
+
         .section__heading {
             margin-bottom: 60px;
+
+            @include respond-to('md') {
+                margin-bottom: 45px;
+            }
 
             small {
                 color: #8d89d0;
@@ -103,6 +136,10 @@
             @include make-sm-column(4);
             text-align: center;
             margin-bottom: 30px;
+
+            @include respond-to('sm') {
+               height: auto !important;
+            }
 
             &__img {
                 @include square(120px);

@@ -29,8 +29,11 @@
 //RESPONSIVE
 $breakpoints: (
 'lg': (max-width: 1199px),
+'md-1024': (max-width: 1024px),
 'md': (max-width: 991px),
 'sm': (max-width: 767px),
+'landscape': (orientation: landscape),
 'xs': (max-width: 480px),
-'xxs': (max-width: 380px)
+'xxs': (max-width: 380px),
+'xxxs': (max-width: 320px)
 );

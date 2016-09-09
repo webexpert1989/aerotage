@@ -3,35 +3,28 @@
    ========================================================================== */ 
 
 .hero--staffing {
-    @include display-flex;
-    @include align-items(center);
-    @include justify-content(center);
-    height: calc(100vh - 57px);
-
-    .hero__wrap {
-        margin: 0;
-    }
-
-    .intro {
-        max-width: 700px;
-        margin: 0 auto;
-        padding: 70px 0 10px;
-
-
-        p {
-            width: 90%;
-            margin-bottom: 25px;
-        }
-    }
-} 
+    @extend .hero--solutions;
+}
 
 .section {
 
     &--left.staffing {
         padding: 90px 0 0;
 
+        @include respond-to('md') {
+            padding: 50px 0 0;
+        }
+
+        @include respond-to('sm') {
+            padding: 30px 0 0;
+        }
+
         .section__heading {
             margin-bottom: 60px;
+
+            @include respond-to('md') {
+                margin-bottom: 45px;
+            }
         }
 
         .section__inner {
@@ -42,10 +35,21 @@
             @include make-sm-column(6);
             padding: 160px 0 230px;
 
+            @include respond-to('md') {
+                padding: 50px 0;
+            }
+
             @include respond-to('sm') {
-                padding: 0 15px;
+                padding: 0;
             }
         }
+
+        .section__img {
+            @include respond-to('md') {
+                max-width: 60%;
+            }
+        }
+
     }
 
     &--right.staffing {
@@ -79,8 +83,8 @@
             @include make-sm-column(6);
             padding: 160px 0 230px;
 
-            @include respond-to('sm') {
-                padding: 90px 15px 30px;
+            @include respond-to('md') {
+                padding: 50px 15px 50px;
                 @include order(1);
             }
         }
@@ -88,6 +92,14 @@
 
     &--values.staffing {
         padding: 85px 0;
+
+        @include respond-to('md') {
+            padding: 50px 0;
+        }
+
+        @include respond-to('sm') {
+            padding: 30px 0;
+        }
 
         .feature {
 
@@ -112,8 +124,20 @@
     &--technical {
         padding: 85px 0 75px;
 
+        @include respond-to('md') {
+            padding: 50px 0;
+        }
+
+        @include respond-to('sm') {
+            padding: 30px 0;
+        }
+
         .section__heading {
             margin-bottom: 50px;
+
+            @include respond-to('md') {
+                margin-bottom: 45px;
+            }
         }
 
 
@@ -130,7 +154,7 @@
 
             @include respond-to('sm') {
                 display: block;
-                margin: 0 auto 30px !important;
+                margin: 0 15px 30px !important;
                 max-width: 320px;
             }
 

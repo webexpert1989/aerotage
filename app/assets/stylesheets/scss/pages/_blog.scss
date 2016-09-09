@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .hero--blog {
-    padding: 12% 0;
+    padding: 11% 0;
 
     @include respond-to('sm') {
         padding: 20% 0;
@@ -12,11 +12,12 @@
 
 .section {
 
-    &__main {
-        padding: 20px 15px 125px;
+    &__main.blog {
+        padding: 20px 0 125px 15px;
 
         @include respond-to('sm') {
             padding-bottom: 40px;
+            padding-right: 15px;
         }
 
         .section__btn {
@@ -28,8 +29,13 @@
         }
     }
 
-    &__side {
+    &__side.blog {
         padding-top: 50px;
+        padding-left: 0;
+        
+        @include respond-to('sm') {
+            padding-left: 15px;
+        }
     }
 
     &__bottom {

@@ -3,10 +3,12 @@
    ========================================================================== */
 
 .hero--overview {
-    padding: 12% 0;
+    padding: 16% 0 12%;
 
-    @include respond-to('sm') {
-        padding: 20% 0;
+    @extend %hero-sm; 
+
+    @include respond-to('md-1024') {
+        padding: 57px 0 0;
     }
 
     .intro__btn {
@@ -20,13 +22,25 @@
         padding: 75px 0 90px;
         background: $color-section-bg;
 
+        @include respond-to('md') {
+            padding: 50px 0 50px;
+        }
+
+        @include respond-to('sm') {
+            padding: 30px 0 30px;
+        }
+
         .section__heading {
             margin-bottom: 65px;
+
+            @include respond-to('md') {
+                margin-bottom: 45px;
+            }
         }
 
         .section__list {
             @include make-sm-column(12); 
-            padding: 0;
+            padding: 0 15px;
             text-align: center;
 
             @include respond-to('sm') {
@@ -73,8 +87,20 @@
         padding: 100px 0 80px;
         background: $color-footer-bg;
 
+        @include respond-to('md') {
+            padding: 50px 0 50px;
+        }
+
+        @include respond-to('sm') {
+            padding: 30px 0 30px;
+        }
+
         .section__heading {
             margin-bottom: 65px;
+
+            @include respond-to('md') {
+                margin-bottom: 45px;
+            }
 
             p {
                 max-width: 65%;
@@ -102,8 +128,20 @@
     &--recruiting {
         padding: 90px 0;
 
+        @include respond-to('md') {
+            padding: 50px 0 50px;
+        }
+
+        @include respond-to('sm') {
+            padding: 30px 0 30px;
+        }
+
         .section__heading {
             margin-bottom: 70px;
+
+            @include respond-to('md') {
+                margin-bottom: 45px;
+            }
 
             p {
                 max-width: 65%;
@@ -113,7 +151,7 @@
 
         .feature {
             @include make-sm-column(4);
-            
+
             &__caption {
                 padding: 0 10px;
             }
@@ -124,8 +162,20 @@
         background: $color-primary;
         padding: 90px 0 50px;
 
+        @include respond-to('md') {
+            padding: 50px 0 50px;
+        }
+
+        @include respond-to('sm') {
+            padding: 30px 0 30px;
+        }
+
         .section__heading {
             margin-bottom: 60px;
+
+            @include respond-to('md') {
+                margin-bottom: 45px;
+            }
 
             h2 {
                 color: $color-light;
@@ -170,7 +220,7 @@
                     border: none;
                     padding: 15px;
 
-                    
+
                     &.aviation {
                         background-image: url('/img/sprite-overview.svg#icon-aviation');
                     }
@@ -179,7 +229,7 @@
 
             &__caption {
                 max-width: 470px;
-                
+
                 @include respond-to('sm') {
                     margin: 0 auto;
                 }
@@ -195,8 +245,20 @@
     &--engineer {
         padding: 110px 0 40px;
 
+        @include respond-to('md') {
+            padding: 50px 0 50px;
+        }
+
+        @include respond-to('sm') {
+            padding: 30px 0 30px;
+        }
+
         .section__heading {
             margin-bottom: 80px;
+
+            @include respond-to('md') {
+                margin-bottom: 45px;
+            }
         }
 
         .feature {
@@ -206,7 +268,7 @@
 
             &__icon {
                 margin-bottom: 15px;
-                
+
                 &.icon-eurocontrol {
                     fill: #9a88c0;
                 }

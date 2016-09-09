@@ -5,7 +5,7 @@ $(document).ready(function () {
             optionsItemBuilder: '{text}',
             labelBuilder: '{text}',
             disableOnMobile: false,
-            arrowButtonMarkup: '<span class="input__icon"><svg class="icon icon-angle"><use xlink:href="assets/images/sprite-job-search.svg#icon-angle"></use></svg></span>'
+            arrowButtonMarkup: '<span class="input__icon"><svg class="icon icon-angle"><use xlink:href="img/sprite-job-search.svg#icon-angle"></use></svg></span>'
         });
     });
     $(function () {

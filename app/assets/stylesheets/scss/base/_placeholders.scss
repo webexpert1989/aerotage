@@ -190,3 +190,12 @@
         }
     }
 }
+
+%hero-sm {
+    @include respond-to('md-1024') {
+        @include display-flex;
+        @include align-items(center);
+        @include justify-content(center);
+        height: 100vh;
+    }
+}

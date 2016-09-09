@@ -5,6 +5,8 @@
 .sub-nav {
     background: $color-section-bg;
     border-bottom: 1px solid #ebebeb;
+    position: relative;
+    z-index: 0;
 
     &__wrap {
         @extend .container;

@@ -8,6 +8,34 @@
     position: fixed;
     top: 0;
     z-index: 99999;
+    @include translateY(0);
+    @include transition(all 0.35s ease 0s);
+    opacity: 1;
+
+
+    &:before {
+        width: 100%;
+        height: 100%;
+        background: $color-light;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        border-bottom: 1px solid #e9e9e9;
+        opacity: 1;
+    }
+
+    &.off-screen {
+        @include translateY(-100%);
+        @include transition(all 0.35s ease 0s);
+
+        @include respond-to('lg') {
+            @include translateY(-200%);
+        }
+    }
 
     &__logo {
         @include size(220px, 100%);
@@ -17,11 +45,17 @@
         left: 0;
         padding-left: 30px;
         z-index: 999;
-        border-bottom: 1px solid #e9e9e9;
+        z-index: 1;
 
         @include respond-to('lg') {
             width: 160px;
             padding-left: 10px;
+            border-bottom: none;
+        }
+
+        @include respond-to('xs') {
+            width: 33%;
+            padding: 0 10px;
         }
 
         svg {
@@ -38,13 +72,25 @@
         padding: 0 160px 0 220px;
 
         @include respond-to('lg') {
-            padding: 0 160px;
+            padding: 0;
         }
 
         &-groups {
             @include square(100%);
             padding-right: 160px;
+            border-bottom: 1px solid #e9e9e9;
+            @include translateY(0);
+            z-index: 1;
+            position: relative;
 
+            @include respond-to('lg') {
+                padding: 0;
+                z-index: 0;
+            }
+
+            @include respond-to('sm') {
+                @include translateY(-100%);
+            }
         }
 
         .form-group {
@@ -52,7 +98,11 @@
             margin: 0;
             float: left;
             position: relative;
-            border-bottom: 1px solid #e9e9e9;
+
+            @include respond-to('sm') {
+                width: 100%;
+                border-bottom: 1px solid #e9e9e9;
+            }
 
             svg {
                 position: absolute;
@@ -79,10 +129,11 @@
             @include border-radius(0);
             border: none;
             border-left: 1px solid #e9e9e9;
-            text-indent: 65px;
+            padding-left: 70px;
+            box-shadow: none;
 
             @include respond-to('lg') {
-                text-indent: 45px;
+                padding-left: 50px;
             }
 
             &:focus {
@@ -101,6 +152,16 @@
             border: none;
             padding: 0;
             font-weight: 400;
+            z-index: 1;
+
+            @include respond-to('xs') {
+                width: 33%;
+                right: 33%;
+            }
+
+            @include respond-to('xxs') {
+                font-size: 14px;
+            }
 
             &:hover, &:active, &:focus {
                 border: none;
@@ -124,6 +185,15 @@
             padding: 0;
             font-weight: 400;
             color: $color-light;
+            z-index: 1;
+
+            @include respond-to('xs') {
+                width: 33%;
+            }
+
+            @include respond-to('xxs') {
+                font-size: 14px;
+            }
 
             &:hover, &:active, &:focus {
                 border: none;
@@ -163,10 +233,16 @@
     top: 57px;
     z-index: 9999;
     color: $color-light;
+    opacity: 0;
+
+    @include respond-to('xs') {
+        width: 66%;
+    }
 
     &__inner {
         overflow: auto;
         height: 100vh;
+        background: $color-tertiary;
     }
 
     &__header {
@@ -202,6 +278,10 @@
         padding: 40px;
         margin-bottom: 160px;
 
+        @include respond-to('xs') {
+            padding: 40px 15px;
+        }
+
         h4 {
             color: $color-dark;
             font-size: 15px;
@@ -215,18 +295,18 @@
         padding: 0;
         margin-bottom: 25px;
 
-         a {
+        a {
             font-size: 15px;
             font-weight: 400;
             color: $color-light;
             line-height: 42px;
             height: 42px;
             margin-bottom: 20px;
-            
+
             &.btn__submit {
                 display: block;
                 text-align: center;
-                
+
                 &:first-child {
                     margin-top: 25px;
                 }
@@ -268,4 +348,19 @@
 
 .menu-open .menu {
     @include translateX(0);
+    opacity: 1;
+}
+
+.header__form-groups {
+    @include transition(all 0.2s ease);
+}
+
+.search-visible.header__form-groups {
+    @include translateY(100%);
+    @include transition(all 0.2s ease);
+
+    /*    @include respond-to('sm') {
+            @include translateY(200%);
+        }*/
+
 }
