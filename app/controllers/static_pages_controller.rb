@@ -64,4 +64,7 @@ class StaticPagesController < ApplicationController
     render layout: false if params[:popup]
   end
 
+  def overview
+    render layout: 'static'
+  end
 end

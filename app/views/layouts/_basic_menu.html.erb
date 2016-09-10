@@ -1,80 +1,85 @@
-<header class="header">
-    <a class="header__logo" href="#">
-        <svg class="icon icon-logo"><use xlink:href="img/symbol-defs.svg#icon-logo"></use></svg>
-    </a>
-    <form class="header__form">
-        <div class="header__form-groups">
-            <div class="form-group">
-                <input type="search" class="form-control" id="searchField" placeholder="Looking for...">
-                <svg class="icon icon-search"><use xlink:href="img/symbol-defs.svg#icon-search"></use></svg>
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" id="stateField" placeholder="Where...">
-                <svg class="icon icon-marker"><use xlink:href="img/symbol-defs.svg#icon-marker"></use></svg>
-            </div>
-        </div>
-        <button type="submit" class="btn__header btn__secondary">Search Jobs</button>
-    </form>
-    <button class="header__menu-toggle"> MENU
-        <span class="header__menu-btn">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="header__hamburger"></span>
-        </span>
-    </button>
-    <div class="menu">
-        <div class="menu__header">
-            <div class="menu__avatar">
-                <img src="<%= asset_path('avatar.png') %>" alt=""/>
-            </div>
-            <h3>Brad Hardwick</h3>
-            <p>President of Aerotage Group</p>
-        </div>
-        <div class="menu__content">
-            <h4>my aerotage</h4>
-            <ul class="menu__list">
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Communities</a></li>
-                <li><a href="#">Job Blog</a></li>
-                <li><a href="#sub-menu1" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="sub-menu1">Post Jobs <span><svg class="icon icon-arrow-down"><use xlink:href="img/sprite-contact.svg#icon-arrow-down"></use></svg></span></a>
-                    <div class="menu__sub collapse" id="sub-menu1">
-                        <div class="well">
-                            <ul>
-                                <li><a href="#">Item 1</a></li>
-                                <li><a href="#">Item 2</a></li>       
-                            </ul>
-                        </div>
+        <header class="header">
+            <a class="header__logo" href="index.html">
+                <svg class="icon icon-logo"><use xlink:href="img/symbol-defs.svg#icon-logo"></use></svg>
+            </a>
+            <form class="header__form">
+                <div class="header__form-groups">
+                    <div class="form-group">
+                        <input type="search" class="form-control" id="searchField" placeholder="Looking for...">
+                        <svg class="icon icon-search"><use xlink:href="img/symbol-defs.svg#icon-search"></use></svg>
                     </div>
-                </li>
-                <li><a href="#">My Account</a></li>
-                <li><a href="#">Company Profile</a></li>
-                <li><a href="#">Logout</a></li>
-            </ul>
-            <h4>aerotage</h4>
-            <ul class="menu__list">
-                <li><a href="#">WORKING WITH US</a></li>
-                <li><a href="#sub-menu2" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="sub-menu2">AEROTAGE SOLUTIONS<span><svg class="icon icon-arrow-down"><use xlink:href="img/sprite-contact.svg#icon-arrow-down"></use></svg></span></a>
-                    <div class="menu__sub collapse" id="sub-menu2">
-                        <div class="well">
-                            <ul>
-                                <li><a href="#">Item 1</a></li>
-                                <li><a href="#">Item 2</a></li>       
-                            </ul>
-                        </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="stateField" placeholder="Where...">
+                        <svg class="icon icon-marker"><use xlink:href="img/symbol-defs.svg#icon-marker"></use></svg>
                     </div>
-                </li>
-                <li><a href="#sub-menu3" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="sub-menu3">ABOUT US<span><svg class="icon icon-arrow-down"><use xlink:href="img/sprite-contact.svg#icon-arrow-down"></use></svg></span></a>
-                    <div class="menu__sub collapse" id="sub-menu3">
-                        <div class="well">
-                            <ul>
-                                <li><a href="#">Item 1</a></li>
-                                <li><a href="#">Item 2</a></li>       
-                            </ul>
+                </div>
+                <button type="submit" class="btn__header btn__secondary">Search Jobs</button>
+            </form>
+            <button class="header__menu-toggle"> MENU
+                <span class="header__menu-btn">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="header__hamburger"></span>
+                </span>
+            </button>
+
+            <div class="menu">
+                <div class="menu__inner">
+                    <div class="menu__header">
+                        <div class="menu__avatar">
+                            <img src="<%= asset_path('avatar.png') %>" alt=""/>
                         </div>
+                        <h3>Brad Hardwick</h3>
+                        <p>President of Aerotage Group</p>
                     </div>
-                </li>
-                <li><a href="#">CONTACT</a></li>
-                <li><a href="#">BLOG</a></li>
-            </ul>
-        </div>
-    </div>
-</header>
+                    <div class="menu__content">
+                        <h4>my aerotage</h4>
+                        <ul class="menu__list">
+                            <li><a href="#">Dashboard</a></li>
+                            <li><a href="#">Communities</a></li>
+                            <li><a href="/blog">Job Blog</a></li>
+                            <li><a class="collapsed" href="#sub-menu1" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="sub-menu1">Post Jobs <span><svg class="icon icon-arrow-down"><use xlink:href="img/sprite-contact.svg#icon-arrow-down"></use></svg></span></a>
+                                <div class="menu__sub collapse" id="sub-menu1">
+                                    <div class="well">
+                                        <ul>
+                                            <li><a href="#">Item 1</a></li>
+                                            <li><a href="#">Item 2</a></li>       
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Company Profile</a></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                        <h4>aerotage</h4>
+                        <ul class="menu__list">
+                            <li><a href="/working-with-us">WORKING WITH US</a></li>
+                            <li><a class="collapsed" href="#sub-menu2" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="sub-menu2">AEROTAGE SOLUTIONS<span><svg class="icon icon-arrow-down"><use xlink:href="img/sprite-contact.svg#icon-arrow-down"></use></svg></span></a>
+                                <div class="menu__sub collapse" id="sub-menu2">
+                                    <div class="well">
+                                        <ul>
+                                            <li><a href="/aerospace-staffing-solutions-and-services">Staffing Solutions</a></li>
+                                            <li><a href="/aerospace-technical-solutions">Technical Solutions</a></li>    
+                                            <li><a href="/aerospace-engineering-solutions">Engineer Solutions</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a class="collapsed" href="#sub-menu3" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="sub-menu3">ABOUT US<span><svg class="icon icon-arrow-down"><use xlink:href="img/sprite-contact.svg#icon-arrow-down"></use></svg></span></a>
+                                <div class="menu__sub collapse" id="sub-menu3">
+                                    <div class="well">
+                                        <ul>
+                                            <li><a href="/about-us">About Aerotage</a></li>
+                                            <li><a href="/faq">FAQs</a></li>       
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a href="/aerotage-overview">OVERVIEW</a></li>
+                            <li><a href="/contact-us">CONTACT</a></li>
+                            <li><a href="/blog">BLOG</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>

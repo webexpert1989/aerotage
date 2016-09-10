@@ -11,13 +11,19 @@
 // about supported directives.
 //
 //= require jquery.min
-//= require bootstrap.min
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
+//= require bootstrap.min
 //= require svgxuse
 //= require jquery.mCustomScrollbar.min
 //= require enquire.min
 //= require skrollr.min
+//= require bootstrap-tagsinput.min
+//= require classie
+//= require contact
+//= require job-search
+//= require jquery.selectric.min
+//= require typeahead
 //= require main
+//= require turbolinks
 //= require_tree .

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'aerospace-technical-solutions', to: 'static_pages#technical_solutions'
   get 'aerospace-engineering-solutions', to: 'static_pages#engineering_solutions'
   get 'working-with-us', to: 'static_pages#workingwithus'
+  get 'aerotage-overview', to: 'static_pages#overview'
   match 'contact-us', to: 'static_pages#contact', via: [:get, :post]
   get 'privacy-policy', to: 'static_pages#privacy_policy'
   get 'terms-of-use', to: 'static_pages#terms_of_use'
