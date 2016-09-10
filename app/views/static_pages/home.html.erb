@@ -1,244 +1,236 @@
 <% provide(:title, 'Aerotage: Aerospace engineering, staffing and recruiting services') %>
 <% provide(:description, 'Aerotage is leader in aerospace staffing, engineering and recruiting services. Get qualified, professional candidates with aerospace recruiting.') %>
 
-        <header class="header">
-            <a class="header__logo" href="index.html">
-                <svg class="icon icon-logo"><use xlink:href="img/symbol-defs.svg#icon-logo"></use></svg>
-            </a>
-            <form class="header__form">
-                <div class="header__form-groups">
-                    <div class="form-group">
-                        <input type="search" class="form-control" id="searchField" placeholder="Looking for...">
-                        <svg class="icon icon-search"><use xlink:href="img/symbol-defs.svg#icon-search"></use></svg>
+        <header class="header--home">
+            <nav class="navbar navbar--home">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#home-nav" aria-expanded="false">
+                            <div class="nav-mobile-toggle">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="nav-hamburger"></span>
+                            </div>
+                        </button>
+                        <a class="navbar-brand" href="#"><svg class="icon icon-logo-nav"><use xlink:href="img/symbol-defs.svg#icon-logo-nav"></use></svg></a>
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="stateField" placeholder="Where...">
-                        <svg class="icon icon-marker"><use xlink:href="img/symbol-defs.svg#icon-marker"></use></svg>
-                    </div>
-                </div>
-                <button type="submit" class="btn__header btn__secondary">Search Jobs</button>
-            </form>
-            <button class="header__menu-toggle"> MENU
-                <span class="header__menu-btn">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="header__hamburger"></span>
-                </span>
-            </button>
 
-            <div class="menu">
-                <div class="menu__inner">
-                    <div class="menu__header">
-                        <div class="menu__avatar">
-                            <img src="img/avatar.png" alt=""/>
-                        </div>
-                        <h3>Brad Hardwick</h3>
-                        <p>President of Aerotage Group</p>
-                    </div>
-                    <div class="menu__content">
-                        <h4>my aerotage</h4>
-                        <ul class="menu__list">
-                            <li><a href="#">Dashboard</a></li>
-                            <li><a href="#">Communities</a></li>
-                            <li><a href="#">Job Blog</a></li>
-                            <li><a class="collapsed" href="#sub-menu1" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="sub-menu1">Post Jobs <span><svg class="icon icon-arrow-down"><use xlink:href="img/sprite-contact.svg#icon-arrow-down"></use></svg></span></a>
-                                <div class="menu__sub collapse" id="sub-menu1">
-                                    <div class="well">
-                                        <ul>
-                                            <li><a href="#">Item 1</a></li>
-                                            <li><a href="#">Item 2</a></li>       
-                                        </ul>
-                                    </div>
-                                </div>
+                    <div class="collapse navbar-collapse" id="home-nav">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active"><a href="working-with-us.html">Working with us<span class="sr-only">(current)</span></a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Aerotage solutions<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="staffing-solutions.html">Staffing Solutions</a></li>
+                                    <li><a href="technical-solutions.html">Technical Solutions</a></li>
+                                    <li><a href="engineering-solutions.html">Engineer Solutions</a></li>
+                                </ul>
                             </li>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Company Profile</a></li>
-                            <li><a href="#">Logout</a></li>
-                        </ul>
-                        <h4>aerotage</h4>
-                        <ul class="menu__list">
-                            <li><a href="working-with-us.html">WORKING WITH US</a></li>
-                            <li><a class="collapsed" href="#sub-menu2" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="sub-menu2">AEROTAGE SOLUTIONS<span><svg class="icon icon-arrow-down"><use xlink:href="img/sprite-contact.svg#icon-arrow-down"></use></svg></span></a>
-                                <div class="menu__sub collapse" id="sub-menu2">
-                                    <div class="well">
-                                        <ul>
-                                            <li><a href="staffing-solutions.html">Staffing Solutions</a></li>
-                                            <li><a href="technical-solutions.html">Technical Solutions</a></li> 
-                                            <li><a href="engineering-solutions.html">Engineer Solutions</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="about-us.html">ABOUT AEROTAGE</a></li>
+                                    <li><a href="faq.html">FAQs</a></li>
+                                </ul>
                             </li>
-                            <li><a class="collapsed" href="#sub-menu3" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="sub-menu3">ABOUT US<span><svg class="icon icon-arrow-down"><use xlink:href="img/sprite-contact.svg#icon-arrow-down"></use></svg></span></a>
-                                <div class="menu__sub collapse" id="sub-menu3">
-                                    <div class="well">
-                                        <ul>
-                                            <li><a href="about-us.html">About Aerotage</a></li>
-                                            <li><a href="faq.html">FAQs</a></li>       
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li><a href="overview.html">OVERVIEW</a></li>
-                            <li><a href="contact-us.html">CONTACT</a></li>
-                            <li><a href="blog.html">BLOG</a></li>
+                            <li><a href="contact-us.html">Contact</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="signup.html" class="btn__nav">Sign Up</a></li>
                         </ul>
                     </div>
                 </div>
-            </div>
+            </nav>
         </header>
 
-        <section class="hero hero--technical">
-            <div class="hero__bg" style="background-image: url('img/technical-intro.jpg')"  data-100-center="background-position: 50% 57px;" data-top-bottom="background-position: 50% -100px;" data-anchor-target=".hero"></div>
+        <section class="hero hero--home">
+            <div class="hero__bg" style="background-image: url('<%= asset_path("home-intro.jpg") %>')" data-center="background-position: 50% 0px;" data-top-bottom="background-position: 50% -100px;" data-anchor-target=".hero"></div>
             <div class="hero__wrap animate fadeIn-top">
-                <div class="intro" data-start="opacity: 1" data-top="opacity: 0" data-anchor-target=".intro__btn">
-                    <h1>Onsite Aerospace Technical</h1>
-                    <p>Aerotage offers onsite technical support by delivering the most skilled technicians, mechanics, inspectors, and manufacturing professionals.</p>
-                    <a class="intro__btn btn__secondary" href="#">contact aerotage</a>
-                </div>
-            </div>
-        </section>
-
-        <aside class="sub-nav">
-            <div class="sub-nav__wrap">
-                <ol class="breadcrumb">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="staffing-solutions.html">Aerospace Stuffing Solutions and Services</a></li>
-                    <li class="active">Onsite Aerospace Technical</li>
-                </ol>
-            </div>
-        </aside>
-
-        <section class="section technical section--left">
-            <div class="section__wrap">
-                <div class="section__heading animate fadeIn-top">
-                    <svg class="section__icon icon icon-technical"><use xlink:href="img/sprite-technical.svg#icon-technical"></use></svg>
-                    <small>onsite technical solutions</small>
-                    <h2>Our Team, Your Location</h2>
-                </div>
-                <div class="section__inner">
-                    <div class="section__text animate fadeIn-right">
-                        <h3>Onsite Technical Solutions</h3>
-                        <p>
-                            Aerotage onsite technical support drives efficiency, quality, and enhances business processes by employing the industry's best mechanics,
-                            technicians, inspectors, and aerospace manufacturing experts.
-                            Our onsite team provides increased undivided attention and dedication to meet your specific business needs.
-                        </p>
-                    </div>
-                    <div class="section__img">
-                        <img src="img/technical-bg-1.jpg" alt="section background"/>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section section--positions">
-            <div class="section__wrap">
-                <div class="section__heading animate fadeIn-top">
-                    <svg class="section__icon icon icon-position"><use xlink:href="img/sprite-technical.svg#icon-position"></use></svg>
-                    <small>onsite technical solutions</small>
-                    <h2>Our Team, Your Location</h2>
+                <div class="intro" data-center="opacity: 1" data-100-top="opacity: 0" data-anchor-target=".intro__btn">
+                    <h1>
+                        Aerospace Technical Staffing,<br>
+                        Recruiting and Engineering Solutions
+                    </h1>
                     <p>
-                        Aerotage offers a variety of onsite technical positions ranging from manufacturing to mechanics and technicians. 
-                        Browse below to learn more.
+                        Aerotage is a leader in aerospace staffing, engineering and recruiting services.
+                        Get qualified, professional candidates with aerospace recruiting.
+                    </p>
+                    <a class="intro__btn btn__secondary" href="#">more about aerotage</a>
+                </div>
+            </div>
+            <div class="hero__wrap">
+                <div class="intro__form">
+                    <h3>Find a Job in the Aerospace Industry</h3>  
+                    <form>
+                        <div class="form-group">
+                            <input type="search" class="form-control" id="searchField-home" placeholder="Looking for...">
+                            <svg class="icon icon-search"><use xlink:href="img/symbol-defs.svg#icon-search"></use></svg>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="stateField-home" placeholder="Where...">
+                            <svg class="icon icon-marker"><use xlink:href="img/symbol-defs.svg#icon-marker"></use></svg>
+                        </div>
+                        <button type="submit" class="btn__form btn__primary">Search Jobs</button>
+                        <a href="job-search-results.html"><svg class="icon icon-advanced-search"><use xlink:href="img/symbol-defs.svg#icon-advanced-search"></use></svg> Advanced Search</a>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--solutions">
+            <div class="section__wrap">
+                <div class="section__heading animate fadeIn-top">
+                    <small>aerotage staffing solutions</small>
+                    <h2>You Need The Right People To Succeed</h2>
+                    <div class="divider"></div>
+                    <p>
+                        Aerotage offers innovative and cost effective aerospace staffing solutions that meet immediate staffing needs;
+                        both long and short term staffing. We have specialized technical search programs that allow us to provide experienced
+                        and qualified personnel ranging from contractors, direct hires, 
+                        large volume staffing and managed services programs (on‐site recruiting). 
                     </p>
                 </div>
-                <div class="section__inner">
-                    <div class="feature animate fadeIn-top">
-                        <div class="feature__img">
-                            <img src="img/tehnical-1.png" alt="technicians image"/>
-                        </div>
+
+                <div class="section__inner animate fadeIn-top">
+                    <div class="feature feature--left">
+                        <svg class="feature__icon icon icon-employees"><use xlink:href="img/symbol-defs.svg#icon-employees"></use></svg>
                         <div class="feature__caption">
-                            <h4>Manufacturing</h4>
+                            <h4>Quality Employees</h4>
                             <p>
-                                Manufacturing services and solutions cover areas of expertise from basic precision manufacturing to innovative manufacturing.
+                                We take time to fully understand your business requirements.
+                                We deliver specific expertise in the aerospace industry providing our clients with the best aerospace engineers,
+                                technicians and mechanics. The Aerotage team is comprised of aviation professionals,
+                                with both military and commercial aviation experience.
                             </p>
                         </div>
                     </div>
-                    <div class="feature animate fadeIn-top">
-                        <div class="feature__img">
-                            <img src="img/tehnical-2.png" alt="technicians image"/>
-                        </div>
+                    <div class="feature feature--left">
+                        <svg class="feature__icon icon icon-relationships"><use xlink:href="img/symbol-defs.svg#icon-relationships"></use></svg>
                         <div class="feature__caption">
-                            <h4>Aircraft Maintenance Technicians</h4>
+                            <h4>Building Strong Relationships</h4>
                             <p>
-                                Responsible for flight safety through successfully conducting technical protocols and aircraft maintenance.
+                                Aerotage ensures contractors are meeting business expectations,
+                                can ensure regulatory compliance and increase workplace performance through proven quality assurance programs.
+                                Our dedication to providing excellence drives motivation for building long standing business relationships.
                             </p>
                         </div>
                     </div>
-                    <div class="feature animate fadeIn-top">
-                        <div class="feature__img">
-                            <img src="img/tehnical-3.png" alt="technicians image"/>
-                        </div>
+                    <div class="feature feature--left">
+                        <svg class="feature__icon icon icon-strategy"><use xlink:href="img/symbol-defs.svg#icon-strategy"></use></svg>
                         <div class="feature__caption">
-                            <h4>Aircraft Structural Technicians</h4>
+                            <h4>Good Staffing Strategy</h4>
                             <p>
-                                Build, install, and maintain composite structures and assess aircraft devices as required.
+                                Aerotage takes the hassle out of staffing.
+                                We have specialized technical search programs that provide our clients with exceptional personnel ranging from contractors,
+                                direct hires, large volume staffing, and managed services programs (on-site).
                             </p>
                         </div>
                     </div>
-                    <div class="feature animate fadeIn-top">
-                        <div class="feature__img">
-                            <img src="img/tehnical-4.png" alt="technicians image"/>
-                        </div>
+                    <div class="feature__btn">
+                        <a href="staffing-solutions.html" class="section__btn btn__reverse--sec">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section home section--right">
+            <div class="section__wrap">
+                <div class="section__img">
+                    <img src="<%= asset_path("home-bg-1.jpg") %>" alt="section background"/>
+                </div>
+                <div class="section__heading section__text animate fadeIn-top">
+                    <svg class="section__icon icon icon-work"><use xlink:href="img/symbol-defs.svg#icon-work"></use></svg>
+                    <small>working with us</small>
+                    <h2>
+                        Shape Your Future Today:<br>
+                        Your Next Aviation Job Is Here
+                    </h2>
+                    <p>
+                        Aerotage works with the most successful aerospace companies, providing opportunities that vary from cutting edge research roles to servicing engines. Aerotage is a go to resource for all job seekers; from those looking to land their
+                        first position to the more seasoned professionals looking to advance their career.
+                    </p>
+                    <a href="working-with-us.html" class="section__btn btn__secondary">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--cta">
+            <div class="section__caption animate fadeIn-left">
+                <h3>Contact Us Today</h3>
+                <p>If you have questions or would like additional information, please provide contact information. We would be glad to speak with you.</p>
+                <a href="contact-us.html" class="btn__primary btn__primary--light">Contact Aerotage</a>
+            </div>
+        </section>
+
+        <section class="section home section--right">
+            <div class="section__wrap">
+                <div class="section__img section__img--fluid animate">
+                    <img src="<%= asset_path("home-bg-2.jpg") %>" alt="section background"/>
+                </div>
+                <div class="section__heading section__text animate fadeIn-top">
+                    <svg class="section__icon icon icon-experience"><use xlink:href="img/symbol-defs.svg#icon-experience"></use></svg>
+                    <small>project experience</small>
+                    <h2>
+                        Aerospace Engineering Solutions
+                    </h2>
+                    <p>
+                        Aerotage founders bring more than sixty years of aviation experience,
+                        first hand professional aerospace engineering and working knowledge in aircraft modification, system design and program management.
+                        Our knowledge and experience allows us to provide data packages that are tailored for easy installation, being the best time and cost effective option.
+                    </p>
+                    <a href="technical-solutions.html" class="section__btn btn__secondary">View Our Solutions</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section home section--left">
+            <div class="section__wrap">
+                <div class="section__heading section__text animate fadeIn-top">
+                    <svg class="section__icon icon icon-recruiting"><use xlink:href="img/symbol-defs.svg#icon-recruiting"></use></svg>
+                    <small>aerotage recruiting solutions</small>
+                    <h2>Looking For An Aerospace Professional?</h2>
+                </div>
+                <div class="section__img">
+                    <img src="<%= asset_path("home-bg-3.jpg") %>" alt="section background"/>
+                </div>
+                <div class="section__inner animate fadeIn-top">
+                    <div class="feature">
+                        <svg class="feature__icon icon icon-industry"><use xlink:href="img/symbol-defs.svg#icon-industry"></use></svg>
                         <div class="feature__caption">
-                            <h4>Avionics Technicians</h4>
+                            <h4>The Aviation Industry's Best </h4>
                             <p>
-                                Maintain aircraft instruments, electronic, safety and navigation systems.
+                                Aerotage provides turn-key solutions to your aerospace engineering, certification, and personnel business needs.
+                                Aerotage is driven by our employees and strong network of qualified and reliable candidates.
                             </p>
                         </div>
                     </div>
-                    <div class="feature animate fadeIn-top">
-                        <div class="feature__img">
-                            <img src="img/tehnical-5.png" alt="technicians image"/>
-                        </div>
+                    <div class="feature">
+                        <svg class="feature__icon icon icon-engineer"><use xlink:href="img/symbol-defs.svg#icon-engineer"></use></svg>
                         <div class="feature__caption">
-                            <h4>FAA Quality Inspectors</h4>
+                            <h4>Aerospace Engineer Recruiting Process</h4>
                             <p>
-                                Perform final inspection of aircraft components, and ensure all parts are manufactured and installed correctly.
+                                The recruiting process begins with a comprehensive talent search within our extensive database and aviation specific networks.
+                                We fully understand the importance and sensitivity of your recruitment demands.
+                                Aerotage is ready to deliver fast and cost effective solutions to meet your unique business needs.
                             </p>
                         </div>
                     </div>
-                    <div class="feature animate fadeIn-top">
-                        <div class="feature__img">
-                            <img src="img/tehnical-6.png" alt="technicians image"/>
-                        </div>
+                    <div class="feature">
+                        <svg class="feature__icon icon icon-aerospace"><use xlink:href="img/symbol-defs.svg#icon-aerospace"></use></svg>
                         <div class="feature__caption">
-                            <h4>Manufacture Quality Inspectors</h4>
+                            <h4>Aerospace Recruiting</h4>
                             <p>
-                                Supervise development and implementation of manufacturing activities to ensure all quality standards and regulations are being met.
+                                Aerotage Recruiting Solutions are a cost and time effective option to ensure compliance with local, state, and Federal laws.
+                                Our significant experience and hands on approach guarantees a full understanding of your product, culture, and unique business needs.
                             </p>
                         </div>
                     </div>
-                    <div class="feature animate fadeIn-top">
-                        <div class="feature__img">
-                            <img src="img/tehnical-7.png" alt="technicians image"/>
-                        </div>
+                    <div class="feature">
+                        <svg class="feature__icon icon icon-knowledge"><use xlink:href="img/symbol-defs.svg#icon-knowledge"></use></svg>
                         <div class="feature__caption">
-                            <h4>Aircraft Interior Mechanics</h4>
+                            <h4>Specific Knowledge & Experience</h4>
                             <p>
-                                Perform maintenance checks and repairs, while meeting all safety standards and deadlines.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="feature animate fadeIn-top">
-                        <div class="feature__img">
-                            <img src="img/tehnical-8.png" alt="technicians image"/>
-                        </div>
-                        <div class="feature__caption">
-                            <h4>Aircraft Composite Technicians</h4>
-                            <p>
-                                Manufacture aircraft parts by using specialized tools and project specifications.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="feature animate fadeIn-top">
-                        <div class="feature__img">
-                            <img src="img/tehnical-9.png" alt="technicians image"/>
-                        </div>
-                        <div class="feature__caption">
-                            <h4>Management / Supervison / Leads</h4>
-                            <p>
-                                Drive specific projects or manufacturing processes to create quality aircraft parts according to quality, client, and safety standards.
+                                We bring over a decade of experience in providing best in class aerospace recruiting engineering, executive management, mechanical and technical positions.
+                                We specialize in technical staffing (mechanics, technicians, engineers) to service aircrafts and drive aerospace engineering designs.
                             </p>
                         </div>
                     </div>
@@ -246,20 +238,14 @@
             </div>
         </section>
 
-        <section class="section technical section--right">
-            <div class="section__wrap">
-                <div class="section__inner">
-                    <div class="section__img">
-                        <img src="img/technical-bg-2.jpg" alt="section background"/>
-                    </div>
-                    <div class="section__text animate fadeIn-left">
-                        <h3>Quality Onsite Solutions</h3>
-                        <p>
-                            Aerotage takes the time to fully understand your business needs, and provide quality talent and services,
-                            onsite when most optimal. Our onsite team, consisting of highly qualified technicians, inspectors, and manufacturing leads,
-                            serve as an extension to your organization. Our goal is to consistently provide workplace solutions that improve processes and grow business.
-                        </p>
-                    </div>
-                </div>
+        <section class="section section--cta">
+            <div class="section__caption animate fadeIn-left">
+                <h3>Find Your Dream Job Today</h3>
+                <p>
+                    The Aerotage team is comprised of aviation professionals, with both
+                    military and commercial aviation experience. Join the Aerotage team to
+                    steer your career into a new and prosperous direction.
+                </p>
+                <a href="job-search-results.html" class="btn__light">View Aviation Jobs</a>
             </div>
         </section>
