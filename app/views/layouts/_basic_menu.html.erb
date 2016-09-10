@@ -1,16 +1,16 @@
         <header class="header">
-            <a class="header__logo" href="index.html">
-                <svg class="icon icon-logo"><use xlink:href="img/symbol-defs.svg#icon-logo"></use></svg>
+            <a class="header__logo" href="/">
+                <svg class="icon icon-logo"><use xlink:href="<%= asset_path('symbol-defs.svg#icon-logo') %>"></use></svg>
             </a>
             <form class="header__form">
                 <div class="header__form-groups">
                     <div class="form-group">
                         <input type="search" class="form-control" id="searchField" placeholder="Looking for...">
-                        <svg class="icon icon-search"><use xlink:href="img/symbol-defs.svg#icon-search"></use></svg>
+                        <svg class="icon icon-search"><use xlink:href="<%= asset_path('symbol-defs.svg#icon-search') %>"></use></svg>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" id="stateField" placeholder="Where...">
-                        <svg class="icon icon-marker"><use xlink:href="img/symbol-defs.svg#icon-marker"></use></svg>
+                        <svg class="icon icon-marker"><use xlink:href="<%= asset_path('symbol-defs.svg#icon-marker') %>"></use></svg>
                     </div>
                 </div>
                 <button type="submit" class="btn__header btn__secondary">Search Jobs</button>
@@ -37,7 +37,7 @@
                             <li><a href="#">Dashboard</a></li>
                             <li><a href="#">Communities</a></li>
                             <li><a href="/blog">Job Blog</a></li>
-                            <li><a class="collapsed" href="#sub-menu1" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="sub-menu1">Post Jobs <span><svg class="icon icon-arrow-down"><use xlink:href="img/sprite-contact.svg#icon-arrow-down"></use></svg></span></a>
+                            <li><a class="collapsed" href="#sub-menu1" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="sub-menu1">Post Jobs <span><svg class="icon icon-arrow-down"><use xlink:href="<%= asset_path('sprite-contact.svg#icon-arrow-down') %>"></use></svg></span></a>
                                 <div class="menu__sub collapse" id="sub-menu1">
                                     <div class="well">
                                         <ul>
@@ -54,7 +54,7 @@
                         <h4>aerotage</h4>
                         <ul class="menu__list">
                             <li><a href="/working-with-us">WORKING WITH US</a></li>
-                            <li><a class="collapsed" href="#sub-menu2" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="sub-menu2">AEROTAGE SOLUTIONS<span><svg class="icon icon-arrow-down"><use xlink:href="img/sprite-contact.svg#icon-arrow-down"></use></svg></span></a>
+                            <li><a class="collapsed" href="#sub-menu2" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="sub-menu2">AEROTAGE SOLUTIONS<span><svg class="icon icon-arrow-down"><use xlink:href="<%= asset_path('sprite-contact.svg#icon-arrow-down') %>"></use></svg></span></a>
                                 <div class="menu__sub collapse" id="sub-menu2">
                                     <div class="well">
                                         <ul>
@@ -65,7 +65,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li><a class="collapsed" href="#sub-menu3" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="sub-menu3">ABOUT US<span><svg class="icon icon-arrow-down"><use xlink:href="img/sprite-contact.svg#icon-arrow-down"></use></svg></span></a>
+                            <li><a class="collapsed" href="#sub-menu3" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="sub-menu3">ABOUT US<span><svg class="icon icon-arrow-down"><use xlink:href="<%= asset_path('sprite-contact.svg#icon-arrow-down') %>"></use></svg></span></a>
                                 <div class="menu__sub collapse" id="sub-menu3">
                                     <div class="well">
                                         <ul>
