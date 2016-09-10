@@ -1,13 +1,7 @@
-
 <html>
   <head><%= render 'layouts/head' %></head>
-
-  <body class="my-account <%= [current_user_class, (yield(:scripts) if content_for?(:scripts))] %>">
-
-    <div class="main-content clear">
+  <body id="skrollr-body" class="my-account <%= [current_user_class, (yield(:scripts) if content_for?(:scripts))] %>">
       <%= render 'layouts/flash' %>
       <%= yield %>
-
-      <%= debug(params) if Rails.env.development? %>
   </body>
 </html>

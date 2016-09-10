@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get '/users/sign_out' => 'sessions#destroy' 
+    get 'login', to: 'sessions#new'
+    post 'login', to: 'sessions#create'
+
     authenticated :user do
       root :to => 'visitors#index', as: :authenticated_root
     end
@@ -24,14 +27,12 @@ Rails.application.routes.draw do
   match 'contact-us', to: 'static_pages#contact', via: [:get, :post]
   get 'privacy-policy', to: 'static_pages#privacy_policy'
   get 'terms-of-use', to: 'static_pages#terms_of_use'
-  get :login, to: 'sessions#new'
-  post :login, to: 'sessions#create'
-  delete :logout, to: 'sessions#destroy'
+  delete 'logout', to: 'sessions#destroy'
   get 'my-account', to: 'users#my_account'
   get 'my-credits', to: 'users#my_credits'
   match 'edit-profile', to: 'users#edit_profile', via: [:get, :patch]
   delete 'delete-profile', to: 'users#destroy'
-  resources :email_changes, only: [:new, :create, :edit]
+  resources 'email_changes', only: [:new, :create, :edit]
     
   namespace :autocomplete do
     get :jobs

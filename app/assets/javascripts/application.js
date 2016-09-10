@@ -10,10 +10,8 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery.min
+//= require jquery
 //= require jquery_ujs
-//= require bootstrap-sprockets
-//= require bootstrap.min
 //= require svgxuse
 //= require jquery.mCustomScrollbar.min
 //= require enquire.min
