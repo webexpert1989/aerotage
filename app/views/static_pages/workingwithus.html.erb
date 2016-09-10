@@ -11,7 +11,7 @@
         <aside class="sub-nav">
             <div class="sub-nav__wrap">
                 <ol class="breadcrumb">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li class="active">Working with Us</li>
                 </ol>
             </div>
@@ -21,7 +21,7 @@
             <div class="section__wrap">
                 <div class="section__inner">
                     <div class="feature">
-                        <svg class="feature__icon icon icon-fresh"><use xlink:href="img/sprite-working.svg#icon-fresh"></use></svg>
+                        <svg class="feature__icon icon icon-fresh"><use xlink:href="<%= asset_path('sprite-working.svg#icon-fresh') %>"></use></svg>
                         <div class="feature__caption">
                             <h4>Fresh Job Offers</h4>
                             <p>
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="feature">
-                        <svg class="feature__icon icon icon-support"><use xlink:href="img/sprite-working.svg#icon-support"></use></svg>
+                        <svg class="feature__icon icon icon-support"><use xlink:href="<%= asset_path('sprite-working.svg#icon-support') %>"></use></svg>
                         <div class="feature__caption">
                             <h4>We Support You</h4>
                             <p>
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div class="feature">
-                        <svg class="feature__icon icon icon-opportunities"><use xlink:href="img/sprite-working.svg#icon-opportunities"></use></svg>
+                        <svg class="feature__icon icon icon-opportunities"><use xlink:href="<%= asset_path('sprite-working.svg#icon-opportunities') %>"></use></svg>
                         <div class="feature__caption">
                             <h4>Employment Opportunities</h4>
                             <p>
@@ -60,7 +60,7 @@
         <section class="section section--tools">
             <div class="section__wrap">
                 <div class="section__heading">
-                    <svg class="section__icon icon icon-tools"><use xlink:href="img/sprite-working.svg#icon-tools"></use></svg>
+                    <svg class="section__icon icon icon-tools"><use xlink:href="<%= asset_path('sprite-working.svg#icon-tools') %>"></use></svg>
                     <small>what we use</small>
                     <h2>Tools & Resources</h2>
                 </div>
@@ -69,8 +69,8 @@
 
                     <div class="feature feature--left">
                         <div class="feature__icon">
-                            <svg class="icon icon-ADP"><use xlink:href="img/sprite-working.svg#icon-ADP"></use></svg>
-                            <svg class="icon icon-circle"><use xlink:href="img/sprite-working.svg#icon-circle"></use></svg>
+                            <svg class="icon icon-ADP"><use xlink:href="<%= asset_path('sprite-working.svg#icon-ADP') %>"></use></svg>
+                            <svg class="icon icon-circle"><use xlink:href="<%= asset_path('sprite-working.svg#icon-circle') %>"></use></svg>
                         </div>
                         <div class="feature__caption">
                             <h4>ADP Web Portal & W-2 Online</h4>
@@ -84,8 +84,8 @@
                     </div>
                     <div class="feature feature--left">
                         <div class="feature__icon">
-                            <svg class="icon icon-harvestapp"><use xlink:href="img/sprite-working.svg#icon-harvestapp"></use></svg>
-                            <svg class="icon icon-circle"><use xlink:href="img/sprite-working.svg#icon-circle"></use></svg>
+                            <svg class="icon icon-harvestapp"><use xlink:href="<%= asset_path('sprite-working.svg#icon-harvestapp') %>"></use></svg>
+                            <svg class="icon icon-circle"><use xlink:href="<%= asset_path('sprite-working.svg#icon-circle') %>"></use></svg>
                         </div>
                         <div class="feature__caption">
                             <h4>Harvestapp.com</h4>
@@ -109,7 +109,7 @@
 
                 <div class="section__inner">
                     <div class="section__heading section__text">
-                        <svg class="section__icon icon icon-verification"><use xlink:href="img/sprite-working.svg#icon-verification"></use></svg>
+                        <svg class="section__icon icon icon-verification"><use xlink:href="<%= asset_path('sprite-working.svg#icon-verification') %>"></use></svg>
                         <small>verification</small>
                         <h2>Employment Verification</h2>
                         <p>
@@ -128,7 +128,7 @@
             <div class="section__wrap">
                 <div class="box">
                     <div class="box__icon">
-                        <svg class="icon icon-read"><use xlink:href="img/sprite-working.svg#icon-read"></use></svg>
+                        <svg class="icon icon-read"><use xlink:href="<%= asset_path('sprite-working.svg#icon-read') %>"></use></svg>
                     </div>
                     <div class="box__caption">
                         <small>read FAQs</small>
@@ -137,7 +137,7 @@
                             Do you have some questions about Aerotage? Are you a a job seeker or employee searching for your best candidate?
                             Read our FAQs and stay always informed about our network.
                         </p>
-                        <a class="box__btn btn__light" href="#">Read FAQs</a>
+                        <a class="box__btn btn__light" href="/faq">Read FAQs</a>
                     </div>
                     <div class="box__line"></div>
                 </div>
@@ -151,7 +151,7 @@
                         <img src="<%= asset_path('working-bg-2.jpg') %>" alt="section background"/>
                     </div>
                     <div class="section__heading section__text">
-                        <svg class="section__icon icon icon-social"><use xlink:href="img/sprite-working.svg#icon-social"></use></svg>
+                        <svg class="section__icon icon icon-social"><use xlink:href="<%= asset_path('sprite-working.svg#icon-social') %>"></use></svg>
                         <small>we are social</small>
                         <h2>Social Gallery</h2>
                         <div class="divider"></div>
