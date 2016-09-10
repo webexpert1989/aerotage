@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def home
-    render layout: 'home'
+  render layout: 'home'
   end
 
   def about
@@ -19,7 +19,15 @@ class StaticPagesController < ApplicationController
     render layout: 'static'
   end
 
-  def staffing_solution
+  def staffing_solutions
+    render layout: 'static'
+  end
+
+  def technical_solutions
+    render layout: 'static'
+  end
+
+  def engineering_solutions
     render layout: 'static'
   end
 
