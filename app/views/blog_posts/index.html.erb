@@ -1,29 +1,155 @@
-<div class="blog-page page-with-right-block">
-  <div class="left-side-wrapper clear">
-    <% unless @blog_posts.empty? %>
-      <%= render 'blog_control_panel' %>
-      <div class="top-panel.clear">
-        <div class="listings-per-page">
-          <span>Results per Page:</span>
-          <%= form_tag '', method: :get do %>
-            <div class="select-wrapper.small">
-              <%= select_tag :limit, options_for_select([10, 20, 50, 100], selected: @limit), onchange: "this.form.submit();" %>
+<% provide(:title, 'Welcome to our Blog. Read about aerospace jobs, innovations and more.') %>
+<% provide(:description, 'Aerotage blog can help you find information about aerospace industry, popular aviation jobs and modern technologies.') %>
+
+        <section class="hero hero--blog">
+            <div class="hero__bg" style="background-image: url('<%= asset_path('blog-intro.jpg') %>')" data-center="background-position: 50% 10px;" data-top-bottom="background-position: 50% -100px;" data-anchor-target=".hero"></div> 
+            <div class="hero__wrap animate fadeIn-top">
+                <div class="intro" data-start="opacity: 1" data-top="opacity: 0" data-anchor-target=".intro">
+                    <h1>Welcome to Aerotage Blog</h1>
+                    <p>Fasten your seatbelts and get ready! We always have fresh content, exciting industry news, Aerotage updates, and much more. Check it out!</p>        
+                </div>
             </div>
-          <% end %>
-        </div>
+        </section>
 
-        <div class="results-count"><%= pluralize @blog_posts.length, 'Blog Post' %></div>
-      </div>
-      <div class="items-list">
-        <%= render partial: 'blog_post', collection: @blog_posts %>
-      </div>
-      <%= paginate @blog_posts %>
-    <% else %>
-      <div class="no-jobs"> There are currently no blog posts. </div>
-    <% end %>
-  </div>
+        <aside class="sub-nav">
+            <div class="sub-nav__wrap">
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li class="active">Aerotage Blog</li>
+                </ol>
+            </div>
+        </aside>
 
-  <div class="right-side-wrapper">
-    <%= render 'right_panel' %>
-  </div>
-</div>
+        <section class="section section--blog">
+            <div class="section__wrap">
+                <div class="section__inner">
+
+                    <div class="section__main blog">
+
+                        <article class="article">
+                            <h2 class="article__title"><a href="#">A Brief History of Aircraft Structures</a></h2>
+                            <small class="article__autor">Posted on <a href="#">June 10, 2016</a>  by <a href="#">Marc Mayers</a></small>
+                            <img class="article__img" src="<%= asset_path('blog-1.jpg') %>" alt="article image"/>
+                            <small class="article__tags">Posted in <a href="#">Engineering</a>, <a href="#">Technology</a>, <a href="#">Skills</a> | Tagged <a href="#">Engineering</a>, <a href="#">Technology</a>, <a href="#">Skills</a></small>
+                            <p>
+                                Aircraft have changed enormously over the last century from the early Wright Flyer flown at Kittyhawk to the supersonic SR-71 Blackbird flown today.
+                                Of course the developments in aeronautical engineering can be broken down into separate divisions that have developed at different rates:
+                                a) the aerodynamics, b) power plant engineering, c) control, radios and navigation aids, d) airframe engineering.
+                            </p>
+                            <a class="article__replay" href="#">Leave a Reply</a>
+                            <a class="article__comments" href="#">14<span><svg class="icon icon-comment"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-comment') %>"></use></svg></span></a>
+                        </article>
+
+                        <article class="article">
+                            <h2 class="article__title"><a href="#">Jet Engine Detail Design: The Compressor</a></h2>
+                            <small class="article__autor">Posted on <a href="#">June 6, 2016</a>  by <a href="#">Marc Mayers</a></small>
+                            <img class="article__img" src="<%= asset_path('blog-2.jpg') %>" alt="article image"/>
+                            <small class="article__tags">Posted in <a href="#">Engineering</a>, <a href="#">Technology</a>, <a href="#">Skills</a> | Tagged <a href="#">Engineering</a>, <a href="#">Technology</a>, <a href="#">Skills</a></small>
+                            <p>
+                                In this post the design of jet engine compressors will be discussed leading to the definition of ballpark performance parameters. 
+                                For smaller engines centrifugal (CF) compressors are used since they can handle smaller flow rates more effectively and are more compact than axial compressors.
+                                Axial compressors however have the advantage of a smaller frontal area for a given flow rate...
+                            </p>
+                            <a class="article__replay" href="#">Leave a Reply</a>
+                            <a class="article__comments" href="#">14<span><svg class="icon icon-comment"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-comment') %>"></use></svg></span></a>
+                        </article>
+
+                        <article class="article">
+                            <h2 class="article__title"><a href="#">Jet Engine Design: The Turbine</a></h2>
+                            <small class="article__autor">Posted on <a href="#">June 2, 2016</a>  by <a href="#">Marc Mayers</a></small>
+                            <video class="article__video" poster="<%= asset_path('blog-3.jpg') %>"  preload="none">
+                                <source id="mp4" type="video/mp4" src=""></source>
+                                <source id="webm" type="video/webm" src=""></source>
+                                <source id="ogv" type="video/ogg" src=""></source>
+                                <p>Your user agent does not support the HTML5 Video element.</p>
+                            </video>
+                            <small class="article__tags">Posted in <a href="#">Engineering</a>, <a href="#">Technology</a>, <a href="#">Skills</a> | Tagged <a href="#">Engineering</a>, <a href="#">Technology</a>, <a href="#">Skills</a></small>
+                            <p>
+                                Aircraft have changed enormously over the last century from the early Wright Flyer flown at Kittyhawk to the supersonic SR-71 Blackbird flown today.
+                                Of course the developments in aeronautical engineering can be broken down into separate divisions that have developed at different rates:
+                                a) the aerodynamics, b) power plant engineering, c) control, radios and navigation aids, d) airframe engineering.
+                            </p>
+                            <a class="article__replay" href="#">Leave a Reply</a>
+                            <a class="article__comments" href="#">14<span><svg class="icon icon-comment"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-comment') %>"></use></svg></span></a>
+                        </article>
+
+                        <div class="section__bottom">
+                            <a class="section__btn btn__reverse--sec" href="#">Older Posts</a>
+                            <a class="section__btn btn__reverse--sec" href="#">Newer Posts</a>
+                        </div>
+                    </div>
+
+                    <div class="section__side blog">
+                        <div class="sidebar">
+
+                            <div class="sidebar__group posts">
+                                <h3>Recent Posts</h3>
+                                <ul class="sidebar__list">
+                                    <li class="sidebar__list-item">
+                                        <a href="#">Control & Stability Of Aircraft</a><span><svg class="icon icon-arrow-right"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-arrow-right') %>"></use></svg></span></li>
+                                    <li class="sidebar__list-item"><a href="#">Jet Engine Detail Design:<br> The Compressor</a><span><svg class="icon icon-arrow-right"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-arrow-right') %>"></use></svg></span></li>
+                                    <li class="sidebar__list-item"><a href="#">A Brief History of Aircraft Structures</a><span><svg class="icon icon-arrow-right"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-arrow-right') %>"></use></svg></span></li>
+                                    <li class="sidebar__list-item"><a href="#">Jet Engine Design:<br> The Turbine</a><span><svg class="icon icon-arrow-right"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-arrow-right') %>"></use></svg></span></li>
+                                    <li class="sidebar__list-item"><a href="#">Three Essential Engineering Skills And The State Of Modern Technology</a><span><svg class="icon icon-arrow-right"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-arrow-right') %>"></use></svg></span></li>
+                                </ul>
+                            </div>
+
+                            <div class="sidebar__group comments">
+                                <h3>Recent Comments</h3>
+                                <ul class="sidebar__list">
+                                    <li class="sidebar__list-item">
+                                        <div class="avatar__img">
+                                            <img src="<%= asset_path('person-3.png') %>" alt="avatar"/>
+                                        </div>
+                                        <div class="avatar__block">
+                                            <a href="#">Jonathan Wiskerson</a> on <a href="#">A Brief History of Aircraft Structures</a>
+                                        </div>
+                                    </li>
+                                    <li class="sidebar__list-item">
+                                        <div class="avatar__img">
+                                            <img src="<%= asset_path('person-4.png') %>" alt="avatar"/>
+                                        </div>
+                                        <div class="avatar__block">
+                                            <a href="#">Ann Wiskerson</a> on <a href="#">A Brief History of Aircraft Structures</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="sidebar__group categories">
+                                <h3>Categories</h3>
+                                <ul class="sidebar__list">
+                                    <li class="sidebar__list-item"><a href="#">Aerodynamics (10)</a></li>
+                                    <li class="sidebar__list-item"><a href="#">Aviation engineering (1)</a></li>
+                                    <li class="sidebar__list-item"><a href="#">Aerospace Staffing (24)</a></li>
+                                    <li class="sidebar__list-item"><a href="#">Aviation jobs (12)</a></li>
+                                    <li class="sidebar__list-item"><a href="#">Aerospace industry (4)</a></li>
+                                    <li class="sidebar__list-item"><a href="#">Aviation skills (2)</a></li>
+                                    <li class="sidebar__list-item"><a href="#">Technology (7)</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="sidebar__group archieves">
+                                <h3>Archieves</h3>
+                                <ul class="sidebar__list">
+                                    <li class="sidebar__list-item"><a href="#">June 2016</a></li>
+                                    <li class="sidebar__list-item"><a href="#">May 2016</a></li>
+                                    <li class="sidebar__list-item"><a href="#">April 2016</a></li>
+                                    <li class="sidebar__list-item"><a href="#">March 2016</a></li>
+                                    <li class="sidebar__list-item"><a href="#">February 2016</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <%= javascript_include_tag "jquery.min" %>
+        <%= javascript_include_tag "bootstrap.min" %>
+        <%= javascript_include_tag "svgxuse" %>
+        <%= javascript_include_tag "enquire.min" %>
+        <%= javascript_include_tag "jquery.mCustomScrollbar.min" %>
+        <%= javascript_include_tag "skrollr.min" %>
+        <%= javascript_include_tag "main" %>

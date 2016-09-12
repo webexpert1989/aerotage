@@ -1,3 +1,7 @@
+<% provide(:title, 'Aerotage: Aerospace engineering, staffing and recruiting services') %>
+<% provide(:description, 'Aerotage is leader in aerospace staffing, engineering and recruiting services. Get qualified, professional candidates with aerospace recruiting.') %>
+
+
         <section class="hero hero--engineering">
             <div class="hero__bg" style="background-image: url('<%= asset_path("engineering-intro.jpg") %>')"  data-100-center="background-position: 50% 57px;" data-top-bottom="background-position: 50% -100px;" data-anchor-target=".hero"></div>
             <div class="hero__wrap animate fadeIn-top">
@@ -247,3 +251,12 @@
                 <a href="contact-us.html" class="btn__primary btn__primary--light">Contact Aerotage</a>
             </div>
         </section>
+
+
+        <%= javascript_include_tag "jquery.min" %>
+        <%= javascript_include_tag "bootstrap.min" %>
+        <%= javascript_include_tag "svgxuse" %>
+        <%= javascript_include_tag "jquery.mCustomScrollbar.min" %>
+        <%= javascript_include_tag "enquire.min" %>
+        <%= javascript_include_tag "skrollr.min" %>
+        <%= javascript_include_tag "main" %>

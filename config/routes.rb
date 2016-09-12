@@ -55,6 +55,8 @@ Rails.application.routes.draw do
   end
   
   resources :jobs, path: 'job-posting', except: [:index] do
+    get 'searches', to: 'jobs#job_search_results'
+    get 'job-detail', to: 'jobs#job_details'
     resources :applications, only: [:new, :create]
     member do
       get :print
@@ -76,6 +78,7 @@ Rails.application.routes.draw do
       get 'undo_criterion'
     end
   end  
+
   resources :resumes, except: [:index] do
     member do
       get :print
@@ -91,6 +94,7 @@ Rails.application.routes.draw do
       match :my, to: :my_listings, via: [ :get, :post ]
     end
   end
+  
   resources :searches, only: [:show, :edit, :update, :destroy] do
     collection do
       get 'saved'
@@ -113,7 +117,9 @@ Rails.application.routes.draw do
       get 'remove'
     end
   end
+  
   match 'applications', to: 'applications#index', via: [:get, :post]
+  
   resources :applications, only: [:show, :destroy] do
     member do
       post :change_status
@@ -133,9 +139,11 @@ Rails.application.routes.draw do
   resources :communities, only: [:index, :show] do
     get 'job-posting/:id', to: 'jobs#show', as: :job
   end
+  
   resources :blog_posts, only: [:index, :show], path: 'blog' do
     resources :blog_post_comments, only: [:create, :new], as: :comments, path: 'comments'
   end
+  
   resources :communities
 
   resources :blog_posts, only: [:index, :show], path: 'blog' do
@@ -174,6 +182,7 @@ Rails.application.routes.draw do
       match :resume_database_access, via: [ :get, :post ]
     end
   end
+  
   namespace :admin do
     get '', to: 'dashboard#index', as: '/'
     get 'login', to: 'sessions#new'
@@ -193,6 +202,7 @@ Rails.application.routes.draw do
         match :resume_database_access, via: [ :get, :post ]
       end
     end
+  
     resources :job_seekers do
       member do
         get :activate
@@ -201,11 +211,13 @@ Rails.application.routes.draw do
         match :credits, via: [ :get, :post ]
       end
     end
+  
     resources :jobs, except: [:new, :create] do
       member do
         match :manage, via: [ :get, :post ]
       end
     end
+  
     resources :resumes, except: [:new, :create] do
       member do
         match :manage, via: [ :get, :post ]

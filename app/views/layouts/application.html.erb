@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head><%= render 'layouts/head' %></head>
-  <body class="<%= yield(:scripts) if content_for?(:scripts) %>">
+  <body id="skrollr-body" class="<%= yield(:scripts) if content_for?(:scripts) %>">
     <%= render 'layouts/header' %>
     <%= render 'layouts/messages' %>
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>
 </html>
-

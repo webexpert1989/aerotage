@@ -1,30 +1,262 @@
-<div class="blog-page page-with-right-block">
-  <div class="left-side-wrapper">
-    <%= render 'blog_posts/blog_control_panel' %>
-    <div class="blog-post-item">
-      <h1><%= @blog_post.title %></h1>
-      <% if @blog_post.image %>
-        <%= image_tag(@blog_post.image.thumb('300x200')) %>
-      <% end %>
-      <div class="post-date">
-        <%= @blog_post.created_at.to_formatted_s(:long) %>
-        posted
-        <% unless @blog_post.author.empty? %>
-          by
-          <strong><%= @blog_post.author %></strong>
-        <% end %>
-        to <%= link_to @blog_post.community.title + ' Community', @blog_post.community %>
+<% provide(:title, 'Welcome to our Blog. Read about aerospace jobs, innovations and more.') %>
+<% provide(:description, 'Aerotage blog can help you find information about aerospace industry, popular aviation jobs and modern technologies.') %>
 
-      </div>
-      <div class="post-body">
-        <p><%= @blog_post.body.html_safe %></p>
-      </div>
-      <div class="comments-wrapper">
-        <%= render 'comments' %>
-      </div>
-    </div>
-  </div>
-  <div class="right-side-wrapper">
-    <%= render 'blog_posts/right_panel' %>
-  </div>
-</div>
+        <section class="hero hero--blog">
+            <div class="hero__bg" style="background-image: url('<%= asset_path('blog-intro.jpg') %>')" data-center="background-position: 50% 10px;" data-top-bottom="background-position: 50% -100px;" data-anchor-target=".hero"></div> 
+            <div class="hero__wrap animate fadeIn-top">
+                <div class="intro" data-start="opacity: 1" data-top="opacity: 0" data-anchor-target=".intro">
+                    <h1>Welcome to Aerotage Blog</h1>
+                    <p>Fasten your seatbelts and get ready! We always have fresh content, exciting industry news, Aerotage updates, and much more. Check it out!</p>        
+                </div>
+            </div>
+        </section>
+
+        <aside class="sub-nav">
+            <div class="sub-nav__wrap">
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li class="active">A Brief Hostory of Aircraft Structures</li>
+                </ol>
+            </div>
+        </aside>
+
+        <section class="section section--blog">
+            <div class="section__wrap">
+                <div class="section__inner">
+
+                    <div class="section__main">
+
+                        <article class="article article--single">
+                            <h2 class="article__title"><a href="#">A Brief History of Aircraft Structures</a></h2>
+                            <small class="article__autor">Posted on <a href="#">June 10, 2016</a>  by <a href="#">Marc Mayers</a></small>
+                            <img class="article__img" src="<%= asset_path('blog-1.jpg') %>" alt="article image"/>
+                            <small class="article__tags">Posted in <a href="#">Engineering</a>, <a href="#">Technology</a>, <a href="#">Skills</a> | Tagged <a href="#">Engineering</a>, <a href="#">Technology</a>, <a href="#">Skills</a></small>
+                            <p>
+                                In this post the design of jet engine compressors will be discussed leading to the definition of ballpark performance parameters.
+                                For smaller engines centrifugal (CF) compressors are used since they can handle smaller flow rates more effectively and are
+                                more compact than axial compressors.
+                            </p>
+                            <p>
+                                Axial compressors however have the advantage of a smaller frontal area for a given flow rate,
+                                can handle higher flow rates and generally have higher efficiencies than CF compressors. 
+                                For larger turbines used on civil aircraft the most suitable compressor and turbine will be of the axial type.
+                                Early axial compressors were able to raise the pressure of the incoming area around 5-fold, while modern turbofan engines have pressure ratios.
+                            </p>
+                            <img class="article__img" src="<%= asset_path('blog-4.jpg') %>" alt="article image"/>
+                            <span class="article__img-title">Low pressure axial compressor scheme of the Olympus BOl Turbojet</span>
+                            <p>
+                                Because the pressure rises in the direction of flow through the compressor there is an acute risk of the boundary layers separating on the compressor blades
+                                as they encounter this adverse pressure gradient. 
+                                When this happens the performance of the compressor drops dramatically and compressor is said to stall. 
+                                For this reason the compression is spread over a large number of compressor stages such that the smaller <span class="text__secondary">incremental increases in pressure</span>
+                                across each stage allow engineers to obtain a large overall pressure ratio without incurring stall.
+                                A stage consists of a row of rotating blades called the rotor and a row of stationary blades called the stator. 
+                            </p>
+                            <p>
+                                Each of these rows may consist of between 30-100 distinct blades and there may be up to 20 stages between the air inlet and compressor outlet.
+                                The role of the rotor blades is to accelerate the incoming air in order to increase the <strong>kinetic energy</strong> of the fluid.
+                                Across the stators the fluid is then decelerated and as a consequence the fluid pressure is increased.
+                                As the pressure and density increase across each stage the overall flow velocity is kept relatively constant by reducing the height of the blades from stage to stage.
+                                Thus the compressor tapers down from inlet to outlet.
+                            </p>
+                            <p>
+                                <span class="text__secondary">1.</span> The blade tip speed and therefore U is limited by stress considerations at the root.
+                                If the fan is assumed to be of constant cross-sectional area then the centrifugal stress at the root is given by.
+                            </p>
+                            <p>
+                                <span class="text__secondary">2.</span> The axial speed Ca has to be maximised to optimise the pressure ratio and reduce the frontal area of the engine.
+                                Similar to the argument given above the axial speed is typically limited by compressibility effects of supersonic flow. 
+                                As the pressure, static temperature and therefore the speed of sound increases from stage to stage,
+                                the compressibility effects are worst in the first stages.
+                                For the first stage the air enters axially such that by adding the orthogonal velocity vectors U and Ca we get V2 = U2 + Ca2  where V is the speed 
+                                relative to the blade. In modern engines V may be in the transonic region incurring quite large losses.
+                                In this respect twin-spool engines have the advantage that the lower-pressure compressor rotates at a lower speed, 
+                                which reduces the compressibility problem.
+                            </p>
+                            <p>
+                                <span class="text__secondary">3.</span> The angle through which the fluid is turned across the rotor blades b is limited by the growth of the boundary layers.
+                                Compressor blades are aerofoils that function in the same manner as aeroplane wings.
+                                Therefore as the angle of attack or camber of aerofoil is increased to increase the rotation of the flow velocity vector,
+                                the adverse pressure gradient across the suction surface increases, until at some point the boundary layer separates.
+                                As the boundary layer separates the effective turning angle b is reduced such that the total pressure increase across the stage reduces.
+                            </p>
+                        </article>
+
+                        <div class="section__bottom">
+                            <div class="section__social">
+                                <h4>Share this</h4>
+                                <a class="social__btn" href="#"><span><svg class="icon icon-email"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-email') %>"></use></svg></span>Email</a>
+                                <a class="social__btn" href="#"><span><svg class="icon icon-facebook"><use xlink:href="<%=  asset_path('sprite-blog.svg#icon-facebook') %>"></use></svg></span>Facebook<span class="count">10</span></a>
+                                <a class="social__btn" href="#"><span><svg class="icon icon-twitter"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-twitter') %>"></use></svg></span>Twitter</a>
+                                <a class="social__btn" href="#"><span><svg class="icon icon-linkedin"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-linkedin') %>"></use></svg></span>LinkedIn</a>
+                                <a class="social__btn" href="#"><span><svg class="icon icon-reddit"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-reddit') %>"></use></svg></span>Reddit</a>
+                                <a class="social__btn" href="#"><span><svg class="icon icon-more"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-more') %>"></use></svg></span>More</a>
+                                <h4>like this</h4>
+                                <a class="social__btn" href="#"><span><svg class="icon icon-like"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-like') %>"></use></svg></span>Like</a>
+                            </div>
+                            <div class="section__articles">
+                                <h3>Related Articles</h3>
+                                <ul class="section__list">
+                                    <li class="section__list-item"><a href="#">Control & Stability Of Aircraft</a> in <a href="#">Technology</a></li>
+                                    <li class="section__list-item"><a href="#">Jet Engine Design and Optimisation</a> in <a href="#">Technology</a></li>
+                                    <li class="section__list-item"><a href="#">Jet Engine Design: Turbine Cooling</a> in <a href="#">Technology</a></li>
+                                    <li class="section__list-item"><a href="#">Control & Stability Of Aircraft</a> in <a href="#">Technology</a></li>
+                                </ul>
+                            </div>
+                            <div class="section__comments">
+                                <h3>Comments (3)</h3>
+                                <ul class="section__comments-list">
+
+                                    <li class="comment">
+                                        <div class="comment__avatar">
+                                            <div class="comment__avatar-img">
+                                                <img src="<%= asset_path('person-4.png') %>" alt="avatar"/>
+                                            </div>
+                                            <div class="comment__avatar-title">
+                                                <a href="#">Mina Wiskerson</a>
+                                                <a href="#">June 6, 2016</a>
+                                            </div>
+                                        </div>
+                                        <p>I liked the brief and consistent approach of jet engine. Very nice and simple introduction for beginners. Keep it up!</p>
+                                        <a class="comment__replay" href="#"><span><svg class="icon icon-replay"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-replay') %>"></use></svg></span>Replay</a>
+                                    </li>
+
+                                    <li class="comment">
+                                        <div class="comment__avatar">
+                                            <div class="comment__avatar-img">
+                                                <img src="<%= asset_path('person-5.png') %>" alt="avatar"/>
+                                            </div>
+                                            <div class="comment__avatar-title">
+                                                <a href="#">Matt Myers</a>
+                                                <a href="#">June 5, 2016</a>
+                                            </div>
+                                        </div>
+                                        <p>Ei sea alia senserit, ei mea dicant aliquid. Ea omnes conclusionemque quo, ex cum malis integre. Ad eam vero fabellas. Usu brute iisque volutpat ne. Nobis integre quaeque.</p>
+                                        <a class="comment__replay" href="#"><span><svg class="icon icon-replay"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-replay') %>"></use></svg></span>Replay</a>
+
+                                        <ul class="comment__children">
+                                            <li class="comment">
+                                                <div class="comment__avatar">
+                                                    <div class="comment__avatar-img">
+                                                        <img src="<%= asset_path('person-6.png') %>" alt="avatar"/>
+                                                    </div>
+                                                    <div class="comment__avatar-title">
+                                                        <a href="#">Kevin Montgomery</a>
+                                                        <a href="#">June 5, 2016</a>
+                                                    </div>
+                                                </div>
+                                                <p>Ei sea alia senserit, ei mea dicant aliquid. Ea omnes conclusionemque quo, ex cum malis integre. Ad eam vero fabellas. Usu brute iisque volutpat ne. Nobis integre quaeque.</p>
+                                                <a class="comment__replay" href="#"><span><svg class="icon icon-replay"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-replay') %>"></use></svg></span>Replay</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="section__replay">
+                                <h3>Leave a Reply</h3>
+                                <form class="section__form">
+                                    <div class="form-group">
+                                        <span class="input">
+                                            <input id="input-1"  type="text" class="input__field form-control" maxlength="40" name="full name" size="20" required>
+                                            <label class="input__label" for="input-1">
+                                                <span class="input__label-content"><span>&#9913</span>Full Name</span>
+                                            </label>
+                                        </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <span class="input">
+                                            <input id="input-2"  type="email" class="input__field form-control" maxlength="40" name="email" size="20" required>
+                                            <label class="input__label" for="input-2">
+                                                <span class="input__label-content"><span>&#9913</span> Email</span>
+                                            </label>
+                                        </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea id="input-3" name="your comment" class="input__field form-control" rows="3"></textarea>
+                                        <label class="input__label" for="input-3">
+                                            <span class="input__label-content"><span>&#9913</span>Your Comment</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn__submit btn__secondary" type="submit">Post Comment</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section__side">
+                        <div class="sidebar">
+
+                            <div class="sidebar__group posts">
+                                <h3>Recent Posts</h3>
+                                <ul class="sidebar__list">
+                                    <li class="sidebar__list-item">
+                                        <a href="#">Control & Stability Of Aircraft</a><span><svg class="icon icon-arrow-right"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-arrow-right') %>"></use></svg></span></li>
+                                    <li class="sidebar__list-item"><a href="#">Jet Engine Detail Design:<br> The Compressor</a><span><svg class="icon icon-arrow-right"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-arrow-right') %>"></use></svg></span></li>
+                                    <li class="sidebar__list-item"><a href="#">A Brief History of Aircraft Structures</a><span><svg class="icon icon-arrow-right"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-arrow-right') %>"></use></svg></span></li>
+                                    <li class="sidebar__list-item"><a href="#">Jet Engine Design:<br> The Turbine</a><span><svg class="icon icon-arrow-right"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-arrow-right') %>"></use></svg></span></li>
+                                    <li class="sidebar__list-item"><a href="#">Three Essential Engineering Skills And The State Of Modern Technology</a><span><svg class="icon icon-arrow-right"><use xlink:href="<%= asset_path('sprite-blog.svg#icon-arrow-right') %>"></use></svg></span></li>
+                                </ul>
+                            </div>
+
+                            <div class="sidebar__group comments">
+                                <h3>Recent Comments</h3>
+                                <ul class="sidebar__list">
+                                    <li class="sidebar__list-item">
+                                        <div class="avatar__img">
+                                            <img src="<%= asset_path('person-3.png') %>" alt="avatar"/>
+                                        </div>
+                                        <div class="avatar__block">
+                                            <a href="#">Jonathan Wiskerson</a> on <a href="#">A Brief History of Aircraft Structures</a>
+                                        </div>
+                                    </li>
+                                    <li class="sidebar__list-item">
+                                        <div class="avatar__img">
+                                            <img src="<%= asset_path('person-4.png') %>" alt="avatar"/>
+                                        </div>
+                                        <div class="avatar__block">
+                                            <a href="#">Ann Wiskerson</a> on <a href="#">A Brief History of Aircraft Structures</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="sidebar__group categories">
+                                <h3>Categories</h3>
+                                <ul class="sidebar__list">
+                                    <li class="sidebar__list-item"><a href="#">Aerodynamics (10)</a></li>
+                                    <li class="sidebar__list-item"><a href="#">Aviation engineering (1)</a></li>
+                                    <li class="sidebar__list-item"><a href="#">Aerospace Staffing (24)</a></li>
+                                    <li class="sidebar__list-item"><a href="#">Aviation jobs (12)</a></li>
+                                    <li class="sidebar__list-item"><a href="#">Aerospace industry (4)</a></li>
+                                    <li class="sidebar__list-item"><a href="#">Aviation skills (2)</a></li>
+                                    <li class="sidebar__list-item"><a href="#">Technology (7)</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="sidebar__group archieves">
+                                <h3>Archieves</h3>
+                                <ul class="sidebar__list">
+                                    <li class="sidebar__list-item"><a href="#">June 2016</a></li>
+                                    <li class="sidebar__list-item"><a href="#">May 2016</a></li>
+                                    <li class="sidebar__list-item"><a href="#">April 2016</a></li>
+                                    <li class="sidebar__list-item"><a href="#">March 2016</a></li>
+                                    <li class="sidebar__list-item"><a href="#">February 2016</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <%= javascript_include_tag "jquery.min" %>
+        <%= javascript_include_tag "bootstrap.min" %>
+        <%= javascript_include_tag "svgxuse" %>
+        <%= javascript_include_tag "classie" %>
+        <%= javascript_include_tag "enquire.min" %>
+        <%= javascript_include_tag "jquery.mCustomScrollbar.min" %>
+        <%= javascript_include_tag "skrollr.min" %>
+        <%= javascript_include_tag "main" %>

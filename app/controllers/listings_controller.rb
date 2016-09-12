@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
 
-  layout 'my_account', only: [:my_listings]
+  # layout 'my_account', only: [:my_listings]
 
   def search
     search = Search.create(target_class: listing_class.name, conditions: params[:q])
