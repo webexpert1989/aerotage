@@ -19,9 +19,9 @@ Rails.application.routes.draw do
 
   get 'about-us', to: 'static_pages#about'
   get 'faq', to: 'static_pages#faq'
-  get 'aerospace-staffing-solutions-and-services', to: 'static_pages#staffing_solutions'
-  get 'aerospace-technical-solutions', to: 'static_pages#technical_solutions'
-  get 'aerospace-engineering-solutions', to: 'static_pages#engineering_solutions'
+  get 'aerospace-staffing-solutions-and-services', to: 'static_pages#staffing_solutions', :as => "staffing_solutions"
+  get 'aerospace-technical-solutions', to: 'static_pages#technical_solutions', :as => "technical_solutions"
+  get 'aerospace-engineering-solutions', to: 'static_pages#engineering_solutions', :as => "engineering_solutions"
   get 'working-with-us', to: 'static_pages#workingwithus'
   get 'aerotage-overview', to: 'static_pages#overview'
   match 'contact-us', to: 'static_pages#contact', via: [:get, :post]
