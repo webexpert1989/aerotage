@@ -6,12 +6,12 @@ class UsersController < ApplicationController
   layout 'my_account', only: [:my_account, :my_credits]
 
   def new
-    @user = user_class.new
+    @user = User.new
     @user.build_file_properties
   end
 
   def create
-    @user = user_class.new(permit_params)
+    @user = User.new(permit_params)
     @user.valid?
     if valid_captcha?(@user) && @user.save
       @user.send_activation_email

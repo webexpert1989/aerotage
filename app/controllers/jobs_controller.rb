@@ -24,12 +24,6 @@ class JobsController < ListingsController
     end
   end
 
-  def job_details
-  end
-
-  def job_search_results
-  end
-
   private
 
     def add_recently_viewed_job

@@ -4,6 +4,5 @@
   <body class="blank <%= yield(:scripts) if content_for?(:scripts) %>">
     <%= render 'layouts/flash' %>
     <%= yield %>
-    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>

@@ -33,6 +33,9 @@ Rails.application.routes.draw do
   match 'edit-profile', to: 'users#edit_profile', via: [:get, :patch]
   delete 'delete-profile', to: 'users#destroy'
   resources 'email_changes', only: [:new, :create, :edit]
+  
+  get 'jobs/searches', to: 'listings#job_search_results'
+  get 'jobs/job-detail', to: 'listings#job_details'
     
   namespace :autocomplete do
     get :jobs
@@ -55,8 +58,6 @@ Rails.application.routes.draw do
   end
   
   resources :jobs, path: 'job-posting', except: [:index] do
-    get 'searches', to: 'jobs#job_search_results'
-    get 'job-detail', to: 'jobs#job_details'
     resources :applications, only: [:new, :create]
     member do
       get :print

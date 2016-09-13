@@ -1,0 +1,223 @@
+        <section class="page side-open">
+
+            <div class="page__side top-align">
+                <div class="filter">
+                    <form class="filter__form">
+
+                        <div class="filter__section">
+                            <h3>advanced jobs search</h3>
+                            <div class="checkbox">
+                                <input id="check1" type="checkbox" name="check" value="check1">
+                                <span><svg class="icon icon-check"><use xlink:href="<%= asset_path('sprite-job-search.svg#icon-check') %>"></use></svg></span>
+                                <label for="check1"> Use my current location</label>
+                            </div>
+                        </div>
+
+                        <div class="filter__section">
+                            <label>Select distance in miles</label>
+                            <div class="radio">
+                                <input  type="radio" name="inlineRadioOptions" id="inlineRadio2" value="10"> 
+                                <label for="inlineRadio2">10</label>
+                                <input  type="radio" name="inlineRadioOptions" id="inlineRadio3" value="20"> 
+                                <label for="inlineRadio3">20</label>
+                                <input  type="radio" name="inlineRadioOptions" id="inlineRadio4" value="50"> 
+                                <label for="inlineRadio4">50</label>
+                                <input  type="radio" name="inlineRadioOptions" id="inlineRadio1" value="100" checked>  
+                                <label for="inlineRadio1">100</label>
+                            </div>
+                        </div>
+
+                        <div class="filter__section">
+                            <div class="form-group">
+                                <label for="communities">Communities</label>
+                                <input type="text" id="communities" placeholder="Choose communities" data-role="tagsinput">
+                            </div>
+                            <div class="form-group">
+                                <label for="employment">Employment Type</label>
+                                <select id="employment">
+                                    <option value="" disabled selected hidden>Choose employment type</option>
+                                    <option value="intern">intern</option>
+                                    <option value="part-time">Part-Time</option>
+                                    <option value="full-time">Full-Time</option>
+                                    <option value="contract">Contract</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="occupation">Occupation</label>
+                                <input type="text" class="form-control" id="occupation" placeholder="Choose occupations">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="posted" placeholder="Posted within">
+                            </div>
+                        </div>
+
+                        <div class="filter__section">
+                            <div class="form-group">
+                                <label class="filter__subtitle">Salary Expectations</label>
+                                <p>Salary Range</p>
+                                <select>
+                                    <option value="" disabled selected hidden>Choose salary range</option>
+                                    <option value="1">< 25.000$</option>
+                                    <option value="2">25.000$ to 50.000$</option>
+                                    <option value="3">50.000$ to 75.000$</option>
+                                    <option value="4">75.000$ to 100.000$</option>
+                                    <option value="5">> 100.000$</option>                                   
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <p>Salary Type</p>
+                                <select>
+                                    <option value="" disabled selected hidden>Choose salary type</option>
+                                    <option value="monthly">Monthly</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="yearly">Yearly</option>
+                                    <option value="monthly">Monthly</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="yearly">Yearly</option>
+                                    <option value="monthly">Monthly</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="yearly">Yearly</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn__submit btn__secondary">Filter Search</button>
+                        </div>
+
+                    </form>
+
+                    <div class="filter__footer">
+                        <div  class="filter__footer-icon"><span><svg class="icon icon-hire"><use xlink:href="<%= asset_path('sprite-job-search.svg#icon-hire') %>"></use></svg></span></div>
+                        <h4>Looking to Hire?</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum egestas luctus</p>
+                        <a class="section__btn btn__light" href="/contact-us">Contact Aerotage</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page__main">
+
+                <div class="page__content">
+                    <div class="page__top-bar">
+                        <a href="/jobs/searches"><span><svg class="icon icon-angle"><use xlink:href="<%= asset_path('sprite-job-search.svg#icon-angle') %>"></use></svg></span> Back to Search Results</a>
+                        <a class="btn__submit btn__secondary" href="/login">Apply Now</a>
+                    </div>
+                    <div class="job">
+                        <button class= "btn__filter btn__reverse--sec" type="button">Filter <span><svg class="icon icon-controls"><use xlink:href="<%= asset_path('sprite-job-search.svg#icon-controls') %>"></use></svg></span></button>
+                        <div class="job__title">
+                            <h2>Aerospace Stress Engineer</h2>
+                            <ul>
+                                <li><span><svg class="icon icon-location"><use xlink:href="<%= asset_path('sprite-job-search.svg#icon-location') %>"></use></svg></span>Boston, MA</li>
+                                <li><span><svg class="icon icon-date"><use xlink:href="<%= asset_path('sprite-job-search.svg#icon-date') %>"></use></svg></span>08/02/2016</li>
+                                <li><span><svg class="icon icon-salary"><use xlink:href="<%= asset_path('sprite-job-search.svg#icon-salary') %>"></use></svg></span>$49,000 - $68,000 / year</li>
+                                <li><span><svg class="icon icon-employment"><use xlink:href="<%= asset_path('sprite-job-search.svg#icon-employment') %>"></use></svg></span>Part-Time</li>
+                            </ul>
+                        </div>
+                        <div class="job__details">
+                            <h3>Job Summary</h3>
+                            <p>
+                                Airframe Stress Experience should include: static and fatigue analysis of primary and secondary airframe structure of metallic or
+                                composite construction in a product development environment, finite element modeling,
+                                understanding of certification requirements to FAR Part 25 and EASA CS.
+                                CATIA V5, NASTRAN, and PATRAN, are desired. Empennage experience desired.
+                            </p>
+                            <ul>
+                                <li>Technical and administrative experience with handling the analysis of composite and metallic MRB required.</li>
+                                <li>4 or more years of experience performing fatigue and damage tolerance analysis on primary aircraft structures required.</li>
+                                <li>Familiarity with Afgrow software preferred.</li>
+                            </ul>
+                        </div>
+                        <div class="job__details">
+                            <h3>Requirements</h3>
+                            <p>
+                                Bachelors degree in engineering, a related curriculum,
+                                or equivalent combination of education and experience sufficient to successfully perform the essential functions of the job.
+                            </p>
+                            <p>5 years in specific technical discipline or 10 yrs broad eng experience in several technical disciplines with Bachelors.</p>
+                            <p>Experience credit considered for related adv degrees limited to 2 yrs for Masters, 4 yrs for PhD in fields applicable to this job.</p>
+                            <p><strong>Principal Duties and Responsibilities:</strong></p>
+                            <ol>
+                                <li>Contributes to planning, developing and coordinating of important engineering projects</li>
+                                <li>Provides specialized technical assistance to team members</li>
+                                <li>Uses advanced techniques and modified extension of theories to provide technical solutions to a wide range of difficult problems</li>
+                                <li>Determines and develops own approach to solutions within schedule and cost objectives</li>
+                                <li>Works under limited supervision; work should only be required to be reviewed for accuracy and consistency with meeting overall objectives</li>
+                                <li>Acts as liaison with representatives outside of the assigned group/area</li>
+                            </ol>
+                        </div>
+                        <div class="job__details">
+                            <h3>Communities</h3>
+                            <p>
+                                <a href="#">Community,</a>
+                                <a href="#">Fitness,</a>
+                                <a href="#">Travel,</a>
+                                <a href="#">Hospitality/Tourism</a>
+                            </p>
+                        </div>
+                        <div class="job__details">
+                            <h3>Occupations</h3>
+                            <p>
+                                <a href="#">Engineering,</a>
+                                <a href="#">Information Technology,</a>
+                                <a href="#">Travel,</a>
+                                <a href="#">Desktop/Computer Support Specialist</a>
+                            </p>
+                        </div>
+                        <div class="job__posts">
+                            <h3>Other jobs at Otranto</h3>
+                            <a href="#">Aerospace Engineer</a>
+                            <p>Boston, MA / $40 oer hour / Fulltime</p>
+                            <a href="#">Aerospace Engineer</a>
+                            <p>Boston, MA / $40 oer hour / Fulltime</p>
+                            <a href="#">Aerospace Engineer</a>
+                            <p>Boston, MA / $40 oer hour / Fulltime</p>
+                        </div>
+                        <div class="job__posts">
+                            <h3>Similar jobs</h3>
+                            <a href="#">Aerospace Engineer</a>
+                            <p>Boston, MA / $40 oer hour / Fulltime</p>
+                            <a href="#">Aerospace Engineer</a>
+                            <p>Boston, MA / $40 oer hour / Fulltime</p>
+                            <a href="#">Aerospace Engineer</a>
+                            <p>Boston, MA / $40 oer hour / Fulltime</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page__right-bar">
+                    <div class="job__description">
+                        <div class="job__info">
+                            <h3>Job Summary</h3>
+                            <ul>
+                                <li>Location: <span>Boston, MA</span></li>
+                                <li>Salary: <span>$40 per hour</span></li>
+                                <li>Employment type: <span>Part-Time</span></li>
+                            </ul>
+                        </div>
+                        <div class="job__info">
+                            <h3>Company Info</h3>
+                            <ul>
+                                <li>Company name: <span>Otranto</span></li>
+                                <li>State: <span>Massachusetts</span></li>
+                                <li>City: <span>Boston</span></li>
+                                <li>Address: <span>14 Elissa Ave, Wayland</span></li>
+                                <li>Postal code: <span>MA 01778</span></li>
+                                <li>Phone number: <span>+1 508-276-8235</span></li>
+                                <li>Website: <span><a href="#">http://www.otranto.com</a></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <%= javascript_include_tag "jquery.min" %>
+        <%= javascript_include_tag "bootstrap.min" %>
+        <%= javascript_include_tag "typeahead" %>
+        <%= javascript_include_tag "bootstrap-tagsinput.min" %>
+        <%= javascript_include_tag "jquery.selectric.min" %>
+        <%= javascript_include_tag "svgxuse" %>
+        <%= javascript_include_tag "jquery.mCustomScrollbar.min" %>
+        <%= javascript_include_tag "enquire.min" %>
+        <%= javascript_include_tag "skrollr.min" %>
+        <%= javascript_include_tag "main" %>
+        <%= javascript_include_tag "job-search" %>

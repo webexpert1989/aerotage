@@ -1,56 +1,58 @@
-<section class="hero hero--login" style="background-image: url('<%= asset_path('login-bg.jpg') %>');">
-    <div class="login">
-        <div class="login__logo">
-            <svg class="icon icon-logo-nav"><use xlink:href="<%= asset_path('sprite-login.svg#icon-logo-nav') %>"></use></svg>
-        </div>
-        <div class="login__block">
-            <%= devise_error_messages! %>
-            <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'login__form',  :role => 'form'}) do |f| %>
-            <form class="login__form">
-                <div class="form-group">
-                    <span class="input">
-                        <!--<input id="input-1"  type="email" class="input__field form-control" maxlength="40" name="email" size="20" required> -->
-                        <%= f.email_field :email, :autofocus => true, class: 'input__field form-control', size:"20", maxlength:"40" %>
-                        <label class="input__label" for="input-1">
-                            <span class="input__label-content">Email</span>
-                        </label>
-                    </span>
+        <section class="hero hero--login" style="background-image: url('<%= asset_path('login-bg.jpg') %>');">
+            <div class="login">
+                <div class="login__logo">
+                    <svg class="icon icon-logo-nav"><use xlink:href="<%= asset_path('sprite-login.svg#icon-logo-nav') %>"></use></svg>
                 </div>
-                <div class="form-group">
-                    <span class="input">
-                        <%= f.password_field :password, class: 'input__field form-control', size:"20", maxlength:"40" %>
-                        <label class="input__label" for="input-2">
-                            <span class="input__label-content">Password</span>
-                        </label>
-                    </span>
+                <div class="login__block">
+                    <form class="login__form">
+                        <div class="form-group">
+                            <span class="input">
+                                <input id="input-1"  type="email" class="input__field form-control" maxlength="40" name="email" size="20" required>
+                                <label class="input__label" for="input-1">
+                                    <span class="input__label-content">Email</span>
+                                </label>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <span class="input">
+                                <input id="input-2" type="password" class="input__field form-control" maxlength="40" name="password" size="20" required>
+                                <label class="input__label" for="input-2">
+                                    <span class="input__label-content">Password</span>
+                                </label>
+                            </span>
+                        </div>
+                        <div class="checkbox">
+                            <input id="check1" type="checkbox" name="check" value="check1">
+                            <span><svg class="icon icon-check"><use xlink:href="<%= asset_path('sprite-job-search.svg#icon-check') %>"></use></svg></span>
+                            <label for="check1">Remember me</label>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn__submit btn__secondary" type="submit">LOGIN</button>
+                        </div>
+                        <p>Don’t have a account yet? <a href="#">Sign Up</a></p>
+                        <div class="login__divider">
+                            <span></span>or<span></span>
+                        </div>
+                        <div class="form-group">
+                            <a href="#" class="btn__social btn__facebook">
+                                <span><svg class="icon icon-facebook"><use xlink:href="<%= asset_path('sprite-login.svg#icon-facebook-small') %>"></use></svg></span>Login with Facebook
+                            </a>
+                        </div>
+                        <div class="form-group">
+                            <a href="#" class="btn__social btn__google">
+                                <span><svg class="icon icon-google"><use xlink:href="<%= asset_path('sprite-login.svg#icon-google-small') %>"></use></svg></span>Login with Google+</a>
+                        </div>
+                    </form>
+                    <div class="login__block-line"></div>
                 </div>
-                <% if devise_mapping.rememberable? -%>
-                  <div class="checkbox">
-                      <input id="check1" type="checkbox" name="check" value="check1">
-                      <label for="check1">Remember me</label>
-                  </div>
-                <% end -%>
-                <div class="form-group">
-                <%= f.submit 'LOGIN', :class => 'btn__submit btn__secondary' %>
-                </div>
-                <%- if devise_mapping.registerable? %>
-                  <p>Don’t have a account yet? <%= link_to 'Sign up', new_registration_path(resource_name) %></p>
-                  <div class="login__divider">
-                      <span></span>or<span></span>
-                  </div>
-                <% end %>
-                <div class="form-group">
-                    <a href="#" class="btn__social btn__facebook">
-                        <span><svg class="icon icon-facebook"><use xlink:href="<%= asset_path('sprite-login.svg#icon-facebook-small') %>"></use></svg></span>Login with Facebook
-                    </a>
-                </div>
-                <div class="form-group">
-                    <a href="#" class="btn__social btn__google">
-                        <span><svg class="icon icon-google"><use xlink:href="<%= asset_path('sprite-login.svg#icon-google-small') %>"></use></svg></span>Login with Google+</a>
-                </div>
-            <% end %>
-            <div class="login__block-line"></div>
-        </div>
-    </div>
-</section>
+            </div>
+        </section>
 
+                
+<%= javascript_include_tag "jquery.min" %>
+<%= javascript_include_tag "bootstrap.min" %>
+<%= javascript_include_tag "enquire.min" %>
+<%= javascript_include_tag "svgxuse" %>
+<%= javascript_include_tag "skrollr.min" %>
+<%= javascript_include_tag "classie" %>
+<%= javascript_include_tag "main" %>

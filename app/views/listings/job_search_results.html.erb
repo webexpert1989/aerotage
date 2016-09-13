@@ -1,0 +1,340 @@
+        <section class="page side-open">
+
+            <div class="page__top">
+                <h2><span>258</span> Jobs found for <span>Aerospace</span> Engineer in <span>Boston, USA</span></h2>
+                <button class= "btn__filter btn__reverse" type="button">Filter <span><svg class="icon icon-controls"><use xlink:href="<%= asset_path('sprite-job-search.svg#icon-controls') %>"></use></svg></span></button>
+            </div>
+
+            <div class="page__side">
+                <div class="filter">
+                    <form class="filter__form">
+
+                        <div class="filter__section">
+                            <h3>advanced jobs search</h3>
+                            <div class="checkbox">
+                                <input id="check1" type="checkbox" name="check" value="check1">
+                                <span><svg class="icon icon-check"><use xlink:href="<%= asset_path('sprite-job-search.svg#icon-check') %>"></use></svg></span>
+                                <label for="check1"> Use my current location</label>
+                            </div>
+                        </div>
+
+                        <div class="filter__section">
+                            <label>Select distance in miles</label>
+                            <div class="radio">
+                                <input  type="radio" name="inlineRadioOptions" id="inlineRadio2" value="10"> 
+                                <label for="inlineRadio2">10</label>
+                                <input  type="radio" name="inlineRadioOptions" id="inlineRadio3" value="20"> 
+                                <label for="inlineRadio3">20</label>
+                                <input  type="radio" name="inlineRadioOptions" id="inlineRadio4" value="50"> 
+                                <label for="inlineRadio4">50</label>
+                                <input  type="radio" name="inlineRadioOptions" id="inlineRadio1" value="100" checked>  
+                                <label for="inlineRadio1">100</label>
+                            </div>
+                        </div>
+
+                        <div class="filter__section">
+                            <div class="form-group">
+                                <label for="communities">Communities</label>
+                                <input type="text" id="communities" placeholder="Choose communities" data-role="tagsinput">
+                            </div>
+                            <div class="form-group">
+                                <label for="employment">Employment Type</label>
+                                <select id="employment">
+                                    <option value="" disabled selected hidden>Choose employment type</option>
+                                    <option value="intern">intern</option>
+                                    <option value="part-time">Part-Time</option>
+                                    <option value="full-time">Full-Time</option>
+                                    <option value="contract">Contract</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="occupation">Occupation</label>
+                                <input type="text" class="form-control" id="occupation" placeholder="Choose occupations">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="posted" placeholder="Posted within">
+                            </div>
+                        </div>
+
+                        <div class="filter__section">
+                            <div class="form-group">
+                                <label class="filter__subtitle">Salary Expectations</label>
+                                <p>Salary Range</p>
+                                <select>
+                                    <option value="" disabled selected hidden>Choose salary range</option>
+                                    <option value="1">< 25.000$</option>
+                                    <option value="2">25.000$ to 50.000$</option>
+                                    <option value="3">50.000$ to 75.000$</option>
+                                    <option value="4">75.000$ to 100.000$</option>
+                                    <option value="5">> 100.000$</option>                                   
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <p>Salary Type</p>
+                                <select>
+                                    <option value="" disabled selected hidden>Choose salary type</option>
+                                    <option value="monthly">Monthly</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="yearly">Yearly</option>
+                                    <option value="monthly">Monthly</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="yearly">Yearly</option>
+                                    <option value="monthly">Monthly</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="yearly">Yearly</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn__submit btn__secondary">Filter Search</button>
+                        </div>
+
+                    </form>
+
+                    <div class="filter__footer">
+                        <div  class="filter__footer-icon"><span><svg class="icon icon-hire"><use xlink:href="<%= asset_path('sprite-job-search.svg#icon-hire') %>"></use></svg></span></div>
+                        <h4>Looking to Hire?</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum egestas luctus</p>
+                        <a class="section__btn btn__light" href="/contact-us">Contact Aerotage</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page__main">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th><span><svg class="icon icon-title"><use xlink:href="<%= asset_path('sprite-job-search.svg#icon-title') %>"></use></svg></span>Job title</th>
+                            <th><span><svg class="icon icon-location"><use xlink:href="<%= asset_path('sprite-job-search.svg#icon-location') %>"></use></svg></span>location</th>
+                            <th><span><svg class="icon icon-date"><use xlink:href="<%= asset_path('sprite-job-search.svg#icon-date') %>"></use></svg></span>date posted</th>
+                            <th><span><svg class="icon icon-salary"><use xlink:href="<%= asset_path('sprite-job-search.svg#icon-salary') %>"></use></svg></span>salary range</th>
+                            <th><span><svg class="icon icon-employment"><use xlink:href="<%= asset_path('sprite-job-search.svg#icon-employment') %>"></use></svg></span>employment type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-th="Job title"><a href="job-details.html">Electrical/Software Quality Assurance Engineer</a></td>
+                            <td data-th="location">Boston, MA</td>
+                            <td data-th="date posted">08/02/2016</td>
+                            <td data-th="salary range">$49,000 - $68,000 / year </td>
+                            <td data-th="employment type">Part-Time</td>
+                        </tr>
+                        <tr>
+                            <td data-th="Job title"><a href="/job/job-detail">Aerospace Solidworks Designer / Mechanical Engineer</a></td>
+                            <td data-th="location">Boston, MA</td>
+                            <td data-th="date posted">08/02/2016</td>
+                            <td data-th="salary range">$49,000 - $68,000 / year </td>
+                            <td data-th="employment type">Full-Time</td>
+                        </tr>
+                        <tr>
+                            <td data-th="Job title"><a href="/job/job-detail">Aerospace Engineer</a></td>
+                            <td data-th="location">Boston, MA</td>
+                            <td data-th="date posted">08/02/2016</td>
+                            <td data-th="salary range">$49,000 - $68,000 / year </td>
+                            <td data-th="employment type">Intern</td>
+                        </tr>
+                        <tr>
+                            <td data-th="Job title"><a href="#">Mechanical Engineering Manager</a></td>
+                            <td data-th="location">Boston, MA</td>
+                            <td data-th="date posted">08/02/2016</td>
+                            <td data-th="salary range">$49,000 - $68,000 / year </td>
+                            <td data-th="employment type">Part-Time</td>
+                        </tr>
+                        <tr>
+                            <td data-th="Job title"><a href="#">Quality Engineer / Supplier Quality Engineer</a></td>
+                            <td data-th="location">Boston, MA</td>
+                            <td data-th="date posted">08/02/2016</td>
+                            <td data-th="salary range">$49,000 - $68,000 / year </td>
+                            <td data-th="employment type">Contract</td>
+                        </tr>
+                        <tr>
+                            <td data-th="Job title"><a href="#">Mechanical Assembler</a></td>
+                            <td data-th="location">Boston, MA</td>
+                            <td data-th="date posted">08/02/2016</td>
+                            <td data-th="salary range">$49,000 - $68,000 / year </td>
+                            <td data-th="employment type">Full-Time</td>
+                        </tr>
+                        <tr>
+                            <td data-th="Job title"><a href="#">Structural Stress Analyst</a></td>
+                            <td data-th="location">Boston, MA</td>
+                            <td data-th="date posted">08/02/2016</td>
+                            <td data-th="salary range">$49,000 - $68,000 / year </td>
+                            <td data-th="employment type">Part-Time</td>
+                        </tr>
+                        <tr>
+                            <td data-th="Job title"><a href="#">Solidworks Designer / Design Engineer</a></td>
+                            <td data-th="location">Boston, MA</td>
+                            <td data-th="date posted">08/02/2016</td>
+                            <td data-th="salary range">$49,000 - $68,000 / year </td>
+                            <td data-th="employment type">Full-Time</td>
+                        </tr>
+                        <tr>
+                            <td data-th="Job title"><a href="#">Operations Unit Manager</a></td>
+                            <td data-th="location">Boston, MA</td>
+                            <td data-th="date posted">08/02/2016</td>
+                            <td data-th="salary range">$49,000 - $68,000 / year </td>
+                            <td data-th="employment type">Intern</td>
+                        </tr>
+                        <tr>
+                            <td data-th="Job title"><a href="#">Inspector</td>
+                            <td data-th="location">Boston, MA</td>
+                            <td data-th="date posted">08/02/2016</td>
+                            <td data-th="salary range">$49,000 - $68,000 / year </td>
+                            <td data-th="employment type">Part-Time</td>
+                        </tr>
+                        <tr>
+                            <td data-th="Job title"><a href="#">Stress/Structural Engineer</a></td>
+                            <td data-th="location">Boston, MA</td>
+                            <td data-th="date posted">08/02/2016</td>
+                            <td data-th="salary range">$49,000 - $68,000 / year </td>
+                            <td data-th="employment type">Contract</td>
+                        </tr>
+                        <tr>
+                            <td data-th="Job title"><a href="#">System Software Specialist</a></td>
+                            <td data-th="location">Boston, MA</td>
+                            <td data-th="date posted">08/02/2016</td>
+                            <td data-th="salary range">$49,000 - $68,000 / year </td>
+                            <td data-th="employment type">Full-Time</td>
+                        </tr>
+                        <tr>
+                            <td data-th="Job title"><a href="#">Machine Operator</td>
+                            <td data-th="location">Boston, MA</td>
+                            <td data-th="date posted">08/02/2016</td>
+                            <td data-th="salary range">$49,000 - $68,000 / year </td>
+                            <td data-th="employment type">Full-Time</td>
+                        </tr>
+                        <tr>
+                            <td data-th="Job title"><a href="#">Assembler - Mechanical</a></td>
+                            <td data-th="location">Boston, MA</td>
+                            <td data-th="date posted">08/02/2016</td>
+                            <td data-th="salary range">$49,000 - $68,000 / year </td>
+                            <td data-th="employment type">Full-Time</td>
+                        </tr>
+                        <tr>
+                            <td data-th="Job title"><a href="#">Aircraft Structural Mechanic</a></td>
+                            <td data-th="location">Boston, MA</td>
+                            <td data-th="date posted">08/02/2016</td>
+                            <td data-th="salary range">$49,000 - $68,000 / year </td>
+                            <td data-th="employment type">Intern</td>
+                        </tr>
+                        <tr>
+                            <td data-th="Job title"><a href="#">CNC Programmer/Operator</a></td>
+                            <td data-th="location">Boston, MA</td>
+                            <td data-th="date posted">08/02/2016</td>
+                            <td data-th="salary range">$49,000 - $68,000 / year </td>
+                            <td data-th="employment type">Part-Time</td>
+                        </tr>    <tr>
+                            <td data-th="Job title"><a href="#">Mold Maker/ Mold Maker Repair/ Apprentice</a></td>
+                            <td data-th="location">Boston, MA</td>
+                            <td data-th="date posted">08/02/2016</td>
+                            <td data-th="salary range">$49,000 - $68,000 / year </td>
+                            <td data-th="employment type">Contract</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="page__bottom">
+                    <!-- first page -->
+                    <nav aria-label="job search results">
+                        <ul class="pagination aerotage-pagination">
+                            <li class="disabled">
+                                <span class="arrow">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </span>
+                            </li>
+                            <li class="disabled">
+                                <span class="arrow">
+                                    <span aria-hidden="true">&lsaquo;</span>
+                                </span>
+                            </li>
+                            <li class="active"><span>1<span class="sr-only">(current)</span></span></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a class="arrow" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&rsaquo;</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="arrow" href="#" aria-label="end">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- last page -->
+                    <nav aria-label="job search results">
+                        <ul class="pagination aerotage-pagination">
+                            <li>
+                                <a class="arrow" href="#" aria-label="start">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="arrow" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&lsaquo;</span>
+                                </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li class="active"><span>5<span class="sr-only">(current)</span></span></li>
+                            <li class="disabled">
+                                <span class="arrow">
+                                    <span aria-hidden="true">&rsaquo;</span>
+                                </span>
+                            </li>
+                            <li class="disabled">
+                                <span class="arrow">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </span>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <nav aria-label="job search results">
+                        <ul class="pagination aerotage-pagination">
+                            <li>
+                                <a class="arrow" href="#" aria-label="start">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="arrow" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&lsaquo;</span>
+                                </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li class="active"><span>3<span class="sr-only">(current)</span></span></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a class="arrow" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&rsaquo;</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="arrow" href="#" aria-label="end">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+
+
+        <%= javascript_include_tag "jquery.min" %>
+        <%= javascript_include_tag "bootstrap.min" %>
+        <%= javascript_include_tag "typeahead" %>
+        <%= javascript_include_tag "bootstrap-tagsinput.min" %>
+        <%= javascript_include_tag "jquery.selectric.min" %>
+        <%= javascript_include_tag "svgxuse" %>
+        <%= javascript_include_tag "jquery.mCustomScrollbar.min" %>
+        <%= javascript_include_tag "enquire.min" %>
+        <%= javascript_include_tag "skrollr.min" %>
+        <%= javascript_include_tag "main" %>
+        <%= javascript_include_tag "job-search" %>
