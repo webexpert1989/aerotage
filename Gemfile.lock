@@ -351,7 +351,6 @@ GEM
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
-    rack-cors (0.4.0)
     rack-oauth2 (1.4.0)
       activesupport (>= 2.3)
       attr_required (>= 0.0.5)
@@ -566,7 +565,6 @@ DEPENDENCIES
   puma
   pundit
   quiet_assets
-  rack-cors
   rails (= 4.2.5)
   rails-settings-cached
   rails_12factor
