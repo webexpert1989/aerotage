@@ -1,14 +1,9 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+##########  Admin User   ##########
 user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
-# Environment variables (ENV['...']) can be set in the file .env file.
 
+
+##########  Guest User   ##########
 user = User.new(:name => "Test1", 
                 :email => "test1@gmail.com", 
                 :password => "P@ssw0rd", 
@@ -16,365 +11,374 @@ user = User.new(:name => "Test1",
 user.skip_confirmation!
 user.save
 
-communities = [
-  'Accounting',
-  'Aerospace',
-  'Administrative',
-  'Advertising / Media / Entertainment',
-  'Automotive',
-  'Banking / Finance',
-  'Community / Fitness',
-  'Construction',
-  'Consulting',
-  'Customer Service',
-  'Education',
-  'Engineering',
-  'Government / Defense',
-  'HR / Recruitment',
-  'Healthcare',
-  'Hospitality / Tourism',
-  'Industrial / Utilities',
-  'Informational Technology',
-  'Insurance',
-  'Legal',
-  'Logistics / Transportation',
-  'Management / Business',
-  'Manufacturing',
-  'Mining / Oil / Gas',
-  'Real Estate',
-  'Retail / Consumer Products',
-  'Sales / Marketing',
-  'Science / Research & Development',
-  'Transit / Travel'
-]
 
-def truncate_table(table)
-  ActiveRecord::Base.connection.execute "TRUNCATE TABLE #{table} RESTART IDENTITY;"
-end
 
-def import_dump(table)
-  conn = ActiveRecord::Base.connection_pool.checkout
-  raw = conn.raw_connection
-  raw.exec("COPY #{table} FROM STDIN WITH csv DELIMITER ';'")
 
-  File.open("#{Rails.root}/db/seed/#{table}.csv", 'r').each_line do |line|
-    raw.put_copy_data line
-  end
 
-  raw.put_copy_end
-  while (res = raw.get_result) do; end
-  ActiveRecord::Base.connection_pool.checkin(conn)
-end
 
-def random(max)
-  rand(max) + 1
-end
 
-def unique_randoms(max, count)
-  randoms = Set.new
-  loop do
-    randoms << random(max)
-    return randoms.to_a if randoms.size >= count
-  end
-end
 
-def random_color
-  '%06x' % (rand * 0xffffff)
-end
 
-def random_description
-  random(3).times.map { Faker::Lorem.paragraph(3, true, 15) }.join("\n\n")
-end
 
-def random_chance(percent)
-  rand(100) < percent
-end
+# communities = [
+#   'Accounting',
+#   'Aerospace',
+#   'Administrative',
+#   'Advertising / Media / Entertainment',
+#   'Automotive',
+#   'Banking / Finance',
+#   'Community / Fitness',
+#   'Construction',
+#   'Consulting',
+#   'Customer Service',
+#   'Education',
+#   'Engineering',
+#   'Government / Defense',
+#   'HR / Recruitment',
+#   'Healthcare',
+#   'Hospitality / Tourism',
+#   'Industrial / Utilities',
+#   'Informational Technology',
+#   'Insurance',
+#   'Legal',
+#   'Logistics / Transportation',
+#   'Management / Business',
+#   'Manufacturing',
+#   'Mining / Oil / Gas',
+#   'Real Estate',
+#   'Retail / Consumer Products',
+#   'Sales / Marketing',
+#   'Science / Research & Development',
+#   'Transit / Travel'
+# ]
 
-def random_salary_type
-  case rand(4)
-    when 0
-      'per hour'
-    when 1
-      'per week'
-    when 2
-      'per month'
-    else
-      'per year'
-  end
-end
+# def truncate_table(table)
+#   ActiveRecord::Base.connection.execute "TRUNCATE TABLE #{table} RESTART IDENTITY;"
+# end
 
-def random_salary(type)
-  case type
-    when 'per hour'
-      random(10) * 5
-    when 'per week'
-      random(10) * 100
-    when 'per month'
-      random(50) * 100 + 400
-    else
-      random(100) * 1000 + 4000
-  end
-end
+# def import_dump(table)
+#   conn = ActiveRecord::Base.connection_pool.checkout
+#   raw = conn.raw_connection
+#   raw.exec("COPY #{table} FROM STDIN WITH csv DELIMITER ';'")
 
-def random_image(text, width, height)
-  image_name = text.underscore.gsub(' ', '_') + '.png'
-  url = "http://dummyimage.com/#{width}x#{height}/#{random_color}/#{random_color}/#{image_name}.png?text=#{text}"
-  Image.create(image_url: url)
-end
+#   File.open("#{Rails.root}/db/seed/#{table}.csv", 'r').each_line do |line|
+#     raw.put_copy_data line
+#   end
 
-def random_occupations(count)
-  unique_randoms($occupations.size, count).map{ |index| $occupations[index - 1] }
-end
+#   raw.put_copy_end
+#   while (res = raw.get_result) do; end
+#   ActiveRecord::Base.connection_pool.checkin(conn)
+# end
 
-def create_employer
-  created_at = Faker::Time.backward(365)
-  email = Faker::Internet.email
-  active = random_chance($active_users)
-  featured = random_chance($featured_employers)
-  company_name = Faker::Company.name
+# def random(max)
+#   rand(max) + 1
+# end
 
-  employer = Employer.create!(
-    created_at: created_at,
-    activated: active,
-    activated_at: active ? Faker::Time.between(created_at, Time.now) : nil,
-    credits: random_chance(50) ? 0 : random(50) * 10,
+# def unique_randoms(max, count)
+#   randoms = Set.new
+#   loop do
+#     randoms << random(max)
+#     return randoms.to_a if randoms.size >= count
+#   end
+# end
 
-    email: email,
-    email_confirmation: email,
-    password: $password,
-    password_confirmation: $password,
-    location_id: random($locations_count),
-    address: Faker::Address.street_address,
-    send_mailings: random_chance(50),
+# def random_color
+#   '%06x' % (rand * 0xffffff)
+# end
 
-    company_name: company_name,
-    contact_name: Faker::Name.name,
-    company_description_raw: random_description,
-    web_site: Faker::Internet.url,
-    phone_number: Faker::PhoneNumber.cell_phone,
-    featured_until: featured ? Faker::Time.forward(30) : nil,
-    resume_database_access_until: random_chance(50) ? Faker::Time.forward(30) : nil,
+# def random_description
+#   random(3).times.map { Faker::Lorem.paragraph(3, true, 15) }.join("\n\n")
+# end
 
-    logo: featured ? random_image(company_name, 480, 320) : nil
-  )
+# def random_chance(percent)
+#   rand(100) < percent
+# end
 
-  if active
-    3.times { create_job(employer) }
-  end
-end
+# def random_salary_type
+#   case rand(4)
+#     when 0
+#       'per hour'
+#     when 1
+#       'per week'
+#     when 2
+#       'per month'
+#     else
+#       'per year'
+#   end
+# end
 
-def create_job_seeker
-  created_at = Faker::Time.backward(365)
-  email = Faker::Internet.email
-  active = random_chance($active_users)
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
+# def random_salary(type)
+#   case type
+#     when 'per hour'
+#       random(10) * 5
+#     when 'per week'
+#       random(10) * 100
+#     when 'per month'
+#       random(50) * 100 + 400
+#     else
+#       random(100) * 1000 + 4000
+#   end
+# end
 
-  job_seeker = JobSeeker.create!(
-    created_at: created_at,
-    activated: active,
-    activated_at: active ? Faker::Time.between(created_at, Time.now) : nil,
-    credits: random_chance(50) ? 0 : random(50) * 10,
+# def random_image(text, width, height)
+#   image_name = text.underscore.gsub(' ', '_') + '.png'
+#   url = "http://dummyimage.com/#{width}x#{height}/#{random_color}/#{random_color}/#{image_name}.png?text=#{text}"
+#   Image.create(image_url: url)
+# end
 
-    email: email,
-    email_confirmation: email,
-    password: $password,
-    password_confirmation: $password,
-    location_id: random($locations_count),
-    address: Faker::Address.street_address,
-    send_mailings: random_chance(50),
+# def random_occupations(count)
+#   unique_randoms($occupations.size, count).map{ |index| $occupations[index - 1] }
+# end
 
-    first_name: first_name,
-    last_name: last_name,
-    phone_number: Faker::PhoneNumber.cell_phone,
+# def create_employer
+#   created_at = Faker::Time.backward(365)
+#   email = Faker::Internet.email
+#   active = random_chance($active_users)
+#   featured = random_chance($featured_employers)
+#   company_name = Faker::Company.name
 
-    profile_picture: random_chance($job_seekers_with_image) ? random_image(first_name + ' ' + last_name, 320, 480) : nil
-  )
+#   employer = Employer.create!(
+#     created_at: created_at,
+#     activated: active,
+#     activated_at: active ? Faker::Time.between(created_at, Time.now) : nil,
+#     credits: random_chance(50) ? 0 : random(50) * 10,
 
-  if active
-    1.times { create_resume(job_seeker) }
-  end
-end
+#     email: email,
+#     email_confirmation: email,
+#     password: $password,
+#     password_confirmation: $password,
+#     location_id: random($locations_count),
+#     address: Faker::Address.street_address,
+#     send_mailings: random_chance(50),
 
-def create_job(employer)
-  created_at = Faker::Time.between(employer.activated_at, Time.now)
-  salary_type = random_salary_type
-  active = random_chance($active_listings)
+#     company_name: company_name,
+#     contact_name: Faker::Name.name,
+#     company_description_raw: random_description,
+#     web_site: Faker::Internet.url,
+#     phone_number: Faker::PhoneNumber.cell_phone,
+#     featured_until: featured ? Faker::Time.forward(30) : nil,
+#     resume_database_access_until: random_chance(50) ? Faker::Time.forward(30) : nil,
 
-  Job.create!(
-    employer: employer,
-    created_at: created_at,
-    active: active,
-    active_until: active ? Faker::Time.forward(30) : (random_chance(50) ? Faker::Time.backward(30) : nil),
-    first_activated_at: active ? created_at : nil,
-    is_featured: random_chance($featured_listings),
-    is_priority: random_chance($priority_listings),
+#     logo: featured ? random_image(company_name, 480, 320) : nil
+#   )
 
-    title: Faker::Lorem.sentence(2, true, 4).chomp('.'),
-    location_id: random($locations_count),
-    community_ids: unique_randoms($communities_count, random(4)),
-    employment_type_ids: unique_randoms($employment_types_count, random(2)),
-    occupation_ids: random_occupations(random(4) + 2),
-    salary: random_salary(salary_type),
-    salary_type: salary_type,
+#   if active
+#     3.times { create_job(employer) }
+#   end
+# end
 
-    job_description_raw: random_description,
-    job_requirements_raw: random_description
-  )
-end
+# def create_job_seeker
+#   created_at = Faker::Time.backward(365)
+#   email = Faker::Internet.email
+#   active = random_chance($active_users)
+#   first_name = Faker::Name.first_name
+#   last_name = Faker::Name.last_name
 
-def create_resume(job_seeker)
-  created_at = Faker::Time.between(job_seeker.activated_at, Time.now)
-  salary_type = random_salary_type
-  active = random_chance($active_listings)
+#   job_seeker = JobSeeker.create!(
+#     created_at: created_at,
+#     activated: active,
+#     activated_at: active ? Faker::Time.between(created_at, Time.now) : nil,
+#     credits: random_chance(50) ? 0 : random(50) * 10,
 
-  resume = Resume.create!(
-    job_seeker: job_seeker,
-    created_at: created_at,
-    hidden: random_chance(10),
-    active: active,
-    active_until: active ? Faker::Time.forward(30) : (random_chance(50) ? Faker::Time.backward(30) : nil),
-    first_activated_at: active ? created_at : nil,
-    is_featured: random_chance($featured_listings),
-    is_priority: random_chance($priority_listings),
+#     email: email,
+#     email_confirmation: email,
+#     password: $password,
+#     password_confirmation: $password,
+#     location_id: random($locations_count),
+#     address: Faker::Address.street_address,
+#     send_mailings: random_chance(50),
 
-    title: Faker::Lorem.sentence(2, true, 4).chomp('.'),
-    location_id: rand($locations_count),
-    community_ids: unique_randoms($communities_count, random(4)),
-    employment_type_ids: unique_randoms($employment_types_count, random(2)),
-    occupation_ids: random_occupations(random(4) + 2),
-    salary: random_salary(salary_type),
-    salary_type: salary_type,
+#     first_name: first_name,
+#     last_name: last_name,
+#     phone_number: Faker::PhoneNumber.cell_phone,
 
-    objective_raw: random_description,
-    skills_raw: random_description,
+#     profile_picture: random_chance($job_seekers_with_image) ? random_image(first_name + ' ' + last_name, 320, 480) : nil
+#   )
 
-    total_experience: rand(10)
-  )
+#   if active
+#     1.times { create_resume(job_seeker) }
+#   end
+# end
 
-  random(3).times { create_education(resume) }
-  random(3).times { create_work_experience(resume) }
-end
+# def create_job(employer)
+#   created_at = Faker::Time.between(employer.activated_at, Time.now)
+#   salary_type = random_salary_type
+#   active = random_chance($active_listings)
 
-def create_community(title)
-  Community.create!(
-    title: title,
-    brief_description: Faker::Lorem.sentence(6, true, 6),
-    specialties: random(3).times.map { Faker::Lorem.sentence(1, true, 2).chomp('.') }.join(', '),
-    content_title: title,
-    content_raw: (random(5) + 3).times.map { Faker::Lorem.paragraph(5, true, 20) }.join("\n\n"),
-    image: random_image(title, 300, 300)
-  )
-end
+#   Job.create!(
+#     employer: employer,
+#     created_at: created_at,
+#     active: active,
+#     active_until: active ? Faker::Time.forward(30) : (random_chance(50) ? Faker::Time.backward(30) : nil),
+#     first_activated_at: active ? created_at : nil,
+#     is_featured: random_chance($featured_listings),
+#     is_priority: random_chance($priority_listings),
 
-def create_education(resume)
-  graduation_date = Faker::Date.between(20.years.ago, resume.created_at - 3.years)
+#     title: Faker::Lorem.sentence(2, true, 4).chomp('.'),
+#     location_id: random($locations_count),
+#     community_ids: unique_randoms($communities_count, random(4)),
+#     employment_type_ids: unique_randoms($employment_types_count, random(2)),
+#     occupation_ids: random_occupations(random(4) + 2),
+#     salary: random_salary(salary_type),
+#     salary_type: salary_type,
 
-  Education.create!(
-    resume: resume,
-    institution_name: Faker::Company.name,
-    major: Faker::Name.title,
-    degree_level: Education.degree_levels[rand(Education.degree_levels.count)],
-    entrance_date: (graduation_date - 4.years).strftime('%B %Y'),
-    graduation_date: graduation_date.strftime('%B %Y')
-  )
-end
+#     job_description_raw: random_description,
+#     job_requirements_raw: random_description
+#   )
+# end
 
-def create_work_experience(resume)
-  end_date = Faker::Date.between(10.years.ago, resume.created_at)
+# def create_resume(job_seeker)
+#   created_at = Faker::Time.between(job_seeker.activated_at, Time.now)
+#   salary_type = random_salary_type
+#   active = random_chance($active_listings)
 
-  WorkExperience.create!(
-    resume: resume,
-    job_title: Faker::Name.title,
-    company_name: Faker::Company.name,
-    description_raw: Faker::Lorem.paragraph(2, true, 5),
-    start_date: (end_date - 2.years).strftime('%B %Y'),
-    end_date: end_date.strftime('%B %Y')
-  )
-end
+#   resume = Resume.create!(
+#     job_seeker: job_seeker,
+#     created_at: created_at,
+#     hidden: random_chance(10),
+#     active: active,
+#     active_until: active ? Faker::Time.forward(30) : (random_chance(50) ? Faker::Time.backward(30) : nil),
+#     first_activated_at: active ? created_at : nil,
+#     is_featured: random_chance($featured_listings),
+#     is_priority: random_chance($priority_listings),
 
-def create_blog_post
-  title = Faker::Lorem.sentence
-  blog_post = BlogPost.create!(
-      title: title,
-      author: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
-      summary_raw: Faker::Lorem.paragraph,
-      body_raw: rand(2..3).times.map { Faker::Lorem.paragraph(5, true, 20) }.join("\n\n"),
-      community_id: random($communities_count),
-      image: random_image(title.split(' ').first, 200, 200),
-      created_at: Faker::Time.between(1.years.ago, Time.now, :day)
-  )
+#     title: Faker::Lorem.sentence(2, true, 4).chomp('.'),
+#     location_id: rand($locations_count),
+#     community_ids: unique_randoms($communities_count, random(4)),
+#     employment_type_ids: unique_randoms($employment_types_count, random(2)),
+#     occupation_ids: random_occupations(random(4) + 2),
+#     salary: random_salary(salary_type),
+#     salary_type: salary_type,
 
-  rand(5..10).times do
-    comment = BlogPostComment.create!(
-        text: Faker::Lorem.paragraph,
-        blog_post: blog_post,
-        commenter: (random_chance(50) ? Employer.offset(rand(Employer.count)).first : JobSeeker.offset(rand(JobSeeker.count)).first),
-        created_at: Faker::Time.between(blog_post.created_at, Time.now, :day)
-    )
-    rand(0..2).times do
-      BlogPostComment.create!(
-          text: Faker::Lorem.paragraph,
-          blog_post: blog_post,
-          parent_comment: comment,
-          commenter: (random_chance(50) ? Employer.offset(rand(Employer.count)).first : JobSeeker.offset(rand(JobSeeker.count)).first),
-          created_at: Faker::Time.between(comment.created_at, Time.now, :day)
-      )
-    end
-  end
-end
+#     objective_raw: random_description,
+#     skills_raw: random_description,
 
-# Delete files from data store
+#     total_experience: rand(10)
+#   )
 
-Image.destroy_all
-Video.destroy_all
-Document.destroy_all
+#   random(3).times { create_education(resume) }
+#   random(3).times { create_work_experience(resume) }
+# end
 
-# Truncate tables
+# def create_community(title)
+#   Community.create!(
+#     title: title,
+#     brief_description: Faker::Lorem.sentence(6, true, 6),
+#     specialties: random(3).times.map { Faker::Lorem.sentence(1, true, 2).chomp('.') }.join(', '),
+#     content_title: title,
+#     content_raw: (random(5) + 3).times.map { Faker::Lorem.paragraph(5, true, 20) }.join("\n\n"),
+#     image: random_image(title, 300, 300)
+#   )
+# end
 
-ActiveRecord::Base.connection.tables.each do |table|
-  truncate_table(table) unless table == 'schema_migrations'
-end
+# def create_education(resume)
+#   graduation_date = Faker::Date.between(20.years.ago, resume.created_at - 3.years)
 
-# Import tables
+#   Education.create!(
+#     resume: resume,
+#     institution_name: Faker::Company.name,
+#     major: Faker::Name.title,
+#     degree_level: Education.degree_levels[rand(Education.degree_levels.count)],
+#     entrance_date: (graduation_date - 4.years).strftime('%B %Y'),
+#     graduation_date: graduation_date.strftime('%B %Y')
+#   )
+# end
 
-[:employment_types,
- :locations,
- :occupations,
- :settings
-].each { |table| import_dump(table) }
+# def create_work_experience(resume)
+#   end_date = Faker::Date.between(10.years.ago, resume.created_at)
 
-# Seed settings
+#   WorkExperience.create!(
+#     resume: resume,
+#     job_title: Faker::Name.title,
+#     company_name: Faker::Company.name,
+#     description_raw: Faker::Lorem.paragraph(2, true, 5),
+#     start_date: (end_date - 2.years).strftime('%B %Y'),
+#     end_date: end_date.strftime('%B %Y')
+#   )
+# end
 
-$locations_count = Location.all.size
-$communities_count = communities.count
-$employment_types_count = EmploymentType.all.size
-$occupations = Occupation.all.reject{ |o| o.has_children? }.map{ |o| o.id }
-$password = 'password'
+# def create_blog_post
+#   title = Faker::Lorem.sentence
+#   blog_post = BlogPost.create!(
+#       title: title,
+#       author: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
+#       summary_raw: Faker::Lorem.paragraph,
+#       body_raw: rand(2..3).times.map { Faker::Lorem.paragraph(5, true, 20) }.join("\n\n"),
+#       community_id: random($communities_count),
+#       image: random_image(title.split(' ').first, 200, 200),
+#       created_at: Faker::Time.between(1.years.ago, Time.now, :day)
+#   )
 
-$active_users = 90
-$featured_employers = 10
-$job_seekers_with_image = 30
+#   rand(5..10).times do
+#     comment = BlogPostComment.create!(
+#         text: Faker::Lorem.paragraph,
+#         blog_post: blog_post,
+#         commenter: (random_chance(50) ? Employer.offset(rand(Employer.count)).first : JobSeeker.offset(rand(JobSeeker.count)).first),
+#         created_at: Faker::Time.between(blog_post.created_at, Time.now, :day)
+#     )
+#     rand(0..2).times do
+#       BlogPostComment.create!(
+#           text: Faker::Lorem.paragraph,
+#           blog_post: blog_post,
+#           parent_comment: comment,
+#           commenter: (random_chance(50) ? Employer.offset(rand(Employer.count)).first : JobSeeker.offset(rand(JobSeeker.count)).first),
+#           created_at: Faker::Time.between(comment.created_at, Time.now, :day)
+#       )
+#     end
+#   end
+# end
 
-$active_listings = 90
-$featured_listings = 30
-$priority_listings = 5
+# # Delete files from data store
 
-# Communities
+# Image.destroy_all
+# Video.destroy_all
+# Document.destroy_all
 
-communities.each { |community| create_community(community) }
+# # Truncate tables
 
-# Employers and Jobs
+# ActiveRecord::Base.connection.tables.each do |table|
+#   truncate_table(table) unless table == 'schema_migrations'
+# end
 
-employers_count = ENV['employers'] || 100
-employers_count.to_i.times { create_employer }
+# # Import tables
 
-# Job Seekers and Resumes
+# [:employment_types,
+#  :locations,
+#  :occupations,
+#  :settings
+# ].each { |table| import_dump(table) }
 
-job_seekers_count = ENV['job_seekers'] || 50
-job_seekers_count.to_i.times { create_job_seeker }
+# # Seed settings
 
-# Blog Posts
+# $locations_count = Location.all.size
+# $communities_count = communities.count
+# $employment_types_count = EmploymentType.all.size
+# $occupations = Occupation.all.reject{ |o| o.has_children? }.map{ |o| o.id }
+# $password = 'password'
 
-blog_post_count = ENV['blog_posts'] || 10
-blog_post_count.to_i.times { create_blog_post }
+# $active_users = 90
+# $featured_employers = 10
+# $job_seekers_with_image = 30
+
+# $active_listings = 90
+# $featured_listings = 30
+# $priority_listings = 5
+
+# # Communities
+
+# communities.each { |community| create_community(community) }
+
+# # Employers and Jobs
+
+# employers_count = ENV['employers'] || 100
+# employers_count.to_i.times { create_employer }
+
+# # Job Seekers and Resumes
+
+# job_seekers_count = ENV['job_seekers'] || 50
+# job_seekers_count.to_i.times { create_job_seeker }
+
+# # Blog Posts
+
+# blog_post_count = ENV['blog_posts'] || 10
+# blog_post_count.to_i.times { create_blog_post }

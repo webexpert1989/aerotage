@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+  layout 'static'
 
   def home
     render layout: 'home'
@@ -8,27 +9,21 @@ class StaticPagesController < ApplicationController
   end
 
   def workingwithus
-    render layout: 'static'
   end
 
   def faq
-    render layout: 'static'
   end
 
   def about
-    render layout: 'static'
   end
 
   def staffing_solutions
-    render layout: 'static'
   end
 
   def technical_solutions
-    render layout: 'static'
   end
 
   def engineering_solutions
-    render layout: 'static'
   end
 
   def contact
@@ -57,14 +52,11 @@ class StaticPagesController < ApplicationController
   end
 
   def privacy_policy
-    render layout: false if params[:popup]
   end
 
   def terms_of_use
-    render layout: false if params[:popup]
   end
 
   def overview
-    render layout: 'static'
   end
 end

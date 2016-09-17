@@ -385,6 +385,8 @@ ActiveRecord::Schema.define(version: 20160804101241) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.integer  "actable_id"
+    t.string   "actable_type"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
@@ -406,8 +408,6 @@ ActiveRecord::Schema.define(version: 20160804101241) do
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
     t.integer  "credits",                default: 0
-    t.integer  "actable_id"
-    t.string   "actable_type"
     t.string   "new_email"
   end
 
