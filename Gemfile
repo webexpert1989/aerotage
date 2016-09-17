@@ -47,7 +47,7 @@ gem 'nokogiri'
 # Memory Caching for performance
 gem 'dalli' 
 gem 'mailgun'
-gem 'rack-cors', :require => 'rack/cors'
+# gem 'rack-cors', :require => 'rack/cors'
 
 #For facebook and google, twitter authentication
 gem 'omniauth'
