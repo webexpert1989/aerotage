@@ -43,6 +43,7 @@ gem 'sitemap_generator'
 gem 'smtpapi'
 gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
 gem 'nokogiri'
+gem 'inline_svg'
 
 # Memory Caching for performance
 gem 'dalli' 
