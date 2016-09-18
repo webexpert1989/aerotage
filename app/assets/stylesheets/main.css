@@ -1,30 +1,5 @@
 @charset "UTF-8";
-@font-face {
-  font-family: 'MaisonNeue';
-  src: url("fonts/MaisonNeueWEB-Book.woff2") format("woff2");
-  src: url("fonts/MaisonNeueWEB-Book.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'MaisonNeue';
-  src: url("fonts/MaisonNeueWEB-Bold.woff2") format("woff2");
-  src: url("fonts/MaisonNeueWEB-Bold.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'MaisonNeue';
-  src: url("fonts/MaisonNeueWEB-Light.woff2") format("woff2");
-  src: url("fonts/MaisonNeueWEB-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-}
-/*$font-size-base:          14px !default;*/
-/*$input-color-placeholder:        #999 !default;*/
-/* BOOTSTRAP FRAMEWORK
-   ========================================================================== */
-/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
