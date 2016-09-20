@@ -58,13 +58,14 @@
                     <span></span>or<span></span>
                 </div>
                 <div class="form-group">
-                    <a href="#" class="btn__social btn__facebook">
+                    <%= link_to user_omniauth_authorize_path(:facebook), class: 'btn__social btn__facebook' do %>
                         <span><svg class="icon icon-facebook"><use xlink:href="<%= asset_path('sprite-login.svg#icon-facebook-small') %>"></use></svg></span>Login with Facebook
-                    </a>
+                    <% end %>
                 </div>
                 <div class="form-group">
-                    <a href="#" class="btn__social btn__google">
-                        <span><svg class="icon icon-google"><use xlink:href="<%= asset_path('sprite-login.svg#icon-google-small') %>"></use></svg></span>Login with Google+</a>
+                    <%= link_to user_omniauth_authorize_path(:google_oauth2), class: 'btn__social btn__google' do %>
+                        <span><svg class="icon icon-google"><use xlink:href="<%= asset_path('sprite-login.svg#icon-google-small') %>"></use></svg></span>Login with Google+
+                    <% end %>
                 </div>
             <% end %>
             <div class="login__block-line"></div>

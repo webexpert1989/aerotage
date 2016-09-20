@@ -4,10 +4,10 @@
                     <svg class="icon icon-logo-nav"><use xlink:href="<%= asset_path('sprite-login.svg#icon-logo-nav') %>"></use></svg>
                 </div>
                 <div class="login__block">
-                    <form class="login__form">
+                    <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => { class: 'login__form' }) do |f| %>
                         <div class="form-group">
                             <span class="input">
-                                <input id="input-1"  type="email" class="input__field form-control" maxlength="40" name="email" size="20" required>
+                                <%= f.email_field :email, autofocus: true, id: 'imput-1', class: 'input__field form-control', maxlength: '40', size: '20' %>
                                 <label class="input__label" for="input-1">
                                     <span class="input__label-content">Email</span>
                                 </label>
@@ -15,21 +15,21 @@
                         </div>
                         <div class="form-group">
                             <span class="input">
-                                <input id="input-2" type="password" class="input__field form-control" maxlength="40" name="password" size="20" required>
+                                <%= f.password_field :password, autocomplete: "off", id: 'input-2', class: 'input__field form-control', maxlength: '40', size: '20' %>
                                 <label class="input__label" for="input-2">
                                     <span class="input__label-content">Password</span>
                                 </label>
                             </span>
                         </div>
                         <div class="checkbox">
-                            <input id="check1" type="checkbox" name="check" value="check1">
+                            <%= f.check_box :remember_me, id: 'check1', value: 'check1' %>
                             <span><svg class="icon icon-check"><use xlink:href="<%= asset_path('sprite-job-search.svg#icon-check') %>"></use></svg></span>
                             <label for="check1">Remember me</label>
                         </div>
                         <div class="form-group">
-                            <button class="btn__submit btn__secondary" type="submit">LOGIN</button>
+                            <%= f.submit "LOGIN", class: "btn__submit btn__secondary" %>
                         </div>
-                        <p>Don’t have a account yet? <a href="#">Sign Up</a></p>
+                        <p>Don’t have a account yet? <%= link_to "Sign Up", new_user_registration_path %></p>
                         <div class="login__divider">
                             <span></span>or<span></span>
                         </div>
@@ -42,7 +42,7 @@
                             <a href="#" class="btn__social btn__google">
                                 <span><svg class="icon icon-google"><use xlink:href="<%= asset_path('sprite-login.svg#icon-google-small') %>"></use></svg></span>Login with Google+</a>
                         </div>
-                    </form>
+                    <% end %>
                     <div class="login__block-line"></div>
                 </div>
             </div>
