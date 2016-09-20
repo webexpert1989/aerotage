@@ -1,22 +1,85 @@
 
 
-function adjustWindow() {
-
-    // Get window size
-    var winH = $(window).height();
-    var winW = $(window).width();
-
-    // Keep minimum height 550
-    if (winH <= 550) {
-        winH = 550;
+$(document).ready(function () {
+    var winWidth = $(window).outerWidth();
+    if (winWidth <= 1200) {
+        $('.page').removeClass('side-open');
     }
 
-    // Init Skrollr for 768 and up
+    topAlign($('.page__top'), $('.page__side'));
+    leftAlignIcons();
+    toggleMobile();
+    toggleFilter();
+    if ($(".card__block").length)
+        $(".card__block").equalHeight();
+    if ($(".feature__box").length)
+        $(".feature__box").equalHeight();
+    if ($(".section--positions .feature").length)
+        $(".section--positions .feature").equalHeight();
+    if ($(".section--engineering-solutions .feature").length)
+        $(".section--engineering-solutions .feature").equalHeight();
+
+    if ($('#skrollr-body').length) {
+        enquire.register("screen and (min-width : 768px)", initAdjustWindow(), false);
+    }
+//    $('body').on('touchstart touchmove touchcancel touchend', function (e) {
+//        if ($('body').hasClass('menu-open')) {
+//            e.stopPropagation();
+//            e.preventDefault();
+//            return false;
+//        }
+//    });
+});
+
+$(window).on('resize', function () {
+    var winWidth = $(window).outerWidth();
+
+    if (winWidth >= 1200) {
+        $('.page').addClass('side-open');
+    } else {
+        $('.page').removeClass('side-open');
+    }
+
+    topAlign($('.page__top'), $('.page__side'));
+    leftAlignIcons();
+    if ($(".card__block").length)
+        $(".card__block").css('height', 'auto');
+    if ($(".card__block").length)
+        $(".card__block").equalHeight();
+    if ($(".feature__box").length)
+        $(".feature__box").css('height', 'auto');
+    if ($(".feature__box").length)
+        $(".feature__box").equalHeight();
+    if ($(".section--positions .feature").length)
+        $(".section--positions .feature").css('height', 'auto');
+    if ($(".section--positions .feature").length)
+        $(".section--positions .feature").equalHeight();
+    if ($(".section--engineering-solutions .feature").length)
+        $(".section--engineering-solutions .feature").css('height', 'auto');
+    if ($(".section--engineering-solutions .feature").length)
+        $(".section--engineering-solutions .feature").equalHeight();
+});
+
+$(window).on("orientationchange", function () {
+    if ($('#skrollr-body').length) {
+        enquire.register("screen and (min-width : 768px)", initAdjustWindow(), false);
+    }
+});
+
+
+function adjustWindow() {
+    var winW = $(window).width();
+
     if (winW >= 768) {
 
         // Init Skrollr
         var s = skrollr.init({
             forceHeight: false,
+            beforerender: function (data) {
+                if (winW <= 1024 && $('body').hasClass('menu-open')) {
+                    return false;
+                }
+            },
             render: function (data) {
                 //Debugging - Log the current scroll position.
                 //console.log(data.curTop);
@@ -34,34 +97,25 @@ function adjustWindow() {
                         header.removeClass('off-screen');
                     }
                 }
+
+                $('body').on('touchstart touchmove touchcancel touchend', function () {
+                    if ($('body').hasClass('menu-open')) {
+                        s.setScrollTop(0);
+                    }
+                });
+
                 animTrigger();
             }
         });
-
-
-        // Resize our slides
-//        $('.hero').height(winH);
 
         s.refresh($('.hero'));
 
     } else {
 
-        // Init Skrollr
         var s = skrollr.init();
         s.destroy();
     }
-
-    // Check for touch
-//    if (Modernizr.touch) {
-//
-//        // Init Skrollr
-//        var s = skrollr.init();
-//        s.destroy();
-//    }
-
 }
-
-
 
 function initAdjustWindow() {
     return {
@@ -74,22 +128,20 @@ function initAdjustWindow() {
     };
 }
 
-enquire.register("screen and (min-width : 768px)", initAdjustWindow(), false);
-
-
-
-
 function hideHeader() {
-    var sections = $('body').children('.section');
-    var element;
-    sections.length > 1 ? element = sections.eq(1) : element = sections.eq(0);
+    if ($('.section').length) {
+        var sections = $('body').children('.section');
+        var element;
+        sections.length > 1 ? element = sections.eq(1) : element = sections.eq(0);
 
-    var header = $('header');
+        var header = $('header');
 
-    if ($(window).scrollTop() > element.offset().top) {
-        header.addClass('off-screen');
-    } else {
-        header.removeClass('off-screen');
+        if ($(window).scrollTop() > element.offset().top) {
+            header.addClass('off-screen');
+            $('body').removeClass('menu-open');
+        } else {
+            header.removeClass('off-screen');
+        }
     }
 }
 
@@ -127,7 +179,7 @@ function toggleMobile() {
     });
 
     $('.header__menu-toggle').on('click', function () {
-        $('.header').toggleClass('menu-open');
+        $('body').toggleClass('menu-open');
     });
 }
 
@@ -236,45 +288,6 @@ function animTrigger() {
     });
 }
 
-$(window).on('resize', function () {
-    var winWidth = $(window).outerWidth();
-
-    if (winWidth >= 1200) {
-        $('.page').addClass('side-open');
-    } else {
-        $('.page').removeClass('side-open');
-    }
-
-    topAlign($('.page__top'), $('.page__side'));
-    leftAlignIcons();
-    $(".card__block").css('height', 'auto');
-    $(".card__block").equalHeight();
-    $(".feature__box").css('height', 'auto');
-    $(".feature__box").equalHeight();
-    $(".section--positions .feature").css('height', 'auto');
-    $(".section--positions .feature").equalHeight();
-    $(".section--engineering-solutions .feature").css('height', 'auto');
-    $(".section--engineering-solutions .feature").equalHeight();
-});
-
-$(document).ready(function () {
-    var winWidth = $(window).outerWidth();
-
-
-    if (winWidth <= 1200) {
-        $('.page').removeClass('side-open');
-    }
-
-    topAlign($('.page__top'), $('.page__side'));
-    leftAlignIcons();
-    toggleMobile();
-    toggleFilter();
-    $(".card__block").equalHeight();
-    $(".feature__box").equalHeight();
-    $(".section--positions .feature").equalHeight();
-    $(".section--engineering-solutions .feature").equalHeight();
-});
-
 $(function () {
     var btn = $('.btn__header');
     var win = $(window);
@@ -293,5 +306,55 @@ $(function () {
         toggleSearch();
     });
 });
+
+(function () {
+    // This changes everything
+    "use strict";
+
+// retrieve the element
+    var label = document.querySelector(".checkbox label");
+    var element = document.querySelector(".checkbox span");
+
+    if (document.getElementsByClassName('checkbox').length) {
+// reset the transition by...
+        label.addEventListener("click", function (e) {
+            e.preventDefault;
+
+            // -> removing the class
+            element.classList.remove("checked");
+
+            // -> triggering reflow /* The actual magic */
+            // without this it wouldn't work. Try uncommenting the line and the transition won't be retriggered.
+            // This was, from the original tutorial, will no work in strict mode. Thanks Felis Phasma! The next uncommented line is the fix.
+            // element.offsetWidth = element.offsetWidth;
+
+            void element.offsetWidth;
+
+            // -> and re-adding the class
+            element.classList.add("checked");
+        }, false);
+    }
+})();
+
+$(function () {
+    $('.intro__arrow').click(function () {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 1200);
+                return false;
+            }
+        }
+    });
+});
+
+
+
+
+
+
 
 

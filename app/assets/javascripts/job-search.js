@@ -1,12 +1,14 @@
 $(document).ready(function () {
     $(function () {
-        $('select').selectric({
-            maxHeight: 160,
-            optionsItemBuilder: '{text}',
-            labelBuilder: '{text}',
-            disableOnMobile: false,
-            arrowButtonMarkup: '<span class="input__icon"><svg class="icon icon-angle"><use xlink:href="img/sprite-job-search.svg#icon-angle"></use></svg></span>'
-        });
+        if ($('select').length) {
+            $('select').selectric({
+                maxHeight: 160,
+                optionsItemBuilder: '{text}',
+                labelBuilder: '{text}',
+                disableOnMobile: false,
+                arrowButtonMarkup: '<span class="input__icon"><svg class="icon icon-angle"><use xlink:href="img/sprite-job-search.svg#icon-angle"></use></svg></span>'
+            });
+        }
     });
     $(function () {
         $(".selectric-items").mCustomScrollbar({
@@ -47,16 +49,16 @@ $(document).ready(function () {
         }
     });
     communities.initialize();
-
-    $('#communities').tagsinput({
-        typeaheadjs: {
-            name: 'communities',
-            displayKey: 'name',
-            valueKey: 'name',
-            source: communities.ttAdapter()
-        },
-        cancelConfirmKeysOnEmpty: true,
-        freeInput: false,
-    });
-
+    if ($('#communities').length) {
+        $('#communities').tagsinput({
+            typeaheadjs: {
+                name: 'communities',
+                displayKey: 'name',
+                valueKey: 'name',
+                source: communities.ttAdapter()
+            },
+            cancelConfirmKeysOnEmpty: true,
+            freeInput: false,
+        });
+    }
 })();
